@@ -1,0 +1,10 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {fetchFindverTestmini} from '../business/fetch-findver.ts';
+import {parseFindver} from '../business/findver.ts';
+import {parseContractNli} from '../business/contractnli.ts';
+const cached=await fetchFindverTestmini({fetch:async()=>{throw new Error('No network permitted');}});
+const finance=parseFindver(cached.value,cached.reports,'ie').pairs;
+const contracts=parseContractNli(JSON.parse(await readFile('eval/data/business/contractnli/dev.json','utf8')),'dev').pairs;
+const output={kind:'hypothetical-raw-evidence-length-coverage',actual_api_limit_bytes:2048,model_calls:0,api_changes:false,qualification:'Raw evidence-length audit only. Larger limits are hypothetical; full request/compiled body limits, token limits and semantic quality are not evaluated.',tracks:{}};
+for(const[name,pairs]of[['contractnli-binary-excerpts',contracts],['findver-ie',finance]]){const groups=new Map();for(const p of pairs){if(!groups.has(p.group_id))groups.set(p.group_id,[]);groups.get(p.group_id).push(p);}output.tracks[name]={native_pairs:pairs.length,source_groups:groups.size,thresholds:[2048,4096,8192,12288].map(limit=>{const kept=[...groups.values()].filter(rows=>rows.every(p=>Buffer.byteLength(p.evidence)<=limit&&Buffer.byteLength(p.claim)<=4096));const n=kept.reduce((sum,rows)=>sum+rows.length,0);return{evidence_bytes:limit,eligible_groups:kept.length,eligible_pairs:n,fraction:n/pairs.length};})};}
+await writeFile('eval/reports/business-evidence-length-audit.json',JSON.stringify(output,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify(output));

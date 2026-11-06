@@ -1,0 +1,53 @@
+import { readFile, writeFile } from "node:fs/promises";
+import { parseArgs } from "../eval/args.js";
+import { sha256 } from "../eval/types.js";
+import { loadCalibrationInput } from "../eval/iteration/calibrate.js";
+import { fitBoost, evaluateBoost } from "../eval/iteration/boost.js";
+export async function main(argv: string[]) {
+  const args = parseArgs(argv, ["mode", "run", "manifest", "out", "model", "seed", "help"]);
+  if (args.help) {
+    console.log(
+      "Usage: tsx scripts/boost-iteration.ts --mode diagnose|fit|evaluate --run RUN.json --manifest MANIFEST --out NEW.json [--seed SEED | --model FROZEN.json]. Offline only; train-only group CV,50trees,rate.05,minleaf15,depth[1,2],leafL2[10,50]. OOF thresholds; no qualification claim.",
+    );
+    return;
+  }
+  if (
+    !["diagnose", "fit", "evaluate"].includes(args.mode ?? "") ||
+    !args.run ||
+    !args.manifest ||
+    !args.out
+  )
+    throw new Error("Invalid boosted analysis arguments.");
+  const [run, manifest] = await Promise.all([readFile(args.run), readFile(args.manifest)]),
+    input = loadCalibrationInput(
+      JSON.parse(run.toString("utf8")),
+      JSON.parse(manifest.toString("utf8")),
+      sha256(manifest),
+      sha256(run),
+    );
+  let output: unknown;
+  if (args.mode === "evaluate") {
+    if (!args.model || args.seed) throw new Error("Boost evaluation forbids fitting arguments.");
+    output = evaluateBoost(JSON.parse(await readFile(args.model, "utf8")), input);
+  } else {
+    if (!args.seed || args.model)
+      throw new Error("Boost fitting requires seed and forbids existing model.");
+    output = fitBoost(input, { seed: args.seed, diagnostic: args.mode === "diagnose" });
+  }
+  await writeFile(args.out, JSON.stringify(output, null, 2) + "\n", { flag: "wx", mode: 0o600 });
+  console.log(
+    JSON.stringify({
+      output: args.out,
+      mode: args.mode,
+      cases: input.manifest.pairs.length,
+      qualification: "not_assessed",
+    }),
+  );
+}
+if (process.argv[1]?.endsWith("boost-iteration.ts"))
+  main(process.argv.slice(2)).catch(() => {
+    console.error(
+      "Offline boosted analysis failed; verify matched coverage, train role, provenance and fresh output path.",
+    );
+    process.exitCode = 1;
+  });

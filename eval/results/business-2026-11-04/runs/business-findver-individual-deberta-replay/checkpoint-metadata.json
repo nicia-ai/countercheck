@@ -1,0 +1,109 @@
+{
+  "model": "cross-encoder/nli-deberta-v3-base",
+  "revision": "6c749ce3425cd33b46d187e45b92bbf96ee12ec7",
+  "model_card": "https://huggingface.co/cross-encoder/nli-deberta-v3-base/blob/6c749ce3425cd33b46d187e45b92bbf96ee12ec7/README.md",
+  "label_order": {
+    "0": "contradiction",
+    "1": "entailment",
+    "2": "neutral"
+  },
+  "training": "SNLI and MultiNLI, per model card; MultiNLI evaluation is an in-domain reference, not zero-shot transfer. Other datasets are adapted evaluations; absence from pretraining is not established.",
+  "manifest_sha256": "3e3f6515bdf307c218dbdac18c280188d9c36a9cf21a843e349fc4d4b368ae12",
+  "device": "cpu",
+  "batch_size": 8,
+  "policy": "forced",
+  "max_tokens": 512,
+  "excluded": 7,
+  "truncation": false,
+  "timing": "batch model forward wall time copied to each pair, excludes model load/tokenization; not service request latency",
+  "cost_usd": null,
+  "packages": {
+    "torch": "2.9.0",
+    "transformers": "4.57.1",
+    "sentencepiece": "0.2.1"
+  },
+  "weight_format": "safetensors",
+  "cpu_model": "Apple M4 Pro",
+  "logical_cpu_count": 14,
+  "started_at": "2026-11-04T18:43:52.714569+00:00",
+  "completed_at": "2026-11-04T18:44:03.997798+00:00",
+  "machine": {
+    "platform": "macOS-26.7.1-arm64-arm-64bit",
+    "architecture": "arm64",
+    "processor": "arm",
+    "python": "3.12.16 (main, Oct 25 2026, 18:24:37) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "torch_threads": 4,
+    "route": "local PyTorch CPU, no hosted inference"
+  },
+  "runtime_seconds": {
+    "model_load_including_download": 0.2180276250001043,
+    "preflight_tokenization": 0.03541274997405708,
+    "inference_loop": 8.756736416835338,
+    "model_forward_total": 8.730640292167664,
+    "total_before_metadata": 11.311888458905742
+  },
+  "batch_observations": [
+    {
+      "batch_index": 0,
+      "pairs": 8,
+      "elapsed_ms": 1808.572124922648,
+      "max_pair_tokens": 481
+    },
+    {
+      "batch_index": 1,
+      "pairs": 8,
+      "elapsed_ms": 975.0890000723302,
+      "max_pair_tokens": 489
+    },
+    {
+      "batch_index": 2,
+      "pairs": 8,
+      "elapsed_ms": 797.6839998736978,
+      "max_pair_tokens": 439
+    },
+    {
+      "batch_index": 3,
+      "pairs": 8,
+      "elapsed_ms": 915.1886671315879,
+      "max_pair_tokens": 500
+    },
+    {
+      "batch_index": 4,
+      "pairs": 8,
+      "elapsed_ms": 777.2716251201928,
+      "max_pair_tokens": 462
+    },
+    {
+      "batch_index": 5,
+      "pairs": 8,
+      "elapsed_ms": 923.3324581291527,
+      "max_pair_tokens": 503
+    },
+    {
+      "batch_index": 6,
+      "pairs": 8,
+      "elapsed_ms": 761.7296669632196,
+      "max_pair_tokens": 458
+    },
+    {
+      "batch_index": 7,
+      "pairs": 8,
+      "elapsed_ms": 678.6884579341859,
+      "max_pair_tokens": 400
+    },
+    {
+      "batch_index": 8,
+      "pairs": 8,
+      "elapsed_ms": 762.926375027746,
+      "max_pair_tokens": 454
+    },
+    {
+      "batch_index": 9,
+      "pairs": 3,
+      "elapsed_ms": 330.15791699290276,
+      "max_pair_tokens": 455
+    }
+  ],
+  "max_observed_accepted_tokens": 503,
+  "downloads_allowed": false
+}

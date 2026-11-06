@@ -1,0 +1,72 @@
+{
+  "created_at": "2026-11-03T20:47:21.394Z",
+  "origin": "https://countercheck.nicia.ai",
+  "deployed_version": "5d522fcf-4ca9-40b1-aaf0-bf9fb91221dc",
+  "auth_profile": "nicia-ai",
+  "checks": [
+    {
+      "name": "health",
+      "status": 200,
+      "latency_ms": 209.19845800000002,
+      "request_id": "req_2c6f5fcb-4a71-4169-9d29-dd0f21c77858"
+    },
+    {
+      "name": "openapi",
+      "status": 200,
+      "latency_ms": 121.12287500000002,
+      "request_id": "req_14084e58-bb93-452f-8d88-a3bbdd970525"
+    },
+    {
+      "name": "unauthorized_readiness",
+      "status": 401,
+      "latency_ms": 63.787624999999935,
+      "request_id": "req_77958fdf-8470-4eb9-95d7-247259e27294"
+    },
+    {
+      "name": "authorized_readiness",
+      "status": 200,
+      "latency_ms": 113.3183340000005,
+      "request_id": "req_b91eba55-c4d4-45dd-a109-0f147a009795"
+    },
+    {
+      "name": "explicit_contradiction",
+      "status": 200,
+      "latency_ms": 154.58854100000008,
+      "request_id": "req_a7e63a10-9f72-4735-b6be-d5dc4cd745b4",
+      "contract_valid": true,
+      "verdict": "contradiction",
+      "reported_model": "jev-1.14.0",
+      "input_tokens": 645
+    },
+    {
+      "name": "restatement",
+      "status": 200,
+      "latency_ms": 123.43787499999962,
+      "request_id": "req_529a95dc-36db-4bd6-b938-b5081dbf341c",
+      "contract_valid": true,
+      "verdict": "no_contradiction_detected",
+      "reported_model": "jev-1.14.0",
+      "input_tokens": 643
+    },
+    {
+      "name": "oversized_claim_rejected",
+      "status": 422,
+      "latency_ms": 42.6454590000003,
+      "request_id": "req_5e783f7a-5b13-4d42-ab68-8e9da76506d9"
+    },
+    {
+      "name": "immediate_remote_revocation",
+      "status": 401,
+      "latency_ms": 92.03941700000178,
+      "request_id": "req_0d393073-2f66-4ffc-b5b4-085ac5636f8f"
+    },
+    {
+      "name": "preview_owner_key_ready",
+      "status": 200,
+      "latency_ms": 323.18104200000016,
+      "request_id": "req_bf688ca4-63be-4829-be3b-75108693c3dc"
+    }
+  ],
+  "preview_key_id": "51035e6b-05f3-4066-aab1-7a574cf39377",
+  "preview_key_file": ".env.preview"
+}

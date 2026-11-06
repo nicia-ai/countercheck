@@ -1,0 +1,4 @@
+# Optional offline baseline only. Record installed versions in every scorer metadata file.
+torch==2.9.0
+transformers==4.57.1
+sentencepiece==0.2.1

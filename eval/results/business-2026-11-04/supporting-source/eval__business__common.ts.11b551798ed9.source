@@ -1,0 +1,108 @@
+import { LIMITS } from "../../src/contracts/limits.js";
+import { utf8Bytes, hasUnpairedSurrogate } from "../../src/contracts/index.js";
+import { groupStatistics, strata } from "../datasets.js";
+import { sha256, validateManifest, type Manifest, type Pair, type Source } from "../types.js";
+
+export type BusinessTrack = "contracts" | "finance" | "business-adjacent";
+export type PreparedBusiness = {
+  pairs: Pair[];
+  exclusions: Record<string, number>;
+  adaptation: string;
+};
+
+/** A group is eligible only when every complete pair fits; no shortened evidence is created. */
+export function envelopeGroups(pairs: readonly Pair[]) {
+  const groups = new Map<string, Pair[]>();
+  for (const pair of pairs) {
+    const rows = groups.get(pair.group_id) ?? [];
+    rows.push(pair);
+    groups.set(pair.group_id, rows);
+  }
+  const accepted: Pair[] = [];
+  let excludedPairs = 0,
+    excludedGroups = 0;
+  for (const rows of groups.values()) {
+    if (
+      rows.some(
+        (p) =>
+          utf8Bytes(p.claim) > LIMITS.claimBytes ||
+          utf8Bytes(p.evidence) > LIMITS.comparisonBytes ||
+          hasUnpairedSurrogate(p.claim) ||
+          hasUnpairedSurrogate(p.evidence),
+      )
+    ) {
+      excludedPairs += rows.length;
+      excludedGroups++;
+    } else accepted.push(...rows);
+  }
+  return { pairs: accepted, excludedPairs, excludedGroups };
+}
+
+/** Label-blind whole-source sampling. No target class balance or larger-group preference. */
+export function sampleBusinessGroups(pairs: readonly Pair[], maxPairs: number, seed: string) {
+  if (!Number.isSafeInteger(maxPairs) || maxPairs < 1 || !seed)
+    throw new Error("Invalid business sample cap or seed.");
+  const groups = new Map<string, Pair[]>();
+  for (const p of pairs) groups.set(p.group_id, [...(groups.get(p.group_id) ?? []), p]);
+  const ranked = [...groups]
+    .map(([id, rows]) => ({ id, rows, rank: sha256(`${seed}:${id}`) }))
+    .sort((a, b) => a.rank.localeCompare(b.rank));
+  const selected: Pair[] = [];
+  for (const group of ranked)
+    if (selected.length + group.rows.length <= maxPairs) selected.push(...group.rows);
+  return selected.sort((a, b) => a.id.localeCompare(b.id));
+}
+
+export function businessManifest(input: {
+  prepared: PreparedBusiness;
+  sources: Source[];
+  track: BusinessTrack;
+  split: "train" | "dev" | "test";
+  maxPairs: number;
+  seed: string;
+}) {
+  const eligible = envelopeGroups(input.prepared.pairs);
+  const pairs = sampleBusinessGroups(eligible.pairs, input.maxPairs, input.seed);
+  if (!pairs.length)
+    throw new Error("No complete business source groups fit the envelope/sample cap.");
+  const manifest: Manifest & { business_protocol: unknown } = {
+    schema_version: 1,
+    adapter_version: "countercheck-public-pairs-v1",
+    purpose: input.split === "test" ? "locked-test" : "development",
+    sources: input.sources,
+    sampling: {
+      seed: input.seed,
+      max_pairs: input.maxPairs,
+      method:
+        "Label-blind seeded whole-source groups after complete-pair envelope exclusions; no text truncation or group splitting",
+      available_pairs: eligible.pairs.length,
+      selected_pairs: pairs.length,
+      excluded_unlabeled: input.prepared.exclusions.unlabeled ?? 0,
+      strata: strata(pairs),
+      group_diagnostics: {
+        population: groupStatistics(eligible.pairs),
+        selected: groupStatistics(pairs),
+        bias_disclosure:
+          "Whole-group size cap and envelope filtering can exclude long/complex sources. This is a bounded source-conditioned development sample, not a representative business population.",
+      },
+    },
+    pairs,
+    business_protocol: {
+      version: "business-pairs-v1",
+      track: input.track,
+      original_split: input.split,
+      adaptation: input.prepared.adaptation,
+      exclusions: {
+        ...input.prepared.exclusions,
+        envelope_pairs: (input.prepared.exclusions.envelope_pairs ?? 0) + eligible.excludedPairs,
+        envelope_groups: (input.prepared.exclusions.envelope_groups ?? 0) + eligible.excludedGroups,
+      },
+      native_labels_unchanged: true,
+      test_used_for_tuning: false,
+      scope:
+        "Supplied-evidence pair adaptation; not document retrieval, full-document verification or service-contract adjudication",
+    },
+  };
+  validateManifest(manifest);
+  return manifest;
+}

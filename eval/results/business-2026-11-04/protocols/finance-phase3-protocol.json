@@ -1,0 +1,29 @@
+{
+  "recorded_before_inference": true,
+  "purpose": "Supplementary complete-pair length-conditioned finance cohort; same frozen models and thresholds",
+  "manifest_sha256": "3e3f6515bdf307c218dbdac18c280188d9c36a9cf21a843e349fc4d4b368ae12",
+  "manifest_path": "eval/data/business/findver-testmini-ie-individual-82.json",
+  "pairs": 82,
+  "report_groups": 59,
+  "native_refuted": 44,
+  "overlap_with_primary_finance": 23,
+  "new_distinct_pairs": 59,
+  "envelope_policy": "Keep every individually supported complete pair; sample all remaining report groups, preserving group IDs and all referenced evidence. Unsupported siblings excluded, no evidence shortened.",
+  "source_coverage": 0.328,
+  "prior_selection": "Original whole-source cohort23 kept intact and reported separately; overlapping observations are not new independent cases.",
+  "configurations": [
+    "jev balanced-v1",
+    "clef balanced-v1",
+    "decider balanced-v1",
+    "pinned local DeBERTa forced"
+  ],
+  "new_hosted_attempts": 246,
+  "prior_hosted_attempts": 2064,
+  "planned_total_hosted_attempts": 2310,
+  "global_cap": 3000,
+  "threshold_tuning": false,
+  "prompt_changes": false,
+  "api_limit_changes": false,
+  "reason": "Source-length audit identified59 additional fully supported input pairs excluded by original conservative source-group rule. Cohort membership is determined only by byte limits, not prediction or label.",
+  "qualification": "Source-conditioned public evaluation adaptation, not representative financial performance or official full-document score."
+}

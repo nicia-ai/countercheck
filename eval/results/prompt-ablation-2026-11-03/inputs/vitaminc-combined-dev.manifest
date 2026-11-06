@@ -1,0 +1,3438 @@
+{
+  "schema_version": 1,
+  "adapter_version": "countercheck-public-pairs-v1",
+  "purpose": "development",
+  "sources": [
+    {
+      "name": "dev.jsonl",
+      "url": "https://github.com/TalSchuster/talschuster.github.io/raw/master/static/vitaminc.zip",
+      "revision": "eb532922b88b199df68ed26afeb58dca5501b52f (repository documentation; data bytes pinned by sha256)",
+      "sha256": "a3258bc959754c84bade150d3bf447fd9c91a529d93bb676f034fdafda5f26e5",
+      "license": "Wikipedia article terms / CC BY-SA 3.0 fallback; synthetic examples also derive from FEVER",
+      "license_url": "https://github.com/TalSchuster/VitaminC/blob/eb532922b88b199df68ed26afeb58dca5501b52f/DATA_LICENSE"
+    },
+    {
+      "name": "download-archive",
+      "url": "https://github.com/TalSchuster/talschuster.github.io/raw/master/static/vitaminc.zip",
+      "revision": "mutable official release URL; exact archive pinned by sha256",
+      "sha256": "49d82dc1690cbee420d18e2c26f687a7937710bb211845d2571430dfd4dc0337",
+      "license": "Wikipedia article terms / CC BY-SA 3.0 fallback; synthetic examples also derive from FEVER",
+      "license_url": "https://github.com/TalSchuster/VitaminC/blob/eb532922b88b199df68ed26afeb58dca5501b52f/DATA_LICENSE"
+    }
+  ],
+  "sampling": {
+    "seed": "countercheck-v1",
+    "max_pairs": 200,
+    "method": "whole claim groups, deterministic seed ordering, greedy native-label proportion matching; no row truncation",
+    "available_pairs": 63054,
+    "selected_pairs": 200,
+    "excluded_unlabeled": 0,
+    "strata": {
+      "vitaminc/combined/NOT ENOUGH INFO": 29,
+      "vitaminc/combined/SUPPORTS": 100,
+      "vitaminc/combined/REFUTES": 71
+    }
+  },
+  "pairs": [
+    {
+      "id": "vitaminc:combined:dev:5ea2d97dc9e77c0009cdb1f0_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ea2d97dc9e77c0009cdb1f0_1",
+      "group_id": "vitaminc:revision-628157921",
+      "claim": "Ford Motor Corporation sells plug-in hybrids .",
+      "evidence": "and Ford Motor Corporation with over 292ï¿½thousand hybrids sold in the United States through December 2013 .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ea2d97dc9e77c0009cdb1f0",
+        "wiki_revision_id": "628157921",
+        "page": "Hybrid electric vehicle"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ea2d97dc9e77c0009cdb1f0_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ea2d97dc9e77c0009cdb1f0_2",
+      "group_id": "vitaminc:revision-628157921",
+      "claim": "Ford Motor Corporation sells plug-in hybrids .",
+      "evidence": "and Ford Motor Corporation with over 375ï¿½thousand hybrids sold in the United States through September 2014 , of which , around 9 % are plug-in hybrids .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ea2d97dc9e77c0009cdb1f0",
+        "wiki_revision_id": "628157921",
+        "page": "Hybrid electric vehicle"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ea2d97dc9e77c0009cdb1f1_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ea2d97dc9e77c0009cdb1f1_1",
+      "group_id": "vitaminc:revision-628157921",
+      "claim": "Since1997 , less than 8 550 000 hybrid electric motors have been sold .",
+      "evidence": ", over 8.5ï¿½million hybrid electric vehicles have been sold worldwide since their inception in 1997 , led by Toyota Motor Company ( TMC ) with over 7ï¿½million Lexus and Toyota hybrids sold , followed by Honda Motor Co. , Ltd. with cumulati",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ea2d97dc9e77c0009cdb1f1",
+        "wiki_revision_id": "628157921",
+        "page": "Hybrid electric vehicle"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ea2d97dc9e77c0009cdb1f1_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ea2d97dc9e77c0009cdb1f1_2",
+      "group_id": "vitaminc:revision-628157921",
+      "claim": "Since1997 , less than 8 550 000 hybrid electric motors have been sold .",
+      "evidence": ", over 8.6ï¿½million hybrid electric vehicles have been sold worldwide since their inception in 1997 , led by Toyota Motor Company ( TMC ) with over 7ï¿½million Lexus and Toyota hybrids sold , followed by Honda Motor Co. , Ltd. with cumulati",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ea2d97dc9e77c0009cdb1f1",
+        "wiki_revision_id": "628157921",
+        "page": "Hybrid electric vehicle"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ea2d97dc9e77c0009cdb1f1_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ea2d97dc9e77c0009cdb1f1_3",
+      "group_id": "vitaminc:revision-628157921",
+      "claim": "Since1997 , more than 8 550 000 hybrid electric motors have been sold .",
+      "evidence": ", over 8.5ï¿½million hybrid electric vehicles have been sold worldwide since their inception in 1997 , led by Toyota Motor Company ( TMC ) with over 7ï¿½million Lexus and Toyota hybrids sold , followed by Honda Motor Co. , Ltd. with cumulati",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ea2d97dc9e77c0009cdb1f1",
+        "wiki_revision_id": "628157921",
+        "page": "Hybrid electric vehicle"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ea2d97dc9e77c0009cdb1f1_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ea2d97dc9e77c0009cdb1f1_4",
+      "group_id": "vitaminc:revision-628157921",
+      "claim": "Since1997 , more than 8 550 000 hybrid electric motors have been sold .",
+      "evidence": ", over 8.6ï¿½million hybrid electric vehicles have been sold worldwide since their inception in 1997 , led by Toyota Motor Company ( TMC ) with over 7ï¿½million Lexus and Toyota hybrids sold , followed by Honda Motor Co. , Ltd. with cumulati",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ea2d97dc9e77c0009cdb1f1",
+        "wiki_revision_id": "628157921",
+        "page": "Hybrid electric vehicle"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5eb29887c9e77c0008d92db9_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5eb29887c9e77c0008d92db9_1",
+      "group_id": "vitaminc:revision-817401226",
+      "claim": "David Ehrlich of comments were `` There 's boring , there 's bad , and then there 's Bright . ''",
+      "evidence": "`` `` '' David Ehrlich of IndieWire gave the film an `` '' F '' '' and called it the worst film of 2017 , saying : `` '' From the director of Suicide Squad and the writer of Victor Frankenstein comes a fresh slice of hell that somehow represents new lows for them both — a dull and painfully derivative ordeal that often feels like it was made just to put those earlier misfires into perspective . '' '' ''",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5eb29887c9e77c0008d92db9",
+        "wiki_revision_id": "817401226",
+        "page": "Bright -LRB-film-RRB-"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5eb29887c9e77c0008d92db9_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5eb29887c9e77c0008d92db9_2",
+      "group_id": "vitaminc:revision-817401226",
+      "claim": "David Ehrlich of comments were `` There 's boring , there 's bad , and then there 's Bright . ''",
+      "evidence": "`` `` '' David Ehrlich of IndieWire gave the film an `` '' F '' '' and called it the worst film of 2017 , saying : `` '' There 's boring , there 's bad , and then there 's Bright ... From the director of Suicide Squad and the writer of Victor Frankenstein comes a fresh slice of hell that somehow represents new lows for them both — a dull and painfully derivative ordeal that often feels like it was made just to put those earlier misfires into perspective . '' '' ''",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5eb29887c9e77c0008d92db9",
+        "wiki_revision_id": "817401226",
+        "page": "Bright -LRB-film-RRB-"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5eb29887c9e77c0008d92dba_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5eb29887c9e77c0008d92dba_1",
+      "group_id": "vitaminc:revision-817401226",
+      "claim": "The film has an approval rating of more than 28 % based on less than 65 reviews .",
+      "evidence": "On review aggregator Rotten Tomatoes , the film has an approval rating of 30 % based on 63 reviews , with an average rating of 3.8/10 .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5eb29887c9e77c0008d92dba",
+        "wiki_revision_id": "817401226",
+        "page": "Bright -LRB-film-RRB-"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5eb29887c9e77c0008d92dba_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5eb29887c9e77c0008d92dba_2",
+      "group_id": "vitaminc:revision-817401226",
+      "claim": "The film has an approval rating of more than 28 % based on less than 65 reviews .",
+      "evidence": "On review aggregator Rotten Tomatoes , the film has an approval rating of 27 % based on 66 reviews , with an average rating of 3.8/10 .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5eb29887c9e77c0008d92dba",
+        "wiki_revision_id": "817401226",
+        "page": "Bright -LRB-film-RRB-"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5eb29887c9e77c0008d92dba_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5eb29887c9e77c0008d92dba_3",
+      "group_id": "vitaminc:revision-817401226",
+      "claim": "The film has an approval rating of less than 28 % based on more than 65 reviews .",
+      "evidence": "On review aggregator Rotten Tomatoes , the film has an approval rating of 30 % based on 63 reviews , with an average rating of 3.8/10 .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5eb29887c9e77c0008d92dba",
+        "wiki_revision_id": "817401226",
+        "page": "Bright -LRB-film-RRB-"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5eb29887c9e77c0008d92dba_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5eb29887c9e77c0008d92dba_4",
+      "group_id": "vitaminc:revision-817401226",
+      "claim": "The film has an approval rating of less than 28 % based on more than 65 reviews .",
+      "evidence": "On review aggregator Rotten Tomatoes , the film has an approval rating of 27 % based on 66 reviews , with an average rating of 3.8/10 .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5eb29887c9e77c0008d92dba",
+        "wiki_revision_id": "817401226",
+        "page": "Bright -LRB-film-RRB-"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebbf32bc9e77c0009295856_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebbf32bc9e77c0009295856_1",
+      "group_id": "vitaminc:revision-936508984",
+      "claim": "Before 19 January , laboratory-confirmed cases of coronavirus were more than 60 .",
+      "evidence": "As of 18 January , the number of laboratory-confirmed cases stands at 65 , including 62 in China , two in Thailand , and one in Japan .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ebbf32bc9e77c0009295856",
+        "wiki_revision_id": "936508984",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebbf32bc9e77c0009295856_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebbf32bc9e77c0009295856_2",
+      "group_id": "vitaminc:revision-936508984",
+      "claim": "Before 19 January , laboratory-confirmed cases of coronavirus were more than 60 .",
+      "evidence": "As of 19 January , the number of laboratory-confirmed cases stands at 65 , including 62 in China , two in Thailand , and one in Japan .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ebbf32bc9e77c0009295856",
+        "wiki_revision_id": "936508984",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebbf32bc9e77c0009295856_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebbf32bc9e77c0009295856_3",
+      "group_id": "vitaminc:revision-936508984",
+      "claim": "After 18 January , laboratory-confirmed cases of coronavirus were more than 60 .",
+      "evidence": "As of 18 January , the number of laboratory-confirmed cases stands at 65 , including 62 in China , two in Thailand , and one in Japan .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ebbf32bc9e77c0009295856",
+        "wiki_revision_id": "936508984",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebbf32bc9e77c0009295856_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebbf32bc9e77c0009295856_4",
+      "group_id": "vitaminc:revision-936508984",
+      "claim": "After 18 January , laboratory-confirmed cases of coronavirus were more than 60 .",
+      "evidence": "As of 19 January , the number of laboratory-confirmed cases stands at 65 , including 62 in China , two in Thailand , and one in Japan .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ebbf32bc9e77c0009295856",
+        "wiki_revision_id": "936508984",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebbf32bc9e77c00092958d1_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebbf32bc9e77c00092958d1_1",
+      "group_id": "vitaminc:revision-940368491",
+      "claim": "More than 44,700 Coronavirus cases had been confirmed in China before February 12 , 2020 .",
+      "evidence": "As of 11 February 2020 , 44,793 cases have been confirmed ( 7,345 serious ) , including in every province-level division of China .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ebbf32bc9e77c00092958d1",
+        "wiki_revision_id": "940368491",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebbf32bc9e77c00092958d1_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebbf32bc9e77c00092958d1_2",
+      "group_id": "vitaminc:revision-940368491",
+      "claim": "More than 44,700 Coronavirus cases had been confirmed in China before February 12 , 2020 .",
+      "evidence": "As of 12 February 2020 , 44,793 cases have been confirmed ( 7,345 serious ) , including in every province-level division of China .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ebbf32bc9e77c00092958d1",
+        "wiki_revision_id": "940368491",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebbf32bc9e77c00092958d1_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebbf32bc9e77c00092958d1_3",
+      "group_id": "vitaminc:revision-940368491",
+      "claim": "More than 44,700 Coronavirus cases had been confirmed in China after February 11 , 2020 .",
+      "evidence": "As of 11 February 2020 , 44,793 cases have been confirmed ( 7,345 serious ) , including in every province-level division of China .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ebbf32bc9e77c00092958d1",
+        "wiki_revision_id": "940368491",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebbf32bc9e77c00092958d1_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebbf32bc9e77c00092958d1_4",
+      "group_id": "vitaminc:revision-940368491",
+      "claim": "More than 44,700 Coronavirus cases had been confirmed in China after February 11 , 2020 .",
+      "evidence": "As of 12 February 2020 , 44,793 cases have been confirmed ( 7,345 serious ) , including in every province-level division of China .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ebbf32bc9e77c00092958d1",
+        "wiki_revision_id": "940368491",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebbf32bc9e77c00092958d6_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebbf32bc9e77c00092958d6_1",
+      "group_id": "vitaminc:revision-941735150",
+      "claim": "Less than 75,730 cases were confirmed in the 2019-20 coronavirus pandemic as of February 19 , 2020 .",
+      "evidence": "As of 19 February 2020 , 75,727 cases have been confirmed , including in all provinces of China and more than two dozen other countries .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ebbf32bc9e77c00092958d6",
+        "wiki_revision_id": "941735150",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebbf32bc9e77c00092958d6_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebbf32bc9e77c00092958d6_2",
+      "group_id": "vitaminc:revision-941735150",
+      "claim": "Less than 75,730 cases were confirmed in the 2019-20 coronavirus pandemic as of February 19 , 2020 .",
+      "evidence": "As of 20 February 2020 , 75,756 cases have been confirmed , including in all provinces of China and more than two dozen other countries .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ebbf32bc9e77c00092958d6",
+        "wiki_revision_id": "941735150",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebbf32bc9e77c00092958d6_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebbf32bc9e77c00092958d6_3",
+      "group_id": "vitaminc:revision-941735150",
+      "claim": "More than 75,730 cases were confirmed in the 2019-20 coronavirus pandemic as of February 20 , 2020 .",
+      "evidence": "As of 19 February 2020 , 75,727 cases have been confirmed , including in all provinces of China and more than two dozen other countries .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ebbf32bc9e77c00092958d6",
+        "wiki_revision_id": "941735150",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebbf32bc9e77c00092958d6_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebbf32bc9e77c00092958d6_4",
+      "group_id": "vitaminc:revision-941735150",
+      "claim": "More than 75,730 cases were confirmed in the 2019-20 coronavirus pandemic as of February 20 , 2020 .",
+      "evidence": "As of 20 February 2020 , 75,756 cases have been confirmed , including in all provinces of China and more than two dozen other countries .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ebbf32bc9e77c00092958d6",
+        "wiki_revision_id": "941735150",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebe6f31c9e77c0008408e59_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebe6f31c9e77c0008408e59_1",
+      "group_id": "vitaminc:revision-783390990",
+      "claim": "Come Away with Me shipped over 10 million copies in its first three years .",
+      "evidence": "Following initial sales , Come Away with Me was certified diamond by the RIAA on February 15 , 2005 after having shipped over 10 million copies in its first three years of release .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ebe6f31c9e77c0008408e59",
+        "wiki_revision_id": "783390990",
+        "page": "Come Away with Me"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebe6f31c9e77c0008408e59_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebe6f31c9e77c0008408e59_2",
+      "group_id": "vitaminc:revision-783390990",
+      "claim": "Come Away with Me shipped over 10 million copies in its first three years .",
+      "evidence": "The album was certified Diamond by the RIAA on February 15 , 2005 , after having shipped over 10 million copies in the US .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ebe6f31c9e77c0008408e59",
+        "wiki_revision_id": "783390990",
+        "page": "Come Away with Me"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebe6f31c9e77c0008408e59_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebe6f31c9e77c0008408e59_3",
+      "group_id": "vitaminc:revision-783390990",
+      "claim": "Come Away with Me shipped over 10 million copies in the US .",
+      "evidence": "Following initial sales , Come Away with Me was certified diamond by the RIAA on February 15 , 2005 after having shipped over 10 million copies in its first three years of release .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ebe6f31c9e77c0008408e59",
+        "wiki_revision_id": "783390990",
+        "page": "Come Away with Me"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebe6f31c9e77c0008408e59_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebe6f31c9e77c0008408e59_4",
+      "group_id": "vitaminc:revision-783390990",
+      "claim": "Come Away with Me shipped over 10 million copies in the US .",
+      "evidence": "The album was certified Diamond by the RIAA on February 15 , 2005 , after having shipped over 10 million copies in the US .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ebe6f31c9e77c0008408e59",
+        "wiki_revision_id": "783390990",
+        "page": "Come Away with Me"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebe6f31c9e77c0008408e5a_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebe6f31c9e77c0008408e5a_1",
+      "group_id": "vitaminc:revision-783390990",
+      "claim": "Come Away with Me sold approximately 27 million copies worldwide .",
+      "evidence": "As of 2016 , the album has sold approximately 27 million copies worldwide .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ebe6f31c9e77c0008408e5a",
+        "wiki_revision_id": "783390990",
+        "page": "Come Away with Me"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebe6f31c9e77c0008408e5a_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebe6f31c9e77c0008408e5a_2",
+      "group_id": "vitaminc:revision-783390990",
+      "claim": "Come Away with Me sold approximately 27 million copies worldwide .",
+      "evidence": "Worldwide , as of October 2016 the album has sold more than 27 million copies .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ebe6f31c9e77c0008408e5a",
+        "wiki_revision_id": "783390990",
+        "page": "Come Away with Me"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebe6f31c9e77c0008408e5a_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebe6f31c9e77c0008408e5a_3",
+      "group_id": "vitaminc:revision-783390990",
+      "claim": "Come Away with Me has sold more than 27 million copies worldwide as of October 2016 .",
+      "evidence": "As of 2016 , the album has sold approximately 27 million copies worldwide .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ebe6f31c9e77c0008408e5a",
+        "wiki_revision_id": "783390990",
+        "page": "Come Away with Me"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebe6f31c9e77c0008408e5a_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ebe6f31c9e77c0008408e5a_4",
+      "group_id": "vitaminc:revision-783390990",
+      "claim": "Come Away with Me has sold more than 27 million copies worldwide as of October 2016 .",
+      "evidence": "Worldwide , as of October 2016 the album has sold more than 27 million copies .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ebe6f31c9e77c0008408e5a",
+        "wiki_revision_id": "783390990",
+        "page": "Come Away with Me"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ec55991c9e77c000842d9f4_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ec55991c9e77c000842d9f4_1",
+      "group_id": "vitaminc:revision-849457428",
+      "claim": "Eminem released the freestyle Campaign Speech in 2016 .",
+      "evidence": "Em 's longtime manager , Paul Rosenberg , said this of Astray : `` Keep an eye out for him ! `` On October 19 , Eminem released an eight-minute freestyle called `` Campaign Speech '' and announced that he was working on a new studio album .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ec55991c9e77c000842d9f4",
+        "wiki_revision_id": "849457428",
+        "page": "Shady Records"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ec55991c9e77c000842d9f4_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ec55991c9e77c000842d9f4_2",
+      "group_id": "vitaminc:revision-849457428",
+      "claim": "Eminem released the freestyle Campaign Speech in 2016 .",
+      "evidence": "Em 's longtime manager , Paul Rosenberg , said this of Astray : `` Keep an eye out for him ! `` On October 19 , 2016 , Eminem released an eight-minute freestyle called `` Campaign Speech '' and announced that he was working on a new studio album .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ec55991c9e77c000842d9f4",
+        "wiki_revision_id": "849457428",
+        "page": "Shady Records"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ec55991c9e77c000842d9f5_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ec55991c9e77c000842d9f5_1",
+      "group_id": "vitaminc:revision-849457428",
+      "claim": "Presently , Shady Records has over 8 signed acts .",
+      "evidence": "Since its formation , Shady Records has signed fourteen acts and is currently home to nine .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ec55991c9e77c000842d9f5",
+        "wiki_revision_id": "849457428",
+        "page": "Shady Records"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ec55991c9e77c000842d9f5_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ec55991c9e77c000842d9f5_2",
+      "group_id": "vitaminc:revision-849457428",
+      "claim": "Presently , Shady Records has over 8 signed acts .",
+      "evidence": "Since its formation , Shady Records has signed fourteen acts and is currently home to eight .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ec55991c9e77c000842d9f5",
+        "wiki_revision_id": "849457428",
+        "page": "Shady Records"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ec55991c9e77c000842d9f5_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ec55991c9e77c000842d9f5_3",
+      "group_id": "vitaminc:revision-849457428",
+      "claim": "Presently , Shady Records has under 9 signed acts .",
+      "evidence": "Since its formation , Shady Records has signed fourteen acts and is currently home to nine .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ec55991c9e77c000842d9f5",
+        "wiki_revision_id": "849457428",
+        "page": "Shady Records"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ec55991c9e77c000842d9f5_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ec55991c9e77c000842d9f5_4",
+      "group_id": "vitaminc:revision-849457428",
+      "claim": "Presently , Shady Records has under 9 signed acts .",
+      "evidence": "Since its formation , Shady Records has signed fourteen acts and is currently home to eight .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ec55991c9e77c000842d9f5",
+        "wiki_revision_id": "849457428",
+        "page": "Shady Records"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ec7d50dc9e77c00084423ac_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ec7d50dc9e77c00084423ac_1",
+      "group_id": "vitaminc:revision-826036517",
+      "claim": "Alessandro Diamanti currently plays as a free agent .",
+      "evidence": "Alessandro Diamanti ( born 2 May 1983 ) is an Italian professional footballer who is currently a free agent , having last played as a midfielder for Palermo .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ec7d50dc9e77c00084423ac",
+        "wiki_revision_id": "826036517",
+        "page": "Alessandro Diamanti"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ec7d50dc9e77c00084423ac_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ec7d50dc9e77c00084423ac_2",
+      "group_id": "vitaminc:revision-826036517",
+      "claim": "Alessandro Diamanti currently plays as a free agent .",
+      "evidence": "Alessandro Diamanti ( born 2 May 1983 ) is an Italian professional footballer who plays as a midfielder for Associazione Calcistica Perugia Calcio .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ec7d50dc9e77c00084423ac",
+        "wiki_revision_id": "826036517",
+        "page": "Alessandro Diamanti"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ec7d50dc9e77c00084423ac_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ec7d50dc9e77c00084423ac_3",
+      "group_id": "vitaminc:revision-826036517",
+      "claim": "Alessandro Diamanti currently plays for Associazione Calcistica Perugia Calcio .",
+      "evidence": "Alessandro Diamanti ( born 2 May 1983 ) is an Italian professional footballer who is currently a free agent , having last played as a midfielder for Palermo .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ec7d50dc9e77c00084423ac",
+        "wiki_revision_id": "826036517",
+        "page": "Alessandro Diamanti"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ec7d50dc9e77c00084423ac_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ec7d50dc9e77c00084423ac_4",
+      "group_id": "vitaminc:revision-826036517",
+      "claim": "Alessandro Diamanti currently plays for Associazione Calcistica Perugia Calcio .",
+      "evidence": "Alessandro Diamanti ( born 2 May 1983 ) is an Italian professional footballer who plays as a midfielder for Associazione Calcistica Perugia Calcio .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ec7d50dc9e77c00084423ac",
+        "wiki_revision_id": "826036517",
+        "page": "Alessandro Diamanti"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ec7d50dc9e77c00084423ad_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ec7d50dc9e77c00084423ad_1",
+      "group_id": "vitaminc:revision-826036517",
+      "claim": "Alessandro Diamanti used to play for A.C. Prato .",
+      "evidence": "At club level , he has previously played for Prato , Empoli , Fucecchio , Florentia , AlbinoLeffe , Livorno , West Ham United , Brescia , Bologna , Fiorentina , Watford , Atalanta , and Guangzhou Evergrande .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ec7d50dc9e77c00084423ad",
+        "wiki_revision_id": "826036517",
+        "page": "Alessandro Diamanti"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ec7d50dc9e77c00084423ad_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ec7d50dc9e77c00084423ad_2",
+      "group_id": "vitaminc:revision-826036517",
+      "claim": "Alessandro Diamanti used to play for A.C. Prato .",
+      "evidence": "At club level , he has previously played for Palermo , [ A.C. Prato|Prato ] ] , Empoli , Fucecchio , Florentia , AlbinoLeffe , Livorno , West Ham United , Brescia , Bologna , Fiorentina , Watford , Atalanta , and Guangzhou Evergrande .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ec7d50dc9e77c00084423ad",
+        "wiki_revision_id": "826036517",
+        "page": "Alessandro Diamanti"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ed4de0ac9e77c000848af8b_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ed4de0ac9e77c000848af8b_1",
+      "group_id": "vitaminc:revision-878198094",
+      "claim": "In the film , On the Basis of Sex , Martin 's oral argument takes longer than planned .",
+      "evidence": "At trial , Martin takes more of their side 's allotted time than he had intended .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ed4de0ac9e77c000848af8b",
+        "wiki_revision_id": "878198094",
+        "page": "On the Basis of Sex"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ed4de0ac9e77c000848af8b_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ed4de0ac9e77c000848af8b_2",
+      "group_id": "vitaminc:revision-878198094",
+      "claim": "In the film , On the Basis of Sex , Martin 's oral argument takes longer than planned .",
+      "evidence": "At the oral argument , Martin takes more of their side 's allotted time than he had intended .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ed4de0ac9e77c000848af8b",
+        "wiki_revision_id": "878198094",
+        "page": "On the Basis of Sex"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ed7ad02c9e77c00084a6aef_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ed7ad02c9e77c00084a6aef_1",
+      "group_id": "vitaminc:revision-690421630",
+      "claim": "The game System Shock : Classic is available for Microsoft Windows , OS X and Linus",
+      "evidence": "The release also includes the original version of the game , titled System Shock : Classic .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ed7ad02c9e77c00084a6aef",
+        "wiki_revision_id": "690421630",
+        "page": "System Shock"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ed7ad02c9e77c00084a6aef_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ed7ad02c9e77c00084a6aef_2",
+      "group_id": "vitaminc:revision-690421630",
+      "claim": "The game System Shock : Classic is available for Microsoft Windows , OS X and Linus",
+      "evidence": "The release also includes the original version of the game , titled System Shock : Classic , with support for Microsoft Windows , OS X and Linux .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ed7ad02c9e77c00084a6aef",
+        "wiki_revision_id": "690421630",
+        "page": "System Shock"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ed7ad03c9e77c00084a7880_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ed7ad03c9e77c00084a7880_1",
+      "group_id": "vitaminc:revision-710216015",
+      "claim": "The stadium BC Place held the Soccer Bowl '83 and in one of its matches , the Tulsa Roughnecks defeated the Toronto Blizzard .",
+      "evidence": "Soccer Bowl '83 was also held at BC Place , where the Tulsa Roughnecks defeated the Toronto Blizzard 2-0.When it was built , the floor of BC Place was too small to accommodate a full-sized CFL regulation field , as a result BC Place became the first CFL stadium to use a 20-yard end zone instead of the regulation 25 yard end zone then in use .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ed7ad03c9e77c00084a7880",
+        "wiki_revision_id": "710216015",
+        "page": "BC Place"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ed7ad03c9e77c00084a7880_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ed7ad03c9e77c00084a7880_2",
+      "group_id": "vitaminc:revision-710216015",
+      "claim": "The stadium BC Place held the Soccer Bowl '83 and in one of its matches , the Tulsa Roughnecks defeated the Toronto Blizzard .",
+      "evidence": "When it was built , the floor of BC Place was too small to accommodate a full-sized CFL regulation field , as a result BC Place became the first CFL stadium to use a 20-yard end zone instead of the regulation 25 yard end zone then in use .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ed7ad03c9e77c00084a7880",
+        "wiki_revision_id": "710216015",
+        "page": "BC Place"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ed7ad03c9e77c00084a7882_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ed7ad03c9e77c00084a7882_1",
+      "group_id": "vitaminc:revision-710216015",
+      "claim": "The ETFE roof of the stadium BC Place is retractable .",
+      "evidence": "These included seating replacements , washroom and concessions renovations , and replacement of the ETFE roof with a new retractable roof .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ed7ad03c9e77c00084a7882",
+        "wiki_revision_id": "710216015",
+        "page": "BC Place"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ed7ad03c9e77c00084a7882_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ed7ad03c9e77c00084a7882_2",
+      "group_id": "vitaminc:revision-710216015",
+      "claim": "The ETFE roof of the stadium BC Place is retractable .",
+      "evidence": "These included seating replacements , washroom and concessions renovations , and replacement of the ETFE roof .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ed7ad03c9e77c00084a7882",
+        "wiki_revision_id": "710216015",
+        "page": "BC Place"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ed7ad03c9e77c00084a7882_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ed7ad03c9e77c00084a7882_3",
+      "group_id": "vitaminc:revision-710216015",
+      "claim": "The ETFE roof of the stadium BC Place is fixed .",
+      "evidence": "These included seating replacements , washroom and concessions renovations , and replacement of the ETFE roof with a new retractable roof .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ed7ad03c9e77c00084a7882",
+        "wiki_revision_id": "710216015",
+        "page": "BC Place"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ed7ad03c9e77c00084a7882_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ed7ad03c9e77c00084a7882_4",
+      "group_id": "vitaminc:revision-710216015",
+      "claim": "The ETFE roof of the stadium BC Place is fixed .",
+      "evidence": "These included seating replacements , washroom and concessions renovations , and replacement of the ETFE roof .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ed7ad03c9e77c00084a7882",
+        "wiki_revision_id": "710216015",
+        "page": "BC Place"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc90a4_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc90a4_1",
+      "group_id": "vitaminc:revision-936508984",
+      "claim": "By January 19 , 2020 , there were more than 60 laboratory-confirmed cases of COVID-19 ( disease ) .",
+      "evidence": "As of 18 January , the number of laboratory-confirmed cases stands at 65 , including 62 in China , two in Thailand , and one in Japan .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc90a4",
+        "wiki_revision_id": "936508984",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc90a4_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc90a4_2",
+      "group_id": "vitaminc:revision-936508984",
+      "claim": "By January 19 , 2020 , there were more than 60 laboratory-confirmed cases of COVID-19 ( disease ) .",
+      "evidence": "As of 19 January , the number of laboratory-confirmed cases stands at 65 , including 62 in China , two in Thailand , and one in Japan .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc90a4",
+        "wiki_revision_id": "936508984",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc911e_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc911e_1",
+      "group_id": "vitaminc:revision-940368491",
+      "claim": "There were under 44,800 COVID-19 cases by February 12 , 2020 .",
+      "evidence": "As of 11 February 2020 , 44,793 cases have been confirmed ( 7,345 serious ) , including in every province-level division of China .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc911e",
+        "wiki_revision_id": "940368491",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc911e_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc911e_2",
+      "group_id": "vitaminc:revision-940368491",
+      "claim": "There were under 44,800 COVID-19 cases by February 12 , 2020 .",
+      "evidence": "As of 12 February 2020 , 44,793 cases have been confirmed ( 7,345 serious ) , including in every province-level division of China .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc911e",
+        "wiki_revision_id": "940368491",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc9123_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc9123_1",
+      "group_id": "vitaminc:revision-941735150",
+      "claim": "There were less than 75,730 COVID-19 cases globally before February 20 , 2020 .",
+      "evidence": "As of 19 February 2020 , 75,727 cases have been confirmed , including in all provinces of China and more than two dozen other countries .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc9123",
+        "wiki_revision_id": "941735150",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc9123_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc9123_2",
+      "group_id": "vitaminc:revision-941735150",
+      "claim": "There were less than 75,730 COVID-19 cases globally before February 20 , 2020 .",
+      "evidence": "As of 20 February 2020 , 75,756 cases have been confirmed , including in all provinces of China and more than two dozen other countries .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc9123",
+        "wiki_revision_id": "941735150",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc9123_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc9123_3",
+      "group_id": "vitaminc:revision-941735150",
+      "claim": "There were more than 75,730 COVID-19 cases globally by February 20 , 2020 .",
+      "evidence": "As of 19 February 2020 , 75,727 cases have been confirmed , including in all provinces of China and more than two dozen other countries .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc9123",
+        "wiki_revision_id": "941735150",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc9123_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc9123_4",
+      "group_id": "vitaminc:revision-941735150",
+      "claim": "There were more than 75,730 COVID-19 cases globally by February 20 , 2020 .",
+      "evidence": "As of 20 February 2020 , 75,756 cases have been confirmed , including in all provinces of China and more than two dozen other countries .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc9123",
+        "wiki_revision_id": "941735150",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc9155_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc9155_1",
+      "group_id": "vitaminc:revision-937005058",
+      "claim": "A Chinese native was put under quarantine in Kathmandu for fear of spreading COVID-19 .",
+      "evidence": "The Chinese national had returned from Wuhan and was quarantined in Kathmandu.",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc9155",
+        "wiki_revision_id": "937005058",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc9155_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc9155_2",
+      "group_id": "vitaminc:revision-937005058",
+      "claim": "A Chinese native was put under quarantine in Kathmandu for fear of spreading COVID-19 .",
+      "evidence": "The Nepali national had returned from Wuhan and was quarantined in Kathmandu.",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc9155",
+        "wiki_revision_id": "937005058",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc9155_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc9155_3",
+      "group_id": "vitaminc:revision-937005058",
+      "claim": "A Nepali native was put under quarantine in Kathmandu for fear of spreading COVID-19 .",
+      "evidence": "The Chinese national had returned from Wuhan and was quarantined in Kathmandu.",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc9155",
+        "wiki_revision_id": "937005058",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc9155_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc9155_4",
+      "group_id": "vitaminc:revision-937005058",
+      "claim": "A Nepali native was put under quarantine in Kathmandu for fear of spreading COVID-19 .",
+      "evidence": "The Nepali national had returned from Wuhan and was quarantined in Kathmandu.",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc9155",
+        "wiki_revision_id": "937005058",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc92ea_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc92ea_1",
+      "group_id": "vitaminc:revision-937005058",
+      "claim": "A Chinese national was quarantined in Kathmandu .",
+      "evidence": "The Chinese national had returned from Wuhan and was quarantined in Kathmandu.",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc92ea",
+        "wiki_revision_id": "937005058",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc92ea_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc92ea_2",
+      "group_id": "vitaminc:revision-937005058",
+      "claim": "A Chinese national was quarantined in Kathmandu .",
+      "evidence": "The Nepali national had returned from Wuhan and was quarantined in Kathmandu.",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc92ea",
+        "wiki_revision_id": "937005058",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc92ea_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc92ea_3",
+      "group_id": "vitaminc:revision-937005058",
+      "claim": "A Nepali national was quarantined in Kathmandu .",
+      "evidence": "The Chinese national had returned from Wuhan and was quarantined in Kathmandu.",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc92ea",
+        "wiki_revision_id": "937005058",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc92ea_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc92ea_4",
+      "group_id": "vitaminc:revision-937005058",
+      "claim": "A Nepali national was quarantined in Kathmandu .",
+      "evidence": "The Nepali national had returned from Wuhan and was quarantined in Kathmandu.",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc92ea",
+        "wiki_revision_id": "937005058",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc9344_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc9344_1",
+      "group_id": "vitaminc:revision-952316478",
+      "claim": "Fewer than 182,000 cases of COVID-19 have been confirmed .",
+      "evidence": "The total of confirmed cases is 181,228 , with 24,114 deaths , and 48,877 recoveries or dismissals .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc9344",
+        "wiki_revision_id": "952316478",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc9344_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc9344_2",
+      "group_id": "vitaminc:revision-952316478",
+      "claim": "Fewer than 182,000 cases of COVID-19 have been confirmed .",
+      "evidence": "The total of confirmed cases is 183,957 , with 24,648 deaths , and 51,600 recoveries or dismissals .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc9344",
+        "wiki_revision_id": "952316478",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc9344_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc9344_3",
+      "group_id": "vitaminc:revision-952316478",
+      "claim": "More than 182,000 cases of COVID-19 have been confirmed .",
+      "evidence": "The total of confirmed cases is 181,228 , with 24,114 deaths , and 48,877 recoveries or dismissals .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc9344",
+        "wiki_revision_id": "952316478",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc9344_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39329c9e77c0008cc9344_4",
+      "group_id": "vitaminc:revision-952316478",
+      "claim": "More than 182,000 cases of COVID-19 have been confirmed .",
+      "evidence": "The total of confirmed cases is 183,957 , with 24,648 deaths , and 51,600 recoveries or dismissals .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee39329c9e77c0008cc9344",
+        "wiki_revision_id": "952316478",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932ac9e77c0008cc99bd_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932ac9e77c0008cc99bd_1",
+      "group_id": "vitaminc:revision-946275371",
+      "claim": "Less than 84,500 people with coronavirus have recovered .",
+      "evidence": "over 219,000 cases have been reported worldwide ; more than 8,900 people have died ; and over 84,000 have recovered .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932ac9e77c0008cc99bd",
+        "wiki_revision_id": "946275371",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932ac9e77c0008cc99bd_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932ac9e77c0008cc99bd_2",
+      "group_id": "vitaminc:revision-946275371",
+      "claim": "Less than 84,500 people with coronavirus have recovered .",
+      "evidence": "over 219,000 cases have been reported worldwide ; more than 8,900 people have died ; and over 85,000 have recovered .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932ac9e77c0008cc99bd",
+        "wiki_revision_id": "946275371",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932ac9e77c0008cc99bd_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932ac9e77c0008cc99bd_3",
+      "group_id": "vitaminc:revision-946275371",
+      "claim": "More than 84,500 people with coronavirus have recovered .",
+      "evidence": "over 219,000 cases have been reported worldwide ; more than 8,900 people have died ; and over 84,000 have recovered .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932ac9e77c0008cc99bd",
+        "wiki_revision_id": "946275371",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932ac9e77c0008cc99bd_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932ac9e77c0008cc99bd_4",
+      "group_id": "vitaminc:revision-946275371",
+      "claim": "More than 84,500 people with coronavirus have recovered .",
+      "evidence": "over 219,000 cases have been reported worldwide ; more than 8,900 people have died ; and over 85,000 have recovered .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932ac9e77c0008cc99bd",
+        "wiki_revision_id": "946275371",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932ac9e77c0008cc9a46_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932ac9e77c0008cc9a46_1",
+      "group_id": "vitaminc:revision-946938253",
+      "claim": "By March 23 , 99,000 patients had recovered from coronavirus .",
+      "evidence": "As of 23 March , more than 341,000 cases of COVID-19 have been reported in 192 countries and territories , resulting in more than 14,700 deaths and 99,000 recoveries .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932ac9e77c0008cc9a46",
+        "wiki_revision_id": "946938253",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932ac9e77c0008cc9a46_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932ac9e77c0008cc9a46_2",
+      "group_id": "vitaminc:revision-946938253",
+      "claim": "By March 23 , 99,000 patients had recovered from coronavirus .",
+      "evidence": "As of 23 March , more than 341,000 cases of COVID-19 have been reported in over 190 countries and territories , resulting in more than 14,700 deaths and over 99,000 recoveries .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932ac9e77c0008cc9a46",
+        "wiki_revision_id": "946938253",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932ac9e77c0008cc9a46_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932ac9e77c0008cc9a46_3",
+      "group_id": "vitaminc:revision-946938253",
+      "claim": "By March 23 , more than 99,000 patients had recovered from coronavirus .",
+      "evidence": "As of 23 March , more than 341,000 cases of COVID-19 have been reported in 192 countries and territories , resulting in more than 14,700 deaths and 99,000 recoveries .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932ac9e77c0008cc9a46",
+        "wiki_revision_id": "946938253",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932ac9e77c0008cc9a46_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932ac9e77c0008cc9a46_4",
+      "group_id": "vitaminc:revision-946938253",
+      "claim": "By March 23 , more than 99,000 patients had recovered from coronavirus .",
+      "evidence": "As of 23 March , more than 341,000 cases of COVID-19 have been reported in over 190 countries and territories , resulting in more than 14,700 deaths and over 99,000 recoveries .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932ac9e77c0008cc9a46",
+        "wiki_revision_id": "946938253",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932ac9e77c0008cc9c24_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932ac9e77c0008cc9c24_1",
+      "group_id": "vitaminc:revision-945992691",
+      "claim": "By 16 March , there had been reported over 186,000 cases of coronavirus , with more than 7,400 deaths and roughly 80,000 recoveries .",
+      "evidence": "As of 16 March , more than 185,000 cases of the disease have been reported in over 160 countries and territories , resulting in more than 7,300 deaths and around 79,000 recoveries .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee3932ac9e77c0008cc9c24",
+        "wiki_revision_id": "945992691",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932ac9e77c0008cc9c24_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932ac9e77c0008cc9c24_2",
+      "group_id": "vitaminc:revision-945992691",
+      "claim": "By 16 March , there had been reported over 186,000 cases of coronavirus , with more than 7,400 deaths and roughly 80,000 recoveries .",
+      "evidence": "As of 16 March , more than 186,000 cases of the disease have been reported in over 160 countries and territories , resulting in more than 7,400 deaths and around 80,000 recoveries .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932ac9e77c0008cc9c24",
+        "wiki_revision_id": "945992691",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932ac9e77c0008cc9d14_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932ac9e77c0008cc9d14_1",
+      "group_id": "vitaminc:revision-947731797",
+      "claim": "The idea of coronavirus being airborne is considered false .",
+      "evidence": "Respiratory droplets may also be produced during breathing out , including when talking , though the virus is not thought to be airborne .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932ac9e77c0008cc9d14",
+        "wiki_revision_id": "947731797",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932ac9e77c0008cc9d14_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932ac9e77c0008cc9d14_2",
+      "group_id": "vitaminc:revision-947731797",
+      "claim": "The idea of coronavirus being airborne is considered false .",
+      "evidence": "Respiratory droplets may also be produced during breathing out , including when talking , though the virus is not thought to be airborne for extended time periods .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932ac9e77c0008cc9d14",
+        "wiki_revision_id": "947731797",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932ac9e77c0008cc9d14_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932ac9e77c0008cc9d14_3",
+      "group_id": "vitaminc:revision-947731797",
+      "claim": "It 's believed that coronavirus is only airborne for a short time .",
+      "evidence": "Respiratory droplets may also be produced during breathing out , including when talking , though the virus is not thought to be airborne .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932ac9e77c0008cc9d14",
+        "wiki_revision_id": "947731797",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932ac9e77c0008cc9d14_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932ac9e77c0008cc9d14_4",
+      "group_id": "vitaminc:revision-947731797",
+      "claim": "It 's believed that coronavirus is only airborne for a short time .",
+      "evidence": "Respiratory droplets may also be produced during breathing out , including when talking , though the virus is not thought to be airborne for extended time periods .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932ac9e77c0008cc9d14",
+        "wiki_revision_id": "947731797",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932ac9e77c0008cc9df6_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932ac9e77c0008cc9df6_1",
+      "group_id": "vitaminc:revision-937185589",
+      "claim": "There has been one male patient of coronavirus in Singapore .",
+      "evidence": "Confirmed cases outside of mainland China include three women and one man in Thailand , one man in Japan , one woman in South Korea , one woman in Taiwan , two men in Hong Kong , one woman and one man in Macau and one man in the United States .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee3932ac9e77c0008cc9df6",
+        "wiki_revision_id": "937185589",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932ac9e77c0008cc9df6_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932ac9e77c0008cc9df6_2",
+      "group_id": "vitaminc:revision-937185589",
+      "claim": "There has been one male patient of coronavirus in Singapore .",
+      "evidence": "Confirmed cases outside of mainland China include three women and one man in Thailand , one man in Japan , one woman in South Korea , one woman in Taiwan , two men in Hong Kong , one woman , one man in Singapore , one man in Macau and one man in the United States .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932ac9e77c0008cc9df6",
+        "wiki_revision_id": "937185589",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cc9e07_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cc9e07_1",
+      "group_id": "vitaminc:revision-937005058",
+      "claim": "A Chinese person remained in quarantine in Katmandu after traveling from Wuhan .",
+      "evidence": "The Chinese national had returned from Wuhan and was quarantined in Kathmandu.",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cc9e07",
+        "wiki_revision_id": "937005058",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cc9e07_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cc9e07_2",
+      "group_id": "vitaminc:revision-937005058",
+      "claim": "A Chinese person remained in quarantine in Katmandu after traveling from Wuhan .",
+      "evidence": "The Nepali national had returned from Wuhan and was quarantined in Kathmandu.",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cc9e07",
+        "wiki_revision_id": "937005058",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cc9e07_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cc9e07_3",
+      "group_id": "vitaminc:revision-937005058",
+      "claim": "A Nepali person remained in quarantine in Katmandu after traveling from Wuhan .",
+      "evidence": "The Chinese national had returned from Wuhan and was quarantined in Kathmandu.",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cc9e07",
+        "wiki_revision_id": "937005058",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cc9e07_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cc9e07_4",
+      "group_id": "vitaminc:revision-937005058",
+      "claim": "A Nepali person remained in quarantine in Katmandu after traveling from Wuhan .",
+      "evidence": "The Nepali national had returned from Wuhan and was quarantined in Kathmandu.",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cc9e07",
+        "wiki_revision_id": "937005058",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cc9eb4_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cc9eb4_1",
+      "group_id": "vitaminc:revision-943006991",
+      "claim": "During the 2019-20 coronavirus pandemic , more than 2,810 deaths were registered .",
+      "evidence": ", 2,858 deaths have been attributed to COVID-19 .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cc9eb4",
+        "wiki_revision_id": "943006991",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cc9eb4_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cc9eb4_2",
+      "group_id": "vitaminc:revision-943006991",
+      "claim": "During the 2019-20 coronavirus pandemic , more than 2,810 deaths were registered .",
+      "evidence": ", more than 2,800 deaths have been attributed to COVID-19 .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cc9eb4",
+        "wiki_revision_id": "943006991",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cc9eb4_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cc9eb4_3",
+      "group_id": "vitaminc:revision-943006991",
+      "claim": "During the 2019-20 coronavirus pandemic , less than 2,810 deaths were registered .",
+      "evidence": ", 2,858 deaths have been attributed to COVID-19 .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cc9eb4",
+        "wiki_revision_id": "943006991",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cc9eb4_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cc9eb4_4",
+      "group_id": "vitaminc:revision-943006991",
+      "claim": "During the 2019-20 coronavirus pandemic , less than 2,810 deaths were registered .",
+      "evidence": ", more than 2,800 deaths have been attributed to COVID-19 .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cc9eb4",
+        "wiki_revision_id": "943006991",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cc9f1e_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cc9f1e_1",
+      "group_id": "vitaminc:revision-952316478",
+      "claim": "There have been less than 181,300 confirmed coronavirus cases in Italy with less than 24,200 deaths and less than 50,000 recoveries .",
+      "evidence": "The total of confirmed cases is 181,228 , with 24,114 deaths , and 48,877 recoveries or dismissals .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cc9f1e",
+        "wiki_revision_id": "952316478",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cc9f1e_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cc9f1e_2",
+      "group_id": "vitaminc:revision-952316478",
+      "claim": "There have been less than 181,300 confirmed coronavirus cases in Italy with less than 24,200 deaths and less than 50,000 recoveries .",
+      "evidence": "The total of confirmed cases is 183,957 , with 24,648 deaths , and 51,600 recoveries or dismissals .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cc9f1e",
+        "wiki_revision_id": "952316478",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cc9f1e_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cc9f1e_3",
+      "group_id": "vitaminc:revision-952316478",
+      "claim": "There have been more than 183,900 confirmed coronavirus cases in Italy with more than 24,600 deaths and more than 51,500 recoveries .",
+      "evidence": "The total of confirmed cases is 181,228 , with 24,114 deaths , and 48,877 recoveries or dismissals .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cc9f1e",
+        "wiki_revision_id": "952316478",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cc9f1e_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cc9f1e_4",
+      "group_id": "vitaminc:revision-952316478",
+      "claim": "There have been more than 183,900 confirmed coronavirus cases in Italy with more than 24,600 deaths and more than 51,500 recoveries .",
+      "evidence": "The total of confirmed cases is 183,957 , with 24,648 deaths , and 51,600 recoveries or dismissals .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cc9f1e",
+        "wiki_revision_id": "952316478",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca21f_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca21f_1",
+      "group_id": "vitaminc:revision-949304814",
+      "claim": "Italy has registered less than 126,000 positive coronavirus cases and less than 15,500 fatalities .",
+      "evidence": "The total of confirmed cases is 124,632 , with 15,362 deaths , and 20,996 recoveries or dismissals .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca21f",
+        "wiki_revision_id": "949304814",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca21f_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca21f_2",
+      "group_id": "vitaminc:revision-949304814",
+      "claim": "Italy has registered less than 126,000 positive coronavirus cases and less than 15,500 fatalities .",
+      "evidence": "The total of confirmed cases is 128,948 , with 15,887 deaths , and 21,815 recoveries or dismissals .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca21f",
+        "wiki_revision_id": "949304814",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca21f_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca21f_3",
+      "group_id": "vitaminc:revision-949304814",
+      "claim": "Italy has registered more than 126,000 positive coronavirus cases and more than 15,500 fatalities .",
+      "evidence": "The total of confirmed cases is 124,632 , with 15,362 deaths , and 20,996 recoveries or dismissals .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca21f",
+        "wiki_revision_id": "949304814",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca21f_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca21f_4",
+      "group_id": "vitaminc:revision-949304814",
+      "claim": "Italy has registered more than 126,000 positive coronavirus cases and more than 15,500 fatalities .",
+      "evidence": "The total of confirmed cases is 128,948 , with 15,887 deaths , and 21,815 recoveries or dismissals .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca21f",
+        "wiki_revision_id": "949304814",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca220_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca220_1",
+      "group_id": "vitaminc:revision-949304814",
+      "claim": "Less than 675,000 COVID-19 tests had been performed in Italy before April 5 , 2020 .",
+      "evidence": "By 4 April , Italy had conducted about 657,200 tests for the virus .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca220",
+        "wiki_revision_id": "949304814",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca220_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca220_2",
+      "group_id": "vitaminc:revision-949304814",
+      "claim": "Less than 675,000 COVID-19 tests had been performed in Italy before April 5 , 2020 .",
+      "evidence": "By 5 April , Italy had conducted about 691,500 tests for the virus .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca220",
+        "wiki_revision_id": "949304814",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca220_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca220_3",
+      "group_id": "vitaminc:revision-949304814",
+      "claim": "More than 675,000 COVID-19 tests had been performed in Italy after April 4 , 2020 .",
+      "evidence": "By 4 April , Italy had conducted about 657,200 tests for the virus .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca220",
+        "wiki_revision_id": "949304814",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca220_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca220_4",
+      "group_id": "vitaminc:revision-949304814",
+      "claim": "More than 675,000 COVID-19 tests had been performed in Italy after April 4 , 2020 .",
+      "evidence": "By 5 April , Italy had conducted about 691,500 tests for the virus .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca220",
+        "wiki_revision_id": "949304814",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca3f3_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca3f3_1",
+      "group_id": "vitaminc:revision-945013203",
+      "claim": "Less than 4,300 people have died due to the 2019-20 coronavirus .",
+      "evidence": "More than 66,000 people have recovered from the disease and more than 4,200 have died ( 3,200 in China , or ~75 % of total deaths ) .The virus spreads between people in a similar way to influenza , via respiratory droplets from coughing or sneezing .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca3f3",
+        "wiki_revision_id": "945013203",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca3f3_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca3f3_2",
+      "group_id": "vitaminc:revision-945013203",
+      "claim": "Less than 4,300 people have died due to the 2019-20 coronavirus .",
+      "evidence": "More than 66,000 people have recovered from the disease and more than 4,300 have died ( 3,200 in China , or ~75 % of total deaths ) .The virus spreads between people in a similar way to influenza , via respiratory droplets from coughing or sneezing .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca3f3",
+        "wiki_revision_id": "945013203",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca3f3_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca3f3_3",
+      "group_id": "vitaminc:revision-945013203",
+      "claim": "More than 4,200 people have died due to the 2019-20 coronavirus .",
+      "evidence": "More than 66,000 people have recovered from the disease and more than 4,200 have died ( 3,200 in China , or ~75 % of total deaths ) .The virus spreads between people in a similar way to influenza , via respiratory droplets from coughing or sneezing .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca3f3",
+        "wiki_revision_id": "945013203",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca3f3_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca3f3_4",
+      "group_id": "vitaminc:revision-945013203",
+      "claim": "More than 4,200 people have died due to the 2019-20 coronavirus .",
+      "evidence": "More than 66,000 people have recovered from the disease and more than 4,300 have died ( 3,200 in China , or ~75 % of total deaths ) .The virus spreads between people in a similar way to influenza , via respiratory droplets from coughing or sneezing .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca3f3",
+        "wiki_revision_id": "945013203",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca488_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca488_1",
+      "group_id": "vitaminc:revision-941735150",
+      "claim": "China had less than 75,740 confirmed coronavirus cases as of before February 20 , 2020 .",
+      "evidence": "As of 19 February 2020 , 75,727 cases have been confirmed , including in all provinces of China and more than two dozen other countries .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca488",
+        "wiki_revision_id": "941735150",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca488_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca488_2",
+      "group_id": "vitaminc:revision-941735150",
+      "claim": "China had less than 75,740 confirmed coronavirus cases as of before February 20 , 2020 .",
+      "evidence": "As of 20 February 2020 , 75,756 cases have been confirmed , including in all provinces of China and more than two dozen other countries .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca488",
+        "wiki_revision_id": "941735150",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca488_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca488_3",
+      "group_id": "vitaminc:revision-941735150",
+      "claim": "China had more than 75,740 confirmed coronavirus cases as of after February 19 , 2020 .",
+      "evidence": "As of 19 February 2020 , 75,727 cases have been confirmed , including in all provinces of China and more than two dozen other countries .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca488",
+        "wiki_revision_id": "941735150",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca488_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca488_4",
+      "group_id": "vitaminc:revision-941735150",
+      "claim": "China had more than 75,740 confirmed coronavirus cases as of after February 19 , 2020 .",
+      "evidence": "As of 20 February 2020 , 75,756 cases have been confirmed , including in all provinces of China and more than two dozen other countries .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca488",
+        "wiki_revision_id": "941735150",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca562_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca562_1",
+      "group_id": "vitaminc:revision-949802937",
+      "claim": "Italy has less than 136,000 confirmed cases of the 2020 coronavirus , including less than 17,400 deaths and less than 25,000 recoveries .",
+      "evidence": "The total of confirmed cases is 135,586 , with 17,127 deaths , and 24,392 recoveries or dismissals .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca562",
+        "wiki_revision_id": "949802937",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca562_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca562_2",
+      "group_id": "vitaminc:revision-949802937",
+      "claim": "Italy has less than 136,000 confirmed cases of the 2020 coronavirus , including less than 17,400 deaths and less than 25,000 recoveries .",
+      "evidence": "The total of confirmed cases is 139,422 , with 17,669 deaths , and 26,491 recoveries or dismissals .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca562",
+        "wiki_revision_id": "949802937",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca562_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca562_3",
+      "group_id": "vitaminc:revision-949802937",
+      "claim": "Italy has more than 136,000 confirmed cases of the 2020 coronavirus , including more than 17,400 deaths and more than 25,000 recoveries .",
+      "evidence": "The total of confirmed cases is 135,586 , with 17,127 deaths , and 24,392 recoveries or dismissals .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca562",
+        "wiki_revision_id": "949802937",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca562_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca562_4",
+      "group_id": "vitaminc:revision-949802937",
+      "claim": "Italy has more than 136,000 confirmed cases of the 2020 coronavirus , including more than 17,400 deaths and more than 25,000 recoveries .",
+      "evidence": "The total of confirmed cases is 139,422 , with 17,669 deaths , and 26,491 recoveries or dismissals .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca562",
+        "wiki_revision_id": "949802937",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca563_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca563_1",
+      "group_id": "vitaminc:revision-949802937",
+      "claim": "Italy tested less than 800,000 people for the 2020 coronavirus as of before April 8 .",
+      "evidence": "By 7 April , Italy had conducted about 755,400 tests for the virus .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca563",
+        "wiki_revision_id": "949802937",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca563_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca563_2",
+      "group_id": "vitaminc:revision-949802937",
+      "claim": "Italy tested less than 800,000 people for the 2020 coronavirus as of before April 8 .",
+      "evidence": "By 8 April , Italy had conducted about 807,100 tests for the virus .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca563",
+        "wiki_revision_id": "949802937",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca563_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca563_3",
+      "group_id": "vitaminc:revision-949802937",
+      "claim": "Italy tested more than 800,000 people for the 2020 coronavirus as of after April 7 .",
+      "evidence": "By 7 April , Italy had conducted about 755,400 tests for the virus .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca563",
+        "wiki_revision_id": "949802937",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca563_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca563_4",
+      "group_id": "vitaminc:revision-949802937",
+      "claim": "Italy tested more than 800,000 people for the 2020 coronavirus as of after April 7 .",
+      "evidence": "By 8 April , Italy had conducted about 807,100 tests for the virus .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca563",
+        "wiki_revision_id": "949802937",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca6cb_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca6cb_1",
+      "group_id": "vitaminc:revision-951795735",
+      "claim": "Official deaths from the COVID-19 generally refer to people who died after testing positive according to official protocols .",
+      "evidence": "Official deaths from the COVID-19 generally refer to people who tested positive according to official protocols .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca6cb",
+        "wiki_revision_id": "951795735",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca6cb_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932bc9e77c0008cca6cb_2",
+      "group_id": "vitaminc:revision-951795735",
+      "claim": "Official deaths from the COVID-19 generally refer to people who died after testing positive according to official protocols .",
+      "evidence": "Official deaths from the COVID-19 generally refer to people who died after testing positive according to official protocols .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932bc9e77c0008cca6cb",
+        "wiki_revision_id": "951795735",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932cc9e77c0008ccab6c_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932cc9e77c0008ccab6c_1",
+      "group_id": "vitaminc:revision-948106406",
+      "claim": "In Spain , the coronavirus death rate is 1 case per 6,041 inhabitants .",
+      "evidence": "With population of 41,100,396 ( as of 1 July 2019 ) , infection rate is 1 case per 513 inhabitants and death rate is 1 case per inhabitants .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee3932cc9e77c0008ccab6c",
+        "wiki_revision_id": "948106406",
+        "page": "2020 coronavirus pandemic in Spain"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932cc9e77c0008ccab6c_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932cc9e77c0008ccab6c_2",
+      "group_id": "vitaminc:revision-948106406",
+      "claim": "In Spain , the coronavirus death rate is 1 case per 6,041 inhabitants .",
+      "evidence": "With population of 41,100,396 ( as of 1 July 2019 ) , infection rate is 1 case per 513 inhabitants and death rate is 1 case per 6,041 inhabitants .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932cc9e77c0008ccab6c",
+        "wiki_revision_id": "948106406",
+        "page": "2020 coronavirus pandemic in Spain"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932cc9e77c0008ccb132_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932cc9e77c0008ccb132_1",
+      "group_id": "vitaminc:revision-946275371",
+      "claim": "Less than 84,500 people with coronavirus have recovered .",
+      "evidence": "over 219,000 cases have been reported worldwide ; more than 8,900 people have died ; and over 84,000 have recovered .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee3932cc9e77c0008ccb132",
+        "wiki_revision_id": "946275371",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932cc9e77c0008ccb132_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932cc9e77c0008ccb132_2",
+      "group_id": "vitaminc:revision-946275371",
+      "claim": "Less than 84,500 people with coronavirus have recovered .",
+      "evidence": "over 219,000 cases have been reported worldwide ; more than 8,900 people have died ; and over 85,000 have recovered .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932cc9e77c0008ccb132",
+        "wiki_revision_id": "946275371",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932cc9e77c0008ccb132_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932cc9e77c0008ccb132_3",
+      "group_id": "vitaminc:revision-946275371",
+      "claim": "More than 84,500 people with coronavirus have recovered .",
+      "evidence": "over 219,000 cases have been reported worldwide ; more than 8,900 people have died ; and over 84,000 have recovered .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932cc9e77c0008ccb132",
+        "wiki_revision_id": "946275371",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932cc9e77c0008ccb132_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932cc9e77c0008ccb132_4",
+      "group_id": "vitaminc:revision-946275371",
+      "claim": "More than 84,500 people with coronavirus have recovered .",
+      "evidence": "over 219,000 cases have been reported worldwide ; more than 8,900 people have died ; and over 85,000 have recovered .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932cc9e77c0008ccb132",
+        "wiki_revision_id": "946275371",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932cc9e77c0008ccb1f8_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932cc9e77c0008ccb1f8_1",
+      "group_id": "vitaminc:revision-946938253",
+      "claim": "COVID-19 was reported in over 191 countries .",
+      "evidence": "As of 23 March , more than 341,000 cases of COVID-19 have been reported in 192 countries and territories , resulting in more than 14,700 deaths and 99,000 recoveries .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932cc9e77c0008ccb1f8",
+        "wiki_revision_id": "946938253",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932cc9e77c0008ccb1f8_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932cc9e77c0008ccb1f8_2",
+      "group_id": "vitaminc:revision-946938253",
+      "claim": "COVID-19 was reported in over 191 countries .",
+      "evidence": "As of 23 March , more than 341,000 cases of COVID-19 have been reported in over 190 countries and territories , resulting in more than 14,700 deaths and over 99,000 recoveries .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee3932cc9e77c0008ccb1f8",
+        "wiki_revision_id": "946938253",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932cc9e77c0008ccb1f8_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932cc9e77c0008ccb1f8_3",
+      "group_id": "vitaminc:revision-946938253",
+      "claim": "COVID-19 was reported in less than 191 countries .",
+      "evidence": "As of 23 March , more than 341,000 cases of COVID-19 have been reported in 192 countries and territories , resulting in more than 14,700 deaths and 99,000 recoveries .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932cc9e77c0008ccb1f8",
+        "wiki_revision_id": "946938253",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932cc9e77c0008ccb1f8_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932cc9e77c0008ccb1f8_4",
+      "group_id": "vitaminc:revision-946938253",
+      "claim": "COVID-19 was reported in less than 191 countries .",
+      "evidence": "As of 23 March , more than 341,000 cases of COVID-19 have been reported in over 190 countries and territories , resulting in more than 14,700 deaths and over 99,000 recoveries .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932cc9e77c0008ccb1f8",
+        "wiki_revision_id": "946938253",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb4a5_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932dc9e77c0008ccb4a5_1",
+      "group_id": "vitaminc:revision-945992691",
+      "claim": "As of March 16 , 2020 , there are fewer than 79,500 COVID-19 recoveries globally .",
+      "evidence": "As of 16 March , more than 185,000 cases of the disease have been reported in over 160 countries and territories , resulting in more than 7,300 deaths and around 79,000 recoveries .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932dc9e77c0008ccb4a5",
+        "wiki_revision_id": "945992691",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb4a5_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932dc9e77c0008ccb4a5_2",
+      "group_id": "vitaminc:revision-945992691",
+      "claim": "As of March 16 , 2020 , there are fewer than 79,500 COVID-19 recoveries globally .",
+      "evidence": "As of 16 March , more than 186,000 cases of the disease have been reported in over 160 countries and territories , resulting in more than 7,400 deaths and around 80,000 recoveries .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932dc9e77c0008ccb4a5",
+        "wiki_revision_id": "945992691",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb4a5_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932dc9e77c0008ccb4a5_3",
+      "group_id": "vitaminc:revision-945992691",
+      "claim": "As of March 16 , 2020 , there are more than 79,500 COVID-19 recoveries globally .",
+      "evidence": "As of 16 March , more than 185,000 cases of the disease have been reported in over 160 countries and territories , resulting in more than 7,300 deaths and around 79,000 recoveries .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932dc9e77c0008ccb4a5",
+        "wiki_revision_id": "945992691",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb4a5_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932dc9e77c0008ccb4a5_4",
+      "group_id": "vitaminc:revision-945992691",
+      "claim": "As of March 16 , 2020 , there are more than 79,500 COVID-19 recoveries globally .",
+      "evidence": "As of 16 March , more than 186,000 cases of the disease have been reported in over 160 countries and territories , resulting in more than 7,400 deaths and around 80,000 recoveries .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932dc9e77c0008ccb4a5",
+        "wiki_revision_id": "945992691",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb615_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932dc9e77c0008ccb615_1",
+      "group_id": "vitaminc:revision-947731797",
+      "claim": "Coronavirus is airborne for a limited period .",
+      "evidence": "Respiratory droplets may also be produced during breathing out , including when talking , though the virus is not thought to be airborne .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee3932dc9e77c0008ccb615",
+        "wiki_revision_id": "947731797",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb615_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932dc9e77c0008ccb615_2",
+      "group_id": "vitaminc:revision-947731797",
+      "claim": "Coronavirus is airborne for a limited period .",
+      "evidence": "Respiratory droplets may also be produced during breathing out , including when talking , though the virus is not thought to be airborne for extended time periods .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932dc9e77c0008ccb615",
+        "wiki_revision_id": "947731797",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb735_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932dc9e77c0008ccb735_1",
+      "group_id": "vitaminc:revision-937185589",
+      "claim": "A woman has tested positive for coronavirus in Macau during the 2019–20 pandemic .",
+      "evidence": "Confirmed cases outside of mainland China include three women and one man in Thailand , one man in Japan , one woman in South Korea , one woman in Taiwan , two men in Hong Kong , one woman and one man in Macau and one man in the United States .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932dc9e77c0008ccb735",
+        "wiki_revision_id": "937185589",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb735_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932dc9e77c0008ccb735_2",
+      "group_id": "vitaminc:revision-937185589",
+      "claim": "A woman has tested positive for coronavirus in Macau during the 2019–20 pandemic .",
+      "evidence": "Confirmed cases outside of mainland China include three women and one man in Thailand , one man in Japan , one woman in South Korea , one woman in Taiwan , two men in Hong Kong , one woman , one man in Singapore , one man in Macau and one man in the United States .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932dc9e77c0008ccb735",
+        "wiki_revision_id": "937185589",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb735_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932dc9e77c0008ccb735_3",
+      "group_id": "vitaminc:revision-937185589",
+      "claim": "A man and a woman have tested positive for coronavirus in Singapore during the 2019–20 pandemic .",
+      "evidence": "Confirmed cases outside of mainland China include three women and one man in Thailand , one man in Japan , one woman in South Korea , one woman in Taiwan , two men in Hong Kong , one woman and one man in Macau and one man in the United States .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932dc9e77c0008ccb735",
+        "wiki_revision_id": "937185589",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb735_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932dc9e77c0008ccb735_4",
+      "group_id": "vitaminc:revision-937185589",
+      "claim": "A man and a woman have tested positive for coronavirus in Singapore during the 2019–20 pandemic .",
+      "evidence": "Confirmed cases outside of mainland China include three women and one man in Thailand , one man in Japan , one woman in South Korea , one woman in Taiwan , two men in Hong Kong , one woman , one man in Singapore , one man in Macau and one man in the United States .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932dc9e77c0008ccb735",
+        "wiki_revision_id": "937185589",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb749_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932dc9e77c0008ccb749_1",
+      "group_id": "vitaminc:revision-937005058",
+      "claim": "A Chinese national was quarantined in Kathmandu during the 2019–20 coronavirus pandemic .",
+      "evidence": "The Chinese national had returned from Wuhan and was quarantined in Kathmandu.",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932dc9e77c0008ccb749",
+        "wiki_revision_id": "937005058",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb749_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932dc9e77c0008ccb749_2",
+      "group_id": "vitaminc:revision-937005058",
+      "claim": "A Chinese national was quarantined in Kathmandu during the 2019–20 coronavirus pandemic .",
+      "evidence": "The Nepali national had returned from Wuhan and was quarantined in Kathmandu.",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932dc9e77c0008ccb749",
+        "wiki_revision_id": "937005058",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb749_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932dc9e77c0008ccb749_3",
+      "group_id": "vitaminc:revision-937005058",
+      "claim": "A Nepali national was quarantined in Kathmandu during the 2019–20 coronavirus pandemic .",
+      "evidence": "The Chinese national had returned from Wuhan and was quarantined in Kathmandu.",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee3932dc9e77c0008ccb749",
+        "wiki_revision_id": "937005058",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb749_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee3932dc9e77c0008ccb749_4",
+      "group_id": "vitaminc:revision-937005058",
+      "claim": "A Nepali national was quarantined in Kathmandu during the 2019–20 coronavirus pandemic .",
+      "evidence": "The Nepali national had returned from Wuhan and was quarantined in Kathmandu.",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee3932dc9e77c0008ccb749",
+        "wiki_revision_id": "937005058",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b5c9e77c0008ccb88a_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b5c9e77c0008ccb88a_1",
+      "group_id": "vitaminc:revision-943006991",
+      "claim": "2,858 people have died from COVID-19 .",
+      "evidence": ", 2,858 deaths have been attributed to COVID-19 .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b5c9e77c0008ccb88a",
+        "wiki_revision_id": "943006991",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b5c9e77c0008ccb88a_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b5c9e77c0008ccb88a_2",
+      "group_id": "vitaminc:revision-943006991",
+      "claim": "2,858 people have died from COVID-19 .",
+      "evidence": ", more than 2,800 deaths have been attributed to COVID-19 .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee393b5c9e77c0008ccb88a",
+        "wiki_revision_id": "943006991",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccb917_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccb917_1",
+      "group_id": "vitaminc:revision-952316478",
+      "claim": "Less than 24,500 people have died from coronavirus in Italy , along with less than 50,000 recoveries .",
+      "evidence": "The total of confirmed cases is 181,228 , with 24,114 deaths , and 48,877 recoveries or dismissals .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccb917",
+        "wiki_revision_id": "952316478",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccb917_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccb917_2",
+      "group_id": "vitaminc:revision-952316478",
+      "claim": "Less than 24,500 people have died from coronavirus in Italy , along with less than 50,000 recoveries .",
+      "evidence": "The total of confirmed cases is 183,957 , with 24,648 deaths , and 51,600 recoveries or dismissals .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccb917",
+        "wiki_revision_id": "952316478",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccb917_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccb917_3",
+      "group_id": "vitaminc:revision-952316478",
+      "claim": "More than 24,500 people have died from coronavirus in Italy , along with more than 50,000 recoveries .",
+      "evidence": "The total of confirmed cases is 181,228 , with 24,114 deaths , and 48,877 recoveries or dismissals .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccb917",
+        "wiki_revision_id": "952316478",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccb917_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccb917_4",
+      "group_id": "vitaminc:revision-952316478",
+      "claim": "More than 24,500 people have died from coronavirus in Italy , along with more than 50,000 recoveries .",
+      "evidence": "The total of confirmed cases is 183,957 , with 24,648 deaths , and 51,600 recoveries or dismissals .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccb917",
+        "wiki_revision_id": "952316478",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccb918_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccb918_1",
+      "group_id": "vitaminc:revision-952316478",
+      "claim": "Less than 1,400,000 COVID-19 tests had been done in Italy before April 21 , 2020 .",
+      "evidence": "By 20 April , Italy had conducted about 1,398,000 tests for the virus .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccb918",
+        "wiki_revision_id": "952316478",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccb918_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccb918_2",
+      "group_id": "vitaminc:revision-952316478",
+      "claim": "Less than 1,400,000 COVID-19 tests had been done in Italy before April 21 , 2020 .",
+      "evidence": "By 21 April , Italy had conducted about 1,450,000 tests for the virus .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccb918",
+        "wiki_revision_id": "952316478",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccb918_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccb918_3",
+      "group_id": "vitaminc:revision-952316478",
+      "claim": "More than 1,400,000 COVID-19 tests had been done in Italy after April 20 , 2020 .",
+      "evidence": "By 20 April , Italy had conducted about 1,398,000 tests for the virus .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccb918",
+        "wiki_revision_id": "952316478",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccb918_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccb918_4",
+      "group_id": "vitaminc:revision-952316478",
+      "claim": "More than 1,400,000 COVID-19 tests had been done in Italy after April 20 , 2020 .",
+      "evidence": "By 21 April , Italy had conducted about 1,450,000 tests for the virus .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccb918",
+        "wiki_revision_id": "952316478",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccbd6d_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccbd6d_1",
+      "group_id": "vitaminc:revision-949304814",
+      "claim": "There were under 125,000 , coronavirus cases , less than 15,500 deaths and under 21,000 recoveries in Italy , in 2020 .",
+      "evidence": "The total of confirmed cases is 124,632 , with 15,362 deaths , and 20,996 recoveries or dismissals .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccbd6d",
+        "wiki_revision_id": "949304814",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccbd6d_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccbd6d_2",
+      "group_id": "vitaminc:revision-949304814",
+      "claim": "There were under 125,000 , coronavirus cases , less than 15,500 deaths and under 21,000 recoveries in Italy , in 2020 .",
+      "evidence": "The total of confirmed cases is 128,948 , with 15,887 deaths , and 21,815 recoveries or dismissals .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccbd6d",
+        "wiki_revision_id": "949304814",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccbd6d_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccbd6d_3",
+      "group_id": "vitaminc:revision-949304814",
+      "claim": "There were over 125,000 , coronavirus cases , more than 15,500 deaths and over 21,000 recoveries in Italy , in 2020 .",
+      "evidence": "The total of confirmed cases is 124,632 , with 15,362 deaths , and 20,996 recoveries or dismissals .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccbd6d",
+        "wiki_revision_id": "949304814",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccbd6d_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccbd6d_4",
+      "group_id": "vitaminc:revision-949304814",
+      "claim": "There were over 125,000 , coronavirus cases , more than 15,500 deaths and over 21,000 recoveries in Italy , in 2020 .",
+      "evidence": "The total of confirmed cases is 128,948 , with 15,887 deaths , and 21,815 recoveries or dismissals .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccbd6d",
+        "wiki_revision_id": "949304814",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccbd6e_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccbd6e_1",
+      "group_id": "vitaminc:revision-949304814",
+      "claim": "Italy had conducted under 660,000 tests for the coronavirus by April 4 , 2020 .",
+      "evidence": "By 4 April , Italy had conducted about 657,200 tests for the virus .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccbd6e",
+        "wiki_revision_id": "949304814",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccbd6e_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccbd6e_2",
+      "group_id": "vitaminc:revision-949304814",
+      "claim": "Italy had conducted under 660,000 tests for the coronavirus by April 4 , 2020 .",
+      "evidence": "By 5 April , Italy had conducted about 691,500 tests for the virus .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccbd6e",
+        "wiki_revision_id": "949304814",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccbd6e_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccbd6e_3",
+      "group_id": "vitaminc:revision-949304814",
+      "claim": "Italy had conducted more than 660,000 tests for the coronavirus by 5th April .",
+      "evidence": "By 4 April , Italy had conducted about 657,200 tests for the virus .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccbd6e",
+        "wiki_revision_id": "949304814",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccbd6e_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccbd6e_4",
+      "group_id": "vitaminc:revision-949304814",
+      "claim": "Italy had conducted more than 660,000 tests for the coronavirus by 5th April .",
+      "evidence": "By 5 April , Italy had conducted about 691,500 tests for the virus .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccbd6e",
+        "wiki_revision_id": "949304814",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccbff0_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccbff0_1",
+      "group_id": "vitaminc:revision-945013203",
+      "claim": "Less than 4,250 people have died from coronavirus .",
+      "evidence": "More than 66,000 people have recovered from the disease and more than 4,200 have died ( 3,200 in China , or ~75 % of total deaths ) .The virus spreads between people in a similar way to influenza , via respiratory droplets from coughing or sneezing .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccbff0",
+        "wiki_revision_id": "945013203",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccbff0_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccbff0_2",
+      "group_id": "vitaminc:revision-945013203",
+      "claim": "Less than 4,250 people have died from coronavirus .",
+      "evidence": "More than 66,000 people have recovered from the disease and more than 4,300 have died ( 3,200 in China , or ~75 % of total deaths ) .The virus spreads between people in a similar way to influenza , via respiratory droplets from coughing or sneezing .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccbff0",
+        "wiki_revision_id": "945013203",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccbff0_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccbff0_3",
+      "group_id": "vitaminc:revision-945013203",
+      "claim": "More than 4,290 people have died from coronavirus .",
+      "evidence": "More than 66,000 people have recovered from the disease and more than 4,200 have died ( 3,200 in China , or ~75 % of total deaths ) .The virus spreads between people in a similar way to influenza , via respiratory droplets from coughing or sneezing .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccbff0",
+        "wiki_revision_id": "945013203",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccbff0_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccbff0_4",
+      "group_id": "vitaminc:revision-945013203",
+      "claim": "More than 4,290 people have died from coronavirus .",
+      "evidence": "More than 66,000 people have recovered from the disease and more than 4,300 have died ( 3,200 in China , or ~75 % of total deaths ) .The virus spreads between people in a similar way to influenza , via respiratory droplets from coughing or sneezing .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccbff0",
+        "wiki_revision_id": "945013203",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccc0c2_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccc0c2_1",
+      "group_id": "vitaminc:revision-941735150",
+      "claim": "Less than 75,740 positive coronavirus cases had been registered before February 20 , 2020 .",
+      "evidence": "As of 19 February 2020 , 75,727 cases have been confirmed , including in all provinces of China and more than two dozen other countries .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccc0c2",
+        "wiki_revision_id": "941735150",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccc0c2_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccc0c2_2",
+      "group_id": "vitaminc:revision-941735150",
+      "claim": "Less than 75,740 positive coronavirus cases had been registered before February 20 , 2020 .",
+      "evidence": "As of 20 February 2020 , 75,756 cases have been confirmed , including in all provinces of China and more than two dozen other countries .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccc0c2",
+        "wiki_revision_id": "941735150",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccc0c2_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccc0c2_3",
+      "group_id": "vitaminc:revision-941735150",
+      "claim": "More than 75,740 positive coronavirus cases had been registered after February 19 , 2020 .",
+      "evidence": "As of 19 February 2020 , 75,727 cases have been confirmed , including in all provinces of China and more than two dozen other countries .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccc0c2",
+        "wiki_revision_id": "941735150",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccc0c2_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccc0c2_4",
+      "group_id": "vitaminc:revision-941735150",
+      "claim": "More than 75,740 positive coronavirus cases had been registered after February 19 , 2020 .",
+      "evidence": "As of 20 February 2020 , 75,756 cases have been confirmed , including in all provinces of China and more than two dozen other countries .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccc0c2",
+        "wiki_revision_id": "941735150",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccc236_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccc236_1",
+      "group_id": "vitaminc:revision-949802937",
+      "claim": "With under 17,500 deaths and under 25,000 recoveries , Italy has less than 139,000 confirmed coronavirus cases .",
+      "evidence": "The total of confirmed cases is 135,586 , with 17,127 deaths , and 24,392 recoveries or dismissals .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccc236",
+        "wiki_revision_id": "949802937",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccc236_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccc236_2",
+      "group_id": "vitaminc:revision-949802937",
+      "claim": "With under 17,500 deaths and under 25,000 recoveries , Italy has less than 139,000 confirmed coronavirus cases .",
+      "evidence": "The total of confirmed cases is 139,422 , with 17,669 deaths , and 26,491 recoveries or dismissals .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccc236",
+        "wiki_revision_id": "949802937",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccc236_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccc236_3",
+      "group_id": "vitaminc:revision-949802937",
+      "claim": "With over 17,500 deaths and over 25,000 recoveries , Italy has more than 139,000 confirmed coronavirus cases .",
+      "evidence": "The total of confirmed cases is 135,586 , with 17,127 deaths , and 24,392 recoveries or dismissals .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccc236",
+        "wiki_revision_id": "949802937",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccc236_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccc236_4",
+      "group_id": "vitaminc:revision-949802937",
+      "claim": "With over 17,500 deaths and over 25,000 recoveries , Italy has more than 139,000 confirmed coronavirus cases .",
+      "evidence": "The total of confirmed cases is 139,422 , with 17,669 deaths , and 26,491 recoveries or dismissals .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccc236",
+        "wiki_revision_id": "949802937",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccc237_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccc237_1",
+      "group_id": "vitaminc:revision-949802937",
+      "claim": "Before April 8 , Italy had conducted less than 800,000 coronavirus tests .",
+      "evidence": "By 7 April , Italy had conducted about 755,400 tests for the virus .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccc237",
+        "wiki_revision_id": "949802937",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccc237_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccc237_2",
+      "group_id": "vitaminc:revision-949802937",
+      "claim": "Before April 8 , Italy had conducted less than 800,000 coronavirus tests .",
+      "evidence": "By 8 April , Italy had conducted about 807,100 tests for the virus .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccc237",
+        "wiki_revision_id": "949802937",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccc237_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccc237_3",
+      "group_id": "vitaminc:revision-949802937",
+      "claim": "After April 7 , Italy had conducted more than 800,000 coronavirus tests .",
+      "evidence": "By 7 April , Italy had conducted about 755,400 tests for the virus .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccc237",
+        "wiki_revision_id": "949802937",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccc237_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b6c9e77c0008ccc237_4",
+      "group_id": "vitaminc:revision-949802937",
+      "claim": "After April 7 , Italy had conducted more than 800,000 coronavirus tests .",
+      "evidence": "By 8 April , Italy had conducted about 807,100 tests for the virus .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b6c9e77c0008ccc237",
+        "wiki_revision_id": "949802937",
+        "page": "2020 coronavirus pandemic in Italy"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b7c9e77c0008ccc47c_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b7c9e77c0008ccc47c_1",
+      "group_id": "vitaminc:revision-951795735",
+      "claim": "Official deaths from COVID-19 generally refer to people who tested positive .",
+      "evidence": "Official deaths from the COVID-19 generally refer to people who tested positive according to official protocols .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b7c9e77c0008ccc47c",
+        "wiki_revision_id": "951795735",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b7c9e77c0008ccc47c_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b7c9e77c0008ccc47c_2",
+      "group_id": "vitaminc:revision-951795735",
+      "claim": "Official deaths from COVID-19 generally refer to people who tested positive .",
+      "evidence": "Official deaths from the COVID-19 generally refer to people who died after testing positive according to official protocols .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee393b7c9e77c0008ccc47c",
+        "wiki_revision_id": "951795735",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b7c9e77c0008ccc47c_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b7c9e77c0008ccc47c_3",
+      "group_id": "vitaminc:revision-951795735",
+      "claim": "Official deaths from COVID-19 generally refer to people who died after testing positive .",
+      "evidence": "Official deaths from the COVID-19 generally refer to people who tested positive according to official protocols .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee393b7c9e77c0008ccc47c",
+        "wiki_revision_id": "951795735",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b7c9e77c0008ccc47c_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b7c9e77c0008ccc47c_4",
+      "group_id": "vitaminc:revision-951795735",
+      "claim": "Official deaths from COVID-19 generally refer to people who died after testing positive .",
+      "evidence": "Official deaths from the COVID-19 generally refer to people who died after testing positive according to official protocols .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b7c9e77c0008ccc47c",
+        "wiki_revision_id": "951795735",
+        "page": "2019–20 coronavirus pandemic"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b7c9e77c0008cccb72_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b7c9e77c0008cccb72_1",
+      "group_id": "vitaminc:revision-948106406",
+      "claim": "The death rate in Spain is calculated in 1 case per inhabitants .",
+      "evidence": "With population of 41,100,396 ( as of 1 July 2019 ) , infection rate is 1 case per 513 inhabitants and death rate is 1 case per inhabitants .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b7c9e77c0008cccb72",
+        "wiki_revision_id": "948106406",
+        "page": "2020 coronavirus pandemic in Spain"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b7c9e77c0008cccb72_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b7c9e77c0008cccb72_2",
+      "group_id": "vitaminc:revision-948106406",
+      "claim": "The death rate in Spain is calculated in 1 case per inhabitants .",
+      "evidence": "With population of 41,100,396 ( as of 1 July 2019 ) , infection rate is 1 case per 513 inhabitants and death rate is 1 case per 6,041 inhabitants .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee393b7c9e77c0008cccb72",
+        "wiki_revision_id": "948106406",
+        "page": "2020 coronavirus pandemic in Spain"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b7c9e77c0008cccb72_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b7c9e77c0008cccb72_3",
+      "group_id": "vitaminc:revision-948106406",
+      "claim": "The death rate in Spain is calculated in 1 case per 6,041 inhabitants .",
+      "evidence": "With population of 41,100,396 ( as of 1 July 2019 ) , infection rate is 1 case per 513 inhabitants and death rate is 1 case per inhabitants .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee393b7c9e77c0008cccb72",
+        "wiki_revision_id": "948106406",
+        "page": "2020 coronavirus pandemic in Spain"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b7c9e77c0008cccb72_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee393b7c9e77c0008cccb72_4",
+      "group_id": "vitaminc:revision-948106406",
+      "claim": "The death rate in Spain is calculated in 1 case per 6,041 inhabitants .",
+      "evidence": "With population of 41,100,396 ( as of 1 July 2019 ) , infection rate is 1 case per 513 inhabitants and death rate is 1 case per 6,041 inhabitants .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee393b7c9e77c0008cccb72",
+        "wiki_revision_id": "948106406",
+        "page": "2020 coronavirus pandemic in Spain"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39419c9e77c0008ccfb4a_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39419c9e77c0008ccfb4a_1",
+      "group_id": "vitaminc:revision-675245717",
+      "claim": "Some critics gave `` Fantastic Four '' negative reviews .",
+      "evidence": "Fantastic Four was released in the United States on July 8 , 2005.Despite being a box-office success , the film received mixed to negative reviews from critics .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee39419c9e77c0008ccfb4a",
+        "wiki_revision_id": "675245717",
+        "page": "Fantastic Four -LRB-2005 film-RRB-"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39419c9e77c0008ccfb4a_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39419c9e77c0008ccfb4a_2",
+      "group_id": "vitaminc:revision-675245717",
+      "claim": "Some critics gave `` Fantastic Four '' negative reviews .",
+      "evidence": "Fantastic Four was released in the United States on July 8 , 2005.Despite being a box-office success , the film received mixed reviews from critics .",
+      "gold": "non_contradiction",
+      "native_label": "NOT ENOUGH INFO",
+      "source_metadata": {
+        "case_id": "5ee39419c9e77c0008ccfb4a",
+        "wiki_revision_id": "675245717",
+        "page": "Fantastic Four -LRB-2005 film-RRB-"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39419c9e77c0008ccfb4b_1",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39419c9e77c0008ccfb4b_1",
+      "group_id": "vitaminc:revision-675245717",
+      "claim": "Most critics gave `` Fantastic Four '' negative reviews .",
+      "evidence": "Fantastic Four received mostly negative reviews from critics .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee39419c9e77c0008ccfb4b",
+        "wiki_revision_id": "675245717",
+        "page": "Fantastic Four -LRB-2005 film-RRB-"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39419c9e77c0008ccfb4b_2",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39419c9e77c0008ccfb4b_2",
+      "group_id": "vitaminc:revision-675245717",
+      "claim": "Most critics gave `` Fantastic Four '' negative reviews .",
+      "evidence": "Fantastic Four received mixed reviews from critics .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee39419c9e77c0008ccfb4b",
+        "wiki_revision_id": "675245717",
+        "page": "Fantastic Four -LRB-2005 film-RRB-"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39419c9e77c0008ccfb4b_3",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39419c9e77c0008ccfb4b_3",
+      "group_id": "vitaminc:revision-675245717",
+      "claim": "Most critics gave `` Fantastic Four '' mixed reviews .",
+      "evidence": "Fantastic Four received mostly negative reviews from critics .",
+      "gold": "contradiction",
+      "native_label": "REFUTES",
+      "source_metadata": {
+        "case_id": "5ee39419c9e77c0008ccfb4b",
+        "wiki_revision_id": "675245717",
+        "page": "Fantastic Four -LRB-2005 film-RRB-"
+      }
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39419c9e77c0008ccfb4b_4",
+      "dataset": "vitaminc",
+      "variant": "combined",
+      "split": "dev",
+      "source_id": "5ee39419c9e77c0008ccfb4b_4",
+      "group_id": "vitaminc:revision-675245717",
+      "claim": "Most critics gave `` Fantastic Four '' mixed reviews .",
+      "evidence": "Fantastic Four received mixed reviews from critics .",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORTS",
+      "source_metadata": {
+        "case_id": "5ee39419c9e77c0008ccfb4b",
+        "wiki_revision_id": "675245717",
+        "page": "Fantastic Four -LRB-2005 film-RRB-"
+      }
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "manifest_sha256": "ac7323461d0b3d9da6727b421001e9f4d460f78507a51b3e9d3b2c04216b09f0",
+  "manifest_bundle_sha256": "ac7323461d0b3d9da6727b421001e9f4d460f78507a51b3e9d3b2c04216b09f0",
+  "protocol": {
+    "requested_model": "jev-1.14.0",
+    "profile_source_sha256": "40edc4582663719a46f4f124cb461279f2904a8da52f54d9d0f58cdf3ed0f7bd",
+    "frozen_protocol_sha256": "d896850993214ce63a6bb79921cb9ff0c976779a46a9482a031eb486297745c2",
+    "profiles": [
+      "baseline",
+      "rich-criteria",
+      "rich-criteria-examples"
+    ],
+    "manifests": [
+      {
+        "name": "eval/data/vitaminc-combined-dev-200.json",
+        "sha256": "982a5dc43919853176d372c53bf90bc98d4bc49e56d8703165feb14345aff0ff",
+        "purpose": "development",
+        "pairs": 200,
+        "sources": [
+          {
+            "name": "dev.jsonl",
+            "url": "https://github.com/TalSchuster/talschuster.github.io/raw/master/static/vitaminc.zip",
+            "revision": "eb532922b88b199df68ed26afeb58dca5501b52f (repository documentation; data bytes pinned by sha256)",
+            "sha256": "a3258bc959754c84bade150d3bf447fd9c91a529d93bb676f034fdafda5f26e5",
+            "license": "Wikipedia article terms / CC BY-SA 3.0 fallback; synthetic examples also derive from FEVER",
+            "license_url": "https://github.com/TalSchuster/VitaminC/blob/eb532922b88b199df68ed26afeb58dca5501b52f/DATA_LICENSE"
+          },
+          {
+            "name": "download-archive",
+            "url": "https://github.com/TalSchuster/talschuster.github.io/raw/master/static/vitaminc.zip",
+            "revision": "mutable official release URL; exact archive pinned by sha256",
+            "sha256": "49d82dc1690cbee420d18e2c26f687a7937710bb211845d2571430dfd4dc0337",
+            "license": "Wikipedia article terms / CC BY-SA 3.0 fallback; synthetic examples also derive from FEVER",
+            "license_url": "https://github.com/TalSchuster/VitaminC/blob/eb532922b88b199df68ed26afeb58dca5501b52f/DATA_LICENSE"
+          }
+        ]
+      },
+      {
+        "name": "eval/data/scifact-dev-200.json",
+        "sha256": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+        "purpose": "development",
+        "pairs": 199,
+        "sources": [
+          {
+            "name": "claims_dev.jsonl",
+            "url": "https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz",
+            "revision": "68b98a56d93e0f9da0d2aab4e6c3294699a0f72e (repository documentation; data bytes pinned by sha256)",
+            "sha256": "86f0435d08fdb65d1aa41d1472684f57e6e71930626497bdf4d7a9ec1a632217",
+            "license": "Claims/annotations: CC BY 4.0; abstracts: ODC-By 1.0 (S2ORC)",
+            "license_url": "https://github.com/allenai/scifact/blob/68b98a56d93e0f9da0d2aab4e6c3294699a0f72e/LICENSE.md"
+          },
+          {
+            "name": "corpus.jsonl",
+            "url": "https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz",
+            "revision": "68b98a56d93e0f9da0d2aab4e6c3294699a0f72e (repository documentation; data bytes pinned by sha256)",
+            "sha256": "b8d6c89624cb2ed74dee8938effc4f5d8bd2086887880af8110d64be4ceade62",
+            "license": "Claims/annotations: CC BY 4.0; abstracts: ODC-By 1.0 (S2ORC)",
+            "license_url": "https://github.com/allenai/scifact/blob/68b98a56d93e0f9da0d2aab4e6c3294699a0f72e/LICENSE.md"
+          },
+          {
+            "name": "download-archive",
+            "url": "https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz",
+            "revision": "mutable official release URL; exact archive pinned by sha256",
+            "sha256": "11c621288d41ac144d29b13b0f8503b3820b7d6e8b1f6ff24dff335c196d76be",
+            "license": "Claims/annotations: CC BY 4.0; abstracts: ODC-By 1.0 (S2ORC)",
+            "license_url": "https://github.com/allenai/scifact/blob/68b98a56d93e0f9da0d2aab4e6c3294699a0f72e/LICENSE.md"
+          }
+        ]
+      },
+      {
+        "name": "eval/fixtures/prompt-ablation-contract.json",
+        "sha256": "3abd761205be0fe9113b4be89fbdb71313f12a96e3331a8c9b746b9698bf3ecb",
+        "purpose": "synthetic-smoke",
+        "pairs": 32,
+        "sources": [
+          {
+            "name": "AI-authored contract diagnostic; source hash pins canonical pair JSON",
+            "url": "local:eval/fixtures/prompt-ablation-contract.json",
+            "revision": "prompt-contract-v1",
+            "sha256": "5b90348d81a43dee0fd41100e324615b7baf0aa5e921a30c7d4acfdc870f1f7c",
+            "license": "CC0-1.0 (synthetic fixture text only)",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+          }
+        ]
+      }
+    ],
+    "planned_calls": 1293,
+    "max_reserved_usd": 6.465,
+    "reservation_per_call_usd": 0.005,
+    "global_concurrency": 1,
+    "per_profile_dataset_queue_concurrency": 1,
+    "deadline_ms": 3000,
+    "passes": 1,
+    "retries": 0,
+    "truncation": false,
+    "threshold_tuning": false,
+    "dual_noul_changes_policy_and_question_representation": true,
+    "production_qualification": "not_assessed"
+  },
+  "checkpoint_semantics": "Mixed-profile checkpoint: identify each row by ablation_profile, source_manifest_sha256, pair_id; no automatic retries or resume"
+}

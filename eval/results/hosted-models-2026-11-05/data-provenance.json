@@ -1,0 +1,1121 @@
+{
+  "vitaminc": {
+    "manifest_sha256": "982a5dc43919853176d372c53bf90bc98d4bc49e56d8703165feb14345aff0ff",
+    "adapter_version": "countercheck-public-pairs-v1",
+    "sources": [
+      {
+        "name": "dev.jsonl",
+        "url": "https://github.com/TalSchuster/talschuster.github.io/raw/master/static/vitaminc.zip",
+        "revision": "eb532922b88b199df68ed26afeb58dca5501b52f (repository documentation; data bytes pinned by sha256)",
+        "sha256": "a3258bc959754c84bade150d3bf447fd9c91a529d93bb676f034fdafda5f26e5",
+        "license": "Wikipedia article terms / CC BY-SA 3.0 fallback; synthetic examples also derive from FEVER",
+        "license_url": "https://github.com/TalSchuster/VitaminC/blob/eb532922b88b199df68ed26afeb58dca5501b52f/DATA_LICENSE"
+      },
+      {
+        "name": "download-archive",
+        "url": "https://github.com/TalSchuster/talschuster.github.io/raw/master/static/vitaminc.zip",
+        "revision": "mutable official release URL; exact archive pinned by sha256",
+        "sha256": "49d82dc1690cbee420d18e2c26f687a7937710bb211845d2571430dfd4dc0337",
+        "license": "Wikipedia article terms / CC BY-SA 3.0 fallback; synthetic examples also derive from FEVER",
+        "license_url": "https://github.com/TalSchuster/VitaminC/blob/eb532922b88b199df68ed26afeb58dca5501b52f/DATA_LICENSE"
+      }
+    ],
+    "sampling": {
+      "seed": "countercheck-v1",
+      "max_pairs": 200,
+      "method": "whole claim groups, deterministic seed ordering, greedy native-label proportion matching; no row truncation",
+      "available_pairs": 63054,
+      "selected_pairs": 200,
+      "excluded_unlabeled": 0,
+      "strata": {
+        "vitaminc/combined/NOT ENOUGH INFO": 29,
+        "vitaminc/combined/SUPPORTS": 100,
+        "vitaminc/combined/REFUTES": 71
+      }
+    }
+  },
+  "scifact": {
+    "manifest_sha256": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+    "adapter_version": "countercheck-public-pairs-v1",
+    "sources": [
+      {
+        "name": "claims_dev.jsonl",
+        "url": "https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz",
+        "revision": "68b98a56d93e0f9da0d2aab4e6c3294699a0f72e (repository documentation; data bytes pinned by sha256)",
+        "sha256": "86f0435d08fdb65d1aa41d1472684f57e6e71930626497bdf4d7a9ec1a632217",
+        "license": "Claims/annotations: CC BY 4.0; abstracts: ODC-By 1.0 (S2ORC)",
+        "license_url": "https://github.com/allenai/scifact/blob/68b98a56d93e0f9da0d2aab4e6c3294699a0f72e/LICENSE.md"
+      },
+      {
+        "name": "corpus.jsonl",
+        "url": "https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz",
+        "revision": "68b98a56d93e0f9da0d2aab4e6c3294699a0f72e (repository documentation; data bytes pinned by sha256)",
+        "sha256": "b8d6c89624cb2ed74dee8938effc4f5d8bd2086887880af8110d64be4ceade62",
+        "license": "Claims/annotations: CC BY 4.0; abstracts: ODC-By 1.0 (S2ORC)",
+        "license_url": "https://github.com/allenai/scifact/blob/68b98a56d93e0f9da0d2aab4e6c3294699a0f72e/LICENSE.md"
+      },
+      {
+        "name": "download-archive",
+        "url": "https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz",
+        "revision": "mutable official release URL; exact archive pinned by sha256",
+        "sha256": "11c621288d41ac144d29b13b0f8503b3820b7d6e8b1f6ff24dff335c196d76be",
+        "license": "Claims/annotations: CC BY 4.0; abstracts: ODC-By 1.0 (S2ORC)",
+        "license_url": "https://github.com/allenai/scifact/blob/68b98a56d93e0f9da0d2aab4e6c3294699a0f72e/LICENSE.md"
+      }
+    ],
+    "sampling": {
+      "seed": "countercheck-v1",
+      "max_pairs": 200,
+      "method": "whole claim groups, deterministic seed ordering, greedy native-label proportion matching; no row truncation",
+      "available_pairs": 338,
+      "selected_pairs": 199,
+      "excluded_unlabeled": 112,
+      "strata": {
+        "scifact/gold-rationale-set/SUPPORT": 128,
+        "scifact/gold-rationale-set/CONTRADICT": 71
+      }
+    }
+  },
+  "contractnli": {
+    "manifest_sha256": "4906005f4843b97a1cc6f256f62467cced5183965a0bafa9d713ee0099326311",
+    "adapter_version": "countercheck-public-pairs-v1",
+    "sources": [
+      {
+        "name": "ContractNLI dev.json official ZIP member",
+        "url": "https://raw.githubusercontent.com/stanfordnlp/contract-nli/eced6528dd3c1d14d73f9a87df8f7bdbc03126f9/resources/contract-nli.zip",
+        "revision": "eced6528dd3c1d14d73f9a87df8f7bdbc03126f9",
+        "license": "CC BY 4.0; cite Koreeda and Manning, Findings of EMNLP 2021",
+        "license_url": "https://github.com/stanfordnlp/contract-nli/blob/eced6528dd3c1d14d73f9a87df8f7bdbc03126f9/LICENSE",
+        "sha256": "310af7d661d2ab50ee3700169cef524c75f39fb296bbf5a515c229eb0f42e68e"
+      }
+    ],
+    "sampling": {
+      "seed": "business-v1",
+      "max_pairs": 200,
+      "method": "Label-blind seeded whole-source groups after complete-pair envelope exclusions; no text truncation or group splitting",
+      "available_pairs": 561,
+      "selected_pairs": 199,
+      "excluded_unlabeled": 423,
+      "strata": {
+        "contractnli/complete-gold-rationale-oracle-excerpt/Contradiction": 26,
+        "contractnli/complete-gold-rationale-oracle-excerpt/Entailment": 173
+      },
+      "group_diagnostics": {
+        "population": {
+          "pairs": 561,
+          "groups": 57,
+          "group_size_counts": {
+            "3": 1,
+            "4": 3,
+            "5": 1,
+            "6": 3,
+            "7": 6,
+            "8": 4,
+            "9": 4,
+            "10": 8,
+            "11": 7,
+            "12": 10,
+            "13": 5,
+            "14": 4,
+            "15": 1
+          },
+          "mean_group_size": 9.842105263157896,
+          "max_group_size": 15,
+          "mixed_native_label_groups": 50,
+          "mixed_native_label_group_fraction": 0.8771929824561403
+        },
+        "selected": {
+          "pairs": 199,
+          "groups": 20,
+          "group_size_counts": {
+            "4": 1,
+            "6": 3,
+            "7": 1,
+            "8": 1,
+            "9": 2,
+            "10": 2,
+            "11": 2,
+            "12": 4,
+            "13": 2,
+            "14": 2
+          },
+          "mean_group_size": 9.95,
+          "max_group_size": 14,
+          "mixed_native_label_groups": 16,
+          "mixed_native_label_group_fraction": 0.8
+        },
+        "bias_disclosure": "Whole-group size cap and envelope filtering can exclude long/complex sources. This is a bounded source-conditioned development sample, not a representative business population."
+      }
+    }
+  },
+  "mnli": {
+    "manifest_sha256": "114ee3ca8ff9960fc2146bf7bca19f38284281812c9cec27e25e9815746337b6",
+    "adapter_version": "countercheck-public-pairs-v1",
+    "sources": [
+      {
+        "name": "multinli_1.0/multinli_1.0_dev_matched.jsonl",
+        "url": "https://cims.nyu.edu/~sbowman/multinli/multinli_1.0.zip",
+        "revision": "MultiNLI 1.0",
+        "sha256": "9db14e02591c51b7c0401802382f01602ce97c21697a68a263f8c4b5958229a6",
+        "license": "Selected OANC nonfiction genres: unrestricted use, modification and redistribution, including commercial use",
+        "license_url": "https://cims.nyu.edu/~sbowman/multinli/paper.pdf"
+      },
+      {
+        "name": "MultiNLI official archive",
+        "url": "https://cims.nyu.edu/~sbowman/multinli/multinli_1.0.zip",
+        "revision": "MultiNLI 1.0",
+        "sha256": "049f507b9e36b1fcb756cfd5aeb3b7a0cfcb84bf023793652987f7e7e0957822",
+        "license": "Selected OANC nonfiction genres: unrestricted use, modification and redistribution, including commercial use",
+        "license_url": "https://cims.nyu.edu/~sbowman/multinli/paper.pdf"
+      }
+    ],
+    "sampling": {
+      "seed": "business-v1",
+      "max_pairs": 200,
+      "method": "Label-blind seeded whole-source groups after complete-pair envelope exclusions; no text truncation or group splitting",
+      "available_pairs": 5866,
+      "selected_pairs": 200,
+      "excluded_unlabeled": 134,
+      "strata": {
+        "mnli/dev_matched/contradiction": 67,
+        "mnli/dev_matched/entailment": 72,
+        "mnli/dev_matched/neutral": 61
+      },
+      "group_diagnostics": {
+        "population": {
+          "pairs": 5866,
+          "groups": 2001,
+          "group_size_counts": {
+            "1": 6,
+            "2": 125,
+            "3": 1870
+          },
+          "mean_group_size": 2.9315342328835583,
+          "max_group_size": 3,
+          "mixed_native_label_groups": 1965,
+          "mixed_native_label_group_fraction": 0.9820089955022488
+        },
+        "selected": {
+          "pairs": 200,
+          "groups": 69,
+          "group_size_counts": {
+            "2": 7,
+            "3": 62
+          },
+          "mean_group_size": 2.898550724637681,
+          "max_group_size": 3,
+          "mixed_native_label_groups": 68,
+          "mixed_native_label_group_fraction": 0.9855072463768116
+        },
+        "bias_disclosure": "Whole-group size cap and envelope filtering can exclude long/complex sources. This is a bounded source-conditioned development sample, not a representative business population."
+      }
+    }
+  },
+  "findver": {
+    "manifest_sha256": "3e3f6515bdf307c218dbdac18c280188d9c36a9cf21a843e349fc4d4b368ae12",
+    "adapter_version": "countercheck-public-pairs-v1",
+    "sources": [
+      {
+        "name": "findver-testmini",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/data/testmini.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "09ffb848fec6cc38c7df153500f63388fa5fb7d9bc78300690ddbb83fa4e403a",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:ABQQ-2024-04-15_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/ABQQ-2024-04-15_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "7259a0463496ddfb495e1cbdb3a3348f62e57863c50bf758c6d376e4a7d65ccb",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:AMAO-2024-04-16_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/AMAO-2024-04-16_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "78aed2e7ad8bf23bca0f71ed7a8e0ad16353fb2bb4169982b91d97229286af63",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:AMN-2024-02-22_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/AMN-2024-02-22_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "1834563f320d923eb7f77490f73a71ac837a9d7bdecdca5664749ec5303621bd",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:ANGO-2024-04-09_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/ANGO-2024-04-09_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "e76d40078d2fca8bbbdeb7afe03f18392af421ea4664a7131503f3df160e5f1e",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:ANY-2024-03-13_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/ANY-2024-03-13_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "625be3c66a0a53eafc9d8a9657165b242c33ab6e9b14e569f70876df13bf4e34",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:AP-2024-03-25_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/AP-2024-03-25_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "a259e73832868005a3fd2e0085ac45c5af900873eadf1a5843c1cfef32eb1fd0",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:APYP-2024-04-01_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/APYP-2024-04-01_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "a7ff15efc54db558bf37de00bd817f15bcc4c0729ba3d3622dc6e3b1aa77d7be",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:ARRT-2024-02-20_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/ARRT-2024-02-20_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "7ac4f40b10db4547b8574d8aa1d8a6f786145fb9c7553ba82f46a2f3af1cea58",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:ASIX-2024-02-16_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/ASIX-2024-02-16_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "c24af643eefb207ba347ce5848257e474a1b71052f27e18467654bbf5c0ad52e",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:BBCPW-2024-01-16_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/BBCPW-2024-01-16_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "ee01334e3300d199cfa550a9ea93fdfaa06c0e0a2772f7d84862e115ab3b8e48",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:BBW-2024-04-18_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/BBW-2024-04-18_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "1f196cdebf009e06e8a0cd722ea5221afd6268361475239b743a80142f1c6868",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:BCC-2024-02-20_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/BCC-2024-02-20_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "7235afef1feb839183472c1ab4f0583a434a87e3e9308370930219b3beb8b089",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:BLBX-2024-04-01_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/BLBX-2024-04-01_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "2e9e364a6bcc427737b9e022225470106349095102b706b13e8adb3182e70b9d",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:BLDE-2024-03-12_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/BLDE-2024-03-12_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "08ecabb8c5f8a5a1aa0a2d5b811d709baaf44a064a14f57313f6893b774d2099",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:BML-PG-2024-04-30_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/BML-PG-2024-04-30_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "d0952c39cded1415450406694cfc37c855875afff3aeb369951367963b60f093",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:BMRN-2024-04-26_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/BMRN-2024-04-26_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "3814f4e6e2ddbc3e5f57167bd25da3f8cf89ac6d741fa28323d765dfbb9135ed",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:BODY-2024-03-11_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/BODY-2024-03-11_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "7e1241c0fd6e0af2cea3f9ab6ce989f574c07c1c65349f960a2efb00a0c474ac",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:BRAC-2024-03-14_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/BRAC-2024-03-14_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "50212617d35e4b49b7deb23a7c4ab1832cf79cad8bea8c9d95d80d2bee6057b9",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:BRID-2024-01-29_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/BRID-2024-01-29_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "e3ece2e3db2e26e3d5e28ed52d2cba6d9dba18ed9f91622fd4b74f0a2804cc47",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:BURL-2024-03-15_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/BURL-2024-03-15_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "357e816b4a5e4a204d9c6bd449c240293c60ac5519403ddfae2d591dcc263e74",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:CALB-2024-03-21_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/CALB-2024-03-21_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "5d10421e0c4f3bd6013e66e6711a599cf1f6e3d5bf3d6736102286e5e53a2ece",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:CASS-2024-02-28_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/CASS-2024-02-28_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "40ca9407ddca74005fd091fdf8243b4c82c054785f379686c784afc224136f12",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:CDAQ-2024-04-01_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/CDAQ-2024-04-01_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "5fc9bc1687183f96aaca4c6d807353f174d442d10de81df5cd5561026ac75eab",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:CHCI-2024-03-21_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/CHCI-2024-03-21_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "869699cf8e7e94b4092a120c9376ac8c1c6950fc5d85e1c7a76582c2d375f60c",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:CHHE-2024-04-01_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/CHHE-2024-04-01_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "f852e272f9cc5064ad386d9825adab8249ad04e1806d2cf7e679be26d01faf03",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:CLAR-2024-03-07_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/CLAR-2024-03-07_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "98ef512b7d1685fe0b742e96dc2c10c268957fafaa9cf256549350f9759e08a4",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:COLM-2024-02-26_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/COLM-2024-02-26_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "e6eac144b43c9a6b422a720653666ace602425ec96ffa7b1ab64b30a75017690",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:CYTK-2024-02-28_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/CYTK-2024-02-28_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "043355402ebe4c31a263a8f57c732fea6635a77dc51d7732c3b49962aadc650a",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:CYTR-2024-03-27_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/CYTR-2024-03-27_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "388cd06be314b9a5c8e86d3c4ee794902c4c5f4b88c68d5a8cc80c63edb273c8",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:DBGI-2024-04-15_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/DBGI-2024-04-15_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "8c097924378764e4587f1e82f480e2502dbab96cf210330df21a2786cdac7b95",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:DECAU-2024-04-01_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/DECAU-2024-04-01_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "835b8de6e905c90895ecf1ca2dbcaee9d937e9d1c3acd726cb1b9449ff419a48",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:DHCAU-2024-04-01_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/DHCAU-2024-04-01_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "725e997ddd536a4fc48f97aecab2b23342bac59823679e313437427ef0342fce",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:DLTR-2024-03-20_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/DLTR-2024-03-20_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "14873ee666e1fb3eedd3ca4c3e26fe6dad6cef4b3698d4337acad485ef449c75",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:DTGI-2024-03-22_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/DTGI-2024-03-22_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "fddfee7238a010428158cdef8bb2a49753d379036252dbd33dfba1f46f256ad8",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:DX-PC-2024-02-26_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/DX-PC-2024-02-26_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "99f98895536494e167bd8a6c5726c60323c023cb25112f7be7d2368281fc30fb",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:ELRE-2024-02-14_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/ELRE-2024-02-14_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "2d14d3c45bba4e55f9835e402248c0be1822e7c997f444770bdb0046e511a116",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:ELTP-2024-02-14_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/ELTP-2024-02-14_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "46bf0abe692892a6d9723c3415ca5d3d31cd2f7c1633031bce5b4edc430bd10c",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:EML-2024-03-12_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/EML-2024-03-12_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "93360bc48f9164316a229b201578b3b3005cf0ac289054ab4d0210f4076ddab0",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:ETD-2024-01-24_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/ETD-2024-01-24_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "441ad4da65670d408fe0c1573cf45632eb0e5aa1bf233f3b68a376fe56da55e5",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:ETST-2024-02-20_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/ETST-2024-02-20_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "47e142b262be6d7fdbea79ffff129e10ed5fbe8e04d8a763793d7c518c551397",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:EXDW-2024-02-16_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/EXDW-2024-02-16_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "156f2673810ceeb1f97fc89d68ea481a65b58ce81ade185a13eca25c4afeacc2",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:FC-2024-01-09_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/FC-2024-01-09_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "255b86dbd58ceb3bacc8f36ffa3b4e343354f5717024989b9de469613b5bc023",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:FLUX-2024-02-08_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/FLUX-2024-02-08_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "06fc3d241205f6997e49ef988ab186287b8d17702c157b6f4624e0cceee7fd21",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:FTAI-2024-02-26_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/FTAI-2024-02-26_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "59eb8fac923afcece6aa210777d83a1ef845d16bb121fd78c1bba18d5726e79c",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:FTK-2024-03-15_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/FTK-2024-03-15_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "9e5dd3cf958a0439b34fb6415af4013f8d6aeeba8bbcce44f2864f067b7dce31",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:GGROU-2024-03-15_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/GGROU-2024-03-15_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "fc988b0888082e35a45354fa43ce583745fe4846ab070d27d7d785f03210726f",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:HLI-2024-02-08_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/HLI-2024-02-08_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "a2108cc023c5c4aaabe0126487067b453781901a795103f2b2a0803e4c448afd",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:HNI-2024-02-27_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/HNI-2024-02-27_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "a3500ec23e318f651eb10661d33e3e5ba87a1fe9cc77063ae608de2572898c60",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:HQY-2024-03-22_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/HQY-2024-03-22_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "737499a9328f3a06e1a25db7313177380cf94553e4edf5a1160d9123e93319e0",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:HY-2024-02-27_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/HY-2024-02-27_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "fb3ada2006113bb3a09369f6c6468e474ac9d37b521d9f16601a93f0c0d6ae91",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:HYMCL-2024-03-14_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/HYMCL-2024-03-14_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "3d538e4f3073307f31cab344e8f61b97532ef218148607188d724303ef2d69a4",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:IVCP-2024-04-01_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/IVCP-2024-04-01_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "29b83bf130376f364882ecb3a63fef888a818ab1a6cf789b44b1d14ebcf6b3d0",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:JKSM-2024-04-16_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/JKSM-2024-04-16_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "24f5830af013c6f6e61810ccdadae3d6a86aa52945c103f2b8d21a359b072fb9",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:KAII-2024-04-17_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/KAII-2024-04-17_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "75e2096f0b522dfc8df993ddf6093bf18eae5839c25105bdf82c4581bfeba35f",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:KIRK-2024-03-29_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/KIRK-2024-03-29_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "8db1ff67cd2e7ee1ae50ce6a40af6665a8018ee5a6d885a507e2eed29ab30624",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:KORE-WT-2024-04-15_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/KORE-WT-2024-04-15_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "b122f08edde30b9f285f70b27696b82a2ffb3ab98452e0d62c2f26661484805f",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:KSCP-2024-04-01_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/KSCP-2024-04-01_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "aadb6c8b23e0dbfb8e36d43000517402f6e5f84da3257272d388143316b207fa",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:LEA-2024-04-30_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/LEA-2024-04-30_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "d5657c964437a74a682ae8c0758e82bc272a7ca66685e83ac11b335e392e742f",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:LMNR-2024-03-07_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/LMNR-2024-03-07_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "09952d74a7b68904c912c9bb6e62aa75803922d618e934ca39a5553f2441faf0",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:LNBY-2024-02-05_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/LNBY-2024-02-05_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "fe04d3d2ce3ee83cbe6a4c47ab965ebe8c4875758538dbd4ae097a32c31ab966",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:MAS-2024-02-08_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/MAS-2024-02-08_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "680e2b767efc1c94f4eba65cbc72a3578492d600bcb0009a42bf1dd441430a51",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:MCS-2024-03-01_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/MCS-2024-03-01_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "5ce5048c8ed72b4ffdfb5008ca91aad46b2f2a7a0c55aaa3863d5e3ab94462d2",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:ME-2024-02-07_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/ME-2024-02-07_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "8877d84c8390bd05f8642a9e84fb052ea10ffa4343e86d0267f54bdf99d5b5a3",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:MGLD-2024-02-14_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/MGLD-2024-02-14_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "5ec3d9ff4637c85fd79fdae063840c44473336de4c3b6aac83b833631df4fa69",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:MMTRS-2024-04-01_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/MMTRS-2024-04-01_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "e07354a2482ddc4d9fa58e2b089811c2d867d265cbeb3db5a6cf7c168a0ab09e",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:NJR-2024-02-06_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/NJR-2024-02-06_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "363695a6defd8dffd9ce7985aadba44fa851b04694b2e15daf92638f1cd62da9",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:NOTE-2024-03-15_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/NOTE-2024-03-15_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "8e30e3d42620b3d2d5de3d10f81be6f1d9de671af5edfe5a32a694c70741d69a",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:NOVVU-2024-03-04_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/NOVVU-2024-03-04_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "32d593dff745aff55d7734a295e821cde2acb9f93e4a09bd97e5a4e867d7a654",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:OSG-2024-03-11_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/OSG-2024-03-11_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "43831d6ceb08956408e390e46b9dc39148c1261516bfa2dd2e46b76e046540b2",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:PAXH-2024-04-17_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/PAXH-2024-04-17_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "80d9b7e4a96ba5f09780684b1abf8f874a034af9860667da18eb235e3c9a99b2",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:PAYS-2024-03-27_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/PAYS-2024-03-27_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "3d12263ab8b8fda8415c37ceb022c271d18af7ac6ce85ea03d26bb624cf94eb7",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:PHM-2024-04-23_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/PHM-2024-04-23_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "409f4d158018552477315a2556b8755d3504ccbf3fc5e4a8cc929357a2f2ff82",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:PKTX-2024-03-20_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/PKTX-2024-03-20_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "2d0d95c98eb346e6338b9ad45bd35770692d82a49ee730e78a63422b3ea876de",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:PLDGP-2024-04-25_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/PLDGP-2024-04-25_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "806827028ccc1af2401932182d0ddc4aa0a04aa4bdbbb00ec9ab648ff2832e82",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:PSA-2024-04-30_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/PSA-2024-04-30_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "41ebf8f45260fdf3017c5883907c3112ce2474d29b72dbd65754ec992ae64878",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:PTWOU-2024-03-19_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/PTWOU-2024-03-19_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "c4182b207eae2fdc4992d31e1d7061a84e66f8eb03641d580f9569d305d34219",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:PYCR-2024-02-08_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/PYCR-2024-02-08_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "e78fa6d160505fdac42ae886868a562282e34b66fddec43e610951ff2010b8a0",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:QRTEA-2024-02-28_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/QRTEA-2024-02-28_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "43fd6b857262f862150848fc61d3d5b3aaf41d9222fcd4a7fa80be8b7a7bfb4b",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:SACH-PA-2024-04-01_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/SACH-PA-2024-04-01_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "e474ecbc7b58913e41326bcd75d563ed4ade4439483cc97bb0cec310f0d9b44d",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:SDSYA-2024-03-22_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/SDSYA-2024-03-22_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "5e5b130887c01b4b4a83d12cd3c6b14379dcb69dd6b447f32c488661bfe8f488",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:SKKY-2024-03-13_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/SKKY-2024-03-13_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "b3e51081e6f4f7dd570891614ac775d1e901d06db2ee91fc7e3b81baea82d262",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:SPWH-2024-04-04_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/SPWH-2024-04-04_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "e3ff6f183b132470fdd1553dfe5f43af64d83a90f8751b8f01ed1b004a3e876e",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:STLD-2024-02-29_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/STLD-2024-02-29_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "f699bd753844036d389f91a5653a332e1c35e0a0ff19f077dbf8d798a64ef611",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:STSSW-2024-03-29_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/STSSW-2024-03-29_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "e645fecc9e208524175a173b9ded9e9de40f24058e70e61361cee470ba25794c",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:TNET-2024-04-26_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/TNET-2024-04-26_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "84301ba482cc46b4bc20b064e271467d60956d1cf0e4455b40c55cce7d5504cc",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:TRTX-PC-2024-04-30_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/TRTX-PC-2024-04-30_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "b0019d2be5426eccdf328375d2480c7641694f3a0b0f699b32ea4fd972ddbad9",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:TTEK-2024-02-02_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/TTEK-2024-02-02_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "d188795edc04ec4f499e6aee6d881815e0310069440661912b255d9e72515805",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:UBFO-2024-03-26_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/UBFO-2024-03-26_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "0fad7c34292e510e9cb5b8dcce2400c82e7f0c8a100572b2b28c1aa8c3ee708c",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:V-2024-04-24_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/V-2024-04-24_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "8ed512bb2b4e66d8f858d329c137e39243de1086d68b5b10ed8779bf8da8fd0b",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:VISM-2024-02-20_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/VISM-2024-02-20_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "92bae492bc0176a7e9cd6d92c7c4f27d87b01c49a1d696d059dc28d7cc75a7e8",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:VPG-2024-02-29_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/VPG-2024-02-29_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "3cef6b91910f341b354432681a41ddfddd297f518e34daef7f8872e50340d94a",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:VRVR-2024-04-16_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/VRVR-2024-04-16_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "2c0c08b59325eb6dfb7dca336d4f52e0c8dea1a3ca31ec67afbec1fbb34cb6b6",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:WOLF-2024-02-01_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/WOLF-2024-02-01_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "05ebe2e9fceddc48f7aacd6b0edbad0216f39180e256b2639b9bfcb70b2c90de",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:WRK-2024-02-02_10-Q.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/WRK-2024-02-02_10-Q.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "936b85495d9fec9f16f18fdfe3d57b346994303ffcfb06df5710e87ddc1f1ec2",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:WSTRF-2024-04-16_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/WSTRF-2024-04-16_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "af0a74403459c9ec5ca6489eff99d47e301f23348ffe4a9c5ca3c6c69d066bf1",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:XL-2024-04-09_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/XL-2024-04-09_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "ccf8078ae44dcade520de2a3969dca220a6cca2b9ba54f95d6a01798b0d03fa6",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:XPEL-2024-02-28_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/XPEL-2024-02-28_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "f71275b61bbf9d344418dc670bf786e837bca14c05e20ee4a811fbd317a2ba70",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:YOTA-2024-04-15_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/YOTA-2024-04-15_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "6b46e6a8cf4ff2f0e31dd2fedbf82632c99cb0b022dd55e3223e9539247c08f8",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      },
+      {
+        "name": "findver-report:ZOM-2024-04-01_10-K.json",
+        "url": "https://raw.githubusercontent.com/yilunzhao/FinDVer/e8bb237def4ce555a606a45edba22666e31df248/financial_reports/ZOM-2024-04-01_10-K.json",
+        "revision": "e8bb237def4ce555a606a45edba22666e31df248",
+        "sha256": "40c91f879bfa30255028b40ab08e094b87acf210b7e0a028dc11f3e047dbcbf9",
+        "license": "Repository artifacts: MIT; underlying issuer-report text license not separately stated",
+        "license_url": "https://github.com/yilunzhao/FinDVer/blob/e8bb237def4ce555a606a45edba22666e31df248/LICENSE"
+      }
+    ],
+    "sampling": {
+      "seed": "business-v1",
+      "max_pairs": 200,
+      "method": "Label-blind seeded whole remaining source groups after individual complete-pair envelope filtering; no text truncation; unsupported sibling pairs excluded explicitly",
+      "available_pairs": 82,
+      "selected_pairs": 82,
+      "excluded_unlabeled": 0,
+      "strata": {
+        "findver/testmini-ie/refuted": 44,
+        "findver/testmini-ie/entailed": 38
+      },
+      "group_diagnostics": {
+        "population": {
+          "pairs": 82,
+          "groups": 59,
+          "group_size_counts": {
+            "1": 41,
+            "2": 15,
+            "3": 1,
+            "4": 2
+          },
+          "mean_group_size": 1.3898305084745763,
+          "max_group_size": 4,
+          "mixed_native_label_groups": 8,
+          "mixed_native_label_group_fraction": 0.13559322033898305
+        },
+        "selected": {
+          "pairs": 82,
+          "groups": 59,
+          "group_size_counts": {
+            "1": 41,
+            "2": 15,
+            "3": 1,
+            "4": 2
+          },
+          "mean_group_size": 1.3898305084745763,
+          "max_group_size": 4,
+          "mixed_native_label_groups": 8,
+          "mixed_native_label_group_fraction": 0.13559322033898305
+        },
+        "bias_disclosure": "Whole-group size cap and envelope filtering can exclude long/complex sources. This is a bounded source-conditioned development sample, not a representative business population."
+      }
+    }
+  },
+  "synthetic-smoke": {
+    "manifest_sha256": "b1a96134ba41cb728cf12e7af0c30cc6a754ef2b734ebaff8b3397196bfbad79",
+    "adapter_version": "countercheck-public-pairs-v1",
+    "sources": [
+      {
+        "name": "hand-authored synthetic fixtures",
+        "url": "local:eval/fixtures/synthetic-smoke.json",
+        "revision": "countercheck-synthetic-smoke-v1",
+        "sha256": "f66c32d685bc96031145d407f505537c2ef3c510e2f456aa6b2314d981c15bf7",
+        "license": "CC0-1.0 (hand-authored synthetic fixture text only)",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "sampling": {
+      "seed": "countercheck-v1",
+      "max_pairs": 8,
+      "method": "entire explicitly synthetic fixture; not public benchmark data",
+      "available_pairs": 8,
+      "selected_pairs": 8,
+      "excluded_unlabeled": 0,
+      "strata": {
+        "synthetic-smoke/hand-authored-smoke/synthetic-conflict": 1,
+        "synthetic-smoke/hand-authored-smoke/synthetic-restatement": 2,
+        "synthetic-smoke/hand-authored-smoke/synthetic-scope": 1,
+        "synthetic-smoke/hand-authored-smoke/synthetic-unrelated": 1,
+        "synthetic-smoke/hand-authored-smoke/synthetic-numeric": 1,
+        "synthetic-smoke/hand-authored-smoke/synthetic-time": 1,
+        "synthetic-smoke/hand-authored-smoke/synthetic-guidance": 1
+      }
+    }
+  },
+  "synthetic-contract": {
+    "manifest_sha256": "3abd761205be0fe9113b4be89fbdb71313f12a96e3331a8c9b746b9698bf3ecb",
+    "adapter_version": "countercheck-public-pairs-v1",
+    "sources": [
+      {
+        "name": "AI-authored contract diagnostic; source hash pins canonical pair JSON",
+        "url": "local:eval/fixtures/prompt-ablation-contract.json",
+        "revision": "prompt-contract-v1",
+        "sha256": "5b90348d81a43dee0fd41100e324615b7baf0aa5e921a30c7d4acfdc870f1f7c",
+        "license": "CC0-1.0 (synthetic fixture text only)",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "sampling": {
+      "seed": "prompt-contract-v1",
+      "max_pairs": 32,
+      "method": "Entire fixed diagnostic; separate from rubric examples; not a release qualification set",
+      "available_pairs": 32,
+      "selected_pairs": 32,
+      "excluded_unlabeled": 0,
+      "strata": {
+        "contradiction": 12,
+        "no_contradiction": 16,
+        "uncertain": 4
+      }
+    }
+  }
+}

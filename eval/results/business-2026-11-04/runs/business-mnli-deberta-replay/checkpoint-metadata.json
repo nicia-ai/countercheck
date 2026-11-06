@@ -1,0 +1,199 @@
+{
+  "model": "cross-encoder/nli-deberta-v3-base",
+  "revision": "6c749ce3425cd33b46d187e45b92bbf96ee12ec7",
+  "model_card": "https://huggingface.co/cross-encoder/nli-deberta-v3-base/blob/6c749ce3425cd33b46d187e45b92bbf96ee12ec7/README.md",
+  "label_order": {
+    "0": "contradiction",
+    "1": "entailment",
+    "2": "neutral"
+  },
+  "training": "SNLI and MultiNLI, per model card; zero-shot on this public pair adaptation",
+  "manifest_sha256": "114ee3ca8ff9960fc2146bf7bca19f38284281812c9cec27e25e9815746337b6",
+  "device": "cpu",
+  "batch_size": 8,
+  "policy": "forced",
+  "max_tokens": 512,
+  "excluded": 0,
+  "truncation": false,
+  "timing": "batch model forward wall time copied to each pair, excludes model load/tokenization; not service request latency",
+  "cost_usd": null,
+  "packages": {
+    "torch": "2.9.0",
+    "transformers": "4.57.1",
+    "sentencepiece": "0.2.1"
+  },
+  "weight_format": "safetensors",
+  "cpu_model": "Apple M4 Pro",
+  "logical_cpu_count": 14,
+  "started_at": "2026-11-04T18:28:47.030968+00:00",
+  "completed_at": "2026-11-04T18:28:53.184661+00:00",
+  "machine": {
+    "platform": "macOS-26.7.1-arm64-arm-64bit",
+    "architecture": "arm64",
+    "processor": "arm",
+    "python": "3.12.16 (main, Oct 25 2026, 18:24:37) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "torch_threads": 4,
+    "route": "local PyTorch CPU, no hosted inference"
+  },
+  "runtime_seconds": {
+    "model_load_including_download": 0.20838808314874768,
+    "preflight_tokenization": 0.012861666968092322,
+    "inference_loop": 3.2557372911833227,
+    "model_forward_total": 3.2388898320496082,
+    "total_before_metadata": 6.190895207924768
+  },
+  "batch_observations": [
+    {
+      "batch_index": 0,
+      "pairs": 8,
+      "elapsed_ms": 737.3194589745253,
+      "max_pair_tokens": 48
+    },
+    {
+      "batch_index": 1,
+      "pairs": 8,
+      "elapsed_ms": 87.79441704973578,
+      "max_pair_tokens": 43
+    },
+    {
+      "batch_index": 2,
+      "pairs": 8,
+      "elapsed_ms": 84.78662511333823,
+      "max_pair_tokens": 46
+    },
+    {
+      "batch_index": 3,
+      "pairs": 8,
+      "elapsed_ms": 91.39795787632465,
+      "max_pair_tokens": 49
+    },
+    {
+      "batch_index": 4,
+      "pairs": 8,
+      "elapsed_ms": 104.07229186967015,
+      "max_pair_tokens": 63
+    },
+    {
+      "batch_index": 5,
+      "pairs": 8,
+      "elapsed_ms": 146.41520800068974,
+      "max_pair_tokens": 93
+    },
+    {
+      "batch_index": 6,
+      "pairs": 8,
+      "elapsed_ms": 135.57483279146254,
+      "max_pair_tokens": 89
+    },
+    {
+      "batch_index": 7,
+      "pairs": 8,
+      "elapsed_ms": 97.9388749692589,
+      "max_pair_tokens": 60
+    },
+    {
+      "batch_index": 8,
+      "pairs": 8,
+      "elapsed_ms": 69.3025840446353,
+      "max_pair_tokens": 32
+    },
+    {
+      "batch_index": 9,
+      "pairs": 8,
+      "elapsed_ms": 83.70975009165704,
+      "max_pair_tokens": 47
+    },
+    {
+      "batch_index": 10,
+      "pairs": 8,
+      "elapsed_ms": 90.70695796981454,
+      "max_pair_tokens": 53
+    },
+    {
+      "batch_index": 11,
+      "pairs": 8,
+      "elapsed_ms": 91.15045797079802,
+      "max_pair_tokens": 55
+    },
+    {
+      "batch_index": 12,
+      "pairs": 8,
+      "elapsed_ms": 142.57958298549056,
+      "max_pair_tokens": 95
+    },
+    {
+      "batch_index": 13,
+      "pairs": 8,
+      "elapsed_ms": 166.9034999795258,
+      "max_pair_tokens": 112
+    },
+    {
+      "batch_index": 14,
+      "pairs": 8,
+      "elapsed_ms": 85.64137504436076,
+      "max_pair_tokens": 50
+    },
+    {
+      "batch_index": 15,
+      "pairs": 8,
+      "elapsed_ms": 155.4610829334706,
+      "max_pair_tokens": 76
+    },
+    {
+      "batch_index": 16,
+      "pairs": 8,
+      "elapsed_ms": 69.96849994175136,
+      "max_pair_tokens": 36
+    },
+    {
+      "batch_index": 17,
+      "pairs": 8,
+      "elapsed_ms": 108.32987516187131,
+      "max_pair_tokens": 64
+    },
+    {
+      "batch_index": 18,
+      "pairs": 8,
+      "elapsed_ms": 83.77745794132352,
+      "max_pair_tokens": 49
+    },
+    {
+      "batch_index": 19,
+      "pairs": 8,
+      "elapsed_ms": 81.75350003875792,
+      "max_pair_tokens": 47
+    },
+    {
+      "batch_index": 20,
+      "pairs": 8,
+      "elapsed_ms": 99.80462491512299,
+      "max_pair_tokens": 63
+    },
+    {
+      "batch_index": 21,
+      "pairs": 8,
+      "elapsed_ms": 136.13516697660089,
+      "max_pair_tokens": 91
+    },
+    {
+      "batch_index": 22,
+      "pairs": 8,
+      "elapsed_ms": 78.53787508793175,
+      "max_pair_tokens": 44
+    },
+    {
+      "batch_index": 23,
+      "pairs": 8,
+      "elapsed_ms": 76.22545817866921,
+      "max_pair_tokens": 44
+    },
+    {
+      "batch_index": 24,
+      "pairs": 8,
+      "elapsed_ms": 133.6024161428213,
+      "max_pair_tokens": 87
+    }
+  ],
+  "max_observed_accepted_tokens": 112,
+  "downloads_allowed": false
+}

@@ -1,0 +1,503 @@
+import { z } from "zod";
+import { parseCheckRequest, probabilitySchema, utf8Bytes } from "../../src/contracts/index.js";
+import { LIMITS } from "../../src/contracts/limits.js";
+import { ServiceError } from "../../src/contracts/errors.js";
+import { pairDecision } from "../../src/kernel/index.js";
+import { withDeadline } from "../../src/http/deadline.js";
+import { JEV_MODEL, JEV_URL } from "../../src/providers/jev.js";
+import {
+  decisionResponseSchema,
+  validateDecisionResponse,
+  malformedProvider,
+} from "../../src/providers/response.js";
+import { sendDecision } from "../../src/providers/transport.js";
+import {
+  evaluationVerdict,
+  predictionSchema,
+  projectScores,
+  sha256,
+  type Manifest,
+  type Pair,
+  type Prediction,
+} from "../types.js";
+import { summarize, wilson, type Scored } from "../metrics.js";
+import { compileProfile, type ProfileId } from "./profiles.js";
+
+export type CompiledProfile = ReturnType<typeof compileProfile>;
+const noulAnswerSchema = z.strictObject({ type: z.literal("noul"), noul: probabilitySchema });
+const dualResponseSchema = decisionResponseSchema
+  .omit({ answers: true })
+  .extend({ answers: z.record(z.string(), noulAnswerSchema) });
+
+export function parseProfileResponse(value: unknown, compiled: CompiledProfile) {
+  const ids = Object.keys(compiled.payload.questions);
+  if (compiled.kind === "choice") {
+    if (ids.length !== 1) throw malformedProvider();
+    const response = validateDecisionResponse(value, ids);
+    if (response.model !== undefined && response.model !== JEV_MODEL)
+      throw new ServiceError(
+        502,
+        "provider_model_mismatch",
+        "The inference provider reported an unexpected model.",
+      );
+    return { kind: "choice" as const, response, scores: response.answers[ids[0]!]!.probabilities };
+  }
+  if (ids.length !== 2 || !ids.includes("q_conflict") || !ids.includes("q_determinable"))
+    throw malformedProvider();
+  const parsed = dualResponseSchema.safeParse(value);
+  if (
+    !parsed.success ||
+    Object.keys(parsed.data.answers).length !== 2 ||
+    !Object.hasOwn(parsed.data.answers, "q_conflict") ||
+    !Object.hasOwn(parsed.data.answers, "q_determinable")
+  )
+    throw malformedProvider();
+  if (parsed.data.model !== undefined && parsed.data.model !== JEV_MODEL)
+    throw new ServiceError(
+      502,
+      "provider_model_mismatch",
+      "The inference provider reported an unexpected model.",
+    );
+  return {
+    kind: "dual-noul" as const,
+    response: parsed.data,
+    scores: {
+      conflict: parsed.data.answers.q_conflict!.noul,
+      determinable: parsed.data.answers.q_determinable!.noul,
+    },
+  };
+}
+
+export type InputManifest = { manifest: Manifest; sha256: string; name: string };
+export type AblationObservation = {
+  sequence: number;
+  profile: ProfileId;
+  manifest_sha256: string;
+  dataset_key: string;
+  pair: Pair;
+  compiled: {
+    kind: CompiledProfile["kind"];
+    bytes: number;
+    sha256: string;
+    question_ids: string[];
+  } | null;
+  provider_calls: 0 | 1;
+  prediction: Prediction;
+};
+export type PairOptions = {
+  apiKey: string;
+  sequence: number;
+  manifestHash: string;
+  fetch?: typeof fetch;
+  timeoutMs?: number;
+  compiler?: typeof compileProfile;
+};
+
+export async function runProfilePair(
+  profile: ProfileId,
+  pair: Pair,
+  options: PairOptions,
+): Promise<AblationObservation> {
+  const started = performance.now();
+  const requestId = `ablation-${options.sequence}-${sha256(`${profile}:${pair.id}`).slice(0, 16)}`;
+  let compiledMetadata: AblationObservation["compiled"] = null;
+  let providerCalls: 0 | 1 = 0;
+  const common = {
+    pair_id: pair.id,
+    pass: 1,
+    request_id: requestId,
+    model: JEV_MODEL,
+    engine_release: "jev-prompt-ablation-v1",
+    provider: "typesafe",
+    prompt_version: profile,
+    threshold_version:
+      profile === "dual-noul" ? "ablation-dual-noul-0.8-0.2-v1" : "evaluation-0.8-0.2-v1",
+  };
+  let prediction: Prediction;
+  try {
+    prediction = await withDeadline(
+      async (signal) => {
+        parseCheckRequest({
+          claim: { id: "claim", text: pair.claim },
+          against: [{ id: "evidence", text: pair.evidence }],
+          profile: "balanced-v1",
+        });
+        // Only text reaches a compiler: labels, rationale indices and IDs stay outside inference.
+        const compiled = (options.compiler ?? compileProfile)(profile, {
+          claim: pair.claim,
+          evidence: pair.evidence,
+        });
+        if (compiled.payload.model !== JEV_MODEL)
+          throw new ServiceError(
+            502,
+            "ablation_profile_model_mismatch",
+            "An ablation profile did not use the pinned model.",
+          );
+        const ids = Object.keys(compiled.payload.questions);
+        if (
+          (compiled.kind === "choice" && ids.length !== 1) ||
+          (compiled.kind === "dual-noul" &&
+            (ids.length !== 2 || !ids.includes("q_conflict") || !ids.includes("q_determinable")))
+        )
+          throw new ServiceError(
+            422,
+            "ablation_profile_invalid",
+            "An ablation profile has invalid questions.",
+          );
+        const serialized = JSON.stringify(compiled.payload);
+        compiledMetadata = {
+          kind: compiled.kind,
+          bytes: utf8Bytes(serialized),
+          sha256: sha256(serialized),
+          question_ids: ids,
+        };
+        if (compiledMetadata.bytes > LIMITS.compiledBytes)
+          throw new ServiceError(
+            422,
+            "compiled_input_too_large",
+            "The compiled ablation input exceeds the byte limit.",
+          );
+        if (signal.aborted) throw signal.reason;
+        providerCalls = 1;
+        const raw = await sendDecision(
+          options.fetch ?? fetch,
+          JEV_URL,
+          options.apiKey,
+          compiled.payload,
+          signal,
+        );
+        if (signal.aborted) throw signal.reason;
+        const parsed = parseProfileResponse(raw, compiled);
+        const response = parsed.response;
+        const identity = {
+          reported_model: response.model ?? null,
+          model_revision: response.model_revision ?? null,
+          input_tokens: response.usage?.input_tokens,
+          output_tokens: response.usage?.output_tokens,
+          request_usage: {
+            input_tokens: response.usage?.input_tokens ?? null,
+            output_tokens: response.usage?.output_tokens ?? null,
+          },
+        };
+        if (parsed.kind === "choice")
+          return predictionSchema.parse({
+            ...common,
+            ...identity,
+            status: "ok",
+            verdict: evaluationVerdict(pairDecision(parsed.scores).verdict),
+            raw_scores: parsed.scores,
+            probabilities: projectScores(parsed.scores),
+            latency_ms: performance.now() - started,
+            prompt_hash: compiledMetadata.sha256,
+          });
+        const { conflict, determinable } = parsed.scores;
+        const verdict =
+          determinable >= 0.8
+            ? conflict >= 0.8
+              ? "contradiction"
+              : conflict <= 0.2
+                ? "no_contradiction"
+                : "uncertain"
+            : "uncertain";
+        return predictionSchema.parse({
+          ...common,
+          ...identity,
+          status: "ok",
+          verdict,
+          probabilities: {
+            contradiction: conflict,
+            no_contradiction: 1 - conflict,
+            insufficient_context: 0,
+          },
+          raw_noul: { q_conflict: conflict, q_determinable: determinable },
+          latency_ms: performance.now() - started,
+          prompt_hash: compiledMetadata.sha256,
+        });
+      },
+      options.timeoutMs ?? 3000,
+      new ServiceError(504, "deadline_exceeded", "The ablation deadline was exceeded."),
+    );
+  } catch (error) {
+    const excluded = error instanceof ServiceError && error.status === 422;
+    prediction = predictionSchema.parse({
+      ...common,
+      status: excluded ? "excluded" : "error",
+      error_code: error instanceof ServiceError ? error.code : "ablation_evaluation_failure",
+      latency_ms: performance.now() - started,
+    });
+  }
+  return {
+    sequence: options.sequence,
+    profile,
+    manifest_sha256: options.manifestHash,
+    dataset_key: `${pair.dataset}/${pair.variant}/${pair.split}`,
+    pair,
+    compiled: compiledMetadata,
+    provider_calls: providerCalls,
+    prediction,
+  };
+}
+
+export function planExperiment(
+  inputs: readonly InputManifest[],
+  profiles: readonly ProfileId[],
+  maxCalls: number,
+  perCallReservation: number,
+  maxSpend: number,
+) {
+  const plannedCalls =
+    inputs.reduce((n, input) => n + input.manifest.pairs.length, 0) * profiles.length;
+  if (
+    !Number.isSafeInteger(maxCalls) ||
+    maxCalls < 1 ||
+    !Number.isFinite(perCallReservation) ||
+    perCallReservation <= 0 ||
+    !Number.isFinite(maxSpend) ||
+    maxSpend <= 0 ||
+    plannedCalls > maxCalls ||
+    plannedCalls * perCallReservation > maxSpend
+  )
+    throw new Error("Ablation planned calls exceed explicit call/spend reservations");
+  if (
+    !profiles.length ||
+    new Set(profiles).size !== profiles.length ||
+    !inputs.length ||
+    new Set(inputs.map((x) => x.sha256)).size !== inputs.length
+  )
+    throw new Error("Duplicate or empty ablation inputs/profiles");
+  const ids = inputs.flatMap((x) => x.manifest.pairs.map((p) => p.id));
+  if (new Set(ids).size !== ids.length)
+    throw new Error("Ablation pair IDs must be unique across manifests");
+  let sequence = 0;
+  const queues = profiles.flatMap((profile) =>
+    inputs.map((input) => ({
+      profile,
+      input,
+      tasks: input.manifest.pairs.map((pair) => ({ pair, sequence: sequence++ })),
+    })),
+  );
+  return {
+    planned_calls: plannedCalls,
+    max_reserved_usd: plannedCalls * perCallReservation,
+    queues,
+  };
+}
+
+export async function executeExperiment(
+  plan: ReturnType<typeof planExperiment>,
+  options: {
+    apiKey: string;
+    concurrency: number;
+    append: (rows: readonly Prediction[]) => Promise<void>;
+    fetch?: typeof fetch;
+    timeoutMs?: number;
+    compiler?: typeof compileProfile;
+  },
+) {
+  if (!Number.isInteger(options.concurrency) || options.concurrency < 1 || options.concurrency > 2)
+    throw new Error("Ablation concurrency must be 1 or 2");
+  let nextQueue = 0;
+  let failedWrite = false;
+  let writeError: unknown;
+  let writeTail = Promise.resolve();
+  const observations: AblationObservation[] = [];
+  const persist = (observation: AblationObservation) => {
+    const next = writeTail
+      .then(async () => {
+        if (failedWrite) throw writeError;
+        await options.append([
+          {
+            ...observation.prediction,
+            ablation_profile: observation.profile,
+            dataset_key: observation.dataset_key,
+            source_manifest_sha256: observation.manifest_sha256,
+            compiled_payload: observation.compiled,
+            provider_calls: observation.provider_calls,
+            sequence: observation.sequence,
+          },
+        ]);
+      })
+      .catch((error: unknown) => {
+        failedWrite = true;
+        writeError = error;
+        throw error;
+      });
+    writeTail = next.catch(() => {});
+    return next;
+  };
+  const worker = async () => {
+    while (!failedWrite) {
+      const queue = plan.queues[nextQueue++];
+      if (!queue) return;
+      for (const task of queue.tasks) {
+        if (failedWrite) return;
+        const observation = await runProfilePair(queue.profile, task.pair, {
+          apiKey: options.apiKey,
+          sequence: task.sequence,
+          manifestHash: queue.input.sha256,
+          ...(options.fetch && { fetch: options.fetch }),
+          ...(options.timeoutMs !== undefined && { timeoutMs: options.timeoutMs }),
+          ...(options.compiler && { compiler: options.compiler }),
+        });
+        await persist(observation);
+        observations.push(observation);
+      }
+    }
+  };
+  const workers = await Promise.allSettled(Array.from({ length: options.concurrency }, worker));
+  await writeTail;
+  if (failedWrite) throw writeError;
+  const rejected = workers.find((worker) => worker.status === "rejected");
+  if (rejected?.status === "rejected") throw rejected.reason;
+  return observations.sort((a, b) => a.sequence - b.sequence);
+}
+
+function expectedUncertain(pair: Pair): boolean {
+  return pair.source_metadata?.expected_verdict === "uncertain";
+}
+
+function executionAndContractDiagnostics(rows: readonly AblationObservation[]) {
+  const datasetKeys = [...new Set(rows.map((row) => row.dataset_key))];
+  return Object.fromEntries(
+    datasetKeys.map((dataset) => {
+      const cases = rows.filter((row) => row.dataset_key === dataset);
+      const expected = cases.filter(
+        (row) => row.pair.source_metadata?.expected_verdict !== undefined,
+      );
+      const uncertainCases = cases.filter((row) => expectedUncertain(row.pair));
+      const completed = cases.filter((row) => row.prediction.status === "ok");
+      const correctExpected = expected.filter(
+        (row) =>
+          row.prediction.status === "ok" &&
+          row.prediction.verdict === row.pair.source_metadata?.expected_verdict,
+      );
+      const correctUncertain = uncertainCases.filter(
+        (row) => row.prediction.status === "ok" && row.prediction.verdict === "uncertain",
+      );
+      return [
+        dataset,
+        {
+          all_cases: cases.length,
+          completed: completed.length,
+          errors: cases.filter((row) => row.prediction.status === "error").length,
+          excluded: cases.filter((row) => row.prediction.status === "excluded").length,
+          execution_completion: wilson(completed.length, cases.length),
+          binary_quality_cases: cases.length - uncertainCases.length,
+          binary_quality_excluded_expected_uncertain: uncertainCases.length,
+          explicit_expected_verdict_accuracy: wilson(correctExpected.length, expected.length),
+          expected_uncertain_recall: wilson(correctUncertain.length, uncertainCases.length),
+          caveat:
+            "Explicit expected-uncertain cases use a binary proxy only to fit the manifest; they are excluded from precision/recall, clear-negative coverage, ranking and calibration, and retained in execution/contract diagnostics.",
+        },
+      ];
+    }),
+  );
+}
+
+export function summarizeExperiment(
+  observations: readonly AblationObservation[],
+  profiles: readonly ProfileId[],
+) {
+  const byProfile = Object.fromEntries(
+    profiles.map((profile) => {
+      const all = observations.filter((row) => row.profile === profile);
+      const rows: Scored[] = all
+        .filter((row) => !expectedUncertain(row.pair))
+        .map((row) => ({ pair: row.pair, prediction: row.prediction }));
+      return [
+        profile,
+        {
+          ...summarize(rows),
+          execution_and_contract_by_dataset: executionAndContractDiagnostics(all),
+        },
+      ];
+    }),
+  );
+  const baseline = new Map(
+    observations.filter((r) => r.profile === "baseline").map((r) => [r.pair.id, r]),
+  );
+  const paired = Object.fromEntries(
+    profiles
+      .filter((profile) => profile !== "baseline")
+      .map((profile) => {
+        const profileRows = observations.filter((r) => r.profile === profile);
+        const datasets = [...new Set(profileRows.map((r) => r.dataset_key))];
+        return [
+          profile,
+          Object.fromEntries(
+            datasets.map((dataset) => {
+              const counts = {
+                matched_pairs: 0,
+                binary_eligible_pairs: 0,
+                expected_uncertain_pairs: 0,
+                recovered_expected_uncertain: 0,
+                lost_expected_uncertain: 0,
+                both_completed: 0,
+                baseline_only_completed: 0,
+                variant_only_completed: 0,
+                neither_completed: 0,
+                recovered_positive: 0,
+                lost_positive: 0,
+                new_false_positive: 0,
+                removed_false_positive: 0,
+                recovered_clear_negative: 0,
+                lost_clear_negative: 0,
+                definitive_contradiction_to_negative: 0,
+                definitive_negative_to_contradiction: 0,
+                scored_pairs: 0,
+                mean_contradiction_score_delta: null as number | null,
+              };
+              let delta = 0;
+              for (const row of profileRows.filter((r) => r.dataset_key === dataset)) {
+                const prior = baseline.get(row.pair.id);
+                if (!prior) continue;
+                counts.matched_pairs++;
+                const a = prior.prediction;
+                const b = row.prediction;
+                if (a.status === "ok" && b.status === "ok") {
+                  counts.both_completed++;
+                  if (a.probabilities && b.probabilities) {
+                    counts.scored_pairs++;
+                    delta += b.probabilities.contradiction - a.probabilities.contradiction;
+                  }
+                } else if (a.status === "ok") counts.baseline_only_completed++;
+                else if (b.status === "ok") counts.variant_only_completed++;
+                else counts.neither_completed++;
+                const av = a.status === "ok" ? a.verdict : null;
+                const bv = b.status === "ok" ? b.verdict : null;
+                if (av === "contradiction" && bv === "no_contradiction")
+                  counts.definitive_contradiction_to_negative++;
+                if (av === "no_contradiction" && bv === "contradiction")
+                  counts.definitive_negative_to_contradiction++;
+                if (expectedUncertain(row.pair)) {
+                  counts.expected_uncertain_pairs++;
+                  if (av !== "uncertain" && bv === "uncertain")
+                    counts.recovered_expected_uncertain++;
+                  if (av === "uncertain" && bv !== "uncertain") counts.lost_expected_uncertain++;
+                  continue;
+                }
+                counts.binary_eligible_pairs++;
+                if (row.pair.gold === "contradiction") {
+                  if (av !== "contradiction" && bv === "contradiction") counts.recovered_positive++;
+                  if (av === "contradiction" && bv !== "contradiction") counts.lost_positive++;
+                } else {
+                  if (av !== "contradiction" && bv === "contradiction") counts.new_false_positive++;
+                  if (av === "contradiction" && bv !== "contradiction")
+                    counts.removed_false_positive++;
+                  if (av !== "no_contradiction" && bv === "no_contradiction")
+                    counts.recovered_clear_negative++;
+                  if (av === "no_contradiction" && bv !== "no_contradiction")
+                    counts.lost_clear_negative++;
+                }
+              }
+              counts.mean_contradiction_score_delta = counts.scored_pairs
+                ? delta / counts.scored_pairs
+                : null;
+              return [dataset, counts];
+            }),
+          ),
+        ];
+      }),
+  );
+  return { by_profile: byProfile, paired_against_fresh_baseline: paired };
+}

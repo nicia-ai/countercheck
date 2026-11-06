@@ -1,0 +1,12 @@
+{
+  "deployed-ingress-paced-2026-11-03.json": "7c7617d04d50f7999fee17b30e59fcb76303b2edf802387204f66f4ce5a3759b",
+  "deployed-ingress-probe-2026-11-03.json": "530d6e5e37e8d53d30004ccacfb1afb43986de7ce5f3b2b4db85c17d46f00452",
+  "deployed-preview-smoke-2026-11-03.json": "a2c941dce869e7b43088a4af5731b6a96b86d91d27bc5f220ab87043a7ae61b3",
+  "deployed-version-2026-11-03.json": "bb8183c71a36f61791ecaf13376b3439efaa236f7d183823728ad181a90de2c6",
+  "operator-observations.json": "7ed514d03983d9206c852402262befc879118f90b4c029650c696852433f4d89",
+  "scifact-dev-service-preview-10.predictions.jsonl": "599f951f8df8a75e31eab2358db72952d51953d434a9262d1d907d6ff4467fa5",
+  "scifact-dev-service-preview-10.predictions.jsonl.metadata.json": "624cdbdfd2e7101d09b45e08214f78a3e2892ba15ab9ce3e5f0851828dc40f4a",
+  "scifact-dev-service-preview-10.report.json": "8a296aef66be887b60c35a41c08ad17891540de55547a2dc642f153806c021d7",
+  "scifact-dev-service-preview-10.report.md": "13b593c364c81dadcd7bb414709855d3c21eadf904019c28ed95656541943dc3",
+  "scifact-dev.manifest": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c"
+}

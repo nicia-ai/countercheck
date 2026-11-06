@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "planned-before-inference",
+  "purpose": "public development candidate comparison and synthetic diagnostic validation, not release qualification",
+  "model": "jev-1.14.0",
+  "profiles": [
+    "balanced-v1",
+    "semantic-v2",
+    "structured-value-v1"
+  ],
+  "passes": 1,
+  "input_manifests": {
+    "eval/results/prompt-ablation-2026-11-03/inputs/vitaminc-combined-dev.manifest": "982a5dc43919853176d372c53bf90bc98d4bc49e56d8703165feb14345aff0ff",
+    "eval/results/prompt-ablation-2026-11-03/inputs/scifact-dev.manifest": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+    "eval/results/prompt-ablation-2026-11-03/inputs/contract-diagnostic.manifest": "3abd761205be0fe9113b4be89fbdb71313f12a96e3331a8c9b746b9698bf3ecb"
+  },
+  "planned_single_pair_calls": 1293,
+  "max_additional_probe_calls": 250,
+  "global_max_concurrency": 2,
+  "kernel_deadline_ms": 3000,
+  "retries": 0,
+  "threshold_tuning": "none for benchmark run; separate dev-only composition artifact",
+  "max_reserved_usd": 2,
+  "cost_reservation_per_call_usd": 0.001,
+  "source_freeze": "written after implementation and simplify, before paid inference",
+  "native_labels": "unchanged; not contract adjudication",
+  "contract_fixture": "32 AI-authored diagnostics; 4 expected-uncertain binary proxy labels excluded from any reported binary contract analysis",
+  "heldout": "not used in this development comparison; all public inputs already inspected in prior work",
+  "promotion": false
+}

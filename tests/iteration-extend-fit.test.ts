@@ -1,0 +1,69 @@
+import { readFile } from "node:fs/promises";
+import { describe, expect, it } from "vitest";
+import { mergeExtension, selectExtension } from "../eval/iteration/extend-fit.js";
+import { select } from "../eval/iteration/prepare.js";
+import { sha256, validateManifest } from "../eval/types.js";
+
+describe("fit-only whole-component extension", () => {
+  it("preserves legacy seeded component ordering when ranks are computed once", () => {
+    const groups = new Map(
+      Array.from(
+        { length: 50 },
+        (_, i) => [`component-${i}`, { vitaminc: 10, scifact: 10 }] as const,
+      ),
+    );
+    const forbidden = new Set(["component-3", "component-19"]);
+    for (const seed of ["iteration-train-v1", "extension-test", "different-order"]) {
+      const legacy = [...groups.keys()]
+        .filter((id) => !forbidden.has(id))
+        .sort((a, b) => sha256(`${seed}:${a}`).localeCompare(sha256(`${seed}:${b}`)))
+        .slice(0, 20);
+      expect([...select(groups, seed, 200, forbidden).selected]).toEqual(legacy);
+    }
+  });
+  it("excludes all original role components using hashes, without any role labels", () => {
+    const components = new Map(
+      ["old-fit", "validation", "locked", "a", "b", "c", "d"].map((id) => [
+        id,
+        { vitaminc: 50, scifact: 50 },
+      ]),
+    );
+    const entry = (id: string) => ({ sha256: "0".repeat(64), component_sha256: [sha256(id)] });
+    const lock = {
+      kind: "iteration-training-source-lock" as const,
+      source_sha256: {},
+      manifests: {
+        fit: entry("old-fit"),
+        validation: entry("validation"),
+        "locked-holdout": entry("locked"),
+      },
+    };
+    const chosen = selectExtension(components, lock, "extension-test");
+    expect([...chosen.selected].sort()).toEqual(["a", "b", "c", "d"]);
+    expect(chosen.counts).toEqual({ vitaminc: 200, scifact: 200 });
+  });
+
+  it("preserves the exact original pairs and rejects reversed normalized content leaking into additions", async () => {
+    const manifest = validateManifest(
+      JSON.parse(
+        await readFile(new URL("../eval/fixtures/synthetic-smoke.json", import.meta.url), "utf8"),
+      ),
+    );
+    const pair = manifest.pairs[0]!;
+    const original = structuredClone(pair);
+    const added = { ...manifest.pairs[1]!, id: "new-pair", group_id: "new-component" };
+    const result = mergeExtension([pair], [added]);
+    expect(result.find((p) => p.id === pair.id)).toEqual(original);
+    expect(pair).toEqual(original);
+    expect(result).toHaveLength(2);
+    expect(() =>
+      mergeExtension(
+        [pair],
+        [{ ...added, claim: `  ${pair.evidence.toUpperCase()} `, evidence: pair.claim }],
+      ),
+    ).toThrow("overlaps");
+    expect(() => mergeExtension([pair], [{ ...added, group_id: pair.group_id }])).toThrow(
+      "overlaps",
+    );
+  });
+});

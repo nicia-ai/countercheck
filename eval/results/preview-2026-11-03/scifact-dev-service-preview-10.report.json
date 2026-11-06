@@ -1,0 +1,2012 @@
+{
+  "schema_version": 2,
+  "backend": "service",
+  "purpose": "development",
+  "manifest_sha256": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+  "adapter_version": "countercheck-public-pairs-v1",
+  "sources": [
+    {
+      "name": "claims_dev.jsonl",
+      "url": "https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz",
+      "revision": "68b98a56d93e0f9da0d2aab4e6c3294699a0f72e (repository documentation; data bytes pinned by sha256)",
+      "sha256": "86f0435d08fdb65d1aa41d1472684f57e6e71930626497bdf4d7a9ec1a632217",
+      "license": "Claims/annotations: CC BY 4.0; abstracts: ODC-By 1.0 (S2ORC)",
+      "license_url": "https://github.com/allenai/scifact/blob/68b98a56d93e0f9da0d2aab4e6c3294699a0f72e/LICENSE.md"
+    },
+    {
+      "name": "corpus.jsonl",
+      "url": "https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz",
+      "revision": "68b98a56d93e0f9da0d2aab4e6c3294699a0f72e (repository documentation; data bytes pinned by sha256)",
+      "sha256": "b8d6c89624cb2ed74dee8938effc4f5d8bd2086887880af8110d64be4ceade62",
+      "license": "Claims/annotations: CC BY 4.0; abstracts: ODC-By 1.0 (S2ORC)",
+      "license_url": "https://github.com/allenai/scifact/blob/68b98a56d93e0f9da0d2aab4e6c3294699a0f72e/LICENSE.md"
+    },
+    {
+      "name": "download-archive",
+      "url": "https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz",
+      "revision": "mutable official release URL; exact archive pinned by sha256",
+      "sha256": "11c621288d41ac144d29b13b0f8503b3820b7d6e8b1f6ff24dff335c196d76be",
+      "license": "Claims/annotations: CC BY 4.0; abstracts: ODC-By 1.0 (S2ORC)",
+      "license_url": "https://github.com/allenai/scifact/blob/68b98a56d93e0f9da0d2aab4e6c3294699a0f72e/LICENSE.md"
+    }
+  ],
+  "sampling": {
+    "manifest_sampling": {
+      "seed": "countercheck-v1",
+      "max_pairs": 200,
+      "method": "whole claim groups, deterministic seed ordering, greedy native-label proportion matching; no row truncation",
+      "available_pairs": 338,
+      "selected_pairs": 199,
+      "excluded_unlabeled": 112,
+      "strata": {
+        "scifact/gold-rationale-set/SUPPORT": 128,
+        "scifact/gold-rationale-set/CONTRADICT": 71
+      }
+    },
+    "evaluated_group_diagnostics": {
+      "pairs": 10,
+      "groups": 10,
+      "group_size_counts": {
+        "1": 10
+      },
+      "mean_group_size": 1,
+      "max_group_size": 1,
+      "mixed_native_label_groups": 0,
+      "mixed_native_label_group_fraction": 0
+    },
+    "bias_disclosure": "Greedy native-label proportion matching is a development diagnostic sample, not a uniform group sample or a population-representative split estimate. Seeded hashes break ties; mixed-label/group-size composition can be preferentially selected. Compare population and selected group diagnostics."
+  },
+  "created_at": "2026-11-03T20:48:06.059Z",
+  "protocol": {
+    "passes": 1,
+    "presentation": "original",
+    "batch_size": 1,
+    "concurrency": 1,
+    "planned_calls": 10,
+    "timeout_ms": 6000,
+    "timeout_policy": "route_default",
+    "timeout_scope": "client_upload_network_and_server_total",
+    "transport_route": "http_service",
+    "production_deadline_equivalence": "server_enforced",
+    "service_deadline_budgets": {
+      "body_read_ms": 2000,
+      "application_ms": 3000,
+      "provider_within_application_ms": 2500,
+      "default_network_margin_ms": 1000
+    },
+    "packing": {
+      "method": "fixed_identical_claim_groups",
+      "requested_max_comparisons": 1,
+      "assessment": "pair_isolation",
+      "envelope_failure": "exclude_entire_submitted_batch",
+      "automatic_repacking": false
+    },
+    "cost_reservation_per_call_usd": 0.01,
+    "max_reserved_usd": 0.1,
+    "measured_cost": "not available unless explicitly supplied by offline scorer",
+    "tuning": "none; fixed evaluation thresholds",
+    "public_dataset": true,
+    "measurement_stage": "public_development",
+    "production_qualification": "not_assessed"
+  },
+  "overall": {
+    "denominator": 10,
+    "positive": 4,
+    "negative": 6,
+    "confusion": {
+      "true_positive": 2,
+      "false_positive": 0,
+      "true_negative": 5,
+      "definitive_false_negative": 0,
+      "positive_misses_including_uncertain_errors_exclusions": 2
+    },
+    "precision": {
+      "value": 1,
+      "denominator": 2,
+      "ci95": [
+        0.34238022750665303,
+        1
+      ]
+    },
+    "recall": {
+      "value": 0.5,
+      "denominator": 4,
+      "ci95": [
+        0.15003898915214947,
+        0.8499610108478506
+      ]
+    },
+    "f1": 0.6666666666666666,
+    "false_positive_rate": {
+      "value": 0,
+      "denominator": 6,
+      "ci95": [
+        2.7755575615628914e-17,
+        0.3903342879021653
+      ]
+    },
+    "clear_negative_coverage": {
+      "value": 0.8333333333333334,
+      "denominator": 6,
+      "ci95": [
+        0.43649717781352987,
+        0.9699466302516935
+      ]
+    },
+    "coverage": {
+      "value": 0.7,
+      "denominator": 10,
+      "ci95": [
+        0.39677814746114537,
+        0.8922087325936989
+      ]
+    },
+    "uncertainty": {
+      "value": 0.3,
+      "denominator": 10,
+      "ci95": [
+        0.10779126740630099,
+        0.6032218525388546
+      ]
+    },
+    "completion": {
+      "value": 1,
+      "denominator": 10,
+      "ci95": [
+        0.7224672001371107,
+        0.9999999999999999
+      ]
+    },
+    "errors": 0,
+    "excluded": 0,
+    "probability_denominator": 10,
+    "prevalence_in_scored_subset": 0.4,
+    "auroc": 1,
+    "pr_auc_average_precision": 1,
+    "brier": 0.09976000000000003,
+    "expected_calibration_error_10_bins": 0.152,
+    "calibration_bins": [
+      {
+        "lower": 0,
+        "upper": 0.1,
+        "count": 6,
+        "mean_score": 0.018333333333333337,
+        "observed_positive": 0
+      },
+      {
+        "lower": 0.1,
+        "upper": 0.2,
+        "count": 1,
+        "mean_score": 0.19,
+        "observed_positive": 1
+      },
+      {
+        "lower": 0.2,
+        "upper": 0.3,
+        "count": 0,
+        "mean_score": null,
+        "observed_positive": null
+      },
+      {
+        "lower": 0.3,
+        "upper": 0.4,
+        "count": 0,
+        "mean_score": null,
+        "observed_positive": null
+      },
+      {
+        "lower": 0.4,
+        "upper": 0.5,
+        "count": 1,
+        "mean_score": 0.42,
+        "observed_positive": 1
+      },
+      {
+        "lower": 0.5,
+        "upper": 0.6,
+        "count": 0,
+        "mean_score": null,
+        "observed_positive": null
+      },
+      {
+        "lower": 0.6,
+        "upper": 0.7,
+        "count": 0,
+        "mean_score": null,
+        "observed_positive": null
+      },
+      {
+        "lower": 0.7,
+        "upper": 0.8,
+        "count": 0,
+        "mean_score": null,
+        "observed_positive": null
+      },
+      {
+        "lower": 0.8,
+        "upper": 0.9,
+        "count": 0,
+        "mean_score": null,
+        "observed_positive": null
+      },
+      {
+        "lower": 0.9,
+        "upper": 1,
+        "count": 2,
+        "mean_score": 0.99,
+        "observed_positive": 1
+      }
+    ],
+    "forced_binary_at_0_5": {
+      "denominator": 10,
+      "precision": 1,
+      "recall": 0.5,
+      "f1": 0.6666666666666666
+    },
+    "risk_coverage_forced_binary": [
+      {
+        "coverage": 0.1,
+        "risk": 0,
+        "count": 1
+      },
+      {
+        "coverage": 0.2,
+        "risk": 0,
+        "count": 2
+      },
+      {
+        "coverage": 0.3,
+        "risk": 0,
+        "count": 3
+      },
+      {
+        "coverage": 0.4,
+        "risk": 0,
+        "count": 4
+      },
+      {
+        "coverage": 0.5,
+        "risk": 0,
+        "count": 5
+      },
+      {
+        "coverage": 0.6,
+        "risk": 0,
+        "count": 6
+      },
+      {
+        "coverage": 0.7,
+        "risk": 0,
+        "count": 7
+      },
+      {
+        "coverage": 0.8,
+        "risk": 0,
+        "count": 8
+      },
+      {
+        "coverage": 0.9,
+        "risk": 0.1111111111111111,
+        "count": 9
+      },
+      {
+        "coverage": 1,
+        "risk": 0.2,
+        "count": 10
+      }
+    ],
+    "latency_ms": {
+      "attempted": 10,
+      "completed": 10,
+      "completed_p50": 149.77324999999996,
+      "completed_p95": 177.57112499999994,
+      "completed_p99": 177.57112499999994,
+      "all_attempts_p95": 177.57112499999994
+    },
+    "cost": {
+      "known_rows": 0,
+      "unknown_rows": 10,
+      "known_total_usd": 0,
+      "input_tokens": 6968,
+      "output_tokens": null,
+      "token_usage": {
+        "scope": "deduplicated_requests_and_legacy_pair_observations",
+        "observations": 10,
+        "input": {
+          "known_subtotal": 6968,
+          "known_observations": 10,
+          "unknown_observations": 0
+        },
+        "output": {
+          "known_subtotal": 0,
+          "known_observations": 0,
+          "unknown_observations": 10
+        }
+      }
+    }
+  },
+  "intervals": {
+    "clusters": 10,
+    "iterations": 200,
+    "method": "deterministic claim-group percentile bootstrap; Wilson intervals above assume independent Bernoulli observations",
+    "ci95": {
+      "f1": [
+        0,
+        1
+      ],
+      "auroc": [
+        1,
+        1
+      ],
+      "pr_auc_average_precision": [
+        1,
+        1
+      ],
+      "brier": [
+        0.00025000000000000006,
+        0.23106000000000004
+      ],
+      "precision": [
+        1,
+        1
+      ],
+      "recall": [
+        0,
+        1
+      ],
+      "false_positive_rate": [
+        0,
+        0
+      ],
+      "clear_negative_coverage": [
+        0.42857142857142855,
+        1
+      ],
+      "coverage": [
+        0.4,
+        0.9
+      ]
+    }
+  },
+  "by_dataset": {
+    "scifact/gold-rationale-set/dev": {
+      "denominator": 10,
+      "positive": 4,
+      "negative": 6,
+      "confusion": {
+        "true_positive": 2,
+        "false_positive": 0,
+        "true_negative": 5,
+        "definitive_false_negative": 0,
+        "positive_misses_including_uncertain_errors_exclusions": 2
+      },
+      "precision": {
+        "value": 1,
+        "denominator": 2,
+        "ci95": [
+          0.34238022750665303,
+          1
+        ]
+      },
+      "recall": {
+        "value": 0.5,
+        "denominator": 4,
+        "ci95": [
+          0.15003898915214947,
+          0.8499610108478506
+        ]
+      },
+      "f1": 0.6666666666666666,
+      "false_positive_rate": {
+        "value": 0,
+        "denominator": 6,
+        "ci95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "clear_negative_coverage": {
+        "value": 0.8333333333333334,
+        "denominator": 6,
+        "ci95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "coverage": {
+        "value": 0.7,
+        "denominator": 10,
+        "ci95": [
+          0.39677814746114537,
+          0.8922087325936989
+        ]
+      },
+      "uncertainty": {
+        "value": 0.3,
+        "denominator": 10,
+        "ci95": [
+          0.10779126740630099,
+          0.6032218525388546
+        ]
+      },
+      "completion": {
+        "value": 1,
+        "denominator": 10,
+        "ci95": [
+          0.7224672001371107,
+          0.9999999999999999
+        ]
+      },
+      "errors": 0,
+      "excluded": 0,
+      "probability_denominator": 10,
+      "prevalence_in_scored_subset": 0.4,
+      "auroc": 1,
+      "pr_auc_average_precision": 1,
+      "brier": 0.09976000000000003,
+      "expected_calibration_error_10_bins": 0.152,
+      "calibration_bins": [
+        {
+          "lower": 0,
+          "upper": 0.1,
+          "count": 6,
+          "mean_score": 0.018333333333333337,
+          "observed_positive": 0
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 1,
+          "mean_score": 0.19,
+          "observed_positive": 1
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 1,
+          "mean_score": 0.42,
+          "observed_positive": 1
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.9,
+          "upper": 1,
+          "count": 2,
+          "mean_score": 0.99,
+          "observed_positive": 1
+        }
+      ],
+      "forced_binary_at_0_5": {
+        "denominator": 10,
+        "precision": 1,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      },
+      "risk_coverage_forced_binary": [
+        {
+          "coverage": 0.1,
+          "risk": 0,
+          "count": 1
+        },
+        {
+          "coverage": 0.2,
+          "risk": 0,
+          "count": 2
+        },
+        {
+          "coverage": 0.3,
+          "risk": 0,
+          "count": 3
+        },
+        {
+          "coverage": 0.4,
+          "risk": 0,
+          "count": 4
+        },
+        {
+          "coverage": 0.5,
+          "risk": 0,
+          "count": 5
+        },
+        {
+          "coverage": 0.6,
+          "risk": 0,
+          "count": 6
+        },
+        {
+          "coverage": 0.7,
+          "risk": 0,
+          "count": 7
+        },
+        {
+          "coverage": 0.8,
+          "risk": 0,
+          "count": 8
+        },
+        {
+          "coverage": 0.9,
+          "risk": 0.1111111111111111,
+          "count": 9
+        },
+        {
+          "coverage": 1,
+          "risk": 0.2,
+          "count": 10
+        }
+      ],
+      "latency_ms": {
+        "attempted": 10,
+        "completed": 10,
+        "completed_p50": 149.77324999999996,
+        "completed_p95": 177.57112499999994,
+        "completed_p99": 177.57112499999994,
+        "all_attempts_p95": 177.57112499999994
+      },
+      "cost": {
+        "known_rows": 0,
+        "unknown_rows": 10,
+        "known_total_usd": 0,
+        "input_tokens": 6968,
+        "output_tokens": null,
+        "token_usage": {
+          "scope": "deduplicated_requests_and_legacy_pair_observations",
+          "observations": 10,
+          "input": {
+            "known_subtotal": 6968,
+            "known_observations": 10,
+            "unknown_observations": 0
+          },
+          "output": {
+            "known_subtotal": 0,
+            "known_observations": 0,
+            "unknown_observations": 10
+          }
+        }
+      }
+    }
+  },
+  "by_native_label": {
+    "scifact/gold-rationale-set/CONTRADICT": {
+      "denominator": 4,
+      "positive": 4,
+      "negative": 0,
+      "confusion": {
+        "true_positive": 2,
+        "false_positive": 0,
+        "true_negative": 0,
+        "definitive_false_negative": 0,
+        "positive_misses_including_uncertain_errors_exclusions": 2
+      },
+      "precision": {
+        "value": 1,
+        "denominator": 2,
+        "ci95": [
+          0.34238022750665303,
+          1
+        ]
+      },
+      "recall": {
+        "value": 0.5,
+        "denominator": 4,
+        "ci95": [
+          0.15003898915214947,
+          0.8499610108478506
+        ]
+      },
+      "f1": 0.6666666666666666,
+      "false_positive_rate": {
+        "value": null,
+        "denominator": 0,
+        "ci95": null
+      },
+      "clear_negative_coverage": {
+        "value": null,
+        "denominator": 0,
+        "ci95": null
+      },
+      "coverage": {
+        "value": 0.5,
+        "denominator": 4,
+        "ci95": [
+          0.15003898915214947,
+          0.8499610108478506
+        ]
+      },
+      "uncertainty": {
+        "value": 0.5,
+        "denominator": 4,
+        "ci95": [
+          0.15003898915214947,
+          0.8499610108478506
+        ]
+      },
+      "completion": {
+        "value": 1,
+        "denominator": 4,
+        "ci95": [
+          0.5101091635454027,
+          1
+        ]
+      },
+      "errors": 0,
+      "excluded": 0,
+      "probability_denominator": 4,
+      "prevalence_in_scored_subset": 1,
+      "auroc": null,
+      "pr_auc_average_precision": 1,
+      "brier": 0.24822500000000003,
+      "expected_calibration_error_10_bins": 0.35250000000000004,
+      "calibration_bins": [
+        {
+          "lower": 0,
+          "upper": 0.1,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 1,
+          "mean_score": 0.19,
+          "observed_positive": 1
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 1,
+          "mean_score": 0.42,
+          "observed_positive": 1
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.9,
+          "upper": 1,
+          "count": 2,
+          "mean_score": 0.99,
+          "observed_positive": 1
+        }
+      ],
+      "forced_binary_at_0_5": {
+        "denominator": 4,
+        "precision": 1,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      },
+      "risk_coverage_forced_binary": [
+        {
+          "coverage": 0.25,
+          "risk": 0,
+          "count": 1
+        },
+        {
+          "coverage": 0.25,
+          "risk": 0,
+          "count": 1
+        },
+        {
+          "coverage": 0.5,
+          "risk": 0,
+          "count": 2
+        },
+        {
+          "coverage": 0.5,
+          "risk": 0,
+          "count": 2
+        },
+        {
+          "coverage": 0.5,
+          "risk": 0,
+          "count": 2
+        },
+        {
+          "coverage": 0.75,
+          "risk": 0.3333333333333333,
+          "count": 3
+        },
+        {
+          "coverage": 0.75,
+          "risk": 0.3333333333333333,
+          "count": 3
+        },
+        {
+          "coverage": 1,
+          "risk": 0.5,
+          "count": 4
+        },
+        {
+          "coverage": 1,
+          "risk": 0.5,
+          "count": 4
+        },
+        {
+          "coverage": 1,
+          "risk": 0.5,
+          "count": 4
+        }
+      ],
+      "latency_ms": {
+        "attempted": 4,
+        "completed": 4,
+        "completed_p50": 149.77324999999996,
+        "completed_p95": 171.74508400000013,
+        "completed_p99": 171.74508400000013,
+        "all_attempts_p95": 171.74508400000013
+      },
+      "cost": {
+        "known_rows": 0,
+        "unknown_rows": 4,
+        "known_total_usd": 0,
+        "input_tokens": 2767,
+        "output_tokens": null,
+        "token_usage": {
+          "scope": "deduplicated_requests_and_legacy_pair_observations",
+          "observations": 4,
+          "input": {
+            "known_subtotal": 2767,
+            "known_observations": 4,
+            "unknown_observations": 0
+          },
+          "output": {
+            "known_subtotal": 0,
+            "known_observations": 0,
+            "unknown_observations": 4
+          }
+        }
+      }
+    },
+    "scifact/gold-rationale-set/SUPPORT": {
+      "denominator": 6,
+      "positive": 0,
+      "negative": 6,
+      "confusion": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "true_negative": 5,
+        "definitive_false_negative": 0,
+        "positive_misses_including_uncertain_errors_exclusions": 0
+      },
+      "precision": {
+        "value": null,
+        "denominator": 0,
+        "ci95": null
+      },
+      "recall": {
+        "value": null,
+        "denominator": 0,
+        "ci95": null
+      },
+      "f1": null,
+      "false_positive_rate": {
+        "value": 0,
+        "denominator": 6,
+        "ci95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "clear_negative_coverage": {
+        "value": 0.8333333333333334,
+        "denominator": 6,
+        "ci95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "coverage": {
+        "value": 0.8333333333333334,
+        "denominator": 6,
+        "ci95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "uncertainty": {
+        "value": 0.16666666666666666,
+        "denominator": 6,
+        "ci95": [
+          0.030053369748306635,
+          0.5635028221864702
+        ]
+      },
+      "completion": {
+        "value": 1,
+        "denominator": 6,
+        "ci95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "errors": 0,
+      "excluded": 0,
+      "probability_denominator": 6,
+      "prevalence_in_scored_subset": 0,
+      "auroc": null,
+      "pr_auc_average_precision": null,
+      "brier": 0.0007833333333333335,
+      "expected_calibration_error_10_bins": 0.018333333333333337,
+      "calibration_bins": [
+        {
+          "lower": 0,
+          "upper": 0.1,
+          "count": 6,
+          "mean_score": 0.018333333333333337,
+          "observed_positive": 0
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.9,
+          "upper": 1,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        }
+      ],
+      "forced_binary_at_0_5": {
+        "denominator": 6,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "risk_coverage_forced_binary": [
+        {
+          "coverage": 0.16666666666666666,
+          "risk": 0,
+          "count": 1
+        },
+        {
+          "coverage": 0.3333333333333333,
+          "risk": 0,
+          "count": 2
+        },
+        {
+          "coverage": 0.3333333333333333,
+          "risk": 0,
+          "count": 2
+        },
+        {
+          "coverage": 0.5,
+          "risk": 0,
+          "count": 3
+        },
+        {
+          "coverage": 0.5,
+          "risk": 0,
+          "count": 3
+        },
+        {
+          "coverage": 0.6666666666666666,
+          "risk": 0,
+          "count": 4
+        },
+        {
+          "coverage": 0.8333333333333334,
+          "risk": 0,
+          "count": 5
+        },
+        {
+          "coverage": 0.8333333333333334,
+          "risk": 0,
+          "count": 5
+        },
+        {
+          "coverage": 1,
+          "risk": 0,
+          "count": 6
+        },
+        {
+          "coverage": 1,
+          "risk": 0,
+          "count": 6
+        }
+      ],
+      "latency_ms": {
+        "attempted": 6,
+        "completed": 6,
+        "completed_p50": 149.66341699999998,
+        "completed_p95": 167.2721250000002,
+        "completed_p99": 167.2721250000002,
+        "all_attempts_p95": 167.2721250000002
+      },
+      "cost": {
+        "known_rows": 0,
+        "unknown_rows": 6,
+        "known_total_usd": 0,
+        "input_tokens": 4201,
+        "output_tokens": null,
+        "token_usage": {
+          "scope": "deduplicated_requests_and_legacy_pair_observations",
+          "observations": 6,
+          "input": {
+            "known_subtotal": 4201,
+            "known_observations": 6,
+            "unknown_observations": 0
+          },
+          "output": {
+            "known_subtotal": 0,
+            "known_observations": 0,
+            "unknown_observations": 6
+          }
+        }
+      }
+    }
+  },
+  "by_pass": {
+    "1": {
+      "denominator": 10,
+      "positive": 4,
+      "negative": 6,
+      "confusion": {
+        "true_positive": 2,
+        "false_positive": 0,
+        "true_negative": 5,
+        "definitive_false_negative": 0,
+        "positive_misses_including_uncertain_errors_exclusions": 2
+      },
+      "precision": {
+        "value": 1,
+        "denominator": 2,
+        "ci95": [
+          0.34238022750665303,
+          1
+        ]
+      },
+      "recall": {
+        "value": 0.5,
+        "denominator": 4,
+        "ci95": [
+          0.15003898915214947,
+          0.8499610108478506
+        ]
+      },
+      "f1": 0.6666666666666666,
+      "false_positive_rate": {
+        "value": 0,
+        "denominator": 6,
+        "ci95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "clear_negative_coverage": {
+        "value": 0.8333333333333334,
+        "denominator": 6,
+        "ci95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "coverage": {
+        "value": 0.7,
+        "denominator": 10,
+        "ci95": [
+          0.39677814746114537,
+          0.8922087325936989
+        ]
+      },
+      "uncertainty": {
+        "value": 0.3,
+        "denominator": 10,
+        "ci95": [
+          0.10779126740630099,
+          0.6032218525388546
+        ]
+      },
+      "completion": {
+        "value": 1,
+        "denominator": 10,
+        "ci95": [
+          0.7224672001371107,
+          0.9999999999999999
+        ]
+      },
+      "errors": 0,
+      "excluded": 0,
+      "probability_denominator": 10,
+      "prevalence_in_scored_subset": 0.4,
+      "auroc": 1,
+      "pr_auc_average_precision": 1,
+      "brier": 0.09976000000000003,
+      "expected_calibration_error_10_bins": 0.152,
+      "calibration_bins": [
+        {
+          "lower": 0,
+          "upper": 0.1,
+          "count": 6,
+          "mean_score": 0.018333333333333337,
+          "observed_positive": 0
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 1,
+          "mean_score": 0.19,
+          "observed_positive": 1
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 1,
+          "mean_score": 0.42,
+          "observed_positive": 1
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 0,
+          "mean_score": null,
+          "observed_positive": null
+        },
+        {
+          "lower": 0.9,
+          "upper": 1,
+          "count": 2,
+          "mean_score": 0.99,
+          "observed_positive": 1
+        }
+      ],
+      "forced_binary_at_0_5": {
+        "denominator": 10,
+        "precision": 1,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      },
+      "risk_coverage_forced_binary": [
+        {
+          "coverage": 0.1,
+          "risk": 0,
+          "count": 1
+        },
+        {
+          "coverage": 0.2,
+          "risk": 0,
+          "count": 2
+        },
+        {
+          "coverage": 0.3,
+          "risk": 0,
+          "count": 3
+        },
+        {
+          "coverage": 0.4,
+          "risk": 0,
+          "count": 4
+        },
+        {
+          "coverage": 0.5,
+          "risk": 0,
+          "count": 5
+        },
+        {
+          "coverage": 0.6,
+          "risk": 0,
+          "count": 6
+        },
+        {
+          "coverage": 0.7,
+          "risk": 0,
+          "count": 7
+        },
+        {
+          "coverage": 0.8,
+          "risk": 0,
+          "count": 8
+        },
+        {
+          "coverage": 0.9,
+          "risk": 0.1111111111111111,
+          "count": 9
+        },
+        {
+          "coverage": 1,
+          "risk": 0.2,
+          "count": 10
+        }
+      ],
+      "latency_ms": {
+        "attempted": 10,
+        "completed": 10,
+        "completed_p50": 149.77324999999996,
+        "completed_p95": 177.57112499999994,
+        "completed_p99": 177.57112499999994,
+        "all_attempts_p95": 177.57112499999994
+      },
+      "cost": {
+        "known_rows": 0,
+        "unknown_rows": 10,
+        "known_total_usd": 0,
+        "input_tokens": 6968,
+        "output_tokens": null,
+        "token_usage": {
+          "scope": "deduplicated_requests_and_legacy_pair_observations",
+          "observations": 10,
+          "input": {
+            "known_subtotal": 6968,
+            "known_observations": 10,
+            "unknown_observations": 0
+          },
+          "output": {
+            "known_subtotal": 0,
+            "known_observations": 0,
+            "unknown_observations": 10
+          }
+        }
+      }
+    }
+  },
+  "prediction_metadata": {
+    "manifest_sha256": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+    "model": null,
+    "backend": "service",
+    "expected_pair_observations": 10,
+    "selected_pair_ids": [
+      "scifact:dev:100:4381486:0",
+      "scifact:dev:1020:9433958:0",
+      "scifact:dev:1107:20532591:0",
+      "scifact:dev:216:21366394:0",
+      "scifact:dev:513:13230773:0",
+      "scifact:dev:569:23460562:0",
+      "scifact:dev:613:9638032:0",
+      "scifact:dev:619:20888849:0",
+      "scifact:dev:674:2095573:0",
+      "scifact:dev:880:8426046:0"
+    ],
+    "source_protocol": {
+      "passes": 1,
+      "presentation": "original",
+      "batch_size": 1,
+      "concurrency": 1,
+      "timeout_ms": 6000,
+      "timeout_policy": "route_default",
+      "timeout_scope": "client_upload_network_and_server_total",
+      "transport_route": "http_service",
+      "production_deadline_equivalence": "server_enforced",
+      "service_deadline_budgets": {
+        "body_read_ms": 2000,
+        "application_ms": 3000,
+        "provider_within_application_ms": 2500,
+        "default_network_margin_ms": 1000
+      },
+      "packing": {
+        "method": "fixed_identical_claim_groups",
+        "requested_max_comparisons": 1,
+        "assessment": "pair_isolation",
+        "envelope_failure": "exclude_entire_submitted_batch",
+        "automatic_repacking": false
+      }
+    },
+    "checkpoint_semantics": "Incremental completed batches; exact replay coverage required; no automatic resume or retry"
+  },
+  "prediction_artifact": {
+    "source": "incremental_checkpoint",
+    "sha256": "599f951f8df8a75e31eab2358db72952d51953d434a9262d1d907d6ff4467fa5",
+    "metadata_sha256": "624cdbdfd2e7101d09b45e08214f78a3e2892ba15ab9ce3e5f0851828dc40f4a"
+  },
+  "request_observations": [
+    {
+      "pass": 1,
+      "pair_ids": [
+        "scifact:dev:100:4381486:0"
+      ],
+      "status": "completed",
+      "latency_ms": 341.1930830000001,
+      "usage": {
+        "input_tokens": 683,
+        "output_tokens": null
+      }
+    },
+    {
+      "pass": 1,
+      "pair_ids": [
+        "scifact:dev:1020:9433958:0"
+      ],
+      "status": "completed",
+      "latency_ms": 150.34454100000016,
+      "usage": {
+        "input_tokens": 728,
+        "output_tokens": null
+      }
+    },
+    {
+      "pass": 1,
+      "pair_ids": [
+        "scifact:dev:1107:20532591:0"
+      ],
+      "status": "completed",
+      "latency_ms": 167.57295799999997,
+      "usage": {
+        "input_tokens": 681,
+        "output_tokens": null
+      }
+    },
+    {
+      "pass": 1,
+      "pair_ids": [
+        "scifact:dev:216:21366394:0"
+      ],
+      "status": "completed",
+      "latency_ms": 150.02104200000008,
+      "usage": {
+        "input_tokens": 708,
+        "output_tokens": null
+      }
+    },
+    {
+      "pass": 1,
+      "pair_ids": [
+        "scifact:dev:513:13230773:0"
+      ],
+      "status": "completed",
+      "latency_ms": 180.56108399999994,
+      "usage": {
+        "input_tokens": 669,
+        "output_tokens": null
+      }
+    },
+    {
+      "pass": 1,
+      "pair_ids": [
+        "scifact:dev:569:23460562:0"
+      ],
+      "status": "completed",
+      "latency_ms": 138.24766599999998,
+      "usage": {
+        "input_tokens": 694,
+        "output_tokens": null
+      }
+    },
+    {
+      "pass": 1,
+      "pair_ids": [
+        "scifact:dev:613:9638032:0"
+      ],
+      "status": "completed",
+      "latency_ms": 162.88133399999992,
+      "usage": {
+        "input_tokens": 718,
+        "output_tokens": null
+      }
+    },
+    {
+      "pass": 1,
+      "pair_ids": [
+        "scifact:dev:619:20888849:0"
+      ],
+      "status": "completed",
+      "latency_ms": 147.9732079999999,
+      "usage": {
+        "input_tokens": 734,
+        "output_tokens": null
+      }
+    },
+    {
+      "pass": 1,
+      "pair_ids": [
+        "scifact:dev:674:2095573:0"
+      ],
+      "status": "completed",
+      "latency_ms": 172.17208299999993,
+      "usage": {
+        "input_tokens": 656,
+        "output_tokens": null
+      }
+    },
+    {
+      "pass": 1,
+      "pair_ids": [
+        "scifact:dev:880:8426046:0"
+      ],
+      "status": "completed",
+      "latency_ms": 115.50062500000013,
+      "usage": {
+        "input_tokens": 697,
+        "output_tokens": null
+      }
+    }
+  ],
+  "rows": [
+    {
+      "pair": {
+        "id": "scifact:dev:100:4381486:0",
+        "dataset": "scifact",
+        "variant": "gold-rationale-set",
+        "split": "dev",
+        "source_id": "100",
+        "group_id": "scifact:100",
+        "claim": "All hematopoietic stem cells segregate their chromosomes randomly.",
+        "evidence": "Sequential administration of 5-chloro-2-deoxyuridine and 5-iodo-2-deoxyuridine indicated that all HSCs segregate their chromosomes randomly.",
+        "gold": "non_contradiction",
+        "native_label": "SUPPORT",
+        "rationale": {
+          "document_id": "4381486",
+          "sentence_indices": [
+            5
+          ],
+          "set_index": 0
+        }
+      },
+      "prediction": {
+        "pair_id": "scifact:dev:100:4381486:0",
+        "pass": 1,
+        "latency_ms": 339.27687500000013,
+        "presentation": "original",
+        "request_id": "req_dec3d922-f5f4-4d84-8e25-8b8ae7083b23",
+        "input_tokens": 683,
+        "request_usage": {
+          "input_tokens": 683,
+          "output_tokens": null
+        },
+        "model": "jev-1.14.0",
+        "engine_release": "countercheck-evaluation-v1",
+        "provider": "typesafe",
+        "reported_model": "jev-1.14.0",
+        "model_revision": null,
+        "prompt_version": "pair-relation-v1",
+        "threshold_version": "evaluation-0.8-0.2-v1",
+        "status": "ok",
+        "verdict": "no_contradiction",
+        "probabilities": {
+          "contradiction": 0,
+          "no_contradiction": 0.98,
+          "insufficient_context": 0.02
+        },
+        "raw_scores": {
+          "contradiction": 0,
+          "consistent": 0.98,
+          "different_scope": 0,
+          "insufficient_context": 0.02
+        }
+      }
+    },
+    {
+      "pair": {
+        "id": "scifact:dev:1020:9433958:0",
+        "dataset": "scifact",
+        "variant": "gold-rationale-set",
+        "split": "dev",
+        "source_id": "1020",
+        "group_id": "scifact:1020",
+        "claim": "Rapid up-regulation and higher basal expression of interferon-induced genes increase survival of granule cell neurons that are infected by West Nile virus.",
+        "evidence": "By transducing cortical neurons with genes that were expressed more highly in granule cell neurons, we identified three interferon-stimulated genes (ISGs; Ifi27, Irg1 and Rsad2 (also known as Viperin)) that mediated the antiviral effects against different neurotropic viruses.",
+        "gold": "non_contradiction",
+        "native_label": "SUPPORT",
+        "rationale": {
+          "document_id": "9433958",
+          "sentence_indices": [
+            3
+          ],
+          "set_index": 0
+        }
+      },
+      "prediction": {
+        "pair_id": "scifact:dev:1020:9433958:0",
+        "pass": 1,
+        "latency_ms": 149.66341699999998,
+        "presentation": "original",
+        "request_id": "req_309ded32-d992-4edc-aac2-25473a0d1cfa",
+        "input_tokens": 728,
+        "request_usage": {
+          "input_tokens": 728,
+          "output_tokens": null
+        },
+        "model": "jev-1.14.0",
+        "engine_release": "countercheck-evaluation-v1",
+        "provider": "typesafe",
+        "reported_model": "jev-1.14.0",
+        "model_revision": null,
+        "prompt_version": "pair-relation-v1",
+        "threshold_version": "evaluation-0.8-0.2-v1",
+        "status": "ok",
+        "verdict": "uncertain",
+        "probabilities": {
+          "contradiction": 0.01,
+          "no_contradiction": 0.8,
+          "insufficient_context": 0.19
+        },
+        "raw_scores": {
+          "contradiction": 0.01,
+          "consistent": 0.61,
+          "different_scope": 0.19,
+          "insufficient_context": 0.19
+        }
+      }
+    },
+    {
+      "pair": {
+        "id": "scifact:dev:1107:20532591:0",
+        "dataset": "scifact",
+        "variant": "gold-rationale-set",
+        "split": "dev",
+        "source_id": "1107",
+        "group_id": "scifact:1107",
+        "claim": "Subcutaneous fat depots undergo extensive browning processes after cold exposure.",
+        "evidence": "During cold-induced 'browning' of subcutaneous fat, most 'beige' adipocytes stem from de novo–differentiated adipocytes.",
+        "gold": "non_contradiction",
+        "native_label": "SUPPORT",
+        "rationale": {
+          "document_id": "20532591",
+          "sentence_indices": [
+            3
+          ],
+          "set_index": 0
+        }
+      },
+      "prediction": {
+        "pair_id": "scifact:dev:1107:20532591:0",
+        "pass": 1,
+        "latency_ms": 167.2721250000002,
+        "presentation": "original",
+        "request_id": "req_31b7871b-5ce2-4361-9eee-d2f401706ca1",
+        "input_tokens": 681,
+        "request_usage": {
+          "input_tokens": 681,
+          "output_tokens": null
+        },
+        "model": "jev-1.14.0",
+        "engine_release": "countercheck-evaluation-v1",
+        "provider": "typesafe",
+        "reported_model": "jev-1.14.0",
+        "model_revision": null,
+        "prompt_version": "pair-relation-v1",
+        "threshold_version": "evaluation-0.8-0.2-v1",
+        "status": "ok",
+        "verdict": "no_contradiction",
+        "probabilities": {
+          "contradiction": 0,
+          "no_contradiction": 0.99,
+          "insufficient_context": 0.01
+        },
+        "raw_scores": {
+          "contradiction": 0,
+          "consistent": 0.99,
+          "different_scope": 0,
+          "insufficient_context": 0.01
+        }
+      }
+    },
+    {
+      "pair": {
+        "id": "scifact:dev:216:21366394:0",
+        "dataset": "scifact",
+        "variant": "gold-rationale-set",
+        "split": "dev",
+        "source_id": "216",
+        "group_id": "scifact:216",
+        "claim": "CX3CR1 on the Th2 cells impairs T cell survival",
+        "evidence": "We found that CX3CR1 signaling promoted T(H)2 survival in the inflamed lungs, and injection of B cell leukemia/lymphoma-2 protein (BCl-2)-transduced CX3CR1-deficient T(H)2 cells into CX3CR1-deficient mice restored asthma.",
+        "gold": "contradiction",
+        "native_label": "CONTRADICT",
+        "rationale": {
+          "document_id": "21366394",
+          "sentence_indices": [
+            4
+          ],
+          "set_index": 0
+        }
+      },
+      "prediction": {
+        "pair_id": "scifact:dev:216:21366394:0",
+        "pass": 1,
+        "latency_ms": 149.77324999999996,
+        "presentation": "original",
+        "request_id": "req_220a8f92-338b-4297-a82c-1295be3c6db4",
+        "input_tokens": 708,
+        "request_usage": {
+          "input_tokens": 708,
+          "output_tokens": null
+        },
+        "model": "jev-1.14.0",
+        "engine_release": "countercheck-evaluation-v1",
+        "provider": "typesafe",
+        "reported_model": "jev-1.14.0",
+        "model_revision": null,
+        "prompt_version": "pair-relation-v1",
+        "threshold_version": "evaluation-0.8-0.2-v1",
+        "status": "ok",
+        "verdict": "contradiction",
+        "probabilities": {
+          "contradiction": 0.98,
+          "no_contradiction": 0.01,
+          "insufficient_context": 0.01
+        },
+        "raw_scores": {
+          "contradiction": 0.98,
+          "consistent": 0.01,
+          "different_scope": 0,
+          "insufficient_context": 0.01
+        }
+      }
+    },
+    {
+      "pair": {
+        "id": "scifact:dev:513:13230773:0",
+        "dataset": "scifact",
+        "variant": "gold-rationale-set",
+        "split": "dev",
+        "source_id": "513",
+        "group_id": "scifact:513",
+        "claim": "High cardiopulmonary fitness causes increased mortality rate.",
+        "evidence": "CONCLUSION Low fitness in adolescents and adults is common in the US population and is associated with an increased prevalence of CVD risk factors.",
+        "gold": "contradiction",
+        "native_label": "CONTRADICT",
+        "rationale": {
+          "document_id": "13230773",
+          "sentence_indices": [
+            11
+          ],
+          "set_index": 0
+        }
+      },
+      "prediction": {
+        "pair_id": "scifact:dev:513:13230773:0",
+        "pass": 1,
+        "latency_ms": 177.57112499999994,
+        "presentation": "original",
+        "request_id": "req_2f2c5eeb-c4a3-4a4c-a547-49a7e667d826",
+        "input_tokens": 669,
+        "request_usage": {
+          "input_tokens": 669,
+          "output_tokens": null
+        },
+        "model": "jev-1.14.0",
+        "engine_release": "countercheck-evaluation-v1",
+        "provider": "typesafe",
+        "reported_model": "jev-1.14.0",
+        "model_revision": null,
+        "prompt_version": "pair-relation-v1",
+        "threshold_version": "evaluation-0.8-0.2-v1",
+        "status": "ok",
+        "verdict": "uncertain",
+        "probabilities": {
+          "contradiction": 0.19,
+          "no_contradiction": 0.74,
+          "insufficient_context": 0.07
+        },
+        "raw_scores": {
+          "contradiction": 0.19,
+          "consistent": 0.71,
+          "different_scope": 0.03,
+          "insufficient_context": 0.07
+        }
+      }
+    },
+    {
+      "pair": {
+        "id": "scifact:dev:569:23460562:0",
+        "dataset": "scifact",
+        "variant": "gold-rationale-set",
+        "split": "dev",
+        "source_id": "569",
+        "group_id": "scifact:569",
+        "claim": "In adult tissue, most T cells are memory T cells.",
+        "evidence": "Whereas adult tissues contain a predominance of memory T cells, in pediatric blood and tissues the main subset consists of naive recent thymic emigrants, with effector memory T cells (T(EM)) found only in the lungs and small intestine.",
+        "gold": "non_contradiction",
+        "native_label": "SUPPORT",
+        "rationale": {
+          "document_id": "23460562",
+          "sentence_indices": [
+            4
+          ],
+          "set_index": 0
+        }
+      },
+      "prediction": {
+        "pair_id": "scifact:dev:569:23460562:0",
+        "pass": 1,
+        "latency_ms": 138.06312500000013,
+        "presentation": "original",
+        "request_id": "req_96d292fc-e340-4fbb-a13b-72c90b59f93d",
+        "input_tokens": 694,
+        "request_usage": {
+          "input_tokens": 694,
+          "output_tokens": null
+        },
+        "model": "jev-1.14.0",
+        "engine_release": "countercheck-evaluation-v1",
+        "provider": "typesafe",
+        "reported_model": "jev-1.14.0",
+        "model_revision": null,
+        "prompt_version": "pair-relation-v1",
+        "threshold_version": "evaluation-0.8-0.2-v1",
+        "status": "ok",
+        "verdict": "no_contradiction",
+        "probabilities": {
+          "contradiction": 0.03,
+          "no_contradiction": 0.96,
+          "insufficient_context": 0.01
+        },
+        "raw_scores": {
+          "contradiction": 0.03,
+          "consistent": 0.94,
+          "different_scope": 0.02,
+          "insufficient_context": 0.01
+        }
+      }
+    },
+    {
+      "pair": {
+        "id": "scifact:dev:613:9638032:0",
+        "dataset": "scifact",
+        "variant": "gold-rationale-set",
+        "split": "dev",
+        "source_id": "613",
+        "group_id": "scifact:613",
+        "claim": "Increased microtubule acetylation repairs LRRK2 Roc-COR domain mutation induced locomotor deficits.",
+        "evidence": "In vitro, increasing microtubule acetylation using deacetylase inhibitors or the tubulin acetylase αTAT1 prevents association of mutant LRRK2 with microtubules, and the deacetylase inhibitor trichostatin A (TSA) restores axonal transport.",
+        "gold": "non_contradiction",
+        "native_label": "SUPPORT",
+        "rationale": {
+          "document_id": "9638032",
+          "sentence_indices": [
+            4
+          ],
+          "set_index": 0
+        }
+      },
+      "prediction": {
+        "pair_id": "scifact:dev:613:9638032:0",
+        "pass": 1,
+        "latency_ms": 162.6836659999999,
+        "presentation": "original",
+        "request_id": "req_faee0a46-e353-4969-9079-c0549c849922",
+        "input_tokens": 718,
+        "request_usage": {
+          "input_tokens": 718,
+          "output_tokens": null
+        },
+        "model": "jev-1.14.0",
+        "engine_release": "countercheck-evaluation-v1",
+        "provider": "typesafe",
+        "reported_model": "jev-1.14.0",
+        "model_revision": null,
+        "prompt_version": "pair-relation-v1",
+        "threshold_version": "evaluation-0.8-0.2-v1",
+        "status": "ok",
+        "verdict": "no_contradiction",
+        "probabilities": {
+          "contradiction": 0.01,
+          "no_contradiction": 0.8500000000000001,
+          "insufficient_context": 0.14
+        },
+        "raw_scores": {
+          "contradiction": 0.01,
+          "consistent": 0.81,
+          "different_scope": 0.04,
+          "insufficient_context": 0.14
+        }
+      }
+    },
+    {
+      "pair": {
+        "id": "scifact:dev:619:20888849:0",
+        "dataset": "scifact",
+        "variant": "gold-rationale-set",
+        "split": "dev",
+        "source_id": "619",
+        "group_id": "scifact:619",
+        "claim": "Increased vessel density along with a reduction in fibrosis decreases the efficacy of chemotherapy treatments.",
+        "evidence": "We tested whether the delivery and efficacy of gemcitabine in the mice could be improved by coadministration of IPI-926, a drug that depletes tumor-associated stromal tissue by inhibition of the Hedgehog cellular signaling pathway. The combination therapy produced a transient increase in intratumoral vascular density and intratumoral concentration of gemcitabine, leading to transient stabilization of disease.",
+        "gold": "contradiction",
+        "native_label": "CONTRADICT",
+        "rationale": {
+          "document_id": "20888849",
+          "sentence_indices": [
+            2,
+            3
+          ],
+          "set_index": 0
+        }
+      },
+      "prediction": {
+        "pair_id": "scifact:dev:619:20888849:0",
+        "pass": 1,
+        "latency_ms": 147.80212499999993,
+        "presentation": "original",
+        "request_id": "req_b169d71f-5e70-4cf3-8b9d-26c31bc2045e",
+        "input_tokens": 734,
+        "request_usage": {
+          "input_tokens": 734,
+          "output_tokens": null
+        },
+        "model": "jev-1.14.0",
+        "engine_release": "countercheck-evaluation-v1",
+        "provider": "typesafe",
+        "reported_model": "jev-1.14.0",
+        "model_revision": null,
+        "prompt_version": "pair-relation-v1",
+        "threshold_version": "evaluation-0.8-0.2-v1",
+        "status": "ok",
+        "verdict": "uncertain",
+        "probabilities": {
+          "contradiction": 0.42,
+          "no_contradiction": 0.31,
+          "insufficient_context": 0.27
+        },
+        "raw_scores": {
+          "contradiction": 0.42,
+          "consistent": 0.3,
+          "different_scope": 0.01,
+          "insufficient_context": 0.27
+        }
+      }
+    },
+    {
+      "pair": {
+        "id": "scifact:dev:674:2095573:0",
+        "dataset": "scifact",
+        "variant": "gold-rationale-set",
+        "split": "dev",
+        "source_id": "674",
+        "group_id": "scifact:674",
+        "claim": "LDL cholesterol has no involvement in the development of cardiovascular disease.",
+        "evidence": "BACKGROUND LDL cholesterol has a causal role in the development of cardiovascular disease.",
+        "gold": "contradiction",
+        "native_label": "CONTRADICT",
+        "rationale": {
+          "document_id": "2095573",
+          "sentence_indices": [
+            0
+          ],
+          "set_index": 0
+        }
+      },
+      "prediction": {
+        "pair_id": "scifact:dev:674:2095573:0",
+        "pass": 1,
+        "latency_ms": 171.74508400000013,
+        "presentation": "original",
+        "request_id": "req_556c9b4c-07a1-4737-aea7-b0761e8c977b",
+        "input_tokens": 656,
+        "request_usage": {
+          "input_tokens": 656,
+          "output_tokens": null
+        },
+        "model": "jev-1.14.0",
+        "engine_release": "countercheck-evaluation-v1",
+        "provider": "typesafe",
+        "reported_model": "jev-1.14.0",
+        "model_revision": null,
+        "prompt_version": "pair-relation-v1",
+        "threshold_version": "evaluation-0.8-0.2-v1",
+        "status": "ok",
+        "verdict": "contradiction",
+        "probabilities": {
+          "contradiction": 1,
+          "no_contradiction": 0,
+          "insufficient_context": 0
+        },
+        "raw_scores": {
+          "contradiction": 1,
+          "consistent": 0,
+          "different_scope": 0,
+          "insufficient_context": 0
+        }
+      }
+    },
+    {
+      "pair": {
+        "id": "scifact:dev:880:8426046:0",
+        "dataset": "scifact",
+        "variant": "gold-rationale-set",
+        "split": "dev",
+        "source_id": "880",
+        "group_id": "scifact:880",
+        "claim": "Occupancy of ribosomes by IncRNAs mirror 5 0-UTRs",
+        "evidence": "Here, we show that classical noncoding RNAs and 5' UTRs show the same ribosome occupancy as lincRNAs, demonstrating that ribosome occupancy alone is not sufficient to classify transcripts as coding or noncoding.",
+        "gold": "non_contradiction",
+        "native_label": "SUPPORT",
+        "rationale": {
+          "document_id": "8426046",
+          "sentence_indices": [
+            3
+          ],
+          "set_index": 0
+        }
+      },
+      "prediction": {
+        "pair_id": "scifact:dev:880:8426046:0",
+        "pass": 1,
+        "latency_ms": 115.17404099999976,
+        "presentation": "original",
+        "request_id": "req_7ae04b22-992a-4895-8e5e-eca077196fa1",
+        "input_tokens": 697,
+        "request_usage": {
+          "input_tokens": 697,
+          "output_tokens": null
+        },
+        "model": "jev-1.14.0",
+        "engine_release": "countercheck-evaluation-v1",
+        "provider": "typesafe",
+        "reported_model": "jev-1.14.0",
+        "model_revision": null,
+        "prompt_version": "pair-relation-v1",
+        "threshold_version": "evaluation-0.8-0.2-v1",
+        "status": "ok",
+        "verdict": "no_contradiction",
+        "probabilities": {
+          "contradiction": 0.060000000000000005,
+          "no_contradiction": 0.8600000000000001,
+          "insufficient_context": 0.08000000000000002
+        },
+        "raw_scores": {
+          "contradiction": 0.06,
+          "consistent": 0.85,
+          "different_scope": 0.01,
+          "insufficient_context": 0.08
+        }
+      }
+    }
+  ]
+}

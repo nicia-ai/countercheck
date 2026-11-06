@@ -1,0 +1,69 @@
+{
+  "kind": "hypothetical-raw-evidence-length-coverage",
+  "actual_api_limit_bytes": 2048,
+  "model_calls": 0,
+  "api_changes": false,
+  "qualification": "Raw evidence-length audit only. Larger limits are hypothetical; full request/compiled body limits, token limits and semantic quality are not evaluated.",
+  "tracks": {
+    "contractnli-binary-excerpts": {
+      "native_pairs": 614,
+      "source_groups": 61,
+      "thresholds": [
+        {
+          "evidence_bytes": 2048,
+          "eligible_groups": 57,
+          "eligible_pairs": 561,
+          "fraction": 0.9136807817589576
+        },
+        {
+          "evidence_bytes": 4096,
+          "eligible_groups": 61,
+          "eligible_pairs": 614,
+          "fraction": 1
+        },
+        {
+          "evidence_bytes": 8192,
+          "eligible_groups": 61,
+          "eligible_pairs": 614,
+          "fraction": 1
+        },
+        {
+          "evidence_bytes": 12288,
+          "eligible_groups": 61,
+          "eligible_pairs": 614,
+          "fraction": 1
+        }
+      ]
+    },
+    "findver-ie": {
+      "native_pairs": 250,
+      "source_groups": 99,
+      "thresholds": [
+        {
+          "evidence_bytes": 2048,
+          "eligible_groups": 16,
+          "eligible_pairs": 23,
+          "fraction": 0.092
+        },
+        {
+          "evidence_bytes": 4096,
+          "eligible_groups": 64,
+          "eligible_pairs": 152,
+          "fraction": 0.608
+        },
+        {
+          "evidence_bytes": 8192,
+          "eligible_groups": 86,
+          "eligible_pairs": 212,
+          "fraction": 0.848
+        },
+        {
+          "evidence_bytes": 12288,
+          "eligible_groups": 91,
+          "eligible_pairs": 227,
+          "fraction": 0.908
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+# Copy to ignored .dev.vars; never commit live credentials.
+TYPESAFE_API_KEY=replace-with-a-real-provider-api-key
+# Optional hosted routes; leave unset to disable them in the model catalog.
+# OPENAI_API_KEY=
+# OPENROUTER_API_KEY=
+# Generate a dedicated random secret of at least 32 characters for this service.
+BETTER_AUTH_SECRET=replace-with-a-dedicated-random-secret-of-at-least-32-characters
+BETTER_AUTH_URL=http://localhost:8787
+RESEND_API_KEY=replace-with-a-real-resend-api-key
+AUTH_EMAIL_FROM=Countercheck <hello@nicia.ai>
+# Explicitly bootstrap an invited administrator; this email still requires verification.
+ADMIN_EMAILS=your-operator-email@example.com
+# Optional: synthetic checks consume normal quotas; keys expire and need rotation.
+# CANARY_API_KEY=
+# ALERT_WEBHOOK_URL=

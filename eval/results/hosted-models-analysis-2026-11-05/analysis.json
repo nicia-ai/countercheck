@@ -1,0 +1,2776 @@
+{
+  "analysis_kind": "post-hoc, exploratory; no new inference or threshold validation",
+  "analysis_version": 1,
+  "inputs_sha256": {
+    "eval/results/hosted-models-with-glide-2026-11-05/observations.redacted.jsonl.gz": "f92bed91d12842c07a4798cb0bf4ba5b2c8e872feae3b24dd162787d158fcb63",
+    "eval/results/hosted-models-with-glide-2026-11-05/summary.json": "7f71b6a6da24db28a7d0d2d2f8f94ab01dd3fa427dacda0ba89fbd21162fd54f",
+    "eval/results/hosted-models-2026-11-05/protocol.json": "5746b97195b1af948abb8a626dab316dd44ba311d6658ba803079421117097b0",
+    "eval/results/hosted-models-with-glide-2026-11-05/fastino-protocol.json": "e92856851fb2fecb55e20dd4c1187ddb280d446b38d91c1170d6a96da1960a83",
+    "eval/results/business-2026-11-04/metrics.py": "ebd741940080f46125213a88cbff4f73e377c20fbee107bde6289f1da4d7841c",
+    "scripts/analyze-eval-release.py": "dc7ac76cf1477a9f5a4c5c35fc1bfab5abd89c62ad497722f707993c75e3fc20"
+  },
+  "bootstrap": {
+    "unit": "source group; all pairs from both models resampled together",
+    "replicates": 20000,
+    "seed": 20261105,
+    "interval": "pointwise percentile 95%; no multiplicity correction",
+    "scope": "conditional on selected groups and one fixed inference pass"
+  },
+  "models": [
+    {
+      "id": "jev-1.14.0",
+      "name": "Jev 1.14",
+      "provider": "typesafe"
+    },
+    {
+      "id": "clef",
+      "name": "Clef",
+      "provider": "cloudflare-workers-ai"
+    },
+    {
+      "id": "clef-flash",
+      "name": "Clef Flash",
+      "provider": "cloudflare-workers-ai"
+    },
+    {
+      "id": "clef-omni",
+      "name": "Clef Omni",
+      "provider": "cloudflare-workers-ai"
+    },
+    {
+      "id": "gpt-6-luna",
+      "name": "GPT-6 Luna (OpenAI Decisions)",
+      "provider": "openai-decisions"
+    },
+    {
+      "id": "microsoft/microsoft-decision-1",
+      "name": "Decision-1 (OpenRouter)",
+      "provider": "openrouter-microsoft"
+    },
+    {
+      "id": "perplexity/pplx-decider-v1.2",
+      "name": "Pplx Decider v1.2 (OpenRouter)",
+      "provider": "openrouter-perplexity"
+    },
+    {
+      "id": "perplexity/pplx-decider-flash-v1.2",
+      "name": "Pplx Decider Flash v1.2 (OpenRouter)",
+      "provider": "openrouter-perplexity"
+    },
+    {
+      "id": "fastino/GLiDE",
+      "name": "GLiDE 27B (Fastino API)",
+      "provider": "fastino"
+    }
+  ],
+  "ranking_and_operating_points": [
+    {
+      "model": "jev-1.14.0",
+      "dataset": "vitaminc",
+      "selected": 200,
+      "source_groups": 25,
+      "positive_denominator": 71,
+      "probability_denominator": 200,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.5490196078431373,
+        "precision": 0.9032258064516129,
+        "recall": 0.39436619718309857,
+        "clear_negative_coverage": 0.7906976744186046,
+        "false_clears": 9
+      },
+      "auroc": 0.8627033518943115,
+      "average_precision": 0.8064500874254201,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 71,
+        "probability_denominator": 200,
+        "recall": 0.28169014084507044,
+        "precision": 0.9523809523809523,
+        "threshold": 0.9,
+        "true_positive": 20,
+        "false_positive": 1,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "jev-1.14.0",
+      "dataset": "scifact",
+      "selected": 199,
+      "source_groups": 151,
+      "positive_denominator": 71,
+      "probability_denominator": 199,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.6481481481481481,
+        "precision": 0.9459459459459459,
+        "recall": 0.49295774647887325,
+        "clear_negative_coverage": 0.8203125,
+        "false_clears": 3
+      },
+      "auroc": 0.9684198943661972,
+      "average_precision": 0.9261924662338297,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 71,
+        "probability_denominator": 199,
+        "recall": 0.676056338028169,
+        "precision": 0.96,
+        "threshold": 0.36,
+        "true_positive": 48,
+        "false_positive": 2,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "jev-1.14.0",
+      "dataset": "contractnli",
+      "selected": 199,
+      "source_groups": 20,
+      "positive_denominator": 26,
+      "probability_denominator": 199,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.6341463414634146,
+        "precision": 0.8666666666666667,
+        "recall": 0.5,
+        "clear_negative_coverage": 0.6416184971098265,
+        "false_clears": 2
+      },
+      "auroc": 0.9273010226767451,
+      "average_precision": 0.7390449183833994,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 26,
+        "probability_denominator": 199,
+        "recall": 0.07692307692307693,
+        "precision": 1.0,
+        "threshold": 0.99,
+        "true_positive": 2,
+        "false_positive": 0,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "jev-1.14.0",
+      "dataset": "mnli",
+      "selected": 200,
+      "source_groups": 69,
+      "positive_denominator": 67,
+      "probability_denominator": 200,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.7358490566037735,
+        "precision": 1.0,
+        "recall": 0.582089552238806,
+        "clear_negative_coverage": 0.8120300751879699,
+        "false_clears": 3
+      },
+      "auroc": 0.976545842217484,
+      "average_precision": 0.9657397278209564,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 67,
+        "probability_denominator": 200,
+        "recall": 0.835820895522388,
+        "precision": 0.9655172413793104,
+        "threshold": 0.33,
+        "true_positive": 56,
+        "false_positive": 2,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "jev-1.14.0",
+      "dataset": "findver",
+      "selected": 82,
+      "source_groups": 59,
+      "positive_denominator": 44,
+      "probability_denominator": 82,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.9,
+        "precision": 1.0,
+        "recall": 0.8181818181818182,
+        "clear_negative_coverage": 0.7105263157894737,
+        "false_clears": 1
+      },
+      "auroc": 0.9626196172248804,
+      "average_precision": 0.9774887573874087,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 44,
+        "probability_denominator": 82,
+        "recall": 0.9090909090909091,
+        "precision": 0.975609756097561,
+        "threshold": 0.51,
+        "true_positive": 40,
+        "false_positive": 1,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "clef",
+      "dataset": "vitaminc",
+      "selected": 200,
+      "source_groups": 25,
+      "positive_denominator": 71,
+      "probability_denominator": 200,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.5486725663716814,
+        "precision": 0.7380952380952381,
+        "recall": 0.43661971830985913,
+        "clear_negative_coverage": 0.5968992248062015,
+        "false_clears": 15
+      },
+      "auroc": 0.7613276558576266,
+      "average_precision": 0.6906010588005399,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 71,
+        "probability_denominator": 200,
+        "recall": 0.11267605633802817,
+        "precision": 1.0,
+        "threshold": 0.9132,
+        "true_positive": 8,
+        "false_positive": 0,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "clef",
+      "dataset": "scifact",
+      "selected": 199,
+      "source_groups": 151,
+      "positive_denominator": 71,
+      "probability_denominator": 199,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.5252525252525253,
+        "precision": 0.9285714285714286,
+        "recall": 0.36619718309859156,
+        "clear_negative_coverage": 0.5546875,
+        "false_clears": 1
+      },
+      "auroc": 0.9501540492957743,
+      "average_precision": 0.9004328121714131,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 71,
+        "probability_denominator": 199,
+        "recall": 0.28169014084507044,
+        "precision": 0.9523809523809523,
+        "threshold": 0.8768,
+        "true_positive": 20,
+        "false_positive": 1,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "clef",
+      "dataset": "contractnli",
+      "selected": 199,
+      "source_groups": 20,
+      "positive_denominator": 26,
+      "probability_denominator": 199,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.47058823529411764,
+        "precision": 1.0,
+        "recall": 0.3076923076923077,
+        "clear_negative_coverage": 0.34104046242774566,
+        "false_clears": 0
+      },
+      "auroc": 0.9524232992441112,
+      "average_precision": 0.8413720828249507,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 26,
+        "probability_denominator": 199,
+        "recall": 0.5,
+        "precision": 1.0,
+        "threshold": 0.7171,
+        "true_positive": 13,
+        "false_positive": 0,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "clef",
+      "dataset": "mnli",
+      "selected": 200,
+      "source_groups": 69,
+      "positive_denominator": 67,
+      "probability_denominator": 199,
+      "errors": 1,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.574468085106383,
+        "precision": 1.0,
+        "recall": 0.40298507462686567,
+        "clear_negative_coverage": 0.5639097744360902,
+        "false_clears": 1
+      },
+      "auroc": 0.9573722297602907,
+      "average_precision": 0.9399876789534353,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 67,
+        "probability_denominator": 199,
+        "recall": 0.6567164179104478,
+        "precision": 0.9565217391304348,
+        "threshold": 0.5973,
+        "true_positive": 44,
+        "false_positive": 2,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "clef",
+      "dataset": "findver",
+      "selected": 82,
+      "source_groups": 59,
+      "positive_denominator": 44,
+      "probability_denominator": 82,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.42857142857142855,
+        "precision": 1.0,
+        "recall": 0.2727272727272727,
+        "clear_negative_coverage": 0.5526315789473685,
+        "false_clears": 2
+      },
+      "auroc": 0.9392942583732052,
+      "average_precision": 0.9567823359524465,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 44,
+        "probability_denominator": 82,
+        "recall": 0.7727272727272727,
+        "precision": 0.9714285714285714,
+        "threshold": 0.2376,
+        "true_positive": 34,
+        "false_positive": 1,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "clef-flash",
+      "dataset": "vitaminc",
+      "selected": 200,
+      "source_groups": 25,
+      "positive_denominator": 71,
+      "probability_denominator": 200,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.2696629213483146,
+        "precision": 0.6666666666666666,
+        "recall": 0.16901408450704225,
+        "clear_negative_coverage": 0.29457364341085274,
+        "false_clears": 9
+      },
+      "auroc": 0.7459875532263349,
+      "average_precision": 0.6049436135270826,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 71,
+        "probability_denominator": 200,
+        "recall": 0.0,
+        "precision": null,
+        "threshold": null,
+        "true_positive": 0,
+        "false_positive": 0,
+        "nonempty_qualifying_threshold": false
+      }
+    },
+    {
+      "model": "clef-flash",
+      "dataset": "scifact",
+      "selected": 199,
+      "source_groups": 151,
+      "positive_denominator": 71,
+      "probability_denominator": 199,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.5961538461538461,
+        "precision": 0.9393939393939394,
+        "recall": 0.43661971830985913,
+        "clear_negative_coverage": 0.2265625,
+        "false_clears": 0
+      },
+      "auroc": 0.9589568661971832,
+      "average_precision": 0.919538625979643,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 71,
+        "probability_denominator": 199,
+        "recall": 0.352112676056338,
+        "precision": 0.9615384615384616,
+        "threshold": 0.8272,
+        "true_positive": 25,
+        "false_positive": 1,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "clef-flash",
+      "dataset": "contractnli",
+      "selected": 199,
+      "source_groups": 20,
+      "positive_denominator": 26,
+      "probability_denominator": 199,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.5142857142857142,
+        "precision": 1.0,
+        "recall": 0.34615384615384615,
+        "clear_negative_coverage": 0.15028901734104047,
+        "false_clears": 0
+      },
+      "auroc": 0.9493108048021366,
+      "average_precision": 0.8335463459753257,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 26,
+        "probability_denominator": 199,
+        "recall": 0.4230769230769231,
+        "precision": 1.0,
+        "threshold": 0.7881,
+        "true_positive": 11,
+        "false_positive": 0,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "clef-flash",
+      "dataset": "mnli",
+      "selected": 200,
+      "source_groups": 69,
+      "positive_denominator": 67,
+      "probability_denominator": 200,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.6326530612244898,
+        "precision": 1.0,
+        "recall": 0.4626865671641791,
+        "clear_negative_coverage": 0.41353383458646614,
+        "false_clears": 0
+      },
+      "auroc": 0.9819324430479146,
+      "average_precision": 0.9691602993200953,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 67,
+        "probability_denominator": 200,
+        "recall": 0.8507462686567164,
+        "precision": 0.9661016949152542,
+        "threshold": 0.5869,
+        "true_positive": 57,
+        "false_positive": 2,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "clef-flash",
+      "dataset": "findver",
+      "selected": 82,
+      "source_groups": 59,
+      "positive_denominator": 44,
+      "probability_denominator": 82,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.4,
+        "precision": 1.0,
+        "recall": 0.25,
+        "clear_negative_coverage": 0.3684210526315789,
+        "false_clears": 3
+      },
+      "auroc": 0.8606459330143544,
+      "average_precision": 0.9136451915129518,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 44,
+        "probability_denominator": 82,
+        "recall": 0.7045454545454546,
+        "precision": 0.96875,
+        "threshold": 0.1924,
+        "true_positive": 31,
+        "false_positive": 1,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "clef-omni",
+      "dataset": "vitaminc",
+      "selected": 200,
+      "source_groups": 25,
+      "positive_denominator": 71,
+      "probability_denominator": 200,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.4077669902912621,
+        "precision": 0.65625,
+        "recall": 0.29577464788732394,
+        "clear_negative_coverage": 0.5813953488372093,
+        "false_clears": 11
+      },
+      "auroc": 0.7739382028605748,
+      "average_precision": 0.6876639686254247,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 71,
+        "probability_denominator": 200,
+        "recall": 0.22535211267605634,
+        "precision": 1.0,
+        "threshold": 0.8533,
+        "true_positive": 16,
+        "false_positive": 0,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "clef-omni",
+      "dataset": "scifact",
+      "selected": 199,
+      "source_groups": 151,
+      "positive_denominator": 71,
+      "probability_denominator": 198,
+      "errors": 1,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.6605504587155964,
+        "precision": 0.9473684210526315,
+        "recall": 0.5070422535211268,
+        "clear_negative_coverage": 0.59375,
+        "false_clears": 1
+      },
+      "auroc": 0.9645114783187306,
+      "average_precision": 0.9362677307243946,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 71,
+        "probability_denominator": 198,
+        "recall": 0.5633802816901409,
+        "precision": 0.9523809523809523,
+        "threshold": 0.7736,
+        "true_positive": 40,
+        "false_positive": 2,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "clef-omni",
+      "dataset": "contractnli",
+      "selected": 199,
+      "source_groups": 20,
+      "positive_denominator": 26,
+      "probability_denominator": 199,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.65,
+        "precision": 0.9285714285714286,
+        "recall": 0.5,
+        "clear_negative_coverage": 0.47398843930635837,
+        "false_clears": 0
+      },
+      "auroc": 0.9802134281903107,
+      "average_precision": 0.8862859061671989,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 26,
+        "probability_denominator": 199,
+        "recall": 0.2692307692307692,
+        "precision": 1.0,
+        "threshold": 0.8567,
+        "true_positive": 7,
+        "false_positive": 0,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "clef-omni",
+      "dataset": "mnli",
+      "selected": 200,
+      "source_groups": 69,
+      "positive_denominator": 67,
+      "probability_denominator": 200,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.7047619047619048,
+        "precision": 0.9736842105263158,
+        "recall": 0.5522388059701493,
+        "clear_negative_coverage": 0.5263157894736842,
+        "false_clears": 0
+      },
+      "auroc": 0.9827179890023536,
+      "average_precision": 0.9658319796114924,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 67,
+        "probability_denominator": 200,
+        "recall": 0.7910447761194029,
+        "precision": 0.9636363636363636,
+        "threshold": 0.6518,
+        "true_positive": 53,
+        "false_positive": 2,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "clef-omni",
+      "dataset": "findver",
+      "selected": 82,
+      "source_groups": 59,
+      "positive_denominator": 44,
+      "probability_denominator": 82,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.3076923076923077,
+        "precision": 1.0,
+        "recall": 0.18181818181818182,
+        "clear_negative_coverage": 0.7631578947368421,
+        "false_clears": 6
+      },
+      "auroc": 0.9270334928229659,
+      "average_precision": 0.9492249501014536,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 44,
+        "probability_denominator": 82,
+        "recall": 0.7272727272727273,
+        "precision": 0.9696969696969697,
+        "threshold": 0.2064,
+        "true_positive": 32,
+        "false_positive": 1,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "gpt-6-luna",
+      "dataset": "vitaminc",
+      "selected": 200,
+      "source_groups": 25,
+      "positive_denominator": 71,
+      "probability_denominator": 200,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.3409090909090909,
+        "precision": 0.8823529411764706,
+        "recall": 0.2112676056338028,
+        "clear_negative_coverage": 0.7286821705426356,
+        "false_clears": 9
+      },
+      "auroc": 0.8612293918550061,
+      "average_precision": 0.7786947968590646,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 71,
+        "probability_denominator": 200,
+        "recall": 0.08450704225352113,
+        "precision": 1.0,
+        "threshold": 0.94,
+        "true_positive": 6,
+        "false_positive": 0,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "gpt-6-luna",
+      "dataset": "scifact",
+      "selected": 199,
+      "source_groups": 151,
+      "positive_denominator": 71,
+      "probability_denominator": 198,
+      "errors": 1,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.40860215053763443,
+        "precision": 0.8636363636363636,
+        "recall": 0.2676056338028169,
+        "clear_negative_coverage": 0.6328125,
+        "false_clears": 8
+      },
+      "auroc": 0.8194521459465454,
+      "average_precision": 0.7507148008237049,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 71,
+        "probability_denominator": 198,
+        "recall": 0.028169014084507043,
+        "precision": 1.0,
+        "threshold": 0.99,
+        "true_positive": 2,
+        "false_positive": 0,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "gpt-6-luna",
+      "dataset": "contractnli",
+      "selected": 199,
+      "source_groups": 20,
+      "positive_denominator": 26,
+      "probability_denominator": 198,
+      "errors": 1,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.5128205128205128,
+        "precision": 0.7692307692307693,
+        "recall": 0.38461538461538464,
+        "clear_negative_coverage": 0.3872832369942196,
+        "false_clears": 1
+      },
+      "auroc": 0.8537567084078709,
+      "average_precision": 0.6241447021286826,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 26,
+        "probability_denominator": 198,
+        "recall": 0.11538461538461539,
+        "precision": 1.0,
+        "threshold": 0.94,
+        "true_positive": 3,
+        "false_positive": 0,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "gpt-6-luna",
+      "dataset": "mnli",
+      "selected": 200,
+      "source_groups": 69,
+      "positive_denominator": 67,
+      "probability_denominator": 200,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.4943820224719101,
+        "precision": 1.0,
+        "recall": 0.3283582089552239,
+        "clear_negative_coverage": 0.6691729323308271,
+        "false_clears": 5
+      },
+      "auroc": 0.8763326226012793,
+      "average_precision": 0.8506562232576204,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 67,
+        "probability_denominator": 200,
+        "recall": 0.582089552238806,
+        "precision": 0.9512195121951219,
+        "threshold": 0.58,
+        "true_positive": 39,
+        "false_positive": 2,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "gpt-6-luna",
+      "dataset": "findver",
+      "selected": 82,
+      "source_groups": 59,
+      "positive_denominator": 44,
+      "probability_denominator": 82,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.8571428571428571,
+        "precision": 1.0,
+        "recall": 0.75,
+        "clear_negative_coverage": 0.7894736842105263,
+        "false_clears": 2
+      },
+      "auroc": 0.9557416267942582,
+      "average_precision": 0.970351231435975,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 44,
+        "probability_denominator": 82,
+        "recall": 0.8863636363636364,
+        "precision": 0.975,
+        "threshold": 0.51,
+        "true_positive": 39,
+        "false_positive": 1,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "microsoft/microsoft-decision-1",
+      "dataset": "vitaminc",
+      "selected": 200,
+      "source_groups": 25,
+      "positive_denominator": 71,
+      "probability_denominator": 200,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.6260869565217392,
+        "precision": 0.8181818181818182,
+        "recall": 0.5070422535211268,
+        "clear_negative_coverage": 0.751937984496124,
+        "false_clears": 10
+      },
+      "auroc": 0.8704552898788073,
+      "average_precision": 0.8230369946903116,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 71,
+        "probability_denominator": 200,
+        "recall": 0.38028169014084506,
+        "precision": 0.9642857142857143,
+        "threshold": 0.9621995868148647,
+        "true_positive": 27,
+        "false_positive": 1,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "microsoft/microsoft-decision-1",
+      "dataset": "scifact",
+      "selected": 199,
+      "source_groups": 151,
+      "positive_denominator": 71,
+      "probability_denominator": 199,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.6296296296296297,
+        "precision": 0.918918918918919,
+        "recall": 0.4788732394366197,
+        "clear_negative_coverage": 0.6640625,
+        "false_clears": 2
+      },
+      "auroc": 0.9334286971830983,
+      "average_precision": 0.8716536046506859,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 71,
+        "probability_denominator": 199,
+        "recall": 0.14084507042253522,
+        "precision": 1.0,
+        "threshold": 0.9909820019845438,
+        "true_positive": 10,
+        "false_positive": 0,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "microsoft/microsoft-decision-1",
+      "dataset": "contractnli",
+      "selected": 199,
+      "source_groups": 20,
+      "positive_denominator": 26,
+      "probability_denominator": 199,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.6181818181818182,
+        "precision": 0.5862068965517241,
+        "recall": 0.6538461538461539,
+        "clear_negative_coverage": 0.4797687861271676,
+        "false_clears": 0
+      },
+      "auroc": 0.8852823477100968,
+      "average_precision": 0.698842883117253,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 26,
+        "probability_denominator": 199,
+        "recall": 0.3076923076923077,
+        "precision": 1.0,
+        "threshold": 0.9834916913190751,
+        "true_positive": 8,
+        "false_positive": 0,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "microsoft/microsoft-decision-1",
+      "dataset": "mnli",
+      "selected": 200,
+      "source_groups": 69,
+      "positive_denominator": 67,
+      "probability_denominator": 200,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.7787610619469026,
+        "precision": 0.9565217391304348,
+        "recall": 0.6567164179104478,
+        "clear_negative_coverage": 0.7593984962406015,
+        "false_clears": 2
+      },
+      "auroc": 0.9695881494781695,
+      "average_precision": 0.9440321215373476,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 67,
+        "probability_denominator": 200,
+        "recall": 0.6567164179104478,
+        "precision": 0.9565217391304348,
+        "threshold": 0.819128518779024,
+        "true_positive": 44,
+        "false_positive": 2,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "microsoft/microsoft-decision-1",
+      "dataset": "findver",
+      "selected": 82,
+      "source_groups": 59,
+      "positive_denominator": 44,
+      "probability_denominator": 82,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.6956521739130435,
+        "precision": 0.96,
+        "recall": 0.5454545454545454,
+        "clear_negative_coverage": 0.6578947368421053,
+        "false_clears": 4
+      },
+      "auroc": 0.9025119617224877,
+      "average_precision": 0.9220778362083976,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 44,
+        "probability_denominator": 82,
+        "recall": 0.6363636363636364,
+        "precision": 0.9655172413793104,
+        "threshold": 0.5082528039687958,
+        "true_positive": 28,
+        "false_positive": 1,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-v1.2",
+      "dataset": "vitaminc",
+      "selected": 200,
+      "source_groups": 25,
+      "positive_denominator": 71,
+      "probability_denominator": 200,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.6481481481481481,
+        "precision": 0.9459459459459459,
+        "recall": 0.49295774647887325,
+        "clear_negative_coverage": 0.7984496124031008,
+        "false_clears": 5
+      },
+      "auroc": 0.931051424828038,
+      "average_precision": 0.8950720656045621,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 71,
+        "probability_denominator": 200,
+        "recall": 0.5492957746478874,
+        "precision": 0.9512195121951219,
+        "threshold": 0.6615712980190347,
+        "true_positive": 39,
+        "false_positive": 2,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-v1.2",
+      "dataset": "scifact",
+      "selected": 199,
+      "source_groups": 151,
+      "positive_denominator": 71,
+      "probability_denominator": 199,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.5961538461538461,
+        "precision": 0.9393939393939394,
+        "recall": 0.43661971830985913,
+        "clear_negative_coverage": 0.5390625,
+        "false_clears": 1
+      },
+      "auroc": 0.9518045774647891,
+      "average_precision": 0.9133922878731319,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 71,
+        "probability_denominator": 199,
+        "recall": 0.3380281690140845,
+        "precision": 0.96,
+        "threshold": 0.9077526255879741,
+        "true_positive": 24,
+        "false_positive": 1,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-v1.2",
+      "dataset": "contractnli",
+      "selected": 199,
+      "source_groups": 20,
+      "positive_denominator": 26,
+      "probability_denominator": 198,
+      "errors": 1,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.6829268292682927,
+        "precision": 0.9333333333333333,
+        "recall": 0.5384615384615384,
+        "clear_negative_coverage": 0.5491329479768786,
+        "false_clears": 0
+      },
+      "auroc": 0.9639982110912357,
+      "average_precision": 0.8607769089632398,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 26,
+        "probability_denominator": 198,
+        "recall": 0.46153846153846156,
+        "precision": 1.0,
+        "threshold": 0.8439412816751777,
+        "true_positive": 12,
+        "false_positive": 0,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-v1.2",
+      "dataset": "mnli",
+      "selected": 200,
+      "source_groups": 69,
+      "positive_denominator": 67,
+      "probability_denominator": 199,
+      "errors": 1,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.7964601769911505,
+        "precision": 0.9782608695652174,
+        "recall": 0.6716417910447762,
+        "clear_negative_coverage": 0.6015037593984962,
+        "false_clears": 0
+      },
+      "auroc": 0.9871269081795433,
+      "average_precision": 0.975155883860123,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 67,
+        "probability_denominator": 199,
+        "recall": 0.8656716417910447,
+        "precision": 0.9508196721311475,
+        "threshold": 0.46822518933114865,
+        "true_positive": 58,
+        "false_positive": 3,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-v1.2",
+      "dataset": "findver",
+      "selected": 82,
+      "source_groups": 59,
+      "positive_denominator": 44,
+      "probability_denominator": 81,
+      "errors": 1,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.926829268292683,
+        "precision": 1.0,
+        "recall": 0.8636363636363636,
+        "clear_negative_coverage": 0.8157894736842105,
+        "false_clears": 2
+      },
+      "auroc": 0.9645042839657281,
+      "average_precision": 0.9811855905152764,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 44,
+        "probability_denominator": 81,
+        "recall": 0.9318181818181818,
+        "precision": 1.0,
+        "threshold": 0.31999360755177697,
+        "true_positive": 41,
+        "false_positive": 0,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-flash-v1.2",
+      "dataset": "vitaminc",
+      "selected": 200,
+      "source_groups": 25,
+      "positive_denominator": 71,
+      "probability_denominator": 200,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.625,
+        "precision": 0.8536585365853658,
+        "recall": 0.49295774647887325,
+        "clear_negative_coverage": 0.6434108527131783,
+        "false_clears": 5
+      },
+      "auroc": 0.858663609564363,
+      "average_precision": 0.8232868024220277,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 71,
+        "probability_denominator": 200,
+        "recall": 0.36619718309859156,
+        "precision": 0.9629629629629629,
+        "threshold": 0.8819388426976391,
+        "true_positive": 26,
+        "false_positive": 1,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-flash-v1.2",
+      "dataset": "scifact",
+      "selected": 199,
+      "source_groups": 151,
+      "positive_denominator": 71,
+      "probability_denominator": 198,
+      "errors": 1,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.54,
+        "precision": 0.9310344827586207,
+        "recall": 0.38028169014084506,
+        "clear_negative_coverage": 0.2109375,
+        "false_clears": 0
+      },
+      "auroc": 0.9251116071428566,
+      "average_precision": 0.8740236663963998,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 71,
+        "probability_denominator": 198,
+        "recall": 0.30985915492957744,
+        "precision": 0.9565217391304348,
+        "threshold": 0.8795983939430423,
+        "true_positive": 22,
+        "false_positive": 1,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-flash-v1.2",
+      "dataset": "contractnli",
+      "selected": 199,
+      "source_groups": 20,
+      "positive_denominator": 26,
+      "probability_denominator": 198,
+      "errors": 1,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.42424242424242425,
+        "precision": 1.0,
+        "recall": 0.2692307692307692,
+        "clear_negative_coverage": 0.2658959537572254,
+        "false_clears": 0
+      },
+      "auroc": 0.9549132947976918,
+      "average_precision": 0.7863277482358292,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 26,
+        "probability_denominator": 198,
+        "recall": 0.3076923076923077,
+        "precision": 1.0,
+        "threshold": 0.7902090142072867,
+        "true_positive": 8,
+        "false_positive": 0,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-flash-v1.2",
+      "dataset": "mnli",
+      "selected": 200,
+      "source_groups": 69,
+      "positive_denominator": 67,
+      "probability_denominator": 200,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.7522935779816514,
+        "precision": 0.9761904761904762,
+        "recall": 0.6119402985074627,
+        "clear_negative_coverage": 0.5037593984962406,
+        "false_clears": 0
+      },
+      "auroc": 0.9840646392099616,
+      "average_precision": 0.9659343149246287,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 67,
+        "probability_denominator": 200,
+        "recall": 0.6716417910447762,
+        "precision": 0.9574468085106383,
+        "threshold": 0.7250399907301337,
+        "true_positive": 45,
+        "false_positive": 2,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-flash-v1.2",
+      "dataset": "findver",
+      "selected": 82,
+      "source_groups": 59,
+      "positive_denominator": 44,
+      "probability_denominator": 82,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.7246376811594203,
+        "precision": 1.0,
+        "recall": 0.5681818181818182,
+        "clear_negative_coverage": 0.7631578947368421,
+        "false_clears": 3
+      },
+      "auroc": 0.9683014354066981,
+      "average_precision": 0.9818629407297776,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 44,
+        "probability_denominator": 82,
+        "recall": 0.9545454545454546,
+        "precision": 0.9545454545454546,
+        "threshold": 0.06231930893628142,
+        "true_positive": 42,
+        "false_positive": 2,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "fastino/GLiDE",
+      "dataset": "vitaminc",
+      "selected": 200,
+      "source_groups": 25,
+      "positive_denominator": 71,
+      "probability_denominator": 200,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.6415094339622641,
+        "precision": 0.9714285714285714,
+        "recall": 0.4788732394366197,
+        "clear_negative_coverage": 0.8527131782945736,
+        "false_clears": 11
+      },
+      "auroc": 0.9175674200240217,
+      "average_precision": 0.8850337743518393,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 71,
+        "probability_denominator": 200,
+        "recall": 0.4788732394366197,
+        "precision": 0.9714285714285714,
+        "threshold": 0.8095839919443639,
+        "true_positive": 34,
+        "false_positive": 1,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "fastino/GLiDE",
+      "dataset": "scifact",
+      "selected": 199,
+      "source_groups": 151,
+      "positive_denominator": 71,
+      "probability_denominator": 199,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.5544554455445545,
+        "precision": 0.9333333333333333,
+        "recall": 0.39436619718309857,
+        "clear_negative_coverage": 0.7890625,
+        "false_clears": 2
+      },
+      "auroc": 0.9644586267605626,
+      "average_precision": 0.9311291878702855,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 71,
+        "probability_denominator": 199,
+        "recall": 0.5352112676056338,
+        "precision": 0.95,
+        "threshold": 0.6816463430390063,
+        "true_positive": 38,
+        "false_positive": 2,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "fastino/GLiDE",
+      "dataset": "contractnli",
+      "selected": 199,
+      "source_groups": 20,
+      "positive_denominator": 26,
+      "probability_denominator": 199,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.6829268292682927,
+        "precision": 0.9333333333333333,
+        "recall": 0.5384615384615384,
+        "clear_negative_coverage": 0.7109826589595376,
+        "false_clears": 0
+      },
+      "auroc": 0.9768786127167671,
+      "average_precision": 0.910020384196943,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 26,
+        "probability_denominator": 199,
+        "recall": 0.5,
+        "precision": 1.0,
+        "threshold": 0.8605062102666114,
+        "true_positive": 13,
+        "false_positive": 0,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "fastino/GLiDE",
+      "dataset": "mnli",
+      "selected": 200,
+      "source_groups": 69,
+      "positive_denominator": 67,
+      "probability_denominator": 199,
+      "errors": 1,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.7636363636363637,
+        "precision": 0.9767441860465116,
+        "recall": 0.6268656716417911,
+        "clear_negative_coverage": 0.8270676691729323,
+        "false_clears": 1
+      },
+      "auroc": 0.9804387155133417,
+      "average_precision": 0.964106789609279,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 67,
+        "probability_denominator": 199,
+        "recall": 0.7910447761194029,
+        "precision": 0.9636363636363636,
+        "threshold": 0.5842326531102342,
+        "true_positive": 53,
+        "false_positive": 2,
+        "nonempty_qualifying_threshold": true
+      }
+    },
+    {
+      "model": "fastino/GLiDE",
+      "dataset": "findver",
+      "selected": 82,
+      "source_groups": 59,
+      "positive_denominator": 44,
+      "probability_denominator": 82,
+      "errors": 0,
+      "excluded": 0,
+      "shipped": {
+        "f1": 0.9523809523809523,
+        "precision": 1.0,
+        "recall": 0.9090909090909091,
+        "clear_negative_coverage": 0.8157894736842105,
+        "false_clears": 2
+      },
+      "auroc": 0.9641148325358848,
+      "average_precision": 0.9812090838937619,
+      "retrospective_recall_at_precision_95": {
+        "minimum_observed_precision": 0.95,
+        "positive_denominator": 44,
+        "probability_denominator": 82,
+        "recall": 0.9545454545454546,
+        "precision": 0.9767441860465116,
+        "threshold": 0.6541699355839322,
+        "true_positive": 42,
+        "false_positive": 1,
+        "nonempty_qualifying_threshold": true
+      }
+    }
+  ],
+  "negative_coverage_by_native_label": [
+    {
+      "model": "jev-1.14.0",
+      "dataset": "vitaminc",
+      "native_label": "NOT ENOUGH INFO",
+      "selected": 29,
+      "cleared": 12,
+      "clear_negative_coverage": 0.41379310344827586,
+      "uncertain": 15,
+      "false_positive": 2,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 7,
+        "contradiction": 4,
+        "different_scope": 2,
+        "insufficient_context": 2
+      }
+    },
+    {
+      "model": "jev-1.14.0",
+      "dataset": "vitaminc",
+      "native_label": "SUPPORTS",
+      "selected": 100,
+      "cleared": 90,
+      "clear_negative_coverage": 0.9,
+      "uncertain": 9,
+      "false_positive": 1,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 7,
+        "contradiction": 2
+      }
+    },
+    {
+      "model": "jev-1.14.0",
+      "dataset": "scifact",
+      "native_label": "SUPPORT",
+      "selected": 128,
+      "cleared": 105,
+      "clear_negative_coverage": 0.8203125,
+      "uncertain": 21,
+      "false_positive": 2,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 18,
+        "different_scope": 1,
+        "insufficient_context": 2
+      }
+    },
+    {
+      "model": "jev-1.14.0",
+      "dataset": "contractnli",
+      "native_label": "Entailment",
+      "selected": 173,
+      "cleared": 111,
+      "clear_negative_coverage": 0.6416184971098265,
+      "uncertain": 60,
+      "false_positive": 2,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 51,
+        "contradiction": 7,
+        "different_scope": 2
+      }
+    },
+    {
+      "model": "jev-1.14.0",
+      "dataset": "mnli",
+      "native_label": "entailment",
+      "selected": 72,
+      "cleared": 65,
+      "clear_negative_coverage": 0.9027777777777778,
+      "uncertain": 7,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 7
+      }
+    },
+    {
+      "model": "jev-1.14.0",
+      "dataset": "mnli",
+      "native_label": "neutral",
+      "selected": 61,
+      "cleared": 43,
+      "clear_negative_coverage": 0.7049180327868853,
+      "uncertain": 18,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 15,
+        "different_scope": 1,
+        "insufficient_context": 2
+      }
+    },
+    {
+      "model": "jev-1.14.0",
+      "dataset": "findver",
+      "native_label": "entailed",
+      "selected": 38,
+      "cleared": 27,
+      "clear_negative_coverage": 0.7105263157894737,
+      "uncertain": 11,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 7,
+        "contradiction": 2,
+        "insufficient_context": 2
+      }
+    },
+    {
+      "model": "clef",
+      "dataset": "vitaminc",
+      "native_label": "NOT ENOUGH INFO",
+      "selected": 29,
+      "cleared": 8,
+      "clear_negative_coverage": 0.27586206896551724,
+      "uncertain": 15,
+      "false_positive": 6,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 9,
+        "contradiction": 6
+      }
+    },
+    {
+      "model": "clef",
+      "dataset": "vitaminc",
+      "native_label": "SUPPORTS",
+      "selected": 100,
+      "cleared": 69,
+      "clear_negative_coverage": 0.69,
+      "uncertain": 26,
+      "false_positive": 5,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 17,
+        "contradiction": 8,
+        "insufficient_context": 1
+      }
+    },
+    {
+      "model": "clef",
+      "dataset": "scifact",
+      "native_label": "SUPPORT",
+      "selected": 128,
+      "cleared": 71,
+      "clear_negative_coverage": 0.5546875,
+      "uncertain": 55,
+      "false_positive": 2,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 51,
+        "contradiction": 3,
+        "insufficient_context": 1
+      }
+    },
+    {
+      "model": "clef",
+      "dataset": "contractnli",
+      "native_label": "Entailment",
+      "selected": 173,
+      "cleared": 59,
+      "clear_negative_coverage": 0.34104046242774566,
+      "uncertain": 114,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 105,
+        "contradiction": 9
+      }
+    },
+    {
+      "model": "clef",
+      "dataset": "mnli",
+      "native_label": "entailment",
+      "selected": 72,
+      "cleared": 62,
+      "clear_negative_coverage": 0.8611111111111112,
+      "uncertain": 10,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 8,
+        "contradiction": 2
+      }
+    },
+    {
+      "model": "clef",
+      "dataset": "mnli",
+      "native_label": "neutral",
+      "selected": 61,
+      "cleared": 13,
+      "clear_negative_coverage": 0.21311475409836064,
+      "uncertain": 47,
+      "false_positive": 0,
+      "errors": 1,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 41,
+        "contradiction": 4,
+        "insufficient_context": 2
+      }
+    },
+    {
+      "model": "clef",
+      "dataset": "findver",
+      "native_label": "entailed",
+      "selected": 38,
+      "cleared": 21,
+      "clear_negative_coverage": 0.5526315789473685,
+      "uncertain": 17,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 17
+      }
+    },
+    {
+      "model": "clef-flash",
+      "dataset": "vitaminc",
+      "native_label": "NOT ENOUGH INFO",
+      "selected": 29,
+      "cleared": 4,
+      "clear_negative_coverage": 0.13793103448275862,
+      "uncertain": 21,
+      "false_positive": 4,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 13,
+        "contradiction": 8
+      }
+    },
+    {
+      "model": "clef-flash",
+      "dataset": "vitaminc",
+      "native_label": "SUPPORTS",
+      "selected": 100,
+      "cleared": 34,
+      "clear_negative_coverage": 0.34,
+      "uncertain": 64,
+      "false_positive": 2,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 52,
+        "contradiction": 12
+      }
+    },
+    {
+      "model": "clef-flash",
+      "dataset": "scifact",
+      "native_label": "SUPPORT",
+      "selected": 128,
+      "cleared": 29,
+      "clear_negative_coverage": 0.2265625,
+      "uncertain": 97,
+      "false_positive": 2,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 89,
+        "contradiction": 6,
+        "insufficient_context": 2
+      }
+    },
+    {
+      "model": "clef-flash",
+      "dataset": "contractnli",
+      "native_label": "Entailment",
+      "selected": 173,
+      "cleared": 26,
+      "clear_negative_coverage": 0.15028901734104047,
+      "uncertain": 147,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 127,
+        "contradiction": 17,
+        "different_scope": 1,
+        "insufficient_context": 2
+      }
+    },
+    {
+      "model": "clef-flash",
+      "dataset": "mnli",
+      "native_label": "entailment",
+      "selected": 72,
+      "cleared": 44,
+      "clear_negative_coverage": 0.6111111111111112,
+      "uncertain": 28,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 28
+      }
+    },
+    {
+      "model": "clef-flash",
+      "dataset": "mnli",
+      "native_label": "neutral",
+      "selected": 61,
+      "cleared": 11,
+      "clear_negative_coverage": 0.18032786885245902,
+      "uncertain": 50,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 40,
+        "contradiction": 7,
+        "insufficient_context": 3
+      }
+    },
+    {
+      "model": "clef-flash",
+      "dataset": "findver",
+      "native_label": "entailed",
+      "selected": 38,
+      "cleared": 14,
+      "clear_negative_coverage": 0.3684210526315789,
+      "uncertain": 24,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 24
+      }
+    },
+    {
+      "model": "clef-omni",
+      "dataset": "vitaminc",
+      "native_label": "NOT ENOUGH INFO",
+      "selected": 29,
+      "cleared": 11,
+      "clear_negative_coverage": 0.3793103448275862,
+      "uncertain": 12,
+      "false_positive": 6,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 6,
+        "contradiction": 3,
+        "different_scope": 2,
+        "insufficient_context": 1
+      }
+    },
+    {
+      "model": "clef-omni",
+      "dataset": "vitaminc",
+      "native_label": "SUPPORTS",
+      "selected": 100,
+      "cleared": 64,
+      "clear_negative_coverage": 0.64,
+      "uncertain": 31,
+      "false_positive": 5,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 24,
+        "contradiction": 7
+      }
+    },
+    {
+      "model": "clef-omni",
+      "dataset": "scifact",
+      "native_label": "SUPPORT",
+      "selected": 128,
+      "cleared": 76,
+      "clear_negative_coverage": 0.59375,
+      "uncertain": 49,
+      "false_positive": 2,
+      "errors": 1,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 41,
+        "contradiction": 2,
+        "different_scope": 4,
+        "insufficient_context": 2
+      }
+    },
+    {
+      "model": "clef-omni",
+      "dataset": "contractnli",
+      "native_label": "Entailment",
+      "selected": 173,
+      "cleared": 82,
+      "clear_negative_coverage": 0.47398843930635837,
+      "uncertain": 90,
+      "false_positive": 1,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 77,
+        "contradiction": 11,
+        "different_scope": 1,
+        "insufficient_context": 1
+      }
+    },
+    {
+      "model": "clef-omni",
+      "dataset": "mnli",
+      "native_label": "entailment",
+      "selected": 72,
+      "cleared": 60,
+      "clear_negative_coverage": 0.8333333333333334,
+      "uncertain": 12,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 9,
+        "contradiction": 1,
+        "different_scope": 1,
+        "insufficient_context": 1
+      }
+    },
+    {
+      "model": "clef-omni",
+      "dataset": "mnli",
+      "native_label": "neutral",
+      "selected": 61,
+      "cleared": 10,
+      "clear_negative_coverage": 0.16393442622950818,
+      "uncertain": 50,
+      "false_positive": 1,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 27,
+        "contradiction": 5,
+        "different_scope": 5,
+        "insufficient_context": 13
+      }
+    },
+    {
+      "model": "clef-omni",
+      "dataset": "findver",
+      "native_label": "entailed",
+      "selected": 38,
+      "cleared": 29,
+      "clear_negative_coverage": 0.7631578947368421,
+      "uncertain": 9,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 9
+      }
+    },
+    {
+      "model": "gpt-6-luna",
+      "dataset": "vitaminc",
+      "native_label": "NOT ENOUGH INFO",
+      "selected": 29,
+      "cleared": 14,
+      "clear_negative_coverage": 0.4827586206896552,
+      "uncertain": 13,
+      "false_positive": 2,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 7,
+        "contradiction": 4,
+        "insufficient_context": 2
+      }
+    },
+    {
+      "model": "gpt-6-luna",
+      "dataset": "vitaminc",
+      "native_label": "SUPPORTS",
+      "selected": 100,
+      "cleared": 80,
+      "clear_negative_coverage": 0.8,
+      "uncertain": 20,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 16,
+        "contradiction": 4
+      }
+    },
+    {
+      "model": "gpt-6-luna",
+      "dataset": "scifact",
+      "native_label": "SUPPORT",
+      "selected": 128,
+      "cleared": 81,
+      "clear_negative_coverage": 0.6328125,
+      "uncertain": 43,
+      "false_positive": 3,
+      "errors": 1,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 30,
+        "contradiction": 6,
+        "contradiction+insufficient_context": 1,
+        "insufficient_context": 6
+      }
+    },
+    {
+      "model": "gpt-6-luna",
+      "dataset": "contractnli",
+      "native_label": "Entailment",
+      "selected": 173,
+      "cleared": 67,
+      "clear_negative_coverage": 0.3872832369942196,
+      "uncertain": 102,
+      "false_positive": 3,
+      "errors": 1,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 54,
+        "contradiction": 33,
+        "insufficient_context": 15
+      }
+    },
+    {
+      "model": "gpt-6-luna",
+      "dataset": "mnli",
+      "native_label": "entailment",
+      "selected": 72,
+      "cleared": 58,
+      "clear_negative_coverage": 0.8055555555555556,
+      "uncertain": 14,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 11,
+        "contradiction": 2,
+        "insufficient_context": 1
+      }
+    },
+    {
+      "model": "gpt-6-luna",
+      "dataset": "mnli",
+      "native_label": "neutral",
+      "selected": 61,
+      "cleared": 31,
+      "clear_negative_coverage": 0.5081967213114754,
+      "uncertain": 30,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 24,
+        "contradiction": 2,
+        "insufficient_context": 4
+      }
+    },
+    {
+      "model": "gpt-6-luna",
+      "dataset": "findver",
+      "native_label": "entailed",
+      "selected": 38,
+      "cleared": 30,
+      "clear_negative_coverage": 0.7894736842105263,
+      "uncertain": 8,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 4,
+        "contradiction": 3,
+        "contradiction+insufficient_context": 1
+      }
+    },
+    {
+      "model": "microsoft/microsoft-decision-1",
+      "dataset": "vitaminc",
+      "native_label": "NOT ENOUGH INFO",
+      "selected": 29,
+      "cleared": 10,
+      "clear_negative_coverage": 0.3448275862068966,
+      "uncertain": 13,
+      "false_positive": 6,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 6,
+        "consistent+contradiction": 1,
+        "contradiction": 2,
+        "different_scope": 3,
+        "insufficient_context": 1
+      }
+    },
+    {
+      "model": "microsoft/microsoft-decision-1",
+      "dataset": "vitaminc",
+      "native_label": "SUPPORTS",
+      "selected": 100,
+      "cleared": 87,
+      "clear_negative_coverage": 0.87,
+      "uncertain": 11,
+      "false_positive": 2,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 8,
+        "contradiction": 2,
+        "different_scope": 1
+      }
+    },
+    {
+      "model": "microsoft/microsoft-decision-1",
+      "dataset": "scifact",
+      "native_label": "SUPPORT",
+      "selected": 128,
+      "cleared": 85,
+      "clear_negative_coverage": 0.6640625,
+      "uncertain": 40,
+      "false_positive": 3,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 26,
+        "contradiction": 3,
+        "insufficient_context": 11
+      }
+    },
+    {
+      "model": "microsoft/microsoft-decision-1",
+      "dataset": "contractnli",
+      "native_label": "Entailment",
+      "selected": 173,
+      "cleared": 83,
+      "clear_negative_coverage": 0.4797687861271676,
+      "uncertain": 78,
+      "false_positive": 12,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 40,
+        "consistent+contradiction": 3,
+        "consistent+insufficient_context": 1,
+        "contradiction": 15,
+        "different_scope": 3,
+        "insufficient_context": 16
+      }
+    },
+    {
+      "model": "microsoft/microsoft-decision-1",
+      "dataset": "mnli",
+      "native_label": "entailment",
+      "selected": 72,
+      "cleared": 69,
+      "clear_negative_coverage": 0.9583333333333334,
+      "uncertain": 3,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 1,
+        "contradiction": 1,
+        "different_scope": 1
+      }
+    },
+    {
+      "model": "microsoft/microsoft-decision-1",
+      "dataset": "mnli",
+      "native_label": "neutral",
+      "selected": 61,
+      "cleared": 32,
+      "clear_negative_coverage": 0.5245901639344263,
+      "uncertain": 27,
+      "false_positive": 2,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 11,
+        "consistent+insufficient_context": 1,
+        "contradiction": 4,
+        "insufficient_context": 11
+      }
+    },
+    {
+      "model": "microsoft/microsoft-decision-1",
+      "dataset": "findver",
+      "native_label": "entailed",
+      "selected": 38,
+      "cleared": 25,
+      "clear_negative_coverage": 0.6578947368421053,
+      "uncertain": 12,
+      "false_positive": 1,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 9,
+        "consistent+contradiction": 1,
+        "consistent+insufficient_context": 1,
+        "insufficient_context": 1
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-v1.2",
+      "dataset": "vitaminc",
+      "native_label": "NOT ENOUGH INFO",
+      "selected": 29,
+      "cleared": 8,
+      "clear_negative_coverage": 0.27586206896551724,
+      "uncertain": 20,
+      "false_positive": 1,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 5,
+        "contradiction": 6,
+        "insufficient_context": 9
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-v1.2",
+      "dataset": "vitaminc",
+      "native_label": "SUPPORTS",
+      "selected": 100,
+      "cleared": 95,
+      "clear_negative_coverage": 0.95,
+      "uncertain": 4,
+      "false_positive": 1,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 2,
+        "contradiction": 2
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-v1.2",
+      "dataset": "scifact",
+      "native_label": "SUPPORT",
+      "selected": 128,
+      "cleared": 69,
+      "clear_negative_coverage": 0.5390625,
+      "uncertain": 57,
+      "false_positive": 2,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 33,
+        "contradiction": 1,
+        "different_scope": 1,
+        "insufficient_context": 22
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-v1.2",
+      "dataset": "contractnli",
+      "native_label": "Entailment",
+      "selected": 173,
+      "cleared": 95,
+      "clear_negative_coverage": 0.5491329479768786,
+      "uncertain": 76,
+      "false_positive": 1,
+      "errors": 1,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 58,
+        "contradiction": 4,
+        "different_scope": 2,
+        "insufficient_context": 12
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-v1.2",
+      "dataset": "mnli",
+      "native_label": "entailment",
+      "selected": 72,
+      "cleared": 64,
+      "clear_negative_coverage": 0.8888888888888888,
+      "uncertain": 8,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 8
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-v1.2",
+      "dataset": "mnli",
+      "native_label": "neutral",
+      "selected": 61,
+      "cleared": 16,
+      "clear_negative_coverage": 0.26229508196721313,
+      "uncertain": 44,
+      "false_positive": 1,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 33,
+        "contradiction": 3,
+        "insufficient_context": 8
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-v1.2",
+      "dataset": "findver",
+      "native_label": "entailed",
+      "selected": 38,
+      "cleared": 31,
+      "clear_negative_coverage": 0.8157894736842105,
+      "uncertain": 7,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 4,
+        "insufficient_context": 3
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-flash-v1.2",
+      "dataset": "vitaminc",
+      "native_label": "NOT ENOUGH INFO",
+      "selected": 29,
+      "cleared": 4,
+      "clear_negative_coverage": 0.13793103448275862,
+      "uncertain": 20,
+      "false_positive": 5,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 6,
+        "contradiction": 12,
+        "different_scope": 2
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-flash-v1.2",
+      "dataset": "vitaminc",
+      "native_label": "SUPPORTS",
+      "selected": 100,
+      "cleared": 79,
+      "clear_negative_coverage": 0.79,
+      "uncertain": 20,
+      "false_positive": 1,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 18,
+        "insufficient_context": 2
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-flash-v1.2",
+      "dataset": "scifact",
+      "native_label": "SUPPORT",
+      "selected": 128,
+      "cleared": 27,
+      "clear_negative_coverage": 0.2109375,
+      "uncertain": 99,
+      "false_positive": 2,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 69,
+        "contradiction": 4,
+        "different_scope": 1,
+        "insufficient_context": 25
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-flash-v1.2",
+      "dataset": "contractnli",
+      "native_label": "Entailment",
+      "selected": 173,
+      "cleared": 46,
+      "clear_negative_coverage": 0.2658959537572254,
+      "uncertain": 127,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 88,
+        "contradiction": 9,
+        "different_scope": 4,
+        "insufficient_context": 26
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-flash-v1.2",
+      "dataset": "mnli",
+      "native_label": "entailment",
+      "selected": 72,
+      "cleared": 58,
+      "clear_negative_coverage": 0.8055555555555556,
+      "uncertain": 14,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 13,
+        "contradiction": 1
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-flash-v1.2",
+      "dataset": "mnli",
+      "native_label": "neutral",
+      "selected": 61,
+      "cleared": 9,
+      "clear_negative_coverage": 0.14754098360655737,
+      "uncertain": 51,
+      "false_positive": 1,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 24,
+        "contradiction": 4,
+        "insufficient_context": 23
+      }
+    },
+    {
+      "model": "perplexity/pplx-decider-flash-v1.2",
+      "dataset": "findver",
+      "native_label": "entailed",
+      "selected": 38,
+      "cleared": 29,
+      "clear_negative_coverage": 0.7631578947368421,
+      "uncertain": 9,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 8,
+        "insufficient_context": 1
+      }
+    },
+    {
+      "model": "fastino/GLiDE",
+      "dataset": "vitaminc",
+      "native_label": "NOT ENOUGH INFO",
+      "selected": 29,
+      "cleared": 14,
+      "clear_negative_coverage": 0.4827586206896552,
+      "uncertain": 14,
+      "false_positive": 1,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 9,
+        "contradiction": 4,
+        "insufficient_context": 1
+      }
+    },
+    {
+      "model": "fastino/GLiDE",
+      "dataset": "vitaminc",
+      "native_label": "SUPPORTS",
+      "selected": 100,
+      "cleared": 96,
+      "clear_negative_coverage": 0.96,
+      "uncertain": 4,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 3,
+        "contradiction": 1
+      }
+    },
+    {
+      "model": "fastino/GLiDE",
+      "dataset": "scifact",
+      "native_label": "SUPPORT",
+      "selected": 128,
+      "cleared": 101,
+      "clear_negative_coverage": 0.7890625,
+      "uncertain": 25,
+      "false_positive": 2,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 24,
+        "contradiction": 1
+      }
+    },
+    {
+      "model": "fastino/GLiDE",
+      "dataset": "contractnli",
+      "native_label": "Entailment",
+      "selected": 173,
+      "cleared": 123,
+      "clear_negative_coverage": 0.7109826589595376,
+      "uncertain": 49,
+      "false_positive": 1,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 45,
+        "contradiction": 2,
+        "different_scope": 2
+      }
+    },
+    {
+      "model": "fastino/GLiDE",
+      "dataset": "mnli",
+      "native_label": "entailment",
+      "selected": 72,
+      "cleared": 67,
+      "clear_negative_coverage": 0.9305555555555556,
+      "uncertain": 4,
+      "false_positive": 0,
+      "errors": 1,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 4
+      }
+    },
+    {
+      "model": "fastino/GLiDE",
+      "dataset": "mnli",
+      "native_label": "neutral",
+      "selected": 61,
+      "cleared": 43,
+      "clear_negative_coverage": 0.7049180327868853,
+      "uncertain": 17,
+      "false_positive": 1,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 10,
+        "contradiction": 4,
+        "insufficient_context": 3
+      }
+    },
+    {
+      "model": "fastino/GLiDE",
+      "dataset": "findver",
+      "native_label": "entailed",
+      "selected": 38,
+      "cleared": 31,
+      "clear_negative_coverage": 0.8157894736842105,
+      "uncertain": 7,
+      "false_positive": 0,
+      "errors": 0,
+      "excluded": 0,
+      "uncertain_argmax": {
+        "consistent": 6,
+        "contradiction": 1
+      }
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "dataset": "findver",
+      "first_model": "fastino/GLiDE",
+      "second_model": "perplexity/pplx-decider-v1.2",
+      "selected_pairs": 82,
+      "source_groups": 59,
+      "discordant_correct_outcomes": {
+        "positive": [
+          2,
+          0
+        ],
+        "negative": [
+          2,
+          2
+        ]
+      },
+      "metrics": {
+        "f1": {
+          "first": 0.9523809523809523,
+          "second": 0.926829268292683,
+          "difference": 0.025551684088269355,
+          "percentile_95": [
+            0.0,
+            0.06357927786499218
+          ],
+          "valid_replicates": 20000
+        },
+        "recall": {
+          "first": 0.9090909090909091,
+          "second": 0.8636363636363636,
+          "difference": 0.045454545454545414,
+          "percentile_95": [
+            0.0,
+            0.10909090909090913
+          ],
+          "valid_replicates": 20000
+        },
+        "clear_negative_coverage": {
+          "first": 0.8157894736842105,
+          "second": 0.8157894736842105,
+          "difference": 0.0,
+          "percentile_95": [
+            -0.10256410256410264,
+            0.10256410256410264
+          ],
+          "valid_replicates": 20000
+        }
+      }
+    },
+    {
+      "dataset": "findver",
+      "first_model": "fastino/GLiDE",
+      "second_model": "jev-1.14.0",
+      "selected_pairs": 82,
+      "source_groups": 59,
+      "discordant_correct_outcomes": {
+        "positive": [
+          4,
+          0
+        ],
+        "negative": [
+          6,
+          2
+        ]
+      },
+      "metrics": {
+        "f1": {
+          "first": 0.9523809523809523,
+          "second": 0.9,
+          "difference": 0.052380952380952306,
+          "percentile_95": [
+            0.011210249370853353,
+            0.11595547309833021
+          ],
+          "valid_replicates": 20000
+        },
+        "recall": {
+          "first": 0.9090909090909091,
+          "second": 0.8181818181818182,
+          "difference": 0.09090909090909083,
+          "percentile_95": [
+            0.020408163265306145,
+            0.18918918918918926
+          ],
+          "valid_replicates": 20000
+        },
+        "clear_negative_coverage": {
+          "first": 0.8157894736842105,
+          "second": 0.7105263157894737,
+          "difference": 0.10526315789473684,
+          "percentile_95": [
+            -0.030303030303030387,
+            0.2432432432432432
+          ],
+          "valid_replicates": 20000
+        }
+      }
+    },
+    {
+      "dataset": "contractnli",
+      "first_model": "fastino/GLiDE",
+      "second_model": "perplexity/pplx-decider-v1.2",
+      "selected_pairs": 199,
+      "source_groups": 20,
+      "discordant_correct_outcomes": {
+        "positive": [
+          0,
+          0
+        ],
+        "negative": [
+          29,
+          1
+        ]
+      },
+      "metrics": {
+        "f1": {
+          "first": 0.6829268292682927,
+          "second": 0.6829268292682927,
+          "difference": 0.0,
+          "percentile_95": [
+            0.0,
+            0.0
+          ],
+          "valid_replicates": 20000
+        },
+        "recall": {
+          "first": 0.5384615384615384,
+          "second": 0.5384615384615384,
+          "difference": 0.0,
+          "percentile_95": [
+            0.0,
+            0.0
+          ],
+          "valid_replicates": 20000
+        },
+        "clear_negative_coverage": {
+          "first": 0.7109826589595376,
+          "second": 0.5491329479768786,
+          "difference": 0.161849710982659,
+          "percentile_95": [
+            0.1049723756906078,
+            0.22077922077922085
+          ],
+          "valid_replicates": 20000
+        }
+      }
+    },
+    {
+      "dataset": "mnli",
+      "first_model": "fastino/GLiDE",
+      "second_model": "perplexity/pplx-decider-v1.2",
+      "selected_pairs": 200,
+      "source_groups": 69,
+      "discordant_correct_outcomes": {
+        "positive": [
+          1,
+          4
+        ],
+        "negative": [
+          31,
+          1
+        ]
+      },
+      "metrics": {
+        "f1": {
+          "first": 0.7636363636363637,
+          "second": 0.7964601769911505,
+          "difference": -0.03282381335478679,
+          "percentile_95": [
+            -0.08742444346159517,
+            0.017042330951071993
+          ],
+          "valid_replicates": 20000
+        },
+        "recall": {
+          "first": 0.6268656716417911,
+          "second": 0.6716417910447762,
+          "difference": -0.04477611940298509,
+          "percentile_95": [
+            -0.11290322580645162,
+            0.015151515151515138
+          ],
+          "valid_replicates": 20000
+        },
+        "clear_negative_coverage": {
+          "first": 0.8270676691729323,
+          "second": 0.6015037593984962,
+          "difference": 0.22556390977443608,
+          "percentile_95": [
+            0.1578947368421052,
+            0.2954545454545455
+          ],
+          "valid_replicates": 20000
+        }
+      }
+    },
+    {
+      "dataset": "vitaminc",
+      "first_model": "perplexity/pplx-decider-v1.2",
+      "second_model": "jev-1.14.0",
+      "selected_pairs": 200,
+      "source_groups": 25,
+      "discordant_correct_outcomes": {
+        "positive": [
+          9,
+          2
+        ],
+        "negative": [
+          9,
+          8
+        ]
+      },
+      "metrics": {
+        "f1": {
+          "first": 0.6481481481481481,
+          "second": 0.5490196078431373,
+          "difference": 0.09912854030501084,
+          "percentile_95": [
+            0.023955147808358834,
+            0.20460418134836744
+          ],
+          "valid_replicates": 20000
+        },
+        "recall": {
+          "first": 0.49295774647887325,
+          "second": 0.39436619718309857,
+          "difference": 0.09859154929577468,
+          "percentile_95": [
+            0.016393442622950838,
+            0.19672131147540983
+          ],
+          "valid_replicates": 20000
+        },
+        "clear_negative_coverage": {
+          "first": 0.7984496124031008,
+          "second": 0.7906976744186046,
+          "difference": 0.007751937984496138,
+          "percentile_95": [
+            -0.050420168067226934,
+            0.06617647058823528
+          ],
+          "valid_replicates": 20000
+        }
+      }
+    },
+    {
+      "dataset": "mnli",
+      "first_model": "perplexity/pplx-decider-v1.2",
+      "second_model": "jev-1.14.0",
+      "selected_pairs": 200,
+      "source_groups": 69,
+      "discordant_correct_outcomes": {
+        "positive": [
+          8,
+          2
+        ],
+        "negative": [
+          3,
+          31
+        ]
+      },
+      "metrics": {
+        "f1": {
+          "first": 0.7964601769911505,
+          "second": 0.7358490566037735,
+          "difference": 0.06061112038737693,
+          "percentile_95": [
+            -0.007187780772686336,
+            0.1336985189693649
+          ],
+          "valid_replicates": 20000
+        },
+        "recall": {
+          "first": 0.6716417910447762,
+          "second": 0.582089552238806,
+          "difference": 0.08955223880597019,
+          "percentile_95": [
+            0.0,
+            0.17910447761194037
+          ],
+          "valid_replicates": 20000
+        },
+        "clear_negative_coverage": {
+          "first": 0.6015037593984962,
+          "second": 0.8120300751879699,
+          "difference": -0.21052631578947367,
+          "percentile_95": [
+            -0.2846715328467153,
+            -0.13533834586466165
+          ],
+          "valid_replicates": 20000
+        }
+      }
+    }
+  ]
+}

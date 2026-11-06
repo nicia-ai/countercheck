@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "recorded_before_inference": true,
+  "purpose": "First business-class baseline; no prompt or threshold selection on the new evaluated labels",
+  "sources": [
+    {"dataset":"contractnli", "variant":"dev oracle-complete-gold-rationale excerpts", "manifest_sha256":"4906005f4843b97a1cc6f256f62467cced5183965a0bafa9d713ee0099326311", "pairs":199,"groups":20,"native_contradictions":26},
+    {"dataset":"mnli", "variant":"dev_matched government/telephone/slate, adjacent reference", "manifest_sha256":"114ee3ca8ff9960fc2146bf7bca19f38284281812c9cec27e25e9815746337b6", "pairs":200,"groups":69,"native_contradictions":67},
+    {"dataset":"findver", "variant":"testmini information-extraction only, complete annotated report contexts", "status":"Preparation pending; at most 200 whole-report-group pairs. Record exact manifest before phase 2 inference. Original public evaluation split, no tuning."}
+  ],
+  "configurations": [
+    {"backend":"jev","profile":"balanced-v1","model":"jev-1.14.0"},
+    {"backend":"clef","profile":"balanced-v1","model":"clef"},
+    {"backend":"decider","profile":"balanced-v1","model":"perplexity/pplx-decider-v1.2"},
+    {"backend":"jev","profile":"literal-contract","mode":"isolated","policy":"iteration fixed positive .8 / negative .2 / support .8"},
+    {"backend":"decider","profile":"evidence-refutation","mode":"isolated","policy":"iteration fixed positive .8 / negative .2 / support .8, negative-only determinability .8"},
+    {"backend":"local-deberta","model":"cross-encoder/nli-deberta-v3-base@6c749ce3425cd33b46d187e45b92bbf96ee12ec7","policy":"forced native three-way argmax, no abstention"}
+  ],
+  "execution": {"hosted_call_cap":3000,"planned_phase_1_calls":1995,"maximum_phase_2_calls":1000,"reservation_usd_per_call":0.001,"reservation_cap_usd":3,"actual_billed_cost":null,"global_max_concurrency":2,"orchestration":"One live CLI at a time; no overlapping hosted jobs","deadline_ms":3000,"retries":0,"fallbacks":false,"passes":1,"packing":"single comparison per provider call"},
+  "reporting": {"native_labels_preserved":true,"shared_fixed_inputs":true,"no_truncation":true,"whole_source_groups":true,"report_domains_separately":true,"no_universal_business_score":true,"include_failure_and_abstention_denominators":true,"coverage_exclusions_visible":true,"public_leaderboard_equivalence":false,"service_contract_release_qualification":false,"mnli_deberta_training":"Model card reports SNLI/MultiNLI training; this is an in-domain reference, not zero-shot transfer"},
+  "scope": "No new provider integration, production deployment, stored customer corpus or default change. Do not open existing locked evaluation manifests. No scientific-business metric pooling. Finance source text stays local; archive content hashes and predictions, not issuer report text."
+}

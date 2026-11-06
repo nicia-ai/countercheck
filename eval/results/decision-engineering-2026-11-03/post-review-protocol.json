@@ -1,0 +1,21 @@
+{
+  "kind": "planned-before-follow-up-inference",
+  "reason": "Independent security review found unsupported-unit/approximation coverage gaps in numeric comparator and interval branches after the initial main pass. Fix common candidate guard, retain initial archive and rerun complete structured profile rather than mixing targeted replacement observations.",
+  "profiles": [
+    "structured-value-v1"
+  ],
+  "single_pair_calls": 431,
+  "actual20_comparison_calls": 2,
+  "synthetic_workflow_dev_calls": 84,
+  "synthetic_workflow_holdout_max_calls": 4,
+  "max_followup_calls": 521,
+  "cumulative_main_and_followup_max_calls": 1820,
+  "cost_reservation_per_call_usd": 0.001,
+  "cumulative_reserved_max_usd": 1.82,
+  "global_max_concurrency": 2,
+  "retries": 0,
+  "kernel_deadline_ms": 3000,
+  "baseline_semantic": "No rerun if all431single-pair and2batch payload hashes remain exact; prior predictions remain distinct single-pass evidence, not contemporaneous repeated confirmation.",
+  "quality_targets": "unmet; no promotion or deployment",
+  "source_freeze": "Final reviewed guard bytes must be frozen separately before any follow-up calls."
+}

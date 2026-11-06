@@ -1,0 +1,305 @@
+import { describe, expect, it, vi } from "vitest";
+import { mkdtemp, readFile, writeFile, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import {
+  fitBoost,
+  evaluateBoost,
+  predictBoost,
+  boostedModelSchema,
+  BOOST_GRID,
+  type BoostTree,
+} from "../eval/iteration/boost.js";
+import { fitFusion } from "../eval/iteration/fusion.js";
+import { loadCalibrationInput, type CalibrationInput } from "../eval/iteration/calibrate.js";
+import { compileCandidate, type CandidateId } from "../eval/iteration/profiles.js";
+import { sha256, type Manifest, type Pair } from "../eval/types.js";
+import { main as boostCli } from "../scripts/boost-iteration.js";
+function fixture(prefix = "train", purpose: CalibrationInput["purpose"] = "tune") {
+  const pairs: Pair[] = Array.from({ length: 120 }, (_, i) => ({
+    id: `${prefix}-${i}`,
+    dataset: "vitaminc",
+    variant: "nonlinear-fixture",
+    split: "train",
+    source_id: `${prefix}-source-${Math.floor(i / 6)}`,
+    group_id: `${prefix}-group-${Math.floor(i / 6)}`,
+    claim: `${prefix} claim ${i}`,
+    evidence: `${prefix} evidence ${i}`,
+    gold: i % 6 === 2 || i % 6 === 3 ? "non_contradiction" : "contradiction",
+    native_label: i % 6 === 2 || i % 6 === 3 ? "SUPPORTS" : "REFUTES",
+  }));
+  const manifest: Manifest = {
+    schema_version: 1,
+    adapter_version: "countercheck-public-pairs-v1",
+    purpose: "development",
+    sources: [
+      {
+        name: "fixture",
+        url: "https://example.test",
+        revision: "fixture",
+        sha256: "a".repeat(64),
+        license: "CC0",
+        license_url: "https://example.test/license",
+      },
+    ],
+    sampling: {
+      seed: "fixture",
+      max_pairs: 120,
+      method: "fixture",
+      available_pairs: 120,
+      selected_pairs: 120,
+      excluded_unlabeled: 0,
+      strata: {},
+    },
+    pairs,
+  };
+  const profiles: CandidateId[] = ["local-mini", "literal-contract"];
+  const observations = profiles.flatMap((profile) =>
+    pairs.map((pair, i) => {
+      const p = [0.1, 0.2, 0.4, 0.6, 0.8, 0.9][i % 6]!,
+        compiled = compileCandidate(profile, pair),
+        prompt = sha256(JSON.stringify(compiled.payload));
+      return {
+        profile,
+        pair_id: pair.id,
+        pass: 1,
+        prompt_sha256: prompt,
+        features: {
+          conflict: p,
+          negative: 1 - p,
+          unknown: 0,
+          scope: 0,
+          applicability: null,
+          determinable: null,
+          quantitative_decisive: null,
+          numeric_probability: null,
+          numeric_relation: null,
+          numeric_available: false,
+        },
+        raw_answers: {
+          q_0_relation: {
+            type: "choice",
+            probabilities: {
+              contradiction: p,
+              consistent: 1 - p,
+              different_scope: 0,
+              insufficient_context: 0,
+            },
+          },
+        },
+        prediction: {
+          pair_id: pair.id,
+          pass: 1,
+          prompt_version: profile,
+          prompt_hash: prompt,
+          status: "ok",
+          verdict: "uncertain",
+          latency_ms: 1,
+          probabilities: { contradiction: p, no_contradiction: 1 - p, insufficient_context: 0 },
+        },
+      };
+    }),
+  );
+  const manifestHash = sha256(JSON.stringify(manifest)),
+    run = {
+      kind: "decision-quality-iteration",
+      source_stable: true,
+      freeze: {
+        manifest_sha256: manifestHash,
+        profiles,
+        passes: 1,
+        purpose,
+        source_files: { "eval/iteration/profiles.ts": "b".repeat(64) },
+      },
+      observations,
+    };
+  return {
+    manifest,
+    run,
+    input: () => loadCalibrationInput(run, manifest, manifestHash, sha256(JSON.stringify(run))),
+  };
+}
+describe("isolated offline regularized boosted fusion", () => {
+  it("learns nonlinear ranking on an invented boundary while honest group OOF exposes linear limits", () => {
+    const input = fixture().input(),
+      linear = fitFusion(input, { seed: "boost" }),
+      model = fitBoost(input, { seed: "boost" });
+    expect(linear.training.zero_false_clears!.metrics.auroc!).toBeLessThan(0.7);
+    expect(model.oof.zero_false_clears!.metrics.auroc).toBe(1);
+    expect(model.oof.zero_false_clears!.metrics.recall.value).toBeGreaterThan(0.8);
+    expect(model.oof.zero_false_clears!.metrics.precision.value).toBe(1);
+    expect(model.model.config.depth).toBe(2);
+    expect(model.model.rounds).toBe(50);
+    expect(model.model.rate).toBe(0.05);
+    expect(model.model.min_leaf).toBe(15);
+    expect(model.feature_names.some((f) => /dataset|group_id|source_id|vitaminc/.test(f))).toBe(
+      false,
+    );
+    expect(boostedModelSchema.safeParse(model).success).toBe(true);
+  });
+  it("uses only source-group OOF losses for the preregistered grid and OOF scores for thresholds", () => {
+    const input = fixture().input(),
+      model = fitBoost(input, { seed: "boost" }),
+      cv = model.cross_validation;
+    expect(cv.grid).toEqual(BOOST_GRID);
+    expect(cv.folds).toHaveLength(3);
+    expect(cv.oof_predictions).toHaveLength(120);
+    for (const f of cv.folds) {
+      expect(f.fit_groups.some((g) => f.check_groups.includes(g))).toBe(false);
+      expect(f.fit_groups_sha256).toBe(sha256(JSON.stringify(f.fit_groups)));
+    }
+    expect(
+      cv.losses.find((l) => JSON.stringify(l.config) === JSON.stringify(cv.selected))!.log_loss,
+    ).toBeCloseTo(Math.min(...cv.losses.map((l) => l.log_loss)), 12);
+    const pairs = new Map(input.manifest.pairs.map((p) => [p.id, p]));
+    for (const point of model.selection.positive_frontier) {
+      const positive = cv.oof_predictions.filter((p) => p.score >= point.threshold);
+      expect(point.tp).toBe(
+        positive.filter((p) => pairs.get(p.pair_id)!.gold === "contradiction").length,
+      );
+      expect(point.fp).toBe(
+        positive.filter((p) => pairs.get(p.pair_id)!.gold === "non_contradiction").length,
+      );
+    }
+    expect(model).toEqual(fitBoost(input, { seed: "boost" }));
+  });
+  it("applies frozen policies to independent validation and preserves native raw outputs", () => {
+    const model = fitBoost(fixture().input(), { seed: "boost" }),
+      before = JSON.stringify(model),
+      validation = fixture("validation", "validation").input(),
+      report = evaluateBoost(model, validation);
+    expect(report.policies.zero_false_clears!.policy).toEqual(
+      model.selection.policies.zero_false_clears,
+    );
+    expect(report.policies.npv95!.metrics.precision.ci95).not.toBeNull();
+    expect(report.observations[0]!.raw_candidates[0]!.raw_answers).toEqual(
+      validation.rows.find((r) => r.pair.id === "validation-0" && r.profile === model.profiles[0])!
+        .raw_answers,
+    );
+    expect(
+      report.observations[0]!.calibrated_estimate.contradiction +
+        report.observations[0]!.calibrated_estimate.no_contradiction,
+    ).toBe(1);
+    expect(JSON.stringify(model)).toBe(before);
+  });
+  it("rejects malformed tree dimensions, folds, selected grid and OOF coverage", () => {
+    const model = fitBoost(fixture().input(), { seed: "boost" });
+    const badTree = structuredClone(model);
+    badTree.model.trees[0] = {
+      kind: "split",
+      feature: 9999,
+      threshold: 0,
+      left: { kind: "leaf", value: 0 },
+      right: { kind: "leaf", value: 0 },
+    };
+    expect(boostedModelSchema.safeParse(badTree).success).toBe(false);
+    const badDepth = structuredClone(model);
+    const split: BoostTree = {
+      kind: "split",
+      feature: 0,
+      threshold: 0,
+      left: { kind: "leaf", value: 0 },
+      right: { kind: "leaf", value: 0 },
+    };
+    badDepth.model.trees[0] = { ...split, left: { ...split, left: split } };
+    expect(boostedModelSchema.safeParse(badDepth).success).toBe(false);
+    const badFold = structuredClone(model);
+    badFold.cross_validation.folds[0]!.check_groups.push(
+      badFold.cross_validation.folds[0]!.fit_groups[0]!,
+    );
+    expect(boostedModelSchema.safeParse(badFold).success).toBe(false);
+    const badOof = structuredClone(model);
+    badOof.cross_validation.oof_predictions.pop();
+    expect(boostedModelSchema.safeParse(badOof).success).toBe(false);
+    const badConfig = structuredClone(model);
+    badConfig.cross_validation.selected = { depth: 1, l2: 50 };
+    expect(boostedModelSchema.safeParse(badConfig).success).toBe(false);
+    expect(() => predictBoost(model.model, [0])).toThrow("dimensions");
+  });
+  it("rejects validation fitting, diagnostics as models, missing candidates and source/content overlap", () => {
+    expect(() => fitBoost(fixture("validation", "validation").input(), { seed: "boost" })).toThrow(
+      "original train",
+    );
+    const input = fixture().input(),
+      model = fitBoost(input, { seed: "boost" });
+    expect(() =>
+      evaluateBoost(
+        fitBoost(input, { seed: "boost", diagnostic: true }),
+        fixture("validation", "validation").input(),
+      ),
+    ).toThrow("fitted model");
+    const missing = fixture().input();
+    missing.rows.pop();
+    expect(() => fitBoost(missing, { seed: "boost" })).toThrow("complete matched");
+    const changed = fixture("validation", "validation").input();
+    changed.source_sha256 = "d".repeat(64);
+    expect(() => evaluateBoost(model, changed)).toThrow("identity mismatch");
+    const overlap = fixture("validation", "validation").input();
+    overlap.manifest.pairs[0]!.group_id = "train-group-0";
+    expect(() => evaluateBoost(model, overlap)).toThrow("overlap");
+  });
+  it("CLI fits and evaluates offline, refuses overwrite and forbids evaluation fitting arguments", async () => {
+    const dir = await mkdtemp(join(tmpdir(), "countercheck-boost-")),
+      log = vi.spyOn(console, "log").mockImplementation(() => {});
+    try {
+      const f = fixture(),
+        run = join(dir, "run.json"),
+        manifest = join(dir, "manifest"),
+        out = join(dir, "model.json");
+      await writeFile(run, JSON.stringify(f.run));
+      await writeFile(manifest, JSON.stringify(f.manifest));
+      const args = [
+        "--mode",
+        "fit",
+        "--run",
+        run,
+        "--manifest",
+        manifest,
+        "--out",
+        out,
+        "--seed",
+        "boost",
+      ];
+      await boostCli(args);
+      await expect(boostCli(args)).rejects.toMatchObject({ code: "EEXIST" });
+      const v = fixture("validation", "validation");
+      await writeFile(run, JSON.stringify(v.run));
+      await writeFile(manifest, JSON.stringify(v.manifest));
+      const report = join(dir, "report.json");
+      await boostCli([
+        "--mode",
+        "evaluate",
+        "--run",
+        run,
+        "--manifest",
+        manifest,
+        "--out",
+        report,
+        "--model",
+        out,
+      ]);
+      expect(
+        JSON.parse(await readFile(report, "utf8")).policies.zero_false_clears.metrics.recall.value,
+      ).toBeGreaterThan(0.8);
+      await expect(
+        boostCli([
+          "--mode",
+          "evaluate",
+          "--run",
+          run,
+          "--manifest",
+          manifest,
+          "--out",
+          join(dir, "bad.json"),
+          "--model",
+          out,
+          "--seed",
+          "bad",
+        ]),
+      ).rejects.toThrow("forbids");
+    } finally {
+      log.mockRestore();
+      await rm(dir, { recursive: true, force: true });
+    }
+  });
+});

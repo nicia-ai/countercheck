@@ -1,0 +1,203 @@
+{
+  "description": "Exact pre-inference inputs/source/protocols and original result bytes. Gzip members have mtime=0 and no embedded filename; decompression must match source_sha256. Derived summaries/README/aggregate.py are not part of the measured-source inventory.",
+  "artifacts": [
+    {
+      "file": "inputs/vitaminc-combined-dev.manifest",
+      "encoding": "identity",
+      "source": "eval/data/vitaminc-combined-dev-200.json",
+      "source_sha256": "982a5dc43919853176d372c53bf90bc98d4bc49e56d8703165feb14345aff0ff",
+      "source_bytes": 150852,
+      "archived_sha256": "982a5dc43919853176d372c53bf90bc98d4bc49e56d8703165feb14345aff0ff",
+      "archived_bytes": 150852
+    },
+    {
+      "file": "inputs/scifact-dev.manifest",
+      "encoding": "identity",
+      "source": "eval/data/scifact-dev-200.json",
+      "source_sha256": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+      "source_bytes": 155094,
+      "archived_sha256": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+      "archived_bytes": 155094
+    },
+    {
+      "file": "inputs/contract-diagnostic.manifest",
+      "encoding": "identity",
+      "source": "eval/fixtures/prompt-ablation-contract.json",
+      "source_sha256": "3abd761205be0fe9113b4be89fbdb71313f12a96e3331a8c9b746b9698bf3ecb",
+      "source_bytes": 26127,
+      "archived_sha256": "3abd761205be0fe9113b4be89fbdb71313f12a96e3331a8c9b746b9698bf3ecb",
+      "archived_bytes": 26127
+    },
+    {
+      "file": "source/profiles.ts.source",
+      "encoding": "identity",
+      "source": "eval/prompt-ablation/profiles.ts",
+      "source_sha256": "40edc4582663719a46f4f124cb461279f2904a8da52f54d9d0f58cdf3ed0f7bd",
+      "source_bytes": 7077,
+      "archived_sha256": "40edc4582663719a46f4f124cb461279f2904a8da52f54d9d0f58cdf3ed0f7bd",
+      "archived_bytes": 7077
+    },
+    {
+      "file": "source/runner.ts.source",
+      "encoding": "identity",
+      "source": "eval/prompt-ablation/runner.ts",
+      "source_sha256": "df44b0606ee3ae0a7001ad4fac0dd071347d61a8da21675113248ff460af8ed8",
+      "source_bytes": 19018,
+      "archived_sha256": "df44b0606ee3ae0a7001ad4fac0dd071347d61a8da21675113248ff460af8ed8",
+      "archived_bytes": 19018
+    },
+    {
+      "file": "source/prompt-ablation.ts.source",
+      "encoding": "identity",
+      "source": "scripts/prompt-ablation.ts",
+      "source_sha256": "ce989ff9607c65e551a5421f8016dfa6096ab8d0df997f238aa38c080d227adf",
+      "source_bytes": 9494,
+      "archived_sha256": "ce989ff9607c65e551a5421f8016dfa6096ab8d0df997f238aa38c080d227adf",
+      "archived_bytes": 9494
+    },
+    {
+      "file": "protocols/initial.json",
+      "encoding": "identity",
+      "source": "eval/prompt-ablation/protocol.json",
+      "source_sha256": "d896850993214ce63a6bb79921cb9ff0c976779a46a9482a031eb486297745c2",
+      "source_bytes": 2502,
+      "archived_sha256": "d896850993214ce63a6bb79921cb9ff0c976779a46a9482a031eb486297745c2",
+      "archived_bytes": 2502
+    },
+    {
+      "file": "protocols/replication.json",
+      "encoding": "identity",
+      "source": "eval/prompt-ablation/replication-protocol.json",
+      "source_sha256": "9daf78e449e5538db1196553982e26826921f186d7aaa6d91c14a5d23bb391f1",
+      "source_bytes": 860,
+      "archived_sha256": "9daf78e449e5538db1196553982e26826921f186d7aaa6d91c14a5d23bb391f1",
+      "archived_bytes": 860
+    },
+    {
+      "file": "runs/run-1.report.json.gz",
+      "encoding": "gzip",
+      "source": "eval/reports/jev-prompt-ablation-2026-11-03.json",
+      "source_sha256": "863471ba7d0c3afe3f8465306b86c8d5a88fee7c1463aa41e978fbc0cad54bf4",
+      "source_bytes": 5537259,
+      "archived_sha256": "c5fa0836b1d3a5186ce9a26eb222c4494b02f0fe34f8e70875293e90cb65f5cb",
+      "archived_bytes": 506368
+    },
+    {
+      "file": "runs/run-1.predictions.jsonl.gz",
+      "encoding": "gzip",
+      "source": "eval/reports/jev-prompt-ablation-2026-11-03.predictions.jsonl",
+      "source_sha256": "1e5261588a855bc8f0f0e80e024a9485e8c12838b9e1657a1cf6ec14eabab440",
+      "source_bytes": 2401010,
+      "archived_sha256": "191334113b564b79c589a504fb6f335e30353d29568a8d98d505bdbe1a1df3f2",
+      "archived_bytes": 223077
+    },
+    {
+      "file": "runs/run-1.metadata.json",
+      "encoding": "identity",
+      "source": "eval/reports/jev-prompt-ablation-2026-11-03.predictions.jsonl.metadata.json",
+      "source_sha256": "1bd940b06ee2903f938cc6a9e05d359b578ed95cc0a01cb7407c8df329bbabc4",
+      "source_bytes": 5294,
+      "archived_sha256": "1bd940b06ee2903f938cc6a9e05d359b578ed95cc0a01cb7407c8df329bbabc4",
+      "archived_bytes": 5294
+    },
+    {
+      "file": "runs/run-1.report.md",
+      "encoding": "identity",
+      "source": "eval/reports/jev-prompt-ablation-2026-11-03.md",
+      "source_sha256": "70753bf899ae8172e36341347aacb37c6360e24ae28d22302d404a3d3944d1e4",
+      "source_bytes": 4271,
+      "archived_sha256": "70753bf899ae8172e36341347aacb37c6360e24ae28d22302d404a3d3944d1e4",
+      "archived_bytes": 4271
+    },
+    {
+      "file": "runs/run-2.report.json.gz",
+      "encoding": "gzip",
+      "source": "eval/reports/jev-prompt-ablation-2026-11-03-repeat-2.json",
+      "source_sha256": "5ce6de4766e51472a647207893c40517d34b953ef891c1a95f16222f1428b09c",
+      "source_bytes": 3333177,
+      "archived_sha256": "83b976fc7d843974a7914827138ca2ce530a78016340a9e75e3f06e2b2fe8805",
+      "archived_bytes": 306215
+    },
+    {
+      "file": "runs/run-2.predictions.jsonl.gz",
+      "encoding": "gzip",
+      "source": "eval/reports/jev-prompt-ablation-2026-11-03-repeat-2.predictions.jsonl",
+      "source_sha256": "1295ecaa9d99d04918aecd34d5851a93954cb9b88a9db9a4f04b4b545dd29c8a",
+      "source_bytes": 1447066,
+      "archived_sha256": "1c4ddb64c25cba5fe1feb33f4e0df968910b8628ee8b3d14a61de98ac636544c",
+      "archived_bytes": 133626
+    },
+    {
+      "file": "runs/run-2.metadata.json",
+      "encoding": "identity",
+      "source": "eval/reports/jev-prompt-ablation-2026-11-03-repeat-2.predictions.jsonl.metadata.json",
+      "source_sha256": "3f652aee4fb69bc2dd5b4205d49a2153a0594e4286dd81acb637fa82cafa5d57",
+      "source_bytes": 5251,
+      "archived_sha256": "3f652aee4fb69bc2dd5b4205d49a2153a0594e4286dd81acb637fa82cafa5d57",
+      "archived_bytes": 5251
+    },
+    {
+      "file": "runs/run-2.report.md",
+      "encoding": "identity",
+      "source": "eval/reports/jev-prompt-ablation-2026-11-03-repeat-2.md",
+      "source_sha256": "ac629c69c854fdc4fc3c2915d6ed2a243aecf56c3824b6e8b9fcb4294c2636bd",
+      "source_bytes": 3049,
+      "archived_sha256": "ac629c69c854fdc4fc3c2915d6ed2a243aecf56c3824b6e8b9fcb4294c2636bd",
+      "archived_bytes": 3049
+    },
+    {
+      "file": "runs/run-3.report.json.gz",
+      "encoding": "gzip",
+      "source": "eval/reports/jev-prompt-ablation-2026-11-03-repeat-3.json",
+      "source_sha256": "93e49c494df18a47a9a16a4173837f0276b4d76f078ae1d5ce9a02765bf8744d",
+      "source_bytes": 3333333,
+      "archived_sha256": "2624e733421577355b0e36274121108df592f575728938f6210b878cefeb0f18",
+      "archived_bytes": 306022
+    },
+    {
+      "file": "runs/run-3.predictions.jsonl.gz",
+      "encoding": "gzip",
+      "source": "eval/reports/jev-prompt-ablation-2026-11-03-repeat-3.predictions.jsonl",
+      "source_sha256": "cef60a775eda3ef63a5d97ac555fc5648e70e0448067b08863163d7ac66b341e",
+      "source_bytes": 1447332,
+      "archived_sha256": "c0b7ea498203cac068880a586dff6d8065a1d3b8135cbbc573e2205762bb8322",
+      "archived_bytes": 133621
+    },
+    {
+      "file": "runs/run-3.metadata.json",
+      "encoding": "identity",
+      "source": "eval/reports/jev-prompt-ablation-2026-11-03-repeat-3.predictions.jsonl.metadata.json",
+      "source_sha256": "3f652aee4fb69bc2dd5b4205d49a2153a0594e4286dd81acb637fa82cafa5d57",
+      "source_bytes": 5251,
+      "archived_sha256": "3f652aee4fb69bc2dd5b4205d49a2153a0594e4286dd81acb637fa82cafa5d57",
+      "archived_bytes": 5251
+    },
+    {
+      "file": "runs/run-3.report.md",
+      "encoding": "identity",
+      "source": "eval/reports/jev-prompt-ablation-2026-11-03-repeat-3.md",
+      "source_sha256": "f2f72fcacabe543dcb998a10802440a6f3815310491f7fd732b31fad48d091a5",
+      "source_bytes": 3049,
+      "archived_sha256": "f2f72fcacabe543dcb998a10802440a6f3815310491f7fd732b31fad48d091a5",
+      "archived_bytes": 3049
+    },
+    {
+      "file": "references/earlier-jev-vitaminc-combined-dev.report.json.gz",
+      "encoding": "gzip",
+      "source": "eval/results/jev-dev-2026-11-03/vitaminc-combined-dev.report.json",
+      "source_sha256": "b29239893de37d83beea5496610c3f8bf2033d73dfb8aa2fda5108dd28bef318",
+      "source_bytes": 491156,
+      "archived_sha256": "a370ff3437d5aa9d4dc48acc408427999a87fbfc3c58743f0670ec8e439bb245",
+      "archived_bytes": 39123
+    },
+    {
+      "file": "references/earlier-jev-scifact-dev.report.json.gz",
+      "encoding": "gzip",
+      "source": "eval/results/jev-dev-2026-11-03/scifact-dev.report.json",
+      "source_sha256": "0fd410ddb6ad746e2cf517c0afe5144023e8c2a754afafc683baa119bcdb8fbe",
+      "source_bytes": 476607,
+      "archived_sha256": "96779641a537a5e868e675f8cc7ebc8b5b66d24436ee294ac7e29bf24dbfa0f4",
+      "archived_bytes": 61774
+    }
+  ]
+}

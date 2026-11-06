@@ -1,0 +1,15 @@
+import {spawn} from 'node:child_process';
+import {readFile} from 'node:fs/promises';
+import {parseEnv} from 'node:util';
+const local=parseEnv(await readFile('.env','utf8'));
+const existing=parseEnv(await readFile('../nicia/apps/api/.dev.vars','utf8'));
+const env={...process.env,TYPESAFE_API_KEY:local.TYPESAFE_API_KEY??local.TYPESAFE_AI_KEY,OPENROUTER_API_KEY:existing.OPENROUTER_API_KEY};
+if(!env.TYPESAFE_API_KEY||!env.OPENROUTER_API_KEY)throw new Error('Decision model credential unavailable');
+const manifests=[['vitaminc','eval/data/vitaminc-combined-dev-200.json','200'],['scifact','eval/data/scifact-dev-200.json','199']];
+const commands=[];
+for(const [name,manifest,count] of manifests){
+ for(const backend of ['jev','decider'])commands.push(['scripts/iterate.ts','--manifest',manifest,'--profiles',backend==='jev'?'literal-contract,nli-three-way,noul-conflict,semantic-numeric-v2,evidence-refutation':'nli-three-way,evidence-refutation','--out',`eval/reports/quality-r3-${backend}-public-${name}`,'--purpose','regression','--backend',backend,'--bundle','--live','--max-calls',count,'--cost-per-call-usd','.001','--max-spend-usd','.21']);
+ commands.push(['scripts/eval.ts','--manifest',manifest,'--backend','jev','--profile','balanced-v1','--out',`eval/reports/quality-r3-balanced-public-${name}`,'--live','--max-calls',count,'--cost-per-call-usd','.001','--max-spend-usd','.21']);
+}
+commands.push(['scripts/iterate.ts','--manifest','eval/fixtures/prompt-ablation-contract.json','--profiles','nli-three-way,evidence-refutation','--out','eval/reports/quality-r3-decider-contract','--purpose','regression','--backend','decider','--bundle','--live','--max-calls','32','--cost-per-call-usd','.001','--max-spend-usd','.04']);
+for(const args of commands){await new Promise((resolve,reject)=>{const child=spawn(process.execPath,['--import=tsx',...args],{env,stdio:['ignore','pipe','pipe']});child.stdout.on('data',()=>{});child.stderr.on('data',()=>{});child.on('error',()=>reject(new Error('Public regression phase failed')));child.on('exit',code=>code===0?resolve():reject(new Error(`Public regression stopped: ${args[args.indexOf('--out')+1]}`)));});console.log('Completed',args[args.indexOf('--out')+1]);}

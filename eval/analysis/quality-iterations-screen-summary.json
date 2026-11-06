@@ -1,0 +1,2500 @@
+{
+  "candidate_summaries": {
+    "round1/literal-contract": {
+      "combined": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 160,
+            "clear_negative_coverage": 0.7181818181818181,
+            "cutoff": 0.11,
+            "false_clears": 3,
+            "fp": 23,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.6617647058823529,
+            "recall": 0.9,
+            "tn": 79,
+            "tp": 45,
+            "uncertain": 10
+          },
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.7272727272727273,
+            "cutoff": 0.97,
+            "false_clears": 5,
+            "fp": 1,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.9523809523809523,
+            "recall": 0.4,
+            "tn": 80,
+            "tp": 20,
+            "uncertain": 54
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.11,
+            "false_clears": 0,
+            "fp": 23,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.6617647058823529,
+            "recall": 0.9,
+            "tn": 0,
+            "tp": 45,
+            "uncertain": 92
+          },
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.97,
+            "false_clears": 0,
+            "fp": 1,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.9523809523809523,
+            "recall": 0.4,
+            "tn": 0,
+            "tp": 20,
+            "uncertain": 139
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 160,
+          "clear_negative_coverage": 0.7272727272727273,
+          "false_clears": 5,
+          "fp": 3,
+          "negative": 110,
+          "positive": 50,
+          "precision": 0.9117647058823529,
+          "recall": 0.62,
+          "tn": 80,
+          "tp": 31,
+          "uncertain": 41
+        }
+      },
+      "raw_positive_abstentions": 0,
+      "scifact": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.84,
+            "cutoff": 0.12,
+            "false_clears": 0,
+            "fp": 4,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.875,
+            "recall": 0.9333333333333333,
+            "tn": 42,
+            "tp": 28,
+            "uncertain": 6
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.84,
+            "cutoff": 1,
+            "false_clears": 1,
+            "fp": 0,
+            "negative": 50,
+            "positive": 30,
+            "precision": 1.0,
+            "recall": 0.16666666666666666,
+            "tn": 42,
+            "tp": 5,
+            "uncertain": 32
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.12,
+            "false_clears": 0,
+            "fp": 4,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.875,
+            "recall": 0.9333333333333333,
+            "tn": 0,
+            "tp": 28,
+            "uncertain": 48
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 1,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 50,
+            "positive": 30,
+            "precision": 1.0,
+            "recall": 0.16666666666666666,
+            "tn": 0,
+            "tp": 5,
+            "uncertain": 75
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.84,
+          "false_clears": 1,
+          "fp": 3,
+          "negative": 50,
+          "positive": 30,
+          "precision": 0.8636363636363636,
+          "recall": 0.6333333333333333,
+          "tn": 42,
+          "tp": 19,
+          "uncertain": 15
+        }
+      },
+      "vitaminc": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.5333333333333333,
+            "cutoff": 0.05,
+            "false_clears": 2,
+            "fp": 27,
+            "negative": 60,
+            "positive": 20,
+            "precision": 0.4,
+            "recall": 0.9,
+            "tn": 32,
+            "tp": 18,
+            "uncertain": 1
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.6333333333333333,
+            "cutoff": 0.78,
+            "false_clears": 4,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.65,
+            "tn": 38,
+            "tp": 13,
+            "uncertain": 25
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.05,
+            "false_clears": 0,
+            "fp": 27,
+            "negative": 60,
+            "positive": 20,
+            "precision": 0.4,
+            "recall": 0.9,
+            "tn": 0,
+            "tp": 18,
+            "uncertain": 35
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.78,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.65,
+            "tn": 0,
+            "tp": 13,
+            "uncertain": 67
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.6333333333333333,
+          "false_clears": 4,
+          "fp": 0,
+          "negative": 60,
+          "positive": 20,
+          "precision": 1.0,
+          "recall": 0.6,
+          "tn": 38,
+          "tp": 12,
+          "uncertain": 26
+        }
+      }
+    },
+    "round1/local-mini": {
+      "combined": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 160,
+            "clear_negative_coverage": 0.7363636363636363,
+            "cutoff": 0.1,
+            "false_clears": 4,
+            "fp": 19,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.7076923076923077,
+            "recall": 0.92,
+            "tn": 81,
+            "tp": 46,
+            "uncertain": 10
+          },
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.7454545454545455,
+            "cutoff": 1,
+            "false_clears": 8,
+            "fp": 0,
+            "negative": 110,
+            "positive": 50,
+            "precision": 1.0,
+            "recall": 0.14,
+            "tn": 82,
+            "tp": 7,
+            "uncertain": 63
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.1,
+            "false_clears": 0,
+            "fp": 19,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.7076923076923077,
+            "recall": 0.92,
+            "tn": 0,
+            "tp": 46,
+            "uncertain": 95
+          },
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 1,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 110,
+            "positive": 50,
+            "precision": 1.0,
+            "recall": 0.14,
+            "tn": 0,
+            "tp": 7,
+            "uncertain": 153
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 160,
+          "clear_negative_coverage": 0.7454545454545455,
+          "false_clears": 8,
+          "fp": 5,
+          "negative": 110,
+          "positive": 50,
+          "precision": 0.8648648648648649,
+          "recall": 0.64,
+          "tn": 82,
+          "tp": 32,
+          "uncertain": 33
+        }
+      },
+      "raw_positive_abstentions": 0,
+      "scifact": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.84,
+            "cutoff": 0.1,
+            "false_clears": 2,
+            "fp": 4,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.875,
+            "recall": 0.9333333333333333,
+            "tn": 42,
+            "tp": 28,
+            "uncertain": 4
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.86,
+            "cutoff": 1,
+            "false_clears": 4,
+            "fp": 0,
+            "negative": 50,
+            "positive": 30,
+            "precision": 1.0,
+            "recall": 0.16666666666666666,
+            "tn": 43,
+            "tp": 5,
+            "uncertain": 28
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.1,
+            "false_clears": 0,
+            "fp": 4,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.875,
+            "recall": 0.9333333333333333,
+            "tn": 0,
+            "tp": 28,
+            "uncertain": 48
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 1,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 50,
+            "positive": 30,
+            "precision": 1.0,
+            "recall": 0.16666666666666666,
+            "tn": 0,
+            "tp": 5,
+            "uncertain": 75
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.86,
+          "false_clears": 4,
+          "fp": 3,
+          "negative": 50,
+          "positive": 30,
+          "precision": 0.8695652173913043,
+          "recall": 0.6666666666666666,
+          "tn": 43,
+          "tp": 20,
+          "uncertain": 10
+        }
+      },
+      "vitaminc": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.65,
+            "cutoff": 0.1,
+            "false_clears": 2,
+            "fp": 15,
+            "negative": 60,
+            "positive": 20,
+            "precision": 0.5454545454545454,
+            "recall": 0.9,
+            "tn": 39,
+            "tp": 18,
+            "uncertain": 6
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.65,
+            "cutoff": 0.83,
+            "false_clears": 4,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.55,
+            "tn": 39,
+            "tp": 11,
+            "uncertain": 26
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.1,
+            "false_clears": 0,
+            "fp": 15,
+            "negative": 60,
+            "positive": 20,
+            "precision": 0.5454545454545454,
+            "recall": 0.9,
+            "tn": 0,
+            "tp": 18,
+            "uncertain": 47
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.83,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.55,
+            "tn": 0,
+            "tp": 11,
+            "uncertain": 69
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.65,
+          "false_clears": 4,
+          "fp": 2,
+          "negative": 60,
+          "positive": 20,
+          "precision": 0.8571428571428571,
+          "recall": 0.6,
+          "tn": 39,
+          "tp": 12,
+          "uncertain": 23
+        }
+      }
+    },
+    "round1/nli-three-way": {
+      "combined": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 160,
+            "clear_negative_coverage": 0.8272727272727273,
+            "cutoff": 0.07,
+            "false_clears": 5,
+            "fp": 19,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.703125,
+            "recall": 0.9,
+            "tn": 91,
+            "tp": 45,
+            "uncertain": 0
+          },
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.9,
+            "cutoff": 0.95,
+            "false_clears": 10,
+            "fp": 1,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.9583333333333334,
+            "recall": 0.46,
+            "tn": 99,
+            "tp": 23,
+            "uncertain": 27
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.07,
+            "false_clears": 0,
+            "fp": 19,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.703125,
+            "recall": 0.9,
+            "tn": 0,
+            "tp": 45,
+            "uncertain": 96
+          },
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.95,
+            "false_clears": 0,
+            "fp": 1,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.9583333333333334,
+            "recall": 0.46,
+            "tn": 0,
+            "tp": 23,
+            "uncertain": 136
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 160,
+          "clear_negative_coverage": 0.9,
+          "false_clears": 10,
+          "fp": 3,
+          "negative": 110,
+          "positive": 50,
+          "precision": 0.9117647058823529,
+          "recall": 0.62,
+          "tn": 99,
+          "tp": 31,
+          "uncertain": 17
+        }
+      },
+      "raw_positive_abstentions": 0,
+      "scifact": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.94,
+            "cutoff": 0.09,
+            "false_clears": 2,
+            "fp": 3,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.9032258064516129,
+            "recall": 0.9333333333333333,
+            "tn": 47,
+            "tp": 28,
+            "uncertain": 0
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.94,
+            "cutoff": 0.98,
+            "false_clears": 6,
+            "fp": 0,
+            "negative": 50,
+            "positive": 30,
+            "precision": 1.0,
+            "recall": 0.43333333333333335,
+            "tn": 47,
+            "tp": 13,
+            "uncertain": 14
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.09,
+            "false_clears": 0,
+            "fp": 3,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.9032258064516129,
+            "recall": 0.9333333333333333,
+            "tn": 0,
+            "tp": 28,
+            "uncertain": 49
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.98,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 50,
+            "positive": 30,
+            "precision": 1.0,
+            "recall": 0.43333333333333335,
+            "tn": 0,
+            "tp": 13,
+            "uncertain": 67
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.94,
+          "false_clears": 6,
+          "fp": 3,
+          "negative": 50,
+          "positive": 30,
+          "precision": 0.8636363636363636,
+          "recall": 0.6333333333333333,
+          "tn": 47,
+          "tp": 19,
+          "uncertain": 5
+        }
+      },
+      "vitaminc": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.65,
+            "cutoff": 0.05,
+            "false_clears": 2,
+            "fp": 21,
+            "negative": 60,
+            "positive": 20,
+            "precision": 0.46153846153846156,
+            "recall": 0.9,
+            "tn": 39,
+            "tp": 18,
+            "uncertain": 0
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.8666666666666667,
+            "cutoff": 0.88,
+            "false_clears": 4,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.6,
+            "tn": 52,
+            "tp": 12,
+            "uncertain": 12
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.05,
+            "false_clears": 0,
+            "fp": 21,
+            "negative": 60,
+            "positive": 20,
+            "precision": 0.46153846153846156,
+            "recall": 0.9,
+            "tn": 0,
+            "tp": 18,
+            "uncertain": 41
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.88,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.6,
+            "tn": 0,
+            "tp": 12,
+            "uncertain": 68
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.8666666666666667,
+          "false_clears": 4,
+          "fp": 0,
+          "negative": 60,
+          "positive": 20,
+          "precision": 1.0,
+          "recall": 0.6,
+          "tn": 52,
+          "tp": 12,
+          "uncertain": 12
+        }
+      }
+    },
+    "round1/noul-conflict": {
+      "combined": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 160,
+            "clear_negative_coverage": 0.7636363636363637,
+            "cutoff": 0.11,
+            "false_clears": 5,
+            "fp": 26,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.6338028169014085,
+            "recall": 0.9,
+            "tn": 84,
+            "tp": 45,
+            "uncertain": 0
+          },
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.8363636363636363,
+            "cutoff": 0.84,
+            "false_clears": 11,
+            "fp": 1,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.9565217391304348,
+            "recall": 0.44,
+            "tn": 92,
+            "tp": 22,
+            "uncertain": 34
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.11,
+            "false_clears": 0,
+            "fp": 26,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.6338028169014085,
+            "recall": 0.9,
+            "tn": 0,
+            "tp": 45,
+            "uncertain": 89
+          },
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.84,
+            "false_clears": 0,
+            "fp": 1,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.9565217391304348,
+            "recall": 0.44,
+            "tn": 0,
+            "tp": 22,
+            "uncertain": 137
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 160,
+          "clear_negative_coverage": 0.8363636363636363,
+          "false_clears": 11,
+          "fp": 3,
+          "negative": 110,
+          "positive": 50,
+          "precision": 0.9,
+          "recall": 0.54,
+          "tn": 92,
+          "tp": 27,
+          "uncertain": 27
+        }
+      },
+      "raw_positive_abstentions": 0,
+      "scifact": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.92,
+            "cutoff": 0.09,
+            "false_clears": 2,
+            "fp": 4,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.875,
+            "recall": 0.9333333333333333,
+            "tn": 46,
+            "tp": 28,
+            "uncertain": 0
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.94,
+            "cutoff": 0.85,
+            "false_clears": 7,
+            "fp": 0,
+            "negative": 50,
+            "positive": 30,
+            "precision": 1.0,
+            "recall": 0.4,
+            "tn": 47,
+            "tp": 12,
+            "uncertain": 14
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.09,
+            "false_clears": 0,
+            "fp": 4,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.875,
+            "recall": 0.9333333333333333,
+            "tn": 0,
+            "tp": 28,
+            "uncertain": 48
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.85,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 50,
+            "positive": 30,
+            "precision": 1.0,
+            "recall": 0.4,
+            "tn": 0,
+            "tp": 12,
+            "uncertain": 68
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.94,
+          "false_clears": 7,
+          "fp": 3,
+          "negative": 50,
+          "positive": 30,
+          "precision": 0.85,
+          "recall": 0.5666666666666667,
+          "tn": 47,
+          "tp": 17,
+          "uncertain": 6
+        }
+      },
+      "vitaminc": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.6333333333333333,
+            "cutoff": 0.11,
+            "false_clears": 2,
+            "fp": 22,
+            "negative": 60,
+            "positive": 20,
+            "precision": 0.45,
+            "recall": 0.9,
+            "tn": 38,
+            "tp": 18,
+            "uncertain": 0
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.75,
+            "cutoff": 0.77,
+            "false_clears": 4,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.6,
+            "tn": 45,
+            "tp": 12,
+            "uncertain": 19
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.11,
+            "false_clears": 0,
+            "fp": 22,
+            "negative": 60,
+            "positive": 20,
+            "precision": 0.45,
+            "recall": 0.9,
+            "tn": 0,
+            "tp": 18,
+            "uncertain": 40
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.77,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.6,
+            "tn": 0,
+            "tp": 12,
+            "uncertain": 68
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.75,
+          "false_clears": 4,
+          "fp": 0,
+          "negative": 60,
+          "positive": 20,
+          "precision": 1.0,
+          "recall": 0.5,
+          "tn": 45,
+          "tp": 10,
+          "uncertain": 21
+        }
+      }
+    },
+    "round1/rich-control": {
+      "combined": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 160,
+            "clear_negative_coverage": 0.7545454545454545,
+            "cutoff": 0.07,
+            "false_clears": 5,
+            "fp": 18,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.7142857142857143,
+            "recall": 0.9,
+            "tn": 83,
+            "tp": 45,
+            "uncertain": 9
+          },
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.7636363636363637,
+            "cutoff": 0.98,
+            "false_clears": 8,
+            "fp": 0,
+            "negative": 110,
+            "positive": 50,
+            "precision": 1.0,
+            "recall": 0.18,
+            "tn": 84,
+            "tp": 9,
+            "uncertain": 59
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.07,
+            "false_clears": 0,
+            "fp": 18,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.7142857142857143,
+            "recall": 0.9,
+            "tn": 0,
+            "tp": 45,
+            "uncertain": 97
+          },
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.98,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 110,
+            "positive": 50,
+            "precision": 1.0,
+            "recall": 0.18,
+            "tn": 0,
+            "tp": 9,
+            "uncertain": 151
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 160,
+          "clear_negative_coverage": 0.7636363636363637,
+          "false_clears": 8,
+          "fp": 3,
+          "negative": 110,
+          "positive": 50,
+          "precision": 0.9,
+          "recall": 0.54,
+          "tn": 84,
+          "tp": 27,
+          "uncertain": 38
+        }
+      },
+      "raw_positive_abstentions": 0,
+      "scifact": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.86,
+            "cutoff": 0.08,
+            "false_clears": 3,
+            "fp": 3,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.9,
+            "recall": 0.9,
+            "tn": 43,
+            "tp": 27,
+            "uncertain": 4
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.86,
+            "cutoff": 0.98,
+            "false_clears": 4,
+            "fp": 0,
+            "negative": 50,
+            "positive": 30,
+            "precision": 1.0,
+            "recall": 0.16666666666666666,
+            "tn": 43,
+            "tp": 5,
+            "uncertain": 28
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.08,
+            "false_clears": 0,
+            "fp": 3,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.9,
+            "recall": 0.9,
+            "tn": 0,
+            "tp": 27,
+            "uncertain": 50
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.98,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 50,
+            "positive": 30,
+            "precision": 1.0,
+            "recall": 0.16666666666666666,
+            "tn": 0,
+            "tp": 5,
+            "uncertain": 75
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.86,
+          "false_clears": 4,
+          "fp": 3,
+          "negative": 50,
+          "positive": 30,
+          "precision": 0.8636363636363636,
+          "recall": 0.6333333333333333,
+          "tn": 43,
+          "tp": 19,
+          "uncertain": 11
+        }
+      },
+      "vitaminc": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.6666666666666666,
+            "cutoff": 0.07,
+            "false_clears": 2,
+            "fp": 15,
+            "negative": 60,
+            "positive": 20,
+            "precision": 0.5454545454545454,
+            "recall": 0.9,
+            "tn": 40,
+            "tp": 18,
+            "uncertain": 5
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.6833333333333333,
+            "cutoff": 0.75,
+            "false_clears": 4,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.5,
+            "tn": 41,
+            "tp": 10,
+            "uncertain": 25
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.07,
+            "false_clears": 0,
+            "fp": 15,
+            "negative": 60,
+            "positive": 20,
+            "precision": 0.5454545454545454,
+            "recall": 0.9,
+            "tn": 0,
+            "tp": 18,
+            "uncertain": 47
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.75,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.5,
+            "tn": 0,
+            "tp": 10,
+            "uncertain": 70
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.6833333333333333,
+          "false_clears": 4,
+          "fp": 0,
+          "negative": 60,
+          "positive": 20,
+          "precision": 1.0,
+          "recall": 0.4,
+          "tn": 41,
+          "tp": 8,
+          "uncertain": 27
+        }
+      }
+    },
+    "round1/semantic-numeric": {
+      "combined": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": null,
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.7,
+            "cutoff": 0.89,
+            "false_clears": 8,
+            "fp": 0,
+            "negative": 110,
+            "positive": 50,
+            "precision": 1.0,
+            "recall": 0.34,
+            "tn": 77,
+            "tp": 17,
+            "uncertain": 58
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.09,
+            "false_clears": 0,
+            "fp": 24,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.6521739130434783,
+            "recall": 0.9,
+            "tn": 0,
+            "tp": 45,
+            "uncertain": 91
+          },
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.89,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 110,
+            "positive": 50,
+            "precision": 1.0,
+            "recall": 0.48,
+            "tn": 0,
+            "tp": 24,
+            "uncertain": 136
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 160,
+          "clear_negative_coverage": 0.7,
+          "false_clears": 8,
+          "fp": 3,
+          "negative": 110,
+          "positive": 50,
+          "precision": 0.8636363636363636,
+          "recall": 0.38,
+          "tn": 77,
+          "tp": 19,
+          "uncertain": 53
+        }
+      },
+      "raw_positive_abstentions": 9,
+      "scifact": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.9,
+            "cutoff": 0.07,
+            "false_clears": 2,
+            "fp": 4,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.875,
+            "recall": 0.9333333333333333,
+            "tn": 45,
+            "tp": 28,
+            "uncertain": 1
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.92,
+            "cutoff": 0.89,
+            "false_clears": 4,
+            "fp": 0,
+            "negative": 50,
+            "positive": 30,
+            "precision": 1.0,
+            "recall": 0.5,
+            "tn": 46,
+            "tp": 15,
+            "uncertain": 15
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.07,
+            "false_clears": 0,
+            "fp": 4,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.875,
+            "recall": 0.9333333333333333,
+            "tn": 0,
+            "tp": 28,
+            "uncertain": 48
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.89,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 50,
+            "positive": 30,
+            "precision": 1.0,
+            "recall": 0.5,
+            "tn": 0,
+            "tp": 15,
+            "uncertain": 65
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.92,
+          "false_clears": 4,
+          "fp": 3,
+          "negative": 50,
+          "positive": 30,
+          "precision": 0.85,
+          "recall": 0.5666666666666667,
+          "tn": 46,
+          "tp": 17,
+          "uncertain": 10
+        }
+      },
+      "vitaminc": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": null,
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.5166666666666667,
+            "cutoff": 0.97,
+            "false_clears": 4,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.1,
+            "tn": 31,
+            "tp": 2,
+            "uncertain": 43
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.11,
+            "false_clears": 0,
+            "fp": 19,
+            "negative": 60,
+            "positive": 20,
+            "precision": 0.4864864864864865,
+            "recall": 0.9,
+            "tn": 0,
+            "tp": 18,
+            "uncertain": 43
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.7400000000000001,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.6,
+            "tn": 0,
+            "tp": 12,
+            "uncertain": 68
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.5166666666666667,
+          "false_clears": 4,
+          "fp": 0,
+          "negative": 60,
+          "positive": 20,
+          "precision": 1.0,
+          "recall": 0.1,
+          "tn": 31,
+          "tp": 2,
+          "uncertain": 43
+        }
+      }
+    },
+    "round2/aligned-roles": {
+      "combined": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 160,
+            "clear_negative_coverage": 0.4909090909090909,
+            "cutoff": 0.01,
+            "false_clears": 1,
+            "fp": 53,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.4803921568627451,
+            "recall": 0.98,
+            "tn": 54,
+            "tp": 49,
+            "uncertain": 3
+          },
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.7363636363636363,
+            "cutoff": 0.91,
+            "false_clears": 7,
+            "fp": 1,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.9565217391304348,
+            "recall": 0.44,
+            "tn": 81,
+            "tp": 22,
+            "uncertain": 49
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.01,
+            "false_clears": 0,
+            "fp": 53,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.4803921568627451,
+            "recall": 0.98,
+            "tn": 0,
+            "tp": 49,
+            "uncertain": 58
+          },
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.91,
+            "false_clears": 0,
+            "fp": 1,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.9565217391304348,
+            "recall": 0.44,
+            "tn": 0,
+            "tp": 22,
+            "uncertain": 137
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 160,
+          "clear_negative_coverage": 0.7363636363636363,
+          "false_clears": 7,
+          "fp": 2,
+          "negative": 110,
+          "positive": 50,
+          "precision": 0.9310344827586207,
+          "recall": 0.54,
+          "tn": 81,
+          "tp": 27,
+          "uncertain": 43
+        }
+      },
+      "raw_positive_abstentions": 0,
+      "scifact": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.76,
+            "cutoff": 0.01,
+            "false_clears": 1,
+            "fp": 11,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.725,
+            "recall": 0.9666666666666667,
+            "tn": 38,
+            "tp": 29,
+            "uncertain": 1
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.9,
+            "cutoff": 0.95,
+            "false_clears": 5,
+            "fp": 0,
+            "negative": 50,
+            "positive": 30,
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "tn": 45,
+            "tp": 10,
+            "uncertain": 20
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.01,
+            "false_clears": 0,
+            "fp": 11,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.725,
+            "recall": 0.9666666666666667,
+            "tn": 0,
+            "tp": 29,
+            "uncertain": 40
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.95,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 50,
+            "positive": 30,
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "tn": 0,
+            "tp": 10,
+            "uncertain": 70
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.9,
+          "false_clears": 5,
+          "fp": 2,
+          "negative": 50,
+          "positive": 30,
+          "precision": 0.8947368421052632,
+          "recall": 0.5666666666666667,
+          "tn": 45,
+          "tp": 17,
+          "uncertain": 11
+        }
+      },
+      "vitaminc": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.5333333333333333,
+            "cutoff": 0.06,
+            "false_clears": 2,
+            "fp": 17,
+            "negative": 60,
+            "positive": 20,
+            "precision": 0.5142857142857142,
+            "recall": 0.9,
+            "tn": 32,
+            "tp": 18,
+            "uncertain": 11
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.6,
+            "cutoff": 0.86,
+            "false_clears": 2,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.5,
+            "tn": 36,
+            "tp": 10,
+            "uncertain": 32
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.06,
+            "false_clears": 0,
+            "fp": 17,
+            "negative": 60,
+            "positive": 20,
+            "precision": 0.5142857142857142,
+            "recall": 0.9,
+            "tn": 0,
+            "tp": 18,
+            "uncertain": 45
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.86,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.5,
+            "tn": 0,
+            "tp": 10,
+            "uncertain": 70
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.6,
+          "false_clears": 2,
+          "fp": 0,
+          "negative": 60,
+          "positive": 20,
+          "precision": 1.0,
+          "recall": 0.5,
+          "tn": 36,
+          "tp": 10,
+          "uncertain": 32
+        }
+      }
+    },
+    "round2/evidence-refutation": {
+      "combined": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 160,
+            "clear_negative_coverage": 0.5636363636363636,
+            "cutoff": 0.05,
+            "false_clears": 2,
+            "fp": 35,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.5679012345679012,
+            "recall": 0.92,
+            "tn": 62,
+            "tp": 46,
+            "uncertain": 15
+          },
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.6454545454545455,
+            "cutoff": 0.65,
+            "false_clears": 5,
+            "fp": 1,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.9655172413793104,
+            "recall": 0.56,
+            "tn": 71,
+            "tp": 28,
+            "uncertain": 55
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.05,
+            "false_clears": 0,
+            "fp": 35,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.5679012345679012,
+            "recall": 0.92,
+            "tn": 0,
+            "tp": 46,
+            "uncertain": 79
+          },
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.65,
+            "false_clears": 0,
+            "fp": 1,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.9655172413793104,
+            "recall": 0.56,
+            "tn": 0,
+            "tp": 28,
+            "uncertain": 131
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 160,
+          "clear_negative_coverage": 0.6454545454545455,
+          "false_clears": 5,
+          "fp": 1,
+          "negative": 110,
+          "positive": 50,
+          "precision": 0.9473684210526315,
+          "recall": 0.36,
+          "tn": 71,
+          "tp": 18,
+          "uncertain": 65
+        }
+      },
+      "raw_positive_abstentions": 0,
+      "scifact": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.64,
+            "cutoff": 0.05,
+            "false_clears": 0,
+            "fp": 8,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.7777777777777778,
+            "recall": 0.9333333333333333,
+            "tn": 32,
+            "tp": 28,
+            "uncertain": 12
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.7,
+            "cutoff": 0.5,
+            "false_clears": 1,
+            "fp": 1,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.95,
+            "recall": 0.6333333333333333,
+            "tn": 35,
+            "tp": 19,
+            "uncertain": 24
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.05,
+            "false_clears": 0,
+            "fp": 8,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.7777777777777778,
+            "recall": 0.9333333333333333,
+            "tn": 0,
+            "tp": 28,
+            "uncertain": 44
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.5,
+            "false_clears": 0,
+            "fp": 1,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.95,
+            "recall": 0.6333333333333333,
+            "tn": 0,
+            "tp": 19,
+            "uncertain": 60
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.7,
+          "false_clears": 1,
+          "fp": 1,
+          "negative": 50,
+          "positive": 30,
+          "precision": 0.8888888888888888,
+          "recall": 0.26666666666666666,
+          "tn": 35,
+          "tp": 8,
+          "uncertain": 35
+        }
+      },
+      "vitaminc": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.5833333333333334,
+            "cutoff": 0.1,
+            "false_clears": 2,
+            "fp": 17,
+            "negative": 60,
+            "positive": 20,
+            "precision": 0.5142857142857142,
+            "recall": 0.9,
+            "tn": 35,
+            "tp": 18,
+            "uncertain": 8
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.6,
+            "cutoff": 0.78,
+            "false_clears": 4,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.55,
+            "tn": 36,
+            "tp": 11,
+            "uncertain": 29
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.1,
+            "false_clears": 0,
+            "fp": 17,
+            "negative": 60,
+            "positive": 20,
+            "precision": 0.5142857142857142,
+            "recall": 0.9,
+            "tn": 0,
+            "tp": 18,
+            "uncertain": 45
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.78,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.55,
+            "tn": 0,
+            "tp": 11,
+            "uncertain": 69
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.6,
+          "false_clears": 4,
+          "fp": 0,
+          "negative": 60,
+          "positive": 20,
+          "precision": 1.0,
+          "recall": 0.5,
+          "tn": 36,
+          "tp": 10,
+          "uncertain": 30
+        }
+      }
+    },
+    "round2/rich-control": {
+      "combined": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 160,
+            "clear_negative_coverage": 0.7090909090909091,
+            "cutoff": 0.05,
+            "false_clears": 4,
+            "fp": 25,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.6428571428571429,
+            "recall": 0.9,
+            "tn": 78,
+            "tp": 45,
+            "uncertain": 8
+          },
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.7636363636363637,
+            "cutoff": 0.99,
+            "false_clears": 8,
+            "fp": 0,
+            "negative": 110,
+            "positive": 50,
+            "precision": 1.0,
+            "recall": 0.16,
+            "tn": 84,
+            "tp": 8,
+            "uncertain": 60
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.05,
+            "false_clears": 0,
+            "fp": 25,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.6428571428571429,
+            "recall": 0.9,
+            "tn": 0,
+            "tp": 45,
+            "uncertain": 90
+          },
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.99,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 110,
+            "positive": 50,
+            "precision": 1.0,
+            "recall": 0.16,
+            "tn": 0,
+            "tp": 8,
+            "uncertain": 152
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 160,
+          "clear_negative_coverage": 0.7636363636363637,
+          "false_clears": 8,
+          "fp": 3,
+          "negative": 110,
+          "positive": 50,
+          "precision": 0.9,
+          "recall": 0.54,
+          "tn": 84,
+          "tp": 27,
+          "uncertain": 38
+        }
+      },
+      "raw_positive_abstentions": 0,
+      "scifact": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.82,
+            "cutoff": 0.04,
+            "false_clears": 2,
+            "fp": 5,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.8484848484848485,
+            "recall": 0.9333333333333333,
+            "tn": 41,
+            "tp": 28,
+            "uncertain": 4
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.86,
+            "cutoff": 0.99,
+            "false_clears": 4,
+            "fp": 0,
+            "negative": 50,
+            "positive": 30,
+            "precision": 1.0,
+            "recall": 0.16666666666666666,
+            "tn": 43,
+            "tp": 5,
+            "uncertain": 28
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.04,
+            "false_clears": 0,
+            "fp": 5,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.8484848484848485,
+            "recall": 0.9333333333333333,
+            "tn": 0,
+            "tp": 28,
+            "uncertain": 47
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.99,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 50,
+            "positive": 30,
+            "precision": 1.0,
+            "recall": 0.16666666666666666,
+            "tn": 0,
+            "tp": 5,
+            "uncertain": 75
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.86,
+          "false_clears": 4,
+          "fp": 3,
+          "negative": 50,
+          "positive": 30,
+          "precision": 0.8636363636363636,
+          "recall": 0.6333333333333333,
+          "tn": 43,
+          "tp": 19,
+          "uncertain": 11
+        }
+      },
+      "vitaminc": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.6666666666666666,
+            "cutoff": 0.07,
+            "false_clears": 2,
+            "fp": 17,
+            "negative": 60,
+            "positive": 20,
+            "precision": 0.5142857142857142,
+            "recall": 0.9,
+            "tn": 40,
+            "tp": 18,
+            "uncertain": 3
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.6833333333333333,
+            "cutoff": 0.77,
+            "false_clears": 4,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.5,
+            "tn": 41,
+            "tp": 10,
+            "uncertain": 25
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.07,
+            "false_clears": 0,
+            "fp": 17,
+            "negative": 60,
+            "positive": 20,
+            "precision": 0.5142857142857142,
+            "recall": 0.9,
+            "tn": 0,
+            "tp": 18,
+            "uncertain": 45
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.77,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.5,
+            "tn": 0,
+            "tp": 10,
+            "uncertain": 70
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.6833333333333333,
+          "false_clears": 4,
+          "fp": 0,
+          "negative": 60,
+          "positive": 20,
+          "precision": 1.0,
+          "recall": 0.4,
+          "tn": 41,
+          "tp": 8,
+          "uncertain": 27
+        }
+      }
+    },
+    "round2/semantic-numeric-v2": {
+      "combined": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": null,
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.6727272727272727,
+            "cutoff": 0.91,
+            "false_clears": 8,
+            "fp": 0,
+            "negative": 110,
+            "positive": 50,
+            "precision": 1.0,
+            "recall": 0.3,
+            "tn": 74,
+            "tp": 15,
+            "uncertain": 63
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.08,
+            "false_clears": 0,
+            "fp": 25,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.6428571428571429,
+            "recall": 0.9,
+            "tn": 0,
+            "tp": 45,
+            "uncertain": 90
+          },
+          "best_recall_at_95precision": {
+            "cases": 160,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.87,
+            "false_clears": 0,
+            "fp": 1,
+            "negative": 110,
+            "positive": 50,
+            "precision": 0.9615384615384616,
+            "recall": 0.5,
+            "tn": 0,
+            "tp": 25,
+            "uncertain": 134
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 160,
+          "clear_negative_coverage": 0.6727272727272727,
+          "false_clears": 8,
+          "fp": 4,
+          "negative": 110,
+          "positive": 50,
+          "precision": 0.8181818181818182,
+          "recall": 0.36,
+          "tn": 74,
+          "tp": 18,
+          "uncertain": 56
+        }
+      },
+      "raw_positive_abstentions": 8,
+      "scifact": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.88,
+            "cutoff": 0.06,
+            "false_clears": 2,
+            "fp": 4,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.875,
+            "recall": 0.9333333333333333,
+            "tn": 44,
+            "tp": 28,
+            "uncertain": 2
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.9,
+            "cutoff": 0.91,
+            "false_clears": 4,
+            "fp": 0,
+            "negative": 50,
+            "positive": 30,
+            "precision": 1.0,
+            "recall": 0.43333333333333335,
+            "tn": 45,
+            "tp": 13,
+            "uncertain": 18
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.06,
+            "false_clears": 0,
+            "fp": 4,
+            "negative": 50,
+            "positive": 30,
+            "precision": 0.875,
+            "recall": 0.9333333333333333,
+            "tn": 0,
+            "tp": 28,
+            "uncertain": 48
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.91,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 50,
+            "positive": 30,
+            "precision": 1.0,
+            "recall": 0.43333333333333335,
+            "tn": 0,
+            "tp": 13,
+            "uncertain": 67
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.9,
+          "false_clears": 4,
+          "fp": 3,
+          "negative": 50,
+          "positive": 30,
+          "precision": 0.8421052631578947,
+          "recall": 0.5333333333333333,
+          "tn": 45,
+          "tp": 16,
+          "uncertain": 12
+        }
+      },
+      "vitaminc": {
+        "actual_composed_frontier": {
+          "best_precision_at_90recall": null,
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.48333333333333334,
+            "cutoff": 0.97,
+            "false_clears": 4,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.1,
+            "tn": 29,
+            "tp": 2,
+            "uncertain": 45
+          },
+          "composition": "frozen quantitative override/gate and negative-only determinability gate preserved",
+          "training_only": true
+        },
+        "raw_conflict_frontier": {
+          "best_precision_at_90recall": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.08,
+            "false_clears": 0,
+            "fp": 21,
+            "negative": 60,
+            "positive": 20,
+            "precision": 0.46153846153846156,
+            "recall": 0.9,
+            "tn": 0,
+            "tp": 18,
+            "uncertain": 41
+          },
+          "best_recall_at_95precision": {
+            "cases": 80,
+            "clear_negative_coverage": 0.0,
+            "cutoff": 0.84,
+            "false_clears": 0,
+            "fp": 0,
+            "negative": 60,
+            "positive": 20,
+            "precision": 1.0,
+            "recall": 0.5,
+            "tn": 0,
+            "tp": 10,
+            "uncertain": 70
+          },
+          "composition": "raw score threshold only, not composed verdict",
+          "training_only": true
+        },
+        "recorded": {
+          "cases": 80,
+          "clear_negative_coverage": 0.48333333333333334,
+          "false_clears": 4,
+          "fp": 1,
+          "negative": 60,
+          "positive": 20,
+          "precision": 0.6666666666666666,
+          "recall": 0.1,
+          "tn": 29,
+          "tp": 2,
+          "uncertain": 44
+        }
+      }
+    }
+  },
+  "fusion_heads": [
+    "local-mini",
+    "literal-contract",
+    "nli-three-way",
+    "noul-conflict",
+    "semantic-numeric",
+    "rich-control",
+    "aligned-roles",
+    "evidence-refutation",
+    "semantic-numeric-v2"
+  ],
+  "fusion_interpretation": "Unweighted score/rank aggregation across nine saved heads; raw-score diagnostic, not a model probability. Cross-round source identities preserved. Method comparison/thresholds use same training labels, not independent evaluation.",
+  "input_sha256": {
+    "eval/data/iteration-screen.json": "0fe13090664631f45733eb66e719b020f8d32895e5687ad6b863d8670d03549e",
+    "eval/reports/quality-r1-screen.json": "e61cfe2996445e684738f2d705b4dd59a36531264d2ea40ce2b0525387931624",
+    "eval/reports/quality-r2-screen.json": "53a5b0b5ffbc3cca4be9c661222be9478036ca6c7bd2bb248dbb4cb00a5911b6"
+  },
+  "rank_fusion_diagnostics": {
+    "mean_conflict": {
+      "best_precision_at_90recall": {
+        "cases": 160,
+        "clear_negative_coverage": 0.0,
+        "cutoff": 0.08555555555555555,
+        "false_clears": 0,
+        "fp": 23,
+        "negative": 110,
+        "positive": 50,
+        "precision": 0.6666666666666666,
+        "recall": 0.92,
+        "tn": 0,
+        "tp": 46,
+        "uncertain": 91
+      },
+      "best_recall_at_95precision": {
+        "cases": 160,
+        "clear_negative_coverage": 0.0,
+        "cutoff": 0.8655555555555555,
+        "false_clears": 0,
+        "fp": 1,
+        "negative": 110,
+        "positive": 50,
+        "precision": 0.9615384615384616,
+        "recall": 0.5,
+        "tn": 0,
+        "tp": 25,
+        "uncertain": 134
+      },
+      "composition": "raw score threshold only, not composed verdict",
+      "training_only": true
+    },
+    "mean_midrank": {
+      "best_precision_at_90recall": {
+        "cases": 160,
+        "clear_negative_coverage": 0.0,
+        "cutoff": 0.590146750524109,
+        "false_clears": 0,
+        "fp": 21,
+        "negative": 110,
+        "positive": 50,
+        "precision": 0.6818181818181818,
+        "recall": 0.9,
+        "tn": 0,
+        "tp": 45,
+        "uncertain": 94
+      },
+      "best_recall_at_95precision": {
+        "cases": 160,
+        "clear_negative_coverage": 0.0,
+        "cutoff": 0.8560447239692524,
+        "false_clears": 0,
+        "fp": 1,
+        "negative": 110,
+        "positive": 50,
+        "precision": 0.9583333333333334,
+        "recall": 0.46,
+        "tn": 0,
+        "tp": 23,
+        "uncertain": 136
+      },
+      "composition": "raw score threshold only, not composed verdict",
+      "training_only": true
+    },
+    "median_conflict": {
+      "best_precision_at_90recall": {
+        "cases": 160,
+        "clear_negative_coverage": 0.0,
+        "cutoff": 0.09,
+        "false_clears": 0,
+        "fp": 22,
+        "negative": 110,
+        "positive": 50,
+        "precision": 0.6764705882352942,
+        "recall": 0.92,
+        "tn": 0,
+        "tp": 46,
+        "uncertain": 92
+      },
+      "best_recall_at_95precision": {
+        "cases": 160,
+        "clear_negative_coverage": 0.0,
+        "cutoff": 0.91,
+        "false_clears": 0,
+        "fp": 1,
+        "negative": 110,
+        "positive": 50,
+        "precision": 0.9565217391304348,
+        "recall": 0.44,
+        "tn": 0,
+        "tp": 22,
+        "uncertain": 137
+      },
+      "composition": "raw score threshold only, not composed verdict",
+      "training_only": true
+    },
+    "median_midrank": {
+      "best_precision_at_90recall": {
+        "cases": 160,
+        "clear_negative_coverage": 0.0,
+        "cutoff": 0.60062893081761,
+        "false_clears": 0,
+        "fp": 21,
+        "negative": 110,
+        "positive": 50,
+        "precision": 0.6818181818181818,
+        "recall": 0.9,
+        "tn": 0,
+        "tp": 45,
+        "uncertain": 94
+      },
+      "best_recall_at_95precision": {
+        "cases": 160,
+        "clear_negative_coverage": 0.0,
+        "cutoff": 0.8647798742138365,
+        "false_clears": 0,
+        "fp": 1,
+        "negative": 110,
+        "positive": 50,
+        "precision": 0.9545454545454546,
+        "recall": 0.42,
+        "tn": 0,
+        "tp": 21,
+        "uncertain": 138
+      },
+      "composition": "raw score threshold only, not composed verdict",
+      "training_only": true
+    }
+  },
+  "scope": "Only optimization-train screen. No validation/locked labels opened."
+}

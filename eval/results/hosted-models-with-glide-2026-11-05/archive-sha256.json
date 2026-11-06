@@ -1,0 +1,10 @@
+{
+  "README.md": "28bc247178b88defdd9f7d08d54589096d857301b3e5a95385f6460e9a645f5f",
+  "analysis-provenance.json": "c6d22beccbfa283459674a104957c5e1043f1aaab9d78744c720ca561ecc8da5",
+  "fastino-execution-sources.json.gz": "ee21f6328bd1ec04485080c49d40b2595d7a3e1e3a7c713fb087734fae73cb58",
+  "fastino-protocol.json": "e92856851fb2fecb55e20dd4c1187ddb280d446b38d91c1170d6a96da1960a83",
+  "observations.redacted.jsonl.gz": "f92bed91d12842c07a4798cb0bf4ba5b2c8e872feae3b24dd162787d158fcb63",
+  "original-fastino-artifact-sha256.json": "93fc433a41d3f0ed44c21fd558f2470f17ae4b601cb8fc95ac8b15eae73ff162",
+  "parent-archive.json": "ca76e3bb10611cdf711a3f8a0937f7ec2df6fee13667c9a9804e8c9dcee8c3b1",
+  "summary.json": "7f71b6a6da24db28a7d0d2d2f8f94ab01dd3fa427dacda0ba89fbd21162fd54f"
+}

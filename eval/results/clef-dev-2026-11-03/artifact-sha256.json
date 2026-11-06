@@ -1,0 +1,95 @@
+{
+  "description": "Byte-exact full-run and separately identified 10-pair probe evidence. Hashes exclude this inventory and explanatory/source-reference files.",
+  "artifacts": [
+    {
+      "file": "vitaminc-combined-dev.manifest",
+      "bytes": 150852,
+      "sha256": "982a5dc43919853176d372c53bf90bc98d4bc49e56d8703165feb14345aff0ff",
+      "copied_from": "eval/results/deberta-dev-2026-11-03/vitaminc-combined-dev.manifest"
+    },
+    {
+      "file": "vitaminc-combined-dev.report.json",
+      "bytes": 495128,
+      "sha256": "8a0030b15f2214a878ea6f8d2a6e2294fbc0bafbc8763035cd48c23de340361f",
+      "copied_from": "eval/reports/vitaminc-combined-dev-clef-2026-11-03.json"
+    },
+    {
+      "file": "vitaminc-combined-dev.report.md",
+      "bytes": 1592,
+      "sha256": "bc678c1064bbfcfced9b03f7634047b03e1d30c50457e9e87e31722af6dcce88",
+      "copied_from": "eval/reports/vitaminc-combined-dev-clef-2026-11-03.md"
+    },
+    {
+      "file": "vitaminc-combined-dev.predictions.jsonl",
+      "bytes": 159526,
+      "sha256": "793d2810f0a7b1ff8c3bf267a31dead2764908df2faa398dffc93e2646398d8d",
+      "copied_from": "eval/reports/vitaminc-combined-dev-clef-2026-11-03.predictions.jsonl"
+    },
+    {
+      "file": "vitaminc-combined-dev.predictions.jsonl.metadata.json",
+      "bytes": 12173,
+      "sha256": "cd7e6e36a899f84ea46c6b802178203994a5ef10761e624d68873b2205d26601",
+      "copied_from": "eval/reports/vitaminc-combined-dev-clef-2026-11-03.predictions.jsonl.metadata.json"
+    },
+    {
+      "file": "scifact-dev.manifest",
+      "bytes": 155094,
+      "sha256": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+      "copied_from": "eval/results/deberta-dev-2026-11-03/scifact-dev.manifest"
+    },
+    {
+      "file": "scifact-dev.report.json",
+      "bytes": 480833,
+      "sha256": "6e3e4f63d558fd9ffb4193eebcb85d822c97f9304d61b3f8103fde978266dbf0",
+      "copied_from": "eval/reports/scifact-dev-clef-2026-11-03.json"
+    },
+    {
+      "file": "scifact-dev.report.md",
+      "bytes": 1592,
+      "sha256": "3c84c61ab115af1d289585ee88f3b942e531fea6ba43b9047862b2b5638a4398",
+      "copied_from": "eval/reports/scifact-dev-clef-2026-11-03.md"
+    },
+    {
+      "file": "scifact-dev.predictions.jsonl",
+      "bytes": 154617,
+      "sha256": "80ebcbca1e3c73561253a7a4d31fac1874066140b35605f4ad0c081c7c3cbdaf",
+      "copied_from": "eval/reports/scifact-dev-clef-2026-11-03.predictions.jsonl"
+    },
+    {
+      "file": "scifact-dev.predictions.jsonl.metadata.json",
+      "bytes": 7710,
+      "sha256": "23dba8d15b1d3a07749f1d7b145388fe550b06c260a5fbec5400f0d7e4b0386e",
+      "copied_from": "eval/reports/scifact-dev-clef-2026-11-03.predictions.jsonl.metadata.json"
+    },
+    {
+      "file": "probe/scifact-dev.manifest",
+      "bytes": 8948,
+      "sha256": "ab4f24fadb14b48d939d7cbd0658e555f0e25af2cf8b11b8ecb533328083c417",
+      "copied_from": "eval/data/scifact-dev-deberta-validation.json"
+    },
+    {
+      "file": "probe/scifact-dev.report.json",
+      "bytes": 53536,
+      "sha256": "ff548c714665dcd72e0c692f1bc8ccc5de52857cb4872f2076cd53a2e9c63d23",
+      "copied_from": "eval/reports/scifact-dev-clef-probe-2026-11-03.json"
+    },
+    {
+      "file": "probe/scifact-dev.report.md",
+      "bytes": 1587,
+      "sha256": "a7a94bfbc2e64e57c6cc4e08143a003eb12a3f4f2efd1a0fe1d59633aeba0b52",
+      "copied_from": "eval/reports/scifact-dev-clef-probe-2026-11-03.md"
+    },
+    {
+      "file": "probe/scifact-dev.predictions.jsonl",
+      "bytes": 7697,
+      "sha256": "01858f9c323b4149464aee4121ebb2fcd6b3f43b180bb630c0d45a134c665471",
+      "copied_from": "eval/reports/scifact-dev-clef-probe-2026-11-03.predictions.jsonl"
+    },
+    {
+      "file": "probe/scifact-dev.predictions.jsonl.metadata.json",
+      "bytes": 1309,
+      "sha256": "a781831639cda43d7eda5a79b17bd6a74a22bd35d41535f1408b272d50369c78",
+      "copied_from": "eval/reports/scifact-dev-clef-probe-2026-11-03.predictions.jsonl.metadata.json"
+    }
+  ]
+}

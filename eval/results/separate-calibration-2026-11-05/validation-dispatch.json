@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-11-06T09:38:44.589Z",
+  "policy_freeze_sha256": "1865645712d4056b8f20899d66044b12a3d5867f9d6e3e2dedcd488fc675f848",
+  "policies_sha256": "db625fb70af4914f94c3e73043f1dde6cbda12e95a0410b7860dabf01737d3f2",
+  "approval_sha256": "8ec26a36f3003f84f9194e18d7a74d519b4a7c61de4d92b1b581b59011e48a45",
+  "ordering_attestation": "Operator-recorded sequencing, not an independent timestamp authority",
+  "max_calls": 6192,
+  "reservation_usd": 12.384,
+  "no_retries": true
+}

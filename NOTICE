@@ -1,0 +1,9 @@
+Countercheck
+Copyright 2026 Nicia AI, Inc.
+
+Original software and documentation are licensed under the Apache License,
+Version 2.0. See LICENSE.
+
+This repository also contains third-party benchmark data, annotations, terms,
+and evaluation artifacts. Their separate licenses and attribution requirements
+are preserved; the Apache license does not replace them. See DATA_NOTICE.md.

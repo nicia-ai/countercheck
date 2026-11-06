@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "adapter_version": "countercheck-public-pairs-v1",
+  "purpose": "development",
+  "sources": [
+    {
+      "name": "claims_dev.jsonl",
+      "url": "https://github.com/allenai/scifact",
+      "revision": "68b98a56d93e0f9da0d2aab4e6c3294699a0f72e (repository documentation; data bytes pinned by sha256)",
+      "sha256": "86f0435d08fdb65d1aa41d1472684f57e6e71930626497bdf4d7a9ec1a632217",
+      "license": "Claims/annotations: CC BY 4.0; abstracts: ODC-By 1.0 (S2ORC)",
+      "license_url": "https://github.com/allenai/scifact/blob/68b98a56d93e0f9da0d2aab4e6c3294699a0f72e/LICENSE.md"
+    },
+    {
+      "name": "corpus.jsonl",
+      "url": "https://github.com/allenai/scifact",
+      "revision": "68b98a56d93e0f9da0d2aab4e6c3294699a0f72e (repository documentation; data bytes pinned by sha256)",
+      "sha256": "b8d6c89624cb2ed74dee8938effc4f5d8bd2086887880af8110d64be4ceade62",
+      "license": "Claims/annotations: CC BY 4.0; abstracts: ODC-By 1.0 (S2ORC)",
+      "license_url": "https://github.com/allenai/scifact/blob/68b98a56d93e0f9da0d2aab4e6c3294699a0f72e/LICENSE.md"
+    }
+  ],
+  "sampling": {
+    "seed": "countercheck-v1",
+    "max_pairs": 10,
+    "method": "whole claim groups, deterministic seed ordering, greedy native-label proportion matching; no row truncation",
+    "available_pairs": 338,
+    "selected_pairs": 10,
+    "excluded_unlabeled": 112,
+    "strata": {
+      "scifact/gold-rationale-set/SUPPORT": 6,
+      "scifact/gold-rationale-set/CONTRADICT": 4
+    }
+  },
+  "pairs": [
+    {
+      "id": "scifact:dev:100:4381486:0",
+      "dataset": "scifact",
+      "variant": "gold-rationale-set",
+      "split": "dev",
+      "source_id": "100",
+      "group_id": "scifact:100",
+      "claim": "All hematopoietic stem cells segregate their chromosomes randomly.",
+      "evidence": "Sequential administration of 5-chloro-2-deoxyuridine and 5-iodo-2-deoxyuridine indicated that all HSCs segregate their chromosomes randomly.",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORT",
+      "rationale": {
+        "document_id": "4381486",
+        "sentence_indices": [
+          5
+        ],
+        "set_index": 0
+      }
+    },
+    {
+      "id": "scifact:dev:1020:9433958:0",
+      "dataset": "scifact",
+      "variant": "gold-rationale-set",
+      "split": "dev",
+      "source_id": "1020",
+      "group_id": "scifact:1020",
+      "claim": "Rapid up-regulation and higher basal expression of interferon-induced genes increase survival of granule cell neurons that are infected by West Nile virus.",
+      "evidence": "By transducing cortical neurons with genes that were expressed more highly in granule cell neurons, we identified three interferon-stimulated genes (ISGs; Ifi27, Irg1 and Rsad2 (also known as Viperin)) that mediated the antiviral effects against different neurotropic viruses.",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORT",
+      "rationale": {
+        "document_id": "9433958",
+        "sentence_indices": [
+          3
+        ],
+        "set_index": 0
+      }
+    },
+    {
+      "id": "scifact:dev:1107:20532591:0",
+      "dataset": "scifact",
+      "variant": "gold-rationale-set",
+      "split": "dev",
+      "source_id": "1107",
+      "group_id": "scifact:1107",
+      "claim": "Subcutaneous fat depots undergo extensive browning processes after cold exposure.",
+      "evidence": "During cold-induced 'browning' of subcutaneous fat, most 'beige' adipocytes stem from de novo–differentiated adipocytes.",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORT",
+      "rationale": {
+        "document_id": "20532591",
+        "sentence_indices": [
+          3
+        ],
+        "set_index": 0
+      }
+    },
+    {
+      "id": "scifact:dev:216:21366394:0",
+      "dataset": "scifact",
+      "variant": "gold-rationale-set",
+      "split": "dev",
+      "source_id": "216",
+      "group_id": "scifact:216",
+      "claim": "CX3CR1 on the Th2 cells impairs T cell survival",
+      "evidence": "We found that CX3CR1 signaling promoted T(H)2 survival in the inflamed lungs, and injection of B cell leukemia/lymphoma-2 protein (BCl-2)-transduced CX3CR1-deficient T(H)2 cells into CX3CR1-deficient mice restored asthma.",
+      "gold": "contradiction",
+      "native_label": "CONTRADICT",
+      "rationale": {
+        "document_id": "21366394",
+        "sentence_indices": [
+          4
+        ],
+        "set_index": 0
+      }
+    },
+    {
+      "id": "scifact:dev:513:13230773:0",
+      "dataset": "scifact",
+      "variant": "gold-rationale-set",
+      "split": "dev",
+      "source_id": "513",
+      "group_id": "scifact:513",
+      "claim": "High cardiopulmonary fitness causes increased mortality rate.",
+      "evidence": "CONCLUSION Low fitness in adolescents and adults is common in the US population and is associated with an increased prevalence of CVD risk factors.",
+      "gold": "contradiction",
+      "native_label": "CONTRADICT",
+      "rationale": {
+        "document_id": "13230773",
+        "sentence_indices": [
+          11
+        ],
+        "set_index": 0
+      }
+    },
+    {
+      "id": "scifact:dev:569:23460562:0",
+      "dataset": "scifact",
+      "variant": "gold-rationale-set",
+      "split": "dev",
+      "source_id": "569",
+      "group_id": "scifact:569",
+      "claim": "In adult tissue, most T cells are memory T cells.",
+      "evidence": "Whereas adult tissues contain a predominance of memory T cells, in pediatric blood and tissues the main subset consists of naive recent thymic emigrants, with effector memory T cells (T(EM)) found only in the lungs and small intestine.",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORT",
+      "rationale": {
+        "document_id": "23460562",
+        "sentence_indices": [
+          4
+        ],
+        "set_index": 0
+      }
+    },
+    {
+      "id": "scifact:dev:613:9638032:0",
+      "dataset": "scifact",
+      "variant": "gold-rationale-set",
+      "split": "dev",
+      "source_id": "613",
+      "group_id": "scifact:613",
+      "claim": "Increased microtubule acetylation repairs LRRK2 Roc-COR domain mutation induced locomotor deficits.",
+      "evidence": "In vitro, increasing microtubule acetylation using deacetylase inhibitors or the tubulin acetylase αTAT1 prevents association of mutant LRRK2 with microtubules, and the deacetylase inhibitor trichostatin A (TSA) restores axonal transport.",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORT",
+      "rationale": {
+        "document_id": "9638032",
+        "sentence_indices": [
+          4
+        ],
+        "set_index": 0
+      }
+    },
+    {
+      "id": "scifact:dev:619:20888849:0",
+      "dataset": "scifact",
+      "variant": "gold-rationale-set",
+      "split": "dev",
+      "source_id": "619",
+      "group_id": "scifact:619",
+      "claim": "Increased vessel density along with a reduction in fibrosis decreases the efficacy of chemotherapy treatments.",
+      "evidence": "We tested whether the delivery and efficacy of gemcitabine in the mice could be improved by coadministration of IPI-926, a drug that depletes tumor-associated stromal tissue by inhibition of the Hedgehog cellular signaling pathway. The combination therapy produced a transient increase in intratumoral vascular density and intratumoral concentration of gemcitabine, leading to transient stabilization of disease.",
+      "gold": "contradiction",
+      "native_label": "CONTRADICT",
+      "rationale": {
+        "document_id": "20888849",
+        "sentence_indices": [
+          2,
+          3
+        ],
+        "set_index": 0
+      }
+    },
+    {
+      "id": "scifact:dev:674:2095573:0",
+      "dataset": "scifact",
+      "variant": "gold-rationale-set",
+      "split": "dev",
+      "source_id": "674",
+      "group_id": "scifact:674",
+      "claim": "LDL cholesterol has no involvement in the development of cardiovascular disease.",
+      "evidence": "BACKGROUND LDL cholesterol has a causal role in the development of cardiovascular disease.",
+      "gold": "contradiction",
+      "native_label": "CONTRADICT",
+      "rationale": {
+        "document_id": "2095573",
+        "sentence_indices": [
+          0
+        ],
+        "set_index": 0
+      }
+    },
+    {
+      "id": "scifact:dev:880:8426046:0",
+      "dataset": "scifact",
+      "variant": "gold-rationale-set",
+      "split": "dev",
+      "source_id": "880",
+      "group_id": "scifact:880",
+      "claim": "Occupancy of ribosomes by IncRNAs mirror 5 0-UTRs",
+      "evidence": "Here, we show that classical noncoding RNAs and 5' UTRs show the same ribosome occupancy as lincRNAs, demonstrating that ribosome occupancy alone is not sufficient to classify transcripts as coding or noncoding.",
+      "gold": "non_contradiction",
+      "native_label": "SUPPORT",
+      "rationale": {
+        "document_id": "8426046",
+        "sentence_indices": [
+          3
+        ],
+        "set_index": 0
+      }
+    }
+  ]
+}

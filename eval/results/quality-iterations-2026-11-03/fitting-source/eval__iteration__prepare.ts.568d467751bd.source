@@ -1,0 +1,400 @@
+/** Local cached public-train preparation only. No model calls; no heldout inspection. */
+import { access, mkdir, writeFile, realpath } from "node:fs/promises";
+import { dirname, resolve } from "node:path";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
+import { fileURLToPath } from "node:url";
+import {
+  DATASETS,
+  jsonLines,
+  vitaminPair,
+  sciPairs,
+  strata,
+  type SciDocument,
+} from "../datasets.js";
+import { sha256File } from "../files.js";
+import { sha256, validateManifest, type Pair, type Manifest, type Source } from "../types.js";
+import { LIMITS } from "../../src/contracts/limits.js";
+import { utf8Bytes, hasUnpairedSurrogate } from "../../src/contracts/index.js";
+import { parseArgs } from "../args.js";
+
+const HELP = `Prepare leakage-separated iteration inputs from cached public TRAIN archives (no downloads/model calls).
+Usage: pnpm exec tsx eval/iteration/prepare.ts [--prefix eval/data/iteration] [--seed iteration-train-v1]
+Outputs canonical screen (~80/dataset), fit (~200/dataset), validation (~100/dataset),
+locked-holdout (~100/dataset) manifests plus a content/source/component lock index.
+Screen is a complete-component subset of fit. Other roles have disjoint source components.
+Published dev pages/docs and normalized pair duplicates are excluded before selection.
+Original split=train and native labels remain unchanged; no human/service adjudication is inferred.
+Holdout is workflow-locked, not cryptographically sealed; optimization must not open it.`;
+type Role = "screen" | "fit" | "validation" | "locked-holdout";
+type Counts = { vitaminc: number; scifact: number };
+const zero = (): Counts => ({ vitaminc: 0, scifact: 0 });
+const normalize = (s: string) => s.normalize("NFKC").replace(/\s+/gu, " ").trim().toLowerCase();
+const duplicateKey = (p: Pair) =>
+  sha256(JSON.stringify([normalize(p.claim), normalize(p.evidence)].sort()));
+const pageKey = (page: string) => `vitaminc-page:${normalize(page)}`;
+const safe = (p: Pair) =>
+  utf8Bytes(p.claim) <= LIMITS.claimBytes &&
+  utf8Bytes(p.evidence) <= LIMITS.comparisonBytes &&
+  !hasUnpairedSurrogate(p.claim) &&
+  !hasUnpairedSurrogate(p.evidence);
+class Components {
+  readonly parents = new Map<string, string>();
+  find(id: string): string {
+    const parent = this.parents.get(id);
+    if (!parent) {
+      this.parents.set(id, id);
+      return id;
+    }
+    if (parent === id) return id;
+    const root = this.find(parent);
+    this.parents.set(id, root);
+    return root;
+  }
+  join(a: string, b: string) {
+    const left = this.find(a),
+      right = this.find(b);
+    if (left !== right) this.parents.set(left < right ? right : left, left < right ? left : right);
+  }
+}
+async function ensureExtracted(archive: string, directory: string, dataset: string) {
+  const target = `${directory}/${dataset === "vitaminc" ? "train.jsonl" : "claims_train.jsonl"}`;
+  try {
+    await access(target);
+  } catch {
+    await promisify(execFile)("python3", [
+      fileURLToPath(new URL("../archive.py", import.meta.url)),
+      archive,
+      directory,
+      dataset,
+      "train",
+    ]);
+  }
+  return target;
+}
+export function select(
+  groups: Map<string, Counts>,
+  seed: string,
+  target: number,
+  forbidden: Set<string>,
+) {
+  const selected = new Set<string>(),
+    counts = zero();
+  const ranked = [...groups]
+    .filter(([id]) => !forbidden.has(id))
+    .sort(([a], [b]) => sha256(`${seed}:${a}`).localeCompare(sha256(`${seed}:${b}`)));
+  for (const [id, size] of ranked) {
+    if (size.vitaminc + counts.vitaminc > target || size.scifact + counts.scifact > target)
+      continue;
+    selected.add(id);
+    counts.vitaminc += size.vitaminc;
+    counts.scifact += size.scifact;
+  }
+  if (counts.vitaminc < target * 0.9 || counts.scifact < target * 0.9)
+    throw new Error(
+      "Insufficient complete source components for requested role; do not split groups or inspect holdout labels to repair the sample.",
+    );
+  return { selected, counts };
+}
+export async function loadTrainingPool() {
+  const vcArchive = "eval/data/vitaminc-combined/data.zip",
+    sciArchive = "eval/data/scifact-release/data.tar.gz";
+  const vcTrain = await ensureExtracted(vcArchive, "eval/data/vitaminc-combined", "vitaminc");
+  const sciTrain = await ensureExtracted(sciArchive, "eval/data/scifact-release", "scifact");
+  const vcDev = "eval/data/vitaminc-combined/dev.jsonl",
+    sciDev = "eval/data/scifact-release/claims_dev.jsonl",
+    corpusPath = "eval/data/scifact-release/corpus.jsonl";
+  const paths = [vcArchive, vcTrain, vcDev, sciArchive, sciTrain, sciDev, corpusPath];
+  const hashes = Object.fromEntries(
+    await Promise.all(paths.map(async (p) => [p, await sha256File(p)])),
+  );
+  if (
+    hashes[vcArchive] !== "49d82dc1690cbee420d18e2c26f687a7937710bb211845d2571430dfd4dc0337" ||
+    hashes[sciArchive] !== "11c621288d41ac144d29b13b0f8503b3820b7d6e8b1f6ff24dff335c196d76be"
+  )
+    throw new Error("Cached archive bytes differ from reviewed source provenance.");
+  const corpus = new Map<string, SciDocument>();
+  for await (const row of jsonLines(corpusPath))
+    corpus.set(String(row.doc_id), row as unknown as SciDocument);
+  const uf = new Components(),
+    forbidden = new Set<string>(),
+    invalid = new Set<string>();
+  const duplicateOwner = new Map<string, string>(),
+    groupCounts = new Map<string, Counts>();
+  const seenPairIds = new Set<string>();
+  let normalizedDuplicateJoins = 0;
+  const sourceNode = (pair: Pair) => {
+    const group = pair.group_id;
+    uf.find(group);
+    if (pair.dataset === "vitaminc" && pair.source_metadata?.page)
+      uf.join(group, pageKey(pair.source_metadata.page));
+    return group;
+  };
+  const register = (pair: Pair, seen: boolean) => {
+    const node = sourceNode(pair),
+      key = duplicateKey(pair),
+      prior = duplicateOwner.get(key);
+    if (prior) {
+      if (uf.find(prior) !== uf.find(node)) normalizedDuplicateJoins++;
+      uf.join(prior, node);
+    } else duplicateOwner.set(key, node);
+    if (seen) forbidden.add(node);
+    else {
+      if (seenPairIds.has(pair.id)) throw new Error("Duplicate canonical training pair ID.");
+      seenPairIds.add(pair.id);
+      const count = groupCounts.get(node) ?? zero();
+      count[pair.dataset === "vitaminc" ? "vitaminc" : "scifact"]++;
+      groupCounts.set(node, count);
+      if (!safe(pair)) invalid.add(node);
+    }
+  };
+  for await (const row of jsonLines(vcDev)) {
+    const p = vitaminPair(row, "dev", "combined");
+    if (p) register(p, true);
+  }
+  const devDocs = new Set<string>();
+  for await (const row of jsonLines(sciDev)) {
+    const claim = `scifact:${String(row.id)}`;
+    for (const doc of Object.keys((row.evidence ?? {}) as Record<string, unknown>)) {
+      uf.join(claim, `scifact-doc:${doc}`);
+      devDocs.add(doc);
+      forbidden.add(`scifact-doc:${doc}`);
+    }
+    for (const pair of sciPairs(row, corpus, "dev")) register(pair, true);
+  }
+  let excludedUnlabeledClaims = 0;
+  const sciRows = [] as Record<string, unknown>[];
+  for await (const row of jsonLines(sciTrain)) {
+    sciRows.push(row);
+    const claim = `scifact:${String(row.id)}`;
+    for (const doc of Object.keys((row.evidence ?? {}) as Record<string, unknown>))
+      uf.join(claim, `scifact-doc:${doc}`);
+    const pairs = sciPairs(row, corpus, "train");
+    if (!pairs.length) excludedUnlabeledClaims++;
+    for (const pair of pairs) register(pair, false);
+  }
+  for await (const row of jsonLines(vcTrain)) {
+    const pair = vitaminPair(row, "train", "combined");
+    if (pair) register(pair, false);
+  }
+  const blocked = new Set([...forbidden].map((node) => uf.find(node))),
+    unsupported = new Set([...invalid].map((node) => uf.find(node)));
+  const components = new Map<string, Counts>();
+  const excludedSeen = zero(),
+    excludedEnvelope = zero();
+  for (const [node, size] of groupCounts) {
+    const root = uf.find(node);
+    if (blocked.has(root)) {
+      excludedSeen.vitaminc += size.vitaminc;
+      excludedSeen.scifact += size.scifact;
+      continue;
+    }
+    if (unsupported.has(root)) {
+      excludedEnvelope.vitaminc += size.vitaminc;
+      excludedEnvelope.scifact += size.scifact;
+      continue;
+    }
+    const counts = components.get(root) ?? zero();
+    counts.vitaminc += size.vitaminc;
+    counts.scifact += size.scifact;
+    components.set(root, counts);
+  }
+  return {
+    paths,
+    hashes,
+    components,
+    excludedSeen,
+    excludedEnvelope,
+    excludedUnlabeledClaims,
+    normalizedDuplicateJoins,
+    devDocs,
+    uf,
+    corpus,
+    sciRows,
+    vcTrain,
+  };
+}
+
+export async function collectSelectedPairs<T extends string>(
+  pool: Awaited<ReturnType<typeof loadTrainingPool>>,
+  selected: Record<T, Set<string>>,
+): Promise<Record<T, Pair[]>> {
+  const { uf, corpus, sciRows, vcTrain } = pool;
+  const roles = Object.keys(selected) as T[];
+  const rows = {} as Record<T, Pair[]>;
+  for (const role of roles) rows[role] = [];
+  const collect = (pair: Pair) => {
+    const component = uf.find(pair.group_id);
+    for (const role of roles)
+      if (selected[role].has(component))
+        rows[role].push({
+          ...pair,
+          group_id: `iteration:${sha256(component)}`,
+          source_metadata: {
+            ...pair.source_metadata,
+            original_group_id: pair.group_id,
+            iteration_component_sha256: sha256(component),
+          },
+        });
+  };
+  for (const row of sciRows) for (const pair of sciPairs(row, corpus, "train")) collect(pair);
+  for await (const row of jsonLines(vcTrain)) {
+    const pair = vitaminPair(row, "train", "combined");
+    if (pair) collect(pair);
+  }
+  return rows;
+}
+
+async function main() {
+  const args = parseArgs(process.argv.slice(2), ["help", "prefix", "seed"], ["help"]);
+  if (args.help) {
+    process.stdout.write(`${HELP}\n`);
+    return;
+  }
+  const prefix = resolve(args.prefix ?? "eval/data/iteration"),
+    seed = args.seed ?? "iteration-train-v1";
+  const roles: Role[] = ["screen", "fit", "validation", "locked-holdout"];
+  // Refuse reuse before extracting or scanning; all actual writes are also exclusive.
+  for (const suffix of [...roles.map((role) => `-${role}.json`), "-index.json"]) {
+    let exists = false;
+    try {
+      await access(prefix + suffix);
+      exists = true;
+    } catch {
+      /* exclusive write below */
+    }
+    if (exists) throw new Error("Choose a fresh iteration prefix.");
+  }
+  const pool = await loadTrainingPool();
+  const {
+    paths,
+    hashes,
+    components,
+    excludedSeen,
+    excludedEnvelope,
+    excludedUnlabeledClaims,
+    normalizedDuplicateJoins,
+    devDocs,
+  } = pool;
+  // Allocate locked/validation first without consulting native labels. Optimize on fit only.
+  const lock = select(components, `${seed}:locked`, 100, new Set());
+  const validation = select(components, `${seed}:validation`, 100, lock.selected);
+  const assigned = new Set([...lock.selected, ...validation.selected]);
+  const fit = select(components, `${seed}:fit`, 200, assigned);
+  const fitComponents = new Map([...components].filter(([id]) => fit.selected.has(id)));
+  const screen = select(fitComponents, `${seed}:screen`, 80, new Set());
+  const selected: Record<Role, Set<string>> = {
+    screen: screen.selected,
+    fit: fit.selected,
+    validation: validation.selected,
+    "locked-holdout": lock.selected,
+  };
+  const rows = await collectSelectedPairs(pool, selected);
+  const sources: Source[] = paths.map((path) => {
+    const info = DATASETS[path.includes("vitaminc") ? "vitaminc" : "scifact"];
+    return {
+      name: path,
+      url: info.url,
+      revision: `${info.revision}; cached release bytes pinned independently`,
+      sha256: hashes[path]!,
+      license: info.license,
+      license_url: info.license_url,
+    };
+  });
+  const manifests: Record<string, unknown> = {};
+  await mkdir(dirname(prefix), { recursive: true });
+  for (const role of roles) {
+    rows[role].sort((a, b) => a.id.localeCompare(b.id));
+    const manifest: Manifest & { iteration_protocol: unknown } = {
+      schema_version: 1,
+      adapter_version: "countercheck-public-pairs-v1",
+      purpose: "development",
+      sources,
+      sampling: {
+        seed,
+        max_pairs: role === "fit" ? 400 : role === "screen" ? 160 : 200,
+        method:
+          "Label-blind seeded whole source/content components; seen-dev and envelope-unsafe components excluded; screen subset of fit",
+        available_pairs: [...components.values()].reduce((n, c) => n + c.vitaminc + c.scifact, 0),
+        selected_pairs: rows[role].length,
+        excluded_unlabeled: excludedUnlabeledClaims,
+        strata: role === "locked-holdout" ? {} : strata(rows[role]),
+      },
+      pairs: rows[role],
+      iteration_protocol: {
+        role,
+        original_split: "train",
+        source_grouping:
+          "Wikipedia page + revision; SciFact connected claim/document graph; exact normalized unordered text-pair duplicates across all datasets",
+        optimization_allowed: role === "screen" || role === "fit",
+        locked_until_candidate_and_policy_frozen: role === "locked-holdout",
+        label_space: "native upstream labels only; no service-contract or human adjudication",
+        screen_subset_of_fit: true,
+        sampling_bias:
+          "Whole-source-component size cap and seeded order are label-blind but not a population-representative sample; large components can be skipped.",
+        prior_exposure:
+          "Full public dev source pages/docs/normalized pairs excluded. Public train may have been in provider pretraining; unseen-to-model is not claimed.",
+      },
+    };
+    validateManifest(manifest);
+    const bytes = JSON.stringify(manifest, null, 2) + "\n",
+      path = `${prefix}-${role}.json`;
+    await writeFile(path, bytes, { flag: "wx", mode: 0o600 });
+    manifests[role] = {
+      path,
+      sha256: sha256(bytes),
+      pairs: rows[role].length,
+      by_dataset: {
+        vitaminc: rows[role].filter((p) => p.dataset === "vitaminc").length,
+        scifact: rows[role].filter((p) => p.dataset === "scifact").length,
+      },
+      component_sha256: [...selected[role]].map((id) => sha256(id)).sort(),
+    };
+  }
+  const fitIds = new Set(rows.fit.map((p) => p.id));
+  if (rows.screen.some((p) => !fitIds.has(p.id)))
+    throw new Error("Screen must be a strict fit subset.");
+  for (const [i, a] of (["fit", "validation", "locked-holdout"] as const).entries())
+    for (const b of (["fit", "validation", "locked-holdout"] as const).slice(i + 1))
+      if ([...selected[a]].some((id) => selected[b].has(id)))
+        throw new Error("Source component leakage.");
+  const index = {
+    schema_version: 1,
+    kind: "iteration-training-source-lock",
+    seed,
+    source_sha256: hashes,
+    preparer_sha256: await sha256File(fileURLToPath(import.meta.url)),
+    manifests,
+    exclusions: {
+      previously_seen_full_dev_source_component_pairs: excludedSeen,
+      service_envelope_unsafe_component_pairs: excludedEnvelope,
+    },
+    eligible_components: components.size,
+    normalized_duplicate_component_joins: normalizedDuplicateJoins,
+    full_dev_evidence_documents: devDocs.size,
+    holdout_label_summary_deliberately_omitted: true,
+    human500_locked200_gate:
+      "unmet; public-native workflow holdout is not human service-contract qualification",
+  };
+  await writeFile(`${prefix}-index.json`, JSON.stringify(index, null, 2) + "\n", {
+    flag: "wx",
+    mode: 0o600,
+  });
+  process.stdout.write(
+    JSON.stringify({
+      paths: manifests,
+      holdout_label_statistics_exposed: false,
+      human_gate: "unmet",
+    }) + "\n",
+  );
+}
+if (
+  process.argv[1] &&
+  (await realpath(resolve(process.argv[1])).catch(() => null)) === fileURLToPath(import.meta.url)
+)
+  main().catch(() => {
+    process.stderr.write(
+      "Iteration preparation stopped. Check cached source bytes, fresh output prefix and complete-component quotas. No model calls were made.\n",
+    );
+    process.exitCode = 1;
+  });

@@ -1,0 +1,2265 @@
+{
+  "analysis": "quality-diagnosis-2026-11-03",
+  "datasets": {
+    "scifact-dev": {
+      "complementarity": {
+        "groups": {
+          "jev+clef+decider": {
+            "all_models_scored_pairs": 198,
+            "gold_positives_missed_by_every_default_policy": 31,
+            "uniquely_recovered_gold_positives": {
+              "clef": 1,
+              "decider": 4,
+              "jev": 4
+            },
+            "vote_rules": {
+              "at_least_1_current_positive_votes": {
+                "clear_negative_coverage": 0.984375,
+                "definitive_coverage": 1.0,
+                "f1": 0.7079646017699115,
+                "false_positive": 2,
+                "false_positive_rate": 0.015625,
+                "negative": 128,
+                "negative_unassessed": {
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "pairs": 199,
+                "positive": 71,
+                "positive_misses": {
+                  "definitive_negative": 31,
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "precision": 0.9523809523809523,
+                "recall": 0.5633802816901409,
+                "true_negative": 126,
+                "true_positive": 40
+              },
+              "at_least_2_current_positive_votes": {
+                "clear_negative_coverage": 0.984375,
+                "definitive_coverage": 1.0,
+                "f1": 0.5961538461538461,
+                "false_positive": 2,
+                "false_positive_rate": 0.015625,
+                "negative": 128,
+                "negative_unassessed": {
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "pairs": 199,
+                "positive": 71,
+                "positive_misses": {
+                  "definitive_negative": 40,
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "precision": 0.9393939393939394,
+                "recall": 0.43661971830985913,
+                "true_negative": 126,
+                "true_positive": 31
+              },
+              "at_least_3_current_positive_votes": {
+                "clear_negative_coverage": 0.984375,
+                "definitive_coverage": 1.0,
+                "f1": 0.4631578947368421,
+                "false_positive": 2,
+                "false_positive_rate": 0.015625,
+                "negative": 128,
+                "negative_unassessed": {
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "pairs": 199,
+                "positive": 71,
+                "positive_misses": {
+                  "definitive_negative": 49,
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "precision": 0.9166666666666666,
+                "recall": 0.30985915492957744,
+                "true_negative": 126,
+                "true_positive": 22
+              }
+            }
+          },
+          "jev+clef+decider+deberta": {
+            "all_models_scored_pairs": 198,
+            "gold_positives_missed_by_every_default_policy": 14,
+            "uniquely_recovered_gold_positives": {
+              "clef": 0,
+              "deberta": 17,
+              "decider": 4,
+              "jev": 3
+            },
+            "vote_rules": {
+              "at_least_1_current_positive_votes": {
+                "clear_negative_coverage": 0.96875,
+                "definitive_coverage": 1.0,
+                "f1": 0.8636363636363636,
+                "false_positive": 4,
+                "false_positive_rate": 0.03125,
+                "negative": 128,
+                "negative_unassessed": {
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "pairs": 199,
+                "positive": 71,
+                "positive_misses": {
+                  "definitive_negative": 14,
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "precision": 0.9344262295081968,
+                "recall": 0.8028169014084507,
+                "true_negative": 124,
+                "true_positive": 57
+              },
+              "at_least_2_current_positive_votes": {
+                "clear_negative_coverage": 0.984375,
+                "definitive_coverage": 1.0,
+                "f1": 0.6226415094339622,
+                "false_positive": 2,
+                "false_positive_rate": 0.015625,
+                "negative": 128,
+                "negative_unassessed": {
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "pairs": 199,
+                "positive": 71,
+                "positive_misses": {
+                  "definitive_negative": 38,
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "precision": 0.9428571428571428,
+                "recall": 0.4647887323943662,
+                "true_negative": 126,
+                "true_positive": 33
+              },
+              "at_least_3_current_positive_votes": {
+                "clear_negative_coverage": 0.984375,
+                "definitive_coverage": 1.0,
+                "f1": 0.5686274509803921,
+                "false_positive": 2,
+                "false_positive_rate": 0.015625,
+                "negative": 128,
+                "negative_unassessed": {
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "pairs": 199,
+                "positive": 71,
+                "positive_misses": {
+                  "definitive_negative": 42,
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "precision": 0.9354838709677419,
+                "recall": 0.4084507042253521,
+                "true_negative": 126,
+                "true_positive": 29
+              },
+              "at_least_4_current_positive_votes": {
+                "clear_negative_coverage": 0.984375,
+                "definitive_coverage": 1.0,
+                "f1": 0.44680851063829785,
+                "false_positive": 2,
+                "false_positive_rate": 0.015625,
+                "negative": 128,
+                "negative_unassessed": {
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "pairs": 199,
+                "positive": 71,
+                "positive_misses": {
+                  "definitive_negative": 50,
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "precision": 0.9130434782608695,
+                "recall": 0.29577464788732394,
+                "true_negative": 126,
+                "true_positive": 21
+              }
+            }
+          }
+        },
+        "qualification": "Offline complementarity diagnostic of current positive decisions, not a proposed single-call service route. Unselected scored pairs are forced binary negatives solely for these counts, not clean service verdicts; rules are not validated out of sample"
+      },
+      "models": {
+        "clef": {
+          "native_argmax": {
+            "forced_native_argmax_contradiction_ties_positive": {
+              "clear_negative_coverage": 0.9609375,
+              "definitive_coverage": 1.0,
+              "f1": 0.8396946564885496,
+              "false_positive": 5,
+              "false_positive_rate": 0.0390625,
+              "negative": 128,
+              "negative_unassessed": {
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 0
+              },
+              "pairs": 199,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 16,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 0
+              },
+              "precision": 0.9166666666666666,
+              "recall": 0.7746478873239436,
+              "true_negative": 123,
+              "true_positive": 55
+            },
+            "negative": {
+              "contradiction_in_argmax": 5,
+              "contradiction_unique_argmax": 5,
+              "fraction_contradiction_in_argmax_of_all_gold": 0.0390625,
+              "fraction_contradiction_in_argmax_of_scored": 0.0390625,
+              "missing": 0,
+              "scored": 128,
+              "tied_argmax_pairs": 0,
+              "total": 128,
+              "winner_counts": {
+                "consistent": 122,
+                "contradiction": 5,
+                "insufficient_context": 1
+              }
+            },
+            "positive": {
+              "contradiction_in_argmax": 55,
+              "contradiction_unique_argmax": 55,
+              "fraction_contradiction_in_argmax_of_all_gold": 0.7746478873239436,
+              "fraction_contradiction_in_argmax_of_scored": 0.7746478873239436,
+              "missing": 0,
+              "scored": 71,
+              "tied_argmax_pairs": 0,
+              "total": 71,
+              "winner_counts": {
+                "consistent": 16,
+                "contradiction": 55
+              }
+            }
+          },
+          "native_contradiction_threshold_sweep": {
+            "any_threshold_meets_precision_0_95_and_recall_0_90": false,
+            "best_f1": {
+              "f1": 0.8767123287671232,
+              "false_positive": 11,
+              "false_positive_rate": 0.0859375,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 7,
+              "precision": 0.8533333333333334,
+              "recall": 0.9014084507042254,
+              "scored_false_negative": 7,
+              "scored_true_negative": 117,
+              "threshold": 0.2302,
+              "true_positive": 64
+            },
+            "best_precision_at_recall_at_least_0_90": {
+              "f1": 0.8767123287671232,
+              "false_positive": 11,
+              "false_positive_rate": 0.0859375,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 7,
+              "precision": 0.8533333333333334,
+              "recall": 0.9014084507042254,
+              "scored_false_negative": 7,
+              "scored_true_negative": 117,
+              "threshold": 0.2302,
+              "true_positive": 64
+            },
+            "best_recall_at_precision_at_least_0_95": {
+              "f1": 0.43478260869565216,
+              "false_positive": 1,
+              "false_positive_rate": 0.0078125,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 51,
+              "precision": 0.9523809523809523,
+              "recall": 0.28169014084507044,
+              "scored_false_negative": 51,
+              "scored_true_negative": 127,
+              "threshold": 0.8768,
+              "true_positive": 20
+            },
+            "comparison": "contradiction iff native contradiction probability >= threshold; missing execution remains a miss, not a clean negative",
+            "first_highest_threshold_point_reaching_recall_0_90": {
+              "f1": 0.8767123287671232,
+              "false_positive": 11,
+              "false_positive_rate": 0.0859375,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 7,
+              "precision": 0.8533333333333334,
+              "recall": 0.9014084507042254,
+              "scored_false_negative": 7,
+              "scored_true_negative": 117,
+              "threshold": 0.2302,
+              "true_positive": 64
+            },
+            "fixed_score_cutoffs": {
+              "0.5": {
+                "f1": 0.75,
+                "false_positive": 4,
+                "false_positive_rate": 0.03125,
+                "missing_negative": 0,
+                "missing_positive": 0,
+                "positive_misses_including_missing": 26,
+                "precision": 0.9183673469387755,
+                "recall": 0.6338028169014085,
+                "scored_false_negative": 26,
+                "scored_true_negative": 124,
+                "threshold": 0.5,
+                "true_positive": 45
+              },
+              "0.8": {
+                "f1": 0.5252525252525253,
+                "false_positive": 2,
+                "false_positive_rate": 0.015625,
+                "missing_negative": 0,
+                "missing_positive": 0,
+                "positive_misses_including_missing": 45,
+                "precision": 0.9285714285714286,
+                "recall": 0.36619718309859156,
+                "scored_false_negative": 45,
+                "scored_true_negative": 126,
+                "threshold": 0.8,
+                "true_positive": 26
+              }
+            },
+            "grouped_sweep_verified_against_direct_classifications": true,
+            "selection_on_same_development_labels": true,
+            "tie_policy": "all equal-score pairs enter together; no within-tie label ordering",
+            "unique_thresholds_evaluated": 193
+          },
+          "negative_policy": {
+            "applicable": true,
+            "current": {
+              "clear_negative_coverage": 0.5546875,
+              "definitive_coverage": 0.5025125628140703,
+              "f1": 0.5252525252525253,
+              "false_positive": 2,
+              "false_positive_rate": 0.015625,
+              "negative": 128,
+              "negative_unassessed": {
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 55
+              },
+              "pairs": 199,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 1,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 44
+              },
+              "precision": 0.9285714285714286,
+              "recall": 0.36619718309859156,
+              "true_negative": 71,
+              "true_positive": 26
+            },
+            "formula": "native contradiction<=0.2 AND native consistent+different_scope>=0.8, after contradiction>=0.8 branch",
+            "pooled_negative_counterfactual": {
+              "clear_negative_coverage": 0.65625,
+              "definitive_coverage": 0.5728643216080402,
+              "f1": 0.5252525252525253,
+              "false_positive": 2,
+              "false_positive_rate": 0.015625,
+              "negative": 128,
+              "negative_unassessed": {
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 42
+              },
+              "pairs": 199,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 2,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 43
+              },
+              "precision": 0.9285714285714286,
+              "recall": 0.36619718309859156,
+              "true_negative": 84,
+              "true_positive": 26
+            },
+            "positive_precision_and_recall_unchanged": true,
+            "promoted_gold_negative_from_uncertain": 13,
+            "promoted_gold_positive_to_definitive_false_negative": 1,
+            "qualification": "Offline semantic-policy diagnostic; not a deployed or held-out result"
+          },
+          "recorded_policy": {
+            "clear_negative_coverage": 0.5546875,
+            "definitive_coverage": 0.5025125628140703,
+            "f1": 0.5252525252525253,
+            "false_positive": 2,
+            "false_positive_rate": 0.015625,
+            "negative": 128,
+            "negative_unassessed": {
+              "error": 0,
+              "excluded": 0,
+              "uncertain": 55
+            },
+            "pairs": 199,
+            "positive": 71,
+            "positive_misses": {
+              "definitive_negative": 1,
+              "error": 0,
+              "excluded": 0,
+              "uncertain": 44
+            },
+            "precision": 0.9285714285714286,
+            "recall": 0.36619718309859156,
+            "true_negative": 71,
+            "true_positive": 26
+          }
+        },
+        "deberta": {
+          "native_argmax": {
+            "forced_native_argmax_contradiction_ties_positive": {
+              "clear_negative_coverage": 0.96875,
+              "definitive_coverage": 1.0,
+              "f1": 0.7704918032786885,
+              "false_positive": 4,
+              "false_positive_rate": 0.03125,
+              "negative": 128,
+              "negative_unassessed": {
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 0
+              },
+              "pairs": 199,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 24,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 0
+              },
+              "precision": 0.9215686274509803,
+              "recall": 0.6619718309859155,
+              "true_negative": 124,
+              "true_positive": 47
+            },
+            "negative": {
+              "contradiction_in_argmax": 4,
+              "contradiction_unique_argmax": 4,
+              "fraction_contradiction_in_argmax_of_all_gold": 0.03125,
+              "fraction_contradiction_in_argmax_of_scored": 0.03125,
+              "missing": 0,
+              "scored": 128,
+              "tied_argmax_pairs": 0,
+              "total": 128,
+              "winner_counts": {
+                "contradiction": 4,
+                "entailment": 40,
+                "neutral": 84
+              }
+            },
+            "positive": {
+              "contradiction_in_argmax": 47,
+              "contradiction_unique_argmax": 47,
+              "fraction_contradiction_in_argmax_of_all_gold": 0.6619718309859155,
+              "fraction_contradiction_in_argmax_of_scored": 0.6619718309859155,
+              "missing": 0,
+              "scored": 71,
+              "tied_argmax_pairs": 0,
+              "total": 71,
+              "winner_counts": {
+                "contradiction": 47,
+                "entailment": 3,
+                "neutral": 21
+              }
+            }
+          },
+          "native_contradiction_threshold_sweep": {
+            "any_threshold_meets_precision_0_95_and_recall_0_90": false,
+            "best_f1": {
+              "f1": 0.8307692307692308,
+              "false_positive": 5,
+              "false_positive_rate": 0.0390625,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 17,
+              "precision": 0.9152542372881356,
+              "recall": 0.7605633802816901,
+              "scored_false_negative": 17,
+              "scored_true_negative": 123,
+              "threshold": 0.0710405707359314,
+              "true_positive": 54
+            },
+            "best_precision_at_recall_at_least_0_90": {
+              "f1": 0.7441860465116279,
+              "false_positive": 37,
+              "false_positive_rate": 0.2890625,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 7,
+              "precision": 0.6336633663366337,
+              "recall": 0.9014084507042254,
+              "scored_false_negative": 7,
+              "scored_true_negative": 91,
+              "threshold": 0.00145629548933357,
+              "true_positive": 64
+            },
+            "best_recall_at_precision_at_least_0_95": {
+              "f1": 0.7192982456140351,
+              "false_positive": 2,
+              "false_positive_rate": 0.015625,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 30,
+              "precision": 0.9534883720930233,
+              "recall": 0.5774647887323944,
+              "scored_false_negative": 30,
+              "scored_true_negative": 126,
+              "threshold": 0.9921877384185791,
+              "true_positive": 41
+            },
+            "comparison": "contradiction iff native contradiction probability >= threshold; missing execution remains a miss, not a clean negative",
+            "first_highest_threshold_point_reaching_recall_0_90": {
+              "f1": 0.7441860465116279,
+              "false_positive": 37,
+              "false_positive_rate": 0.2890625,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 7,
+              "precision": 0.6336633663366337,
+              "recall": 0.9014084507042254,
+              "scored_false_negative": 7,
+              "scored_true_negative": 91,
+              "threshold": 0.00145629548933357,
+              "true_positive": 64
+            },
+            "fixed_score_cutoffs": {
+              "0.5": {
+                "f1": 0.7704918032786885,
+                "false_positive": 4,
+                "false_positive_rate": 0.03125,
+                "missing_negative": 0,
+                "missing_positive": 0,
+                "positive_misses_including_missing": 24,
+                "precision": 0.9215686274509803,
+                "recall": 0.6619718309859155,
+                "scored_false_negative": 24,
+                "scored_true_negative": 124,
+                "threshold": 0.5,
+                "true_positive": 47
+              },
+              "0.8": {
+                "f1": 0.7394957983193278,
+                "false_positive": 4,
+                "false_positive_rate": 0.03125,
+                "missing_negative": 0,
+                "missing_positive": 0,
+                "positive_misses_including_missing": 27,
+                "precision": 0.9166666666666666,
+                "recall": 0.6197183098591549,
+                "scored_false_negative": 27,
+                "scored_true_negative": 124,
+                "threshold": 0.8,
+                "true_positive": 44
+              }
+            },
+            "grouped_sweep_verified_against_direct_classifications": true,
+            "selection_on_same_development_labels": true,
+            "tie_policy": "all equal-score pairs enter together; no within-tie label ordering",
+            "unique_thresholds_evaluated": 199
+          },
+          "negative_policy": {
+            "applicable": false,
+            "reason": "Native three-way NLI entailment/neutral is not the service's consistent/different_scope split"
+          },
+          "recorded_policy": {
+            "clear_negative_coverage": 0.96875,
+            "definitive_coverage": 1.0,
+            "f1": 0.7704918032786885,
+            "false_positive": 4,
+            "false_positive_rate": 0.03125,
+            "negative": 128,
+            "negative_unassessed": {
+              "error": 0,
+              "excluded": 0,
+              "uncertain": 0
+            },
+            "pairs": 199,
+            "positive": 71,
+            "positive_misses": {
+              "definitive_negative": 24,
+              "error": 0,
+              "excluded": 0,
+              "uncertain": 0
+            },
+            "precision": 0.9215686274509803,
+            "recall": 0.6619718309859155,
+            "true_negative": 124,
+            "true_positive": 47
+          }
+        },
+        "decider": {
+          "native_argmax": {
+            "forced_native_argmax_contradiction_ties_positive": {
+              "clear_negative_coverage": 0.96875,
+              "definitive_coverage": 0.9949748743718593,
+              "f1": 0.7563025210084033,
+              "false_positive": 3,
+              "false_positive_rate": 0.0234375,
+              "negative": 128,
+              "negative_unassessed": {
+                "error": 1,
+                "excluded": 0,
+                "uncertain": 0
+              },
+              "pairs": 199,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 26,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 0
+              },
+              "precision": 0.9375,
+              "recall": 0.6338028169014085,
+              "true_negative": 124,
+              "true_positive": 45
+            },
+            "negative": {
+              "contradiction_in_argmax": 3,
+              "contradiction_unique_argmax": 3,
+              "fraction_contradiction_in_argmax_of_all_gold": 0.0234375,
+              "fraction_contradiction_in_argmax_of_scored": 0.023622047244094488,
+              "missing": 1,
+              "scored": 127,
+              "tied_argmax_pairs": 0,
+              "total": 128,
+              "winner_counts": {
+                "consistent": 101,
+                "contradiction": 3,
+                "different_scope": 1,
+                "insufficient_context": 22
+              }
+            },
+            "positive": {
+              "contradiction_in_argmax": 45,
+              "contradiction_unique_argmax": 45,
+              "fraction_contradiction_in_argmax_of_all_gold": 0.6338028169014085,
+              "fraction_contradiction_in_argmax_of_scored": 0.6338028169014085,
+              "missing": 0,
+              "scored": 71,
+              "tied_argmax_pairs": 0,
+              "total": 71,
+              "winner_counts": {
+                "consistent": 8,
+                "contradiction": 45,
+                "different_scope": 4,
+                "insufficient_context": 14
+              }
+            }
+          },
+          "native_contradiction_threshold_sweep": {
+            "any_threshold_meets_precision_0_95_and_recall_0_90": false,
+            "best_f1": {
+              "f1": 0.8993288590604027,
+              "false_positive": 11,
+              "false_positive_rate": 0.0859375,
+              "missing_negative": 1,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 4,
+              "precision": 0.8589743589743589,
+              "recall": 0.9436619718309859,
+              "scored_false_negative": 4,
+              "scored_true_negative": 116,
+              "threshold": 0.0444166299893692,
+              "true_positive": 67
+            },
+            "best_precision_at_recall_at_least_0_90": {
+              "f1": 0.8904109589041096,
+              "false_positive": 10,
+              "false_positive_rate": 0.078125,
+              "missing_negative": 1,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 6,
+              "precision": 0.8666666666666667,
+              "recall": 0.9154929577464789,
+              "scored_false_negative": 6,
+              "scored_true_negative": 117,
+              "threshold": 0.04891087673988563,
+              "true_positive": 65
+            },
+            "best_recall_at_precision_at_least_0_95": {
+              "f1": 0.46808510638297873,
+              "false_positive": 1,
+              "false_positive_rate": 0.0078125,
+              "missing_negative": 1,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 49,
+              "precision": 0.9565217391304348,
+              "recall": 0.30985915492957744,
+              "scored_false_negative": 49,
+              "scored_true_negative": 126,
+              "threshold": 0.9144093378273154,
+              "true_positive": 22
+            },
+            "comparison": "contradiction iff native contradiction probability >= threshold; missing execution remains a miss, not a clean negative",
+            "first_highest_threshold_point_reaching_recall_0_90": {
+              "f1": 0.8827586206896552,
+              "false_positive": 10,
+              "false_positive_rate": 0.078125,
+              "missing_negative": 1,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 7,
+              "precision": 0.8648648648648649,
+              "recall": 0.9014084507042254,
+              "scored_false_negative": 7,
+              "scored_true_negative": 117,
+              "threshold": 0.05252374726565139,
+              "true_positive": 64
+            },
+            "fixed_score_cutoffs": {
+              "0.5": {
+                "f1": 0.7457627118644068,
+                "false_positive": 3,
+                "false_positive_rate": 0.0234375,
+                "missing_negative": 1,
+                "missing_positive": 0,
+                "positive_misses_including_missing": 27,
+                "precision": 0.9361702127659575,
+                "recall": 0.6197183098591549,
+                "scored_false_negative": 27,
+                "scored_true_negative": 124,
+                "threshold": 0.5,
+                "true_positive": 44
+              },
+              "0.8": {
+                "f1": 0.6226415094339622,
+                "false_positive": 2,
+                "false_positive_rate": 0.015625,
+                "missing_negative": 1,
+                "missing_positive": 0,
+                "positive_misses_including_missing": 38,
+                "precision": 0.9428571428571428,
+                "recall": 0.4647887323943662,
+                "scored_false_negative": 38,
+                "scored_true_negative": 125,
+                "threshold": 0.8,
+                "true_positive": 33
+              }
+            },
+            "grouped_sweep_verified_against_direct_classifications": true,
+            "selection_on_same_development_labels": true,
+            "tie_policy": "all equal-score pairs enter together; no within-tie label ordering",
+            "unique_thresholds_evaluated": 198
+          },
+          "negative_policy": {
+            "applicable": true,
+            "current": {
+              "clear_negative_coverage": 0.5078125,
+              "definitive_coverage": 0.5125628140703518,
+              "f1": 0.6226415094339622,
+              "false_positive": 2,
+              "false_positive_rate": 0.015625,
+              "negative": 128,
+              "negative_unassessed": {
+                "error": 1,
+                "excluded": 0,
+                "uncertain": 60
+              },
+              "pairs": 199,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 2,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 36
+              },
+              "precision": 0.9428571428571428,
+              "recall": 0.4647887323943662,
+              "true_negative": 65,
+              "true_positive": 33
+            },
+            "formula": "native contradiction<=0.2 AND native consistent+different_scope>=0.8, after contradiction>=0.8 branch",
+            "pooled_negative_counterfactual": {
+              "clear_negative_coverage": 0.5703125,
+              "definitive_coverage": 0.5628140703517588,
+              "f1": 0.6226415094339622,
+              "false_positive": 2,
+              "false_positive_rate": 0.015625,
+              "negative": 128,
+              "negative_unassessed": {
+                "error": 1,
+                "excluded": 0,
+                "uncertain": 52
+              },
+              "pairs": 199,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 4,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 34
+              },
+              "precision": 0.9428571428571428,
+              "recall": 0.4647887323943662,
+              "true_negative": 73,
+              "true_positive": 33
+            },
+            "positive_precision_and_recall_unchanged": true,
+            "promoted_gold_negative_from_uncertain": 8,
+            "promoted_gold_positive_to_definitive_false_negative": 2,
+            "qualification": "Offline semantic-policy diagnostic; not a deployed or held-out result"
+          },
+          "recorded_policy": {
+            "clear_negative_coverage": 0.5078125,
+            "definitive_coverage": 0.5125628140703518,
+            "f1": 0.6226415094339622,
+            "false_positive": 2,
+            "false_positive_rate": 0.015625,
+            "negative": 128,
+            "negative_unassessed": {
+              "error": 1,
+              "excluded": 0,
+              "uncertain": 60
+            },
+            "pairs": 199,
+            "positive": 71,
+            "positive_misses": {
+              "definitive_negative": 2,
+              "error": 0,
+              "excluded": 0,
+              "uncertain": 36
+            },
+            "precision": 0.9428571428571428,
+            "recall": 0.4647887323943662,
+            "true_negative": 65,
+            "true_positive": 33
+          }
+        },
+        "jev": {
+          "native_argmax": {
+            "forced_native_argmax_contradiction_ties_positive": {
+              "clear_negative_coverage": 0.984375,
+              "definitive_coverage": 1.0,
+              "f1": 0.7627118644067796,
+              "false_positive": 2,
+              "false_positive_rate": 0.015625,
+              "negative": 128,
+              "negative_unassessed": {
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 0
+              },
+              "pairs": 199,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 26,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 0
+              },
+              "precision": 0.9574468085106383,
+              "recall": 0.6338028169014085,
+              "true_negative": 126,
+              "true_positive": 45
+            },
+            "negative": {
+              "contradiction_in_argmax": 2,
+              "contradiction_unique_argmax": 2,
+              "fraction_contradiction_in_argmax_of_all_gold": 0.015625,
+              "fraction_contradiction_in_argmax_of_scored": 0.015625,
+              "missing": 0,
+              "scored": 128,
+              "tied_argmax_pairs": 0,
+              "total": 128,
+              "winner_counts": {
+                "consistent": 124,
+                "contradiction": 2,
+                "different_scope": 1,
+                "insufficient_context": 1
+              }
+            },
+            "positive": {
+              "contradiction_in_argmax": 45,
+              "contradiction_unique_argmax": 45,
+              "fraction_contradiction_in_argmax_of_all_gold": 0.6338028169014085,
+              "fraction_contradiction_in_argmax_of_scored": 0.6338028169014085,
+              "missing": 0,
+              "scored": 71,
+              "tied_argmax_pairs": 0,
+              "total": 71,
+              "winner_counts": {
+                "consistent": 23,
+                "contradiction": 45,
+                "different_scope": 3
+              }
+            }
+          },
+          "native_contradiction_threshold_sweep": {
+            "any_threshold_meets_precision_0_95_and_recall_0_90": false,
+            "best_f1": {
+              "f1": 0.8920863309352518,
+              "false_positive": 6,
+              "false_positive_rate": 0.046875,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 9,
+              "precision": 0.9117647058823529,
+              "recall": 0.8732394366197183,
+              "scored_false_negative": 9,
+              "scored_true_negative": 122,
+              "threshold": 0.08,
+              "true_positive": 62
+            },
+            "best_precision_at_recall_at_least_0_90": {
+              "f1": 0.8496732026143791,
+              "false_positive": 17,
+              "false_positive_rate": 0.1328125,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 6,
+              "precision": 0.7926829268292683,
+              "recall": 0.9154929577464789,
+              "scored_false_negative": 6,
+              "scored_true_negative": 111,
+              "threshold": 0.05,
+              "true_positive": 65
+            },
+            "best_recall_at_precision_at_least_0_95": {
+              "f1": 0.7833333333333333,
+              "false_positive": 2,
+              "false_positive_rate": 0.015625,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 24,
+              "precision": 0.9591836734693877,
+              "recall": 0.6619718309859155,
+              "scored_false_negative": 24,
+              "scored_true_negative": 126,
+              "threshold": 0.4,
+              "true_positive": 47
+            },
+            "comparison": "contradiction iff native contradiction probability >= threshold; missing execution remains a miss, not a clean negative",
+            "first_highest_threshold_point_reaching_recall_0_90": {
+              "f1": 0.8496732026143791,
+              "false_positive": 17,
+              "false_positive_rate": 0.1328125,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 6,
+              "precision": 0.7926829268292683,
+              "recall": 0.9154929577464789,
+              "scored_false_negative": 6,
+              "scored_true_negative": 111,
+              "threshold": 0.05,
+              "true_positive": 65
+            },
+            "fixed_score_cutoffs": {
+              "0.5": {
+                "f1": 0.7413793103448276,
+                "false_positive": 2,
+                "false_positive_rate": 0.015625,
+                "missing_negative": 0,
+                "missing_positive": 0,
+                "positive_misses_including_missing": 28,
+                "precision": 0.9555555555555556,
+                "recall": 0.6056338028169014,
+                "scored_false_negative": 28,
+                "scored_true_negative": 126,
+                "threshold": 0.5,
+                "true_positive": 43
+              },
+              "0.8": {
+                "f1": 0.6355140186915887,
+                "false_positive": 2,
+                "false_positive_rate": 0.015625,
+                "missing_negative": 0,
+                "missing_positive": 0,
+                "positive_misses_including_missing": 37,
+                "precision": 0.9444444444444444,
+                "recall": 0.4788732394366197,
+                "scored_false_negative": 37,
+                "scored_true_negative": 126,
+                "threshold": 0.8,
+                "true_positive": 34
+              }
+            },
+            "grouped_sweep_verified_against_direct_classifications": true,
+            "selection_on_same_development_labels": true,
+            "tie_policy": "all equal-score pairs enter together; no within-tie label ordering",
+            "unique_thresholds_evaluated": 43
+          },
+          "negative_policy": {
+            "applicable": true,
+            "current": {
+              "clear_negative_coverage": 0.8515625,
+              "definitive_coverage": 0.7437185929648241,
+              "f1": 0.6355140186915887,
+              "false_positive": 2,
+              "false_positive_rate": 0.015625,
+              "negative": 128,
+              "negative_unassessed": {
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 17
+              },
+              "pairs": 199,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 3,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 34
+              },
+              "precision": 0.9444444444444444,
+              "recall": 0.4788732394366197,
+              "true_negative": 109,
+              "true_positive": 34
+            },
+            "formula": "native contradiction<=0.2 AND native consistent+different_scope>=0.8, after contradiction>=0.8 branch",
+            "pooled_negative_counterfactual": {
+              "clear_negative_coverage": 0.8828125,
+              "definitive_coverage": 0.8040201005025126,
+              "f1": 0.6355140186915887,
+              "false_positive": 2,
+              "false_positive_rate": 0.015625,
+              "negative": 128,
+              "negative_unassessed": {
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 13
+              },
+              "pairs": 199,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 11,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 26
+              },
+              "precision": 0.9444444444444444,
+              "recall": 0.4788732394366197,
+              "true_negative": 113,
+              "true_positive": 34
+            },
+            "positive_precision_and_recall_unchanged": true,
+            "promoted_gold_negative_from_uncertain": 4,
+            "promoted_gold_positive_to_definitive_false_negative": 8,
+            "qualification": "Offline semantic-policy diagnostic; not a deployed or held-out result"
+          },
+          "recorded_policy": {
+            "clear_negative_coverage": 0.8515625,
+            "definitive_coverage": 0.7437185929648241,
+            "f1": 0.6355140186915887,
+            "false_positive": 2,
+            "false_positive_rate": 0.015625,
+            "negative": 128,
+            "negative_unassessed": {
+              "error": 0,
+              "excluded": 0,
+              "uncertain": 17
+            },
+            "pairs": 199,
+            "positive": 71,
+            "positive_misses": {
+              "definitive_negative": 3,
+              "error": 0,
+              "excluded": 0,
+              "uncertain": 34
+            },
+            "precision": 0.9444444444444444,
+            "recall": 0.4788732394366197,
+            "true_negative": 109,
+            "true_positive": 34
+          }
+        }
+      },
+      "resolution": {
+        "gold_positives": 71,
+        "maximum_false_positives_at_that_count_for_precision_0_95": 3,
+        "recall_at_required_count": 0.9014084507042254,
+        "recall_step": 0.014084507042253521,
+        "true_positives_required_for_recall_0_90": 64
+      }
+    },
+    "vitaminc-combined-dev": {
+      "complementarity": {
+        "groups": {
+          "jev+clef+decider": {
+            "all_models_scored_pairs": 199,
+            "gold_positives_missed_by_every_default_policy": 29,
+            "uniquely_recovered_gold_positives": {
+              "clef": 5,
+              "decider": 4,
+              "jev": 1
+            },
+            "vote_rules": {
+              "at_least_1_current_positive_votes": {
+                "clear_negative_coverage": 0.9069767441860465,
+                "definitive_coverage": 1.0,
+                "f1": 0.672,
+                "false_positive": 12,
+                "false_positive_rate": 0.09302325581395349,
+                "negative": 129,
+                "negative_unassessed": {
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "pairs": 200,
+                "positive": 71,
+                "positive_misses": {
+                  "definitive_negative": 29,
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "precision": 0.7777777777777778,
+                "recall": 0.5915492957746479,
+                "true_negative": 117,
+                "true_positive": 42
+              },
+              "at_least_2_current_positive_votes": {
+                "clear_negative_coverage": 0.9767441860465116,
+                "definitive_coverage": 1.0,
+                "f1": 0.6037735849056604,
+                "false_positive": 3,
+                "false_positive_rate": 0.023255813953488372,
+                "negative": 129,
+                "negative_unassessed": {
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "pairs": 200,
+                "positive": 71,
+                "positive_misses": {
+                  "definitive_negative": 39,
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "precision": 0.9142857142857143,
+                "recall": 0.4507042253521127,
+                "true_negative": 126,
+                "true_positive": 32
+              },
+              "at_least_3_current_positive_votes": {
+                "clear_negative_coverage": 0.9922480620155039,
+                "definitive_coverage": 1.0,
+                "f1": 0.43478260869565216,
+                "false_positive": 1,
+                "false_positive_rate": 0.007751937984496124,
+                "negative": 129,
+                "negative_unassessed": {
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "pairs": 200,
+                "positive": 71,
+                "positive_misses": {
+                  "definitive_negative": 51,
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "precision": 0.9523809523809523,
+                "recall": 0.28169014084507044,
+                "true_negative": 128,
+                "true_positive": 20
+              }
+            }
+          },
+          "jev+clef+decider+deberta": {
+            "all_models_scored_pairs": 199,
+            "gold_positives_missed_by_every_default_policy": 20,
+            "uniquely_recovered_gold_positives": {
+              "clef": 3,
+              "deberta": 9,
+              "decider": 2,
+              "jev": 1
+            },
+            "vote_rules": {
+              "at_least_1_current_positive_votes": {
+                "clear_negative_coverage": 0.8527131782945736,
+                "definitive_coverage": 1.0,
+                "f1": 0.723404255319149,
+                "false_positive": 19,
+                "false_positive_rate": 0.14728682170542637,
+                "negative": 129,
+                "negative_unassessed": {
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "pairs": 200,
+                "positive": 71,
+                "positive_misses": {
+                  "definitive_negative": 20,
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "precision": 0.7285714285714285,
+                "recall": 0.7183098591549296,
+                "true_negative": 110,
+                "true_positive": 51
+              },
+              "at_least_2_current_positive_votes": {
+                "clear_negative_coverage": 0.937984496124031,
+                "definitive_coverage": 1.0,
+                "f1": 0.6260869565217392,
+                "false_positive": 8,
+                "false_positive_rate": 0.06201550387596899,
+                "negative": 129,
+                "negative_unassessed": {
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "pairs": 200,
+                "positive": 71,
+                "positive_misses": {
+                  "definitive_negative": 35,
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "precision": 0.8181818181818182,
+                "recall": 0.5070422535211268,
+                "true_negative": 121,
+                "true_positive": 36
+              },
+              "at_least_3_current_positive_votes": {
+                "clear_negative_coverage": 0.9922480620155039,
+                "definitive_coverage": 1.0,
+                "f1": 0.4842105263157895,
+                "false_positive": 1,
+                "false_positive_rate": 0.007751937984496124,
+                "negative": 129,
+                "negative_unassessed": {
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "pairs": 200,
+                "positive": 71,
+                "positive_misses": {
+                  "definitive_negative": 48,
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "precision": 0.9583333333333334,
+                "recall": 0.323943661971831,
+                "true_negative": 128,
+                "true_positive": 23
+              },
+              "at_least_4_current_positive_votes": {
+                "clear_negative_coverage": 0.9922480620155039,
+                "definitive_coverage": 1.0,
+                "f1": 0.24390243902439024,
+                "false_positive": 1,
+                "false_positive_rate": 0.007751937984496124,
+                "negative": 129,
+                "negative_unassessed": {
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "pairs": 200,
+                "positive": 71,
+                "positive_misses": {
+                  "definitive_negative": 61,
+                  "error": 0,
+                  "excluded": 0,
+                  "uncertain": 0
+                },
+                "precision": 0.9090909090909091,
+                "recall": 0.14084507042253522,
+                "true_negative": 128,
+                "true_positive": 10
+              }
+            }
+          }
+        },
+        "qualification": "Offline complementarity diagnostic of current positive decisions, not a proposed single-call service route. Unselected scored pairs are forced binary negatives solely for these counts, not clean service verdicts; rules are not validated out of sample"
+      },
+      "models": {
+        "clef": {
+          "native_argmax": {
+            "forced_native_argmax_contradiction_ties_positive": {
+              "clear_negative_coverage": 0.8062015503875969,
+              "definitive_coverage": 1.0,
+              "f1": 0.6573426573426573,
+              "false_positive": 25,
+              "false_positive_rate": 0.1937984496124031,
+              "negative": 129,
+              "negative_unassessed": {
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 0
+              },
+              "pairs": 200,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 24,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 0
+              },
+              "precision": 0.6527777777777778,
+              "recall": 0.6619718309859155,
+              "true_negative": 104,
+              "true_positive": 47
+            },
+            "negative": {
+              "contradiction_in_argmax": 25,
+              "contradiction_unique_argmax": 25,
+              "fraction_contradiction_in_argmax_of_all_gold": 0.1937984496124031,
+              "fraction_contradiction_in_argmax_of_scored": 0.1937984496124031,
+              "missing": 0,
+              "scored": 129,
+              "tied_argmax_pairs": 0,
+              "total": 129,
+              "winner_counts": {
+                "consistent": 103,
+                "contradiction": 25,
+                "insufficient_context": 1
+              }
+            },
+            "positive": {
+              "contradiction_in_argmax": 47,
+              "contradiction_unique_argmax": 47,
+              "fraction_contradiction_in_argmax_of_all_gold": 0.6619718309859155,
+              "fraction_contradiction_in_argmax_of_scored": 0.6619718309859155,
+              "missing": 0,
+              "scored": 71,
+              "tied_argmax_pairs": 0,
+              "total": 71,
+              "winner_counts": {
+                "consistent": 24,
+                "contradiction": 47
+              }
+            }
+          },
+          "native_contradiction_threshold_sweep": {
+            "any_threshold_meets_precision_0_95_and_recall_0_90": false,
+            "best_f1": {
+              "f1": 0.6490066225165563,
+              "false_positive": 31,
+              "false_positive_rate": 0.24031007751937986,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 22,
+              "precision": 0.6125,
+              "recall": 0.6901408450704225,
+              "scored_false_negative": 22,
+              "scored_true_negative": 98,
+              "threshold": 0.301,
+              "true_positive": 49
+            },
+            "best_precision_at_recall_at_least_0_90": {
+              "f1": 0.579185520361991,
+              "false_positive": 86,
+              "false_positive_rate": 0.6666666666666666,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 7,
+              "precision": 0.4266666666666667,
+              "recall": 0.9014084507042254,
+              "scored_false_negative": 7,
+              "scored_true_negative": 43,
+              "threshold": 0.0568,
+              "true_positive": 64
+            },
+            "best_recall_at_precision_at_least_0_95": {
+              "f1": 0.20253164556962025,
+              "false_positive": 0,
+              "false_positive_rate": 0.0,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 63,
+              "precision": 1.0,
+              "recall": 0.11267605633802817,
+              "scored_false_negative": 63,
+              "scored_true_negative": 129,
+              "threshold": 0.9132,
+              "true_positive": 8
+            },
+            "comparison": "contradiction iff native contradiction probability >= threshold; missing execution remains a miss, not a clean negative",
+            "first_highest_threshold_point_reaching_recall_0_90": {
+              "f1": 0.579185520361991,
+              "false_positive": 86,
+              "false_positive_rate": 0.6666666666666666,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 7,
+              "precision": 0.4266666666666667,
+              "recall": 0.9014084507042254,
+              "scored_false_negative": 7,
+              "scored_true_negative": 43,
+              "threshold": 0.0568,
+              "true_positive": 64
+            },
+            "fixed_score_cutoffs": {
+              "0.5": {
+                "f1": 0.6222222222222222,
+                "false_positive": 22,
+                "false_positive_rate": 0.17054263565891473,
+                "missing_negative": 0,
+                "missing_positive": 0,
+                "positive_misses_including_missing": 29,
+                "precision": 0.65625,
+                "recall": 0.5915492957746479,
+                "scored_false_negative": 29,
+                "scored_true_negative": 107,
+                "threshold": 0.5,
+                "true_positive": 42
+              },
+              "0.8": {
+                "f1": 0.5486725663716814,
+                "false_positive": 11,
+                "false_positive_rate": 0.08527131782945736,
+                "missing_negative": 0,
+                "missing_positive": 0,
+                "positive_misses_including_missing": 40,
+                "precision": 0.7380952380952381,
+                "recall": 0.43661971830985913,
+                "scored_false_negative": 40,
+                "scored_true_negative": 118,
+                "threshold": 0.8,
+                "true_positive": 31
+              }
+            },
+            "grouped_sweep_verified_against_direct_classifications": true,
+            "selection_on_same_development_labels": true,
+            "tie_policy": "all equal-score pairs enter together; no within-tie label ordering",
+            "unique_thresholds_evaluated": 191
+          },
+          "negative_policy": {
+            "applicable": true,
+            "current": {
+              "clear_negative_coverage": 0.5968992248062015,
+              "definitive_coverage": 0.67,
+              "f1": 0.5486725663716814,
+              "false_positive": 11,
+              "false_positive_rate": 0.08527131782945736,
+              "negative": 129,
+              "negative_unassessed": {
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 41
+              },
+              "pairs": 200,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 15,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 25
+              },
+              "precision": 0.7380952380952381,
+              "recall": 0.43661971830985913,
+              "true_negative": 77,
+              "true_positive": 31
+            },
+            "formula": "native contradiction<=0.2 AND native consistent+different_scope>=0.8, after contradiction>=0.8 branch",
+            "pooled_negative_counterfactual": {
+              "clear_negative_coverage": 0.6511627906976745,
+              "definitive_coverage": 0.725,
+              "f1": 0.5486725663716814,
+              "false_positive": 11,
+              "false_positive_rate": 0.08527131782945736,
+              "negative": 129,
+              "negative_unassessed": {
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 34
+              },
+              "pairs": 200,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 19,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 21
+              },
+              "precision": 0.7380952380952381,
+              "recall": 0.43661971830985913,
+              "true_negative": 84,
+              "true_positive": 31
+            },
+            "positive_precision_and_recall_unchanged": true,
+            "promoted_gold_negative_from_uncertain": 7,
+            "promoted_gold_positive_to_definitive_false_negative": 4,
+            "qualification": "Offline semantic-policy diagnostic; not a deployed or held-out result"
+          },
+          "recorded_policy": {
+            "clear_negative_coverage": 0.5968992248062015,
+            "definitive_coverage": 0.67,
+            "f1": 0.5486725663716814,
+            "false_positive": 11,
+            "false_positive_rate": 0.08527131782945736,
+            "negative": 129,
+            "negative_unassessed": {
+              "error": 0,
+              "excluded": 0,
+              "uncertain": 41
+            },
+            "pairs": 200,
+            "positive": 71,
+            "positive_misses": {
+              "definitive_negative": 15,
+              "error": 0,
+              "excluded": 0,
+              "uncertain": 25
+            },
+            "precision": 0.7380952380952381,
+            "recall": 0.43661971830985913,
+            "true_negative": 77,
+            "true_positive": 31
+          }
+        },
+        "deberta": {
+          "native_argmax": {
+            "forced_native_argmax_contradiction_ties_positive": {
+              "clear_negative_coverage": 0.8992248062015504,
+              "definitive_coverage": 1.0,
+              "f1": 0.4727272727272727,
+              "false_positive": 13,
+              "false_positive_rate": 0.10077519379844961,
+              "negative": 129,
+              "negative_unassessed": {
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 0
+              },
+              "pairs": 200,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 45,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 0
+              },
+              "precision": 0.6666666666666666,
+              "recall": 0.36619718309859156,
+              "true_negative": 116,
+              "true_positive": 26
+            },
+            "negative": {
+              "contradiction_in_argmax": 13,
+              "contradiction_unique_argmax": 13,
+              "fraction_contradiction_in_argmax_of_all_gold": 0.10077519379844961,
+              "fraction_contradiction_in_argmax_of_scored": 0.10077519379844961,
+              "missing": 0,
+              "scored": 129,
+              "tied_argmax_pairs": 0,
+              "total": 129,
+              "winner_counts": {
+                "contradiction": 13,
+                "entailment": 45,
+                "neutral": 71
+              }
+            },
+            "positive": {
+              "contradiction_in_argmax": 26,
+              "contradiction_unique_argmax": 26,
+              "fraction_contradiction_in_argmax_of_all_gold": 0.36619718309859156,
+              "fraction_contradiction_in_argmax_of_scored": 0.36619718309859156,
+              "missing": 0,
+              "scored": 71,
+              "tied_argmax_pairs": 0,
+              "total": 71,
+              "winner_counts": {
+                "contradiction": 26,
+                "entailment": 10,
+                "neutral": 35
+              }
+            }
+          },
+          "native_contradiction_threshold_sweep": {
+            "any_threshold_meets_precision_0_95_and_recall_0_90": false,
+            "best_f1": {
+              "f1": 0.6185567010309279,
+              "false_positive": 63,
+              "false_positive_rate": 0.4883720930232558,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 11,
+              "precision": 0.4878048780487805,
+              "recall": 0.8450704225352113,
+              "scored_false_negative": 11,
+              "scored_true_negative": 66,
+              "threshold": 0.0003200322389602661,
+              "true_positive": 60
+            },
+            "best_precision_at_recall_at_least_0_90": {
+              "f1": 0.6044444444444445,
+              "false_positive": 86,
+              "false_positive_rate": 0.6666666666666666,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 3,
+              "precision": 0.44155844155844154,
+              "recall": 0.9577464788732394,
+              "scored_false_negative": 3,
+              "scored_true_negative": 43,
+              "threshold": 0.00015453185187652707,
+              "true_positive": 68
+            },
+            "best_recall_at_precision_at_least_0_95": {
+              "f1": 0.0547945205479452,
+              "false_positive": 0,
+              "false_positive_rate": 0.0,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 69,
+              "precision": 1.0,
+              "recall": 0.028169014084507043,
+              "scored_false_negative": 69,
+              "scored_true_negative": 129,
+              "threshold": 0.9991961121559143,
+              "true_positive": 2
+            },
+            "comparison": "contradiction iff native contradiction probability >= threshold; missing execution remains a miss, not a clean negative",
+            "first_highest_threshold_point_reaching_recall_0_90": {
+              "f1": 0.5818181818181818,
+              "false_positive": 85,
+              "false_positive_rate": 0.6589147286821705,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 7,
+              "precision": 0.42953020134228187,
+              "recall": 0.9014084507042254,
+              "scored_false_negative": 7,
+              "scored_true_negative": 44,
+              "threshold": 0.00017651802045293152,
+              "true_positive": 64
+            },
+            "fixed_score_cutoffs": {
+              "0.5": {
+                "f1": 0.45871559633027525,
+                "false_positive": 13,
+                "false_positive_rate": 0.10077519379844961,
+                "missing_negative": 0,
+                "missing_positive": 0,
+                "positive_misses_including_missing": 46,
+                "precision": 0.6578947368421053,
+                "recall": 0.352112676056338,
+                "scored_false_negative": 46,
+                "scored_true_negative": 116,
+                "threshold": 0.5,
+                "true_positive": 25
+              },
+              "0.8": {
+                "f1": 0.4230769230769231,
+                "false_positive": 11,
+                "false_positive_rate": 0.08527131782945736,
+                "missing_negative": 0,
+                "missing_positive": 0,
+                "positive_misses_including_missing": 49,
+                "precision": 0.6666666666666666,
+                "recall": 0.30985915492957744,
+                "scored_false_negative": 49,
+                "scored_true_negative": 118,
+                "threshold": 0.8,
+                "true_positive": 22
+              }
+            },
+            "grouped_sweep_verified_against_direct_classifications": true,
+            "selection_on_same_development_labels": true,
+            "tie_policy": "all equal-score pairs enter together; no within-tie label ordering",
+            "unique_thresholds_evaluated": 196
+          },
+          "negative_policy": {
+            "applicable": false,
+            "reason": "Native three-way NLI entailment/neutral is not the service's consistent/different_scope split"
+          },
+          "recorded_policy": {
+            "clear_negative_coverage": 0.8992248062015504,
+            "definitive_coverage": 1.0,
+            "f1": 0.4727272727272727,
+            "false_positive": 13,
+            "false_positive_rate": 0.10077519379844961,
+            "negative": 129,
+            "negative_unassessed": {
+              "error": 0,
+              "excluded": 0,
+              "uncertain": 0
+            },
+            "pairs": 200,
+            "positive": 71,
+            "positive_misses": {
+              "definitive_negative": 45,
+              "error": 0,
+              "excluded": 0,
+              "uncertain": 0
+            },
+            "precision": 0.6666666666666666,
+            "recall": 0.36619718309859156,
+            "true_negative": 116,
+            "true_positive": 26
+          }
+        },
+        "decider": {
+          "native_argmax": {
+            "forced_native_argmax_contradiction_ties_positive": {
+              "clear_negative_coverage": 0.9224806201550387,
+              "definitive_coverage": 0.995,
+              "f1": 0.7786259541984732,
+              "false_positive": 9,
+              "false_positive_rate": 0.06976744186046512,
+              "negative": 129,
+              "negative_unassessed": {
+                "error": 1,
+                "excluded": 0,
+                "uncertain": 0
+              },
+              "pairs": 200,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 20,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 0
+              },
+              "precision": 0.85,
+              "recall": 0.7183098591549296,
+              "true_negative": 119,
+              "true_positive": 51
+            },
+            "negative": {
+              "contradiction_in_argmax": 9,
+              "contradiction_unique_argmax": 9,
+              "fraction_contradiction_in_argmax_of_all_gold": 0.06976744186046512,
+              "fraction_contradiction_in_argmax_of_scored": 0.0703125,
+              "missing": 1,
+              "scored": 128,
+              "tied_argmax_pairs": 0,
+              "total": 129,
+              "winner_counts": {
+                "consistent": 110,
+                "contradiction": 9,
+                "insufficient_context": 9
+              }
+            },
+            "positive": {
+              "contradiction_in_argmax": 51,
+              "contradiction_unique_argmax": 51,
+              "fraction_contradiction_in_argmax_of_all_gold": 0.7183098591549296,
+              "fraction_contradiction_in_argmax_of_scored": 0.7183098591549296,
+              "missing": 0,
+              "scored": 71,
+              "tied_argmax_pairs": 0,
+              "total": 71,
+              "winner_counts": {
+                "consistent": 11,
+                "contradiction": 51,
+                "insufficient_context": 9
+              }
+            }
+          },
+          "native_contradiction_threshold_sweep": {
+            "any_threshold_meets_precision_0_95_and_recall_0_90": false,
+            "best_f1": {
+              "f1": 0.8205128205128205,
+              "false_positive": 21,
+              "false_positive_rate": 0.16279069767441862,
+              "missing_negative": 1,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 7,
+              "precision": 0.7529411764705882,
+              "recall": 0.9014084507042254,
+              "scored_false_negative": 7,
+              "scored_true_negative": 107,
+              "threshold": 0.07014928254790662,
+              "true_positive": 64
+            },
+            "best_precision_at_recall_at_least_0_90": {
+              "f1": 0.8205128205128205,
+              "false_positive": 21,
+              "false_positive_rate": 0.16279069767441862,
+              "missing_negative": 1,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 7,
+              "precision": 0.7529411764705882,
+              "recall": 0.9014084507042254,
+              "scored_false_negative": 7,
+              "scored_true_negative": 107,
+              "threshold": 0.07014928254790662,
+              "true_positive": 64
+            },
+            "best_recall_at_precision_at_least_0_95": {
+              "f1": 0.6846846846846847,
+              "false_positive": 2,
+              "false_positive_rate": 0.015503875968992248,
+              "missing_negative": 1,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 33,
+              "precision": 0.95,
+              "recall": 0.5352112676056338,
+              "scored_false_negative": 33,
+              "scored_true_negative": 126,
+              "threshold": 0.7138185178188488,
+              "true_positive": 38
+            },
+            "comparison": "contradiction iff native contradiction probability >= threshold; missing execution remains a miss, not a clean negative",
+            "first_highest_threshold_point_reaching_recall_0_90": {
+              "f1": 0.8205128205128205,
+              "false_positive": 21,
+              "false_positive_rate": 0.16279069767441862,
+              "missing_negative": 1,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 7,
+              "precision": 0.7529411764705882,
+              "recall": 0.9014084507042254,
+              "scored_false_negative": 7,
+              "scored_true_negative": 107,
+              "threshold": 0.07014928254790662,
+              "true_positive": 64
+            },
+            "fixed_score_cutoffs": {
+              "0.5": {
+                "f1": 0.7317073170731707,
+                "false_positive": 7,
+                "false_positive_rate": 0.05426356589147287,
+                "missing_negative": 1,
+                "missing_positive": 0,
+                "positive_misses_including_missing": 26,
+                "precision": 0.8653846153846154,
+                "recall": 0.6338028169014085,
+                "scored_false_negative": 26,
+                "scored_true_negative": 121,
+                "threshold": 0.5,
+                "true_positive": 45
+              },
+              "0.8": {
+                "f1": 0.6481481481481481,
+                "false_positive": 2,
+                "false_positive_rate": 0.015503875968992248,
+                "missing_negative": 1,
+                "missing_positive": 0,
+                "positive_misses_including_missing": 36,
+                "precision": 0.9459459459459459,
+                "recall": 0.49295774647887325,
+                "scored_false_negative": 36,
+                "scored_true_negative": 126,
+                "threshold": 0.8,
+                "true_positive": 35
+              }
+            },
+            "grouped_sweep_verified_against_direct_classifications": true,
+            "selection_on_same_development_labels": true,
+            "tie_policy": "all equal-score pairs enter together; no within-tie label ordering",
+            "unique_thresholds_evaluated": 196
+          },
+          "negative_policy": {
+            "applicable": true,
+            "current": {
+              "clear_negative_coverage": 0.7829457364341085,
+              "definitive_coverage": 0.715,
+              "f1": 0.6481481481481481,
+              "false_positive": 2,
+              "false_positive_rate": 0.015503875968992248,
+              "negative": 129,
+              "negative_unassessed": {
+                "error": 1,
+                "excluded": 0,
+                "uncertain": 25
+              },
+              "pairs": 200,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 5,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 31
+              },
+              "precision": 0.9459459459459459,
+              "recall": 0.49295774647887325,
+              "true_negative": 101,
+              "true_positive": 35
+            },
+            "formula": "native contradiction<=0.2 AND native consistent+different_scope>=0.8, after contradiction>=0.8 branch",
+            "pooled_negative_counterfactual": {
+              "clear_negative_coverage": 0.7906976744186046,
+              "definitive_coverage": 0.72,
+              "f1": 0.6481481481481481,
+              "false_positive": 2,
+              "false_positive_rate": 0.015503875968992248,
+              "negative": 129,
+              "negative_unassessed": {
+                "error": 1,
+                "excluded": 0,
+                "uncertain": 24
+              },
+              "pairs": 200,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 5,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 31
+              },
+              "precision": 0.9459459459459459,
+              "recall": 0.49295774647887325,
+              "true_negative": 102,
+              "true_positive": 35
+            },
+            "positive_precision_and_recall_unchanged": true,
+            "promoted_gold_negative_from_uncertain": 1,
+            "promoted_gold_positive_to_definitive_false_negative": 0,
+            "qualification": "Offline semantic-policy diagnostic; not a deployed or held-out result"
+          },
+          "recorded_policy": {
+            "clear_negative_coverage": 0.7829457364341085,
+            "definitive_coverage": 0.715,
+            "f1": 0.6481481481481481,
+            "false_positive": 2,
+            "false_positive_rate": 0.015503875968992248,
+            "negative": 129,
+            "negative_unassessed": {
+              "error": 1,
+              "excluded": 0,
+              "uncertain": 25
+            },
+            "pairs": 200,
+            "positive": 71,
+            "positive_misses": {
+              "definitive_negative": 5,
+              "error": 0,
+              "excluded": 0,
+              "uncertain": 31
+            },
+            "precision": 0.9459459459459459,
+            "recall": 0.49295774647887325,
+            "true_negative": 101,
+            "true_positive": 35
+          }
+        },
+        "jev": {
+          "native_argmax": {
+            "forced_native_argmax_contradiction_ties_positive": {
+              "clear_negative_coverage": 0.9147286821705426,
+              "definitive_coverage": 1.0,
+              "f1": 0.6666666666666666,
+              "false_positive": 11,
+              "false_positive_rate": 0.08527131782945736,
+              "negative": 129,
+              "negative_unassessed": {
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 0
+              },
+              "pairs": 200,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 30,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 0
+              },
+              "precision": 0.7884615384615384,
+              "recall": 0.5774647887323944,
+              "true_negative": 118,
+              "true_positive": 41
+            },
+            "negative": {
+              "contradiction_in_argmax": 11,
+              "contradiction_unique_argmax": 11,
+              "fraction_contradiction_in_argmax_of_all_gold": 0.08527131782945736,
+              "fraction_contradiction_in_argmax_of_scored": 0.08527131782945736,
+              "missing": 0,
+              "scored": 129,
+              "tied_argmax_pairs": 0,
+              "total": 129,
+              "winner_counts": {
+                "consistent": 114,
+                "contradiction": 11,
+                "different_scope": 2,
+                "insufficient_context": 2
+              }
+            },
+            "positive": {
+              "contradiction_in_argmax": 41,
+              "contradiction_unique_argmax": 40,
+              "fraction_contradiction_in_argmax_of_all_gold": 0.5774647887323944,
+              "fraction_contradiction_in_argmax_of_scored": 0.5774647887323944,
+              "missing": 0,
+              "scored": 71,
+              "tied_argmax_pairs": 1,
+              "total": 71,
+              "winner_counts": {
+                "consistent": 28,
+                "contradiction": 40,
+                "different_scope": 1,
+                "insufficient_context": 1,
+                "tie:consistent+contradiction": 1
+              }
+            }
+          },
+          "native_contradiction_threshold_sweep": {
+            "any_threshold_meets_precision_0_95_and_recall_0_90": false,
+            "best_f1": {
+              "f1": 0.7432432432432432,
+              "false_positive": 22,
+              "false_positive_rate": 0.17054263565891473,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 16,
+              "precision": 0.7142857142857143,
+              "recall": 0.7746478873239436,
+              "scored_false_negative": 16,
+              "scored_true_negative": 107,
+              "threshold": 0.13,
+              "true_positive": 55
+            },
+            "best_precision_at_recall_at_least_0_90": {
+              "f1": 0.6350710900473934,
+              "false_positive": 73,
+              "false_positive_rate": 0.5658914728682171,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 4,
+              "precision": 0.4785714285714286,
+              "recall": 0.9436619718309859,
+              "scored_false_negative": 4,
+              "scored_true_negative": 56,
+              "threshold": 0.01,
+              "true_positive": 67
+            },
+            "best_recall_at_precision_at_least_0_95": {
+              "f1": 0.46808510638297873,
+              "false_positive": 1,
+              "false_positive_rate": 0.007751937984496124,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 49,
+              "precision": 0.9565217391304348,
+              "recall": 0.30985915492957744,
+              "scored_false_negative": 49,
+              "scored_true_negative": 128,
+              "threshold": 0.87,
+              "true_positive": 22
+            },
+            "comparison": "contradiction iff native contradiction probability >= threshold; missing execution remains a miss, not a clean negative",
+            "first_highest_threshold_point_reaching_recall_0_90": {
+              "f1": 0.6350710900473934,
+              "false_positive": 73,
+              "false_positive_rate": 0.5658914728682171,
+              "missing_negative": 0,
+              "missing_positive": 0,
+              "positive_misses_including_missing": 4,
+              "precision": 0.4785714285714286,
+              "recall": 0.9436619718309859,
+              "scored_false_negative": 4,
+              "scored_true_negative": 56,
+              "threshold": 0.01,
+              "true_positive": 67
+            },
+            "fixed_score_cutoffs": {
+              "0.5": {
+                "f1": 0.6440677966101694,
+                "false_positive": 9,
+                "false_positive_rate": 0.06976744186046512,
+                "missing_negative": 0,
+                "missing_positive": 0,
+                "positive_misses_including_missing": 33,
+                "precision": 0.8085106382978723,
+                "recall": 0.5352112676056338,
+                "scored_false_negative": 33,
+                "scored_true_negative": 120,
+                "threshold": 0.5,
+                "true_positive": 38
+              },
+              "0.8": {
+                "f1": 0.5490196078431373,
+                "false_positive": 3,
+                "false_positive_rate": 0.023255813953488372,
+                "missing_negative": 0,
+                "missing_positive": 0,
+                "positive_misses_including_missing": 43,
+                "precision": 0.9032258064516129,
+                "recall": 0.39436619718309857,
+                "scored_false_negative": 43,
+                "scored_true_negative": 126,
+                "threshold": 0.8,
+                "true_positive": 28
+              }
+            },
+            "grouped_sweep_verified_against_direct_classifications": true,
+            "selection_on_same_development_labels": true,
+            "tie_policy": "all equal-score pairs enter together; no within-tie label ordering",
+            "unique_thresholds_evaluated": 59
+          },
+          "negative_policy": {
+            "applicable": true,
+            "current": {
+              "clear_negative_coverage": 0.7906976744186046,
+              "definitive_coverage": 0.71,
+              "f1": 0.5490196078431373,
+              "false_positive": 3,
+              "false_positive_rate": 0.023255813953488372,
+              "negative": 129,
+              "negative_unassessed": {
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 24
+              },
+              "pairs": 200,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 9,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 34
+              },
+              "precision": 0.9032258064516129,
+              "recall": 0.39436619718309857,
+              "true_negative": 102,
+              "true_positive": 28
+            },
+            "formula": "native contradiction<=0.2 AND native consistent+different_scope>=0.8, after contradiction>=0.8 branch",
+            "pooled_negative_counterfactual": {
+              "clear_negative_coverage": 0.8372093023255814,
+              "definitive_coverage": 0.77,
+              "f1": 0.5490196078431373,
+              "false_positive": 3,
+              "false_positive_rate": 0.023255813953488372,
+              "negative": 129,
+              "negative_unassessed": {
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 18
+              },
+              "pairs": 200,
+              "positive": 71,
+              "positive_misses": {
+                "definitive_negative": 15,
+                "error": 0,
+                "excluded": 0,
+                "uncertain": 28
+              },
+              "precision": 0.9032258064516129,
+              "recall": 0.39436619718309857,
+              "true_negative": 108,
+              "true_positive": 28
+            },
+            "positive_precision_and_recall_unchanged": true,
+            "promoted_gold_negative_from_uncertain": 6,
+            "promoted_gold_positive_to_definitive_false_negative": 6,
+            "qualification": "Offline semantic-policy diagnostic; not a deployed or held-out result"
+          },
+          "recorded_policy": {
+            "clear_negative_coverage": 0.7906976744186046,
+            "definitive_coverage": 0.71,
+            "f1": 0.5490196078431373,
+            "false_positive": 3,
+            "false_positive_rate": 0.023255813953488372,
+            "negative": 129,
+            "negative_unassessed": {
+              "error": 0,
+              "excluded": 0,
+              "uncertain": 24
+            },
+            "pairs": 200,
+            "positive": 71,
+            "positive_misses": {
+              "definitive_negative": 9,
+              "error": 0,
+              "excluded": 0,
+              "uncertain": 34
+            },
+            "precision": 0.9032258064516129,
+            "recall": 0.39436619718309857,
+            "true_negative": 102,
+            "true_positive": 28
+          }
+        }
+      },
+      "resolution": {
+        "gold_positives": 71,
+        "maximum_false_positives_at_that_count_for_precision_0_95": 3,
+        "recall_at_required_count": 0.9014084507042254,
+        "recall_step": 0.014084507042253521,
+        "true_positives_required_for_recall_0_90": 64
+      }
+    }
+  },
+  "label_interpretation": "Gold labels remain the frozen native dataset annotations under the saved adapters; this calculation does not adjudicate alignment with the literal submitted-text semantic contract.",
+  "schema_version": 1,
+  "scope": "Offline analysis of frozen public development samples; no model/network calls, no runtime changes, no held-out claims",
+  "score_source": "Native raw_scores.contradiction (hosted) or nli_probabilities.contradiction (encoder); avoids normalization roundoff at exact policy/tie boundaries",
+  "sources": [
+    {
+      "manifest_sha256": "982a5dc43919853176d372c53bf90bc98d4bc49e56d8703165feb14345aff0ff",
+      "path": "eval/results/jev-dev-2026-11-03/vitaminc-combined-dev.report.json",
+      "sha256": "b29239893de37d83beea5496610c3f8bf2033d73dfb8aa2fda5108dd28bef318"
+    },
+    {
+      "manifest_sha256": "982a5dc43919853176d372c53bf90bc98d4bc49e56d8703165feb14345aff0ff",
+      "path": "eval/results/clef-dev-2026-11-03/vitaminc-combined-dev.report.json",
+      "sha256": "8a0030b15f2214a878ea6f8d2a6e2294fbc0bafbc8763035cd48c23de340361f"
+    },
+    {
+      "manifest_sha256": "982a5dc43919853176d372c53bf90bc98d4bc49e56d8703165feb14345aff0ff",
+      "path": "eval/results/decider-dev-2026-11-03/vitaminc-combined-dev.report.json",
+      "sha256": "59dbe25d8a53ab3183c528465b4ab7d996b8c42bb22d17e69b904824f06377a9"
+    },
+    {
+      "manifest_sha256": "982a5dc43919853176d372c53bf90bc98d4bc49e56d8703165feb14345aff0ff",
+      "path": "eval/results/deberta-dev-2026-11-03/vitaminc-combined-dev.report.json",
+      "sha256": "c1152f33059be7a215b6d593315ab34277082e8f082588ed894ace90948514eb"
+    },
+    {
+      "manifest_sha256": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+      "path": "eval/results/jev-dev-2026-11-03/scifact-dev.report.json",
+      "sha256": "0fd410ddb6ad746e2cf517c0afe5144023e8c2a754afafc683baa119bcdb8fbe"
+    },
+    {
+      "manifest_sha256": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+      "path": "eval/results/clef-dev-2026-11-03/scifact-dev.report.json",
+      "sha256": "6e3e4f63d558fd9ffb4193eebcb85d822c97f9304d61b3f8103fde978266dbf0"
+    },
+    {
+      "manifest_sha256": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+      "path": "eval/results/decider-dev-2026-11-03/scifact-dev.report.json",
+      "sha256": "22f1c594d6031401642c9d98a8f4987593ab25d7b72420b4a27f80f548e437d1"
+    },
+    {
+      "manifest_sha256": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+      "path": "eval/results/deberta-dev-2026-11-03/scifact-dev.report.json",
+      "sha256": "a6c3f7b7d5a2dacbaaefb6e5ecea7e6d5bd909c3f11cfc2628e63377d00b61ad"
+    }
+  ],
+  "threshold_selection": "Unique native contradiction values descending, complete ties; best points selected on the same development labels, optimistic exploratory diagnostics",
+  "verification": "Built-in complete-tie, 71-positive/3-versus-4-FP target-boundary, negative-pooling safety checks; every grouped sweep point cross-checked by direct classification; saved defaults and cross-model inputs checked"
+}

@@ -1,0 +1,15 @@
+{
+  "purpose": "advanceproviderchallengerselectedbytraining-onlyscreen",
+  "model": "perplexity/pplx-decider-v1.2",
+  "heads": [
+    "nli-three-way",
+    "evidence-refutation"
+  ],
+  "reason": "bestchallengerretrospective95Pfrontier54%R vsClef42%, bothbeneath95P90R; noqualityclaim",
+  "fit_requests": 400,
+  "validation_requests": 200,
+  "mode": "onecallbundle",
+  "composition": "fixedpreregistered3foldtrainCV\u03bb[1,10,100],OOFcutoffs95P,zeroandNPV95negativesseparate",
+  "validation": "same200rolepreviouslyreportedforJeV; repeateddevelopmentmonitor,notreleaseheldout",
+  "locked": "unopened; donotopenwithoutdevelopmentgates"
+}

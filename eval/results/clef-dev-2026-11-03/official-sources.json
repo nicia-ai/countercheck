@@ -1,0 +1,29 @@
+{
+  "inspected_at_utc": "2026-11-03T20:52:31.914010+00:00",
+  "model": {
+    "model_route": "@cf/cloudflare/clef",
+    "request_selector": "clef",
+    "context_tokens": 65536,
+    "structured_state_supported": true,
+    "per_option_probabilities": true,
+    "source": "https://developers.cloudflare.com/workers-ai/models/clef/"
+  },
+  "api": {
+    "route": "/client/v4/accounts/{account_id}/ai/run/@cf/cloudflare/clef",
+    "request_fields": [
+      "model",
+      "state",
+      "questions"
+    ],
+    "reference": "https://developers.cloudflare.com/workers-ai/get-started/rest-api/"
+  },
+  "pricing": {
+    "currency": "USD",
+    "input_per_million_tokens": 0.24,
+    "output_token_charge": false,
+    "backend_billing_unit": "neurons",
+    "model_reference": "https://developers.cloudflare.com/workers-ai/models/clef/",
+    "pricing_reference": "https://developers.cloudflare.com/workers-ai/platform/pricing/",
+    "interpretation": "Input list-price arithmetic only; actual billed charges and any allocation/discount effects are unknown."
+  }
+}

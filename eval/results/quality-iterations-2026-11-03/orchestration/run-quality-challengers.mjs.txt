@@ -1,0 +1,26 @@
+import {execFileSync,spawn} from 'node:child_process';
+import {readFile} from 'node:fs/promises';
+import {parseEnv} from 'node:util';
+const baseEnv={...process.env};
+const config={clef:null,decider:null};
+try{
+ const auth=JSON.parse(execFileSync('pnpm',['exec','wrangler','auth','token','--profile','nicia-ai','--json'],{encoding:'utf8',stdio:['ignore','pipe','pipe']}));
+ if(typeof auth.token!=='string'||!auth.token)throw new Error();
+ config.clef={...baseEnv,CLOUDFLARE_ACCOUNT_ID:'42de207988eb23793aa308feb01dc9c7',CLOUDFLARE_API_TOKEN:auth.token};
+}catch{throw new Error('Named Cloudflare profile credential acquisition failed');}
+try{
+ const vault=parseEnv(await readFile('../nicia/apps/api/.dev.vars','utf8'));
+ if(!vault.OPENROUTER_API_KEY)throw new Error();
+ config.decider={...baseEnv,OPENROUTER_API_KEY:vault.OPENROUTER_API_KEY};
+}catch{throw new Error('Existing decision-model credential unavailable');}
+for(const backend of ['clef','decider']){
+ for(const [phase,manifest,n,purpose] of [['probe','eval/fixtures/synthetic-smoke.json',8,'regression'],['screen','eval/data/iteration-screen.json',160,'tune']]){
+  const out=`eval/reports/quality-r3-${backend}-${phase}`;
+  const args=['--import=tsx','scripts/iterate.ts','--manifest',manifest,'--profiles','nli-three-way,evidence-refutation','--out',out,'--purpose',purpose,'--backend',backend,'--bundle','--live','--max-calls',String(n),'--cost-per-call-usd','0.001','--max-spend-usd',String(n*.001+.001)];
+  await new Promise((resolve,reject)=>{const child=spawn(process.execPath,args,{env:config[backend],stdio:['ignore','pipe','pipe']});child.stdout.on('data',()=>{});child.stderr.on('data',()=>{});child.on('error',()=>reject(new Error('Challenger process failed')));child.on('exit',code=>code===0?resolve():reject(new Error(`Challenger ${backend} ${phase} stopped`)));});
+  const report=JSON.parse(await readFile(out+'.json','utf8'));
+  const bad=report.observations.filter(o=>o.prediction.status!=='ok').length;
+  console.log(JSON.stringify({backend,phase,observations:report.observations.length,calls:report.observations.reduce((n,o)=>n+o.provider_calls,0),bad}));
+  if(phase==='probe'&&bad)throw new Error('Provider compatibility probe failed; screen not dispatched');
+ }
+}

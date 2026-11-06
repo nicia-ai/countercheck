@@ -1,0 +1,3159 @@
+{
+  "input_sha256": {
+    "eval/results/decision-engineering-2026-11-03/post-review/structured-value-v1/contract-diagnostic.report.json.gz": "08bac84edac5618e050a5f6cc797a7241abb95f69cf534aba12c4ae9bcbcbe2e",
+    "eval/results/decision-engineering-2026-11-03/post-review/structured-value-v1/scifact-dev.report.json.gz": "4d5864faee2e405c7a6186fb2a8fa4ad548146d85fc31a616da9a192110b1672",
+    "eval/results/decision-engineering-2026-11-03/post-review/structured-value-v1/vitaminc-combined-dev.report.json.gz": "c3c9f40f51caf24e6e619fada870de480daa85da34961615cca810e2f933b200",
+    "eval/results/decision-engineering-2026-11-03/runs/balanced-v1/contract-diagnostic.report.json.gz": "d8fc0a807094408874b0edca1364181b0f75c9c79b1b31299ef6b7717eb0e2fd",
+    "eval/results/decision-engineering-2026-11-03/runs/balanced-v1/scifact-dev.report.json.gz": "7ad43ead17101d391eceb861b824c9ab3a32cd30dd58e6b89a158af90bf44823",
+    "eval/results/decision-engineering-2026-11-03/runs/balanced-v1/vitaminc-combined-dev.report.json.gz": "443f8fad2e7decd40cc36f0bff9cabf1060a63280a550c2fe816f775ab504823",
+    "eval/results/decision-engineering-2026-11-03/runs/semantic-v2/contract-diagnostic.report.json.gz": "c945969af814f6a027555e3912618b84e1472afe0f682ff9db58ca20660d33d6",
+    "eval/results/decision-engineering-2026-11-03/runs/semantic-v2/scifact-dev.report.json.gz": "3108d22774fa6ae71f51f0fd4d99f53b6f1ceb786b81e733aeb421d8cf9f75b7",
+    "eval/results/decision-engineering-2026-11-03/runs/semantic-v2/vitaminc-combined-dev.report.json.gz": "5fc5ff7a2f3dfe32816e2673535ef64045cecbafa667035072f63347cb355f88",
+    "eval/results/decision-engineering-2026-11-03/runs/structured-value-v1/contract-diagnostic.report.json.gz": "2865b93e7e25f937d79de7a3eaf5df219efcd84efd6cf74fe5aa753b650c1760",
+    "eval/results/decision-engineering-2026-11-03/runs/structured-value-v1/scifact-dev.report.json.gz": "27c2437ed5cd017e4df46f435de6acf1bd40dfe6233b7f58b3c9517aba92ac12",
+    "eval/results/decision-engineering-2026-11-03/runs/structured-value-v1/vitaminc-combined-dev.report.json.gz": "94688779a528f7c7aea3e69c824a9ca8b05deb32a3a2929c5ba8fc54e5ba7849",
+    "eval/results/prompt-ablation-2026-11-03/runs/run-1.report.json.gz": "c5fa0836b1d3a5186ce9a26eb222c4494b02f0fe34f8e70875293e90cb65f5cb",
+    "eval/results/prompt-ablation-2026-11-03/runs/run-2.report.json.gz": "83b976fc7d843974a7914827138ca2ce530a78016340a9e75e3f06e2b2fe8805",
+    "eval/results/prompt-ablation-2026-11-03/runs/run-3.report.json.gz": "2624e733421577355b0e36274121108df592f575728938f6210b878cefeb0f18"
+  },
+  "paired": {
+    "contract-diagnostic": {
+      "earlier_rich_to_new_semantic": {
+        "gained_tn": 2,
+        "lost_tn": 2,
+        "lost_tp": 0,
+        "matched": 32,
+        "new_fp": 0,
+        "recovered_tp": 0,
+        "rescued_fp": 0,
+        "verdict_changes": 5
+      },
+      "fresh_baseline_to_new_semantic": {
+        "gained_tn": 1,
+        "lost_tn": 1,
+        "lost_tp": 0,
+        "matched": 32,
+        "new_fp": 0,
+        "recovered_tp": 0,
+        "rescued_fp": 0,
+        "verdict_changes": 2
+      }
+    },
+    "scifact-dev": {
+      "earlier_rich_to_new_semantic": {
+        "gained_tn": 10,
+        "lost_tn": 14,
+        "lost_tp": 10,
+        "matched": 199,
+        "new_fp": 0,
+        "recovered_tp": 0,
+        "rescued_fp": 0,
+        "verdict_changes": 40
+      },
+      "fresh_baseline_to_new_semantic": {
+        "gained_tn": 10,
+        "lost_tn": 10,
+        "lost_tp": 5,
+        "matched": 199,
+        "new_fp": 0,
+        "recovered_tp": 1,
+        "rescued_fp": 0,
+        "verdict_changes": 30
+      }
+    },
+    "vitaminc-combined-dev": {
+      "earlier_rich_to_new_semantic": {
+        "gained_tn": 9,
+        "lost_tn": 4,
+        "lost_tp": 3,
+        "matched": 200,
+        "new_fp": 0,
+        "recovered_tp": 2,
+        "rescued_fp": 0,
+        "verdict_changes": 23
+      },
+      "fresh_baseline_to_new_semantic": {
+        "gained_tn": 8,
+        "lost_tn": 4,
+        "lost_tp": 4,
+        "matched": 200,
+        "new_fp": 0,
+        "recovered_tp": 4,
+        "rescued_fp": 0,
+        "verdict_changes": 22
+      }
+    }
+  },
+  "public_tracks": {
+    "ablation1-baseline/scifact-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.8732394366197183,
+          "fp": 9,
+          "precision": 0.8732394366197183,
+          "recall": 0.8732394366197183,
+          "threshold": 0.07,
+          "tp": 62
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.8609271523178808,
+          "fp": 15,
+          "precision": 0.8125,
+          "recall": 0.9154929577464789,
+          "threshold": 0.05,
+          "tp": 65
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.8130081300813008,
+          "fp": 2,
+          "precision": 0.9615384615384616,
+          "recall": 0.704225352112676,
+          "threshold": 0.35,
+          "tp": 50
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 199,
+        "clear_negative_coverage": 0.828125,
+        "fp": 2,
+        "negative": 128,
+        "negative_uncertain": 20,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 3,
+          "uncertain": 35
+        },
+        "precision": 0.9428571428571428,
+        "recall": 0.4647887323943662,
+        "tn": 106,
+        "tp": 33
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "ablation1-baseline/vitaminc-combined-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.7466666666666667,
+          "fp": 23,
+          "precision": 0.7088607594936709,
+          "recall": 0.7887323943661971,
+          "threshold": 0.12,
+          "tp": 56
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.6632124352331606,
+          "fp": 58,
+          "precision": 0.5245901639344263,
+          "recall": 0.9014084507042254,
+          "threshold": 0.02,
+          "tp": 64
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.46808510638297873,
+          "fp": 1,
+          "precision": 0.9565217391304348,
+          "recall": 0.30985915492957744,
+          "threshold": 0.89,
+          "tp": 22
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 200,
+        "clear_negative_coverage": 0.7674418604651163,
+        "fp": 2,
+        "negative": 129,
+        "negative_uncertain": 28,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 8,
+          "uncertain": 34
+        },
+        "precision": 0.9354838709677419,
+        "recall": 0.4084507042253521,
+        "tn": 99,
+        "tp": 29
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "ablation1-rich-criteria-examples/scifact-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.9295774647887324,
+          "fp": 5,
+          "precision": 0.9295774647887324,
+          "recall": 0.9295774647887324,
+          "threshold": 0.08,
+          "tp": 66
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.9295774647887324,
+          "fp": 5,
+          "precision": 0.9295774647887324,
+          "recall": 0.9295774647887324,
+          "threshold": 0.08,
+          "tp": 66
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.9037037037037037,
+          "fp": 3,
+          "precision": 0.953125,
+          "recall": 0.8591549295774648,
+          "threshold": 0.22,
+          "tp": 61
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 199,
+        "clear_negative_coverage": 0.859375,
+        "fp": 2,
+        "negative": 128,
+        "negative_uncertain": 16,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 5,
+          "uncertain": 28
+        },
+        "precision": 0.95,
+        "recall": 0.5352112676056338,
+        "tn": 110,
+        "tp": 38
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "ablation1-rich-criteria-examples/vitaminc-combined-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.75177304964539,
+          "fp": 17,
+          "precision": 0.7571428571428571,
+          "recall": 0.7464788732394366,
+          "threshold": 0.14,
+          "tp": 53
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.7231638418079096,
+          "fp": 42,
+          "precision": 0.6037735849056604,
+          "recall": 0.9014084507042254,
+          "threshold": 0.03,
+          "tp": 64
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.45161290322580644,
+          "fp": 1,
+          "precision": 0.9545454545454546,
+          "recall": 0.29577464788732394,
+          "threshold": 0.91,
+          "tp": 21
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 200,
+        "clear_negative_coverage": 0.7751937984496124,
+        "fp": 3,
+        "negative": 129,
+        "negative_uncertain": 26,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 8,
+          "uncertain": 34
+        },
+        "precision": 0.90625,
+        "recall": 0.4084507042253521,
+        "tn": 100,
+        "tp": 29
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "ablation1-rich-criteria/scifact-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.9305555555555556,
+          "fp": 6,
+          "precision": 0.9178082191780822,
+          "recall": 0.9436619718309859,
+          "threshold": 0.08,
+          "tp": 67
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.9285714285714286,
+          "fp": 4,
+          "precision": 0.9420289855072463,
+          "recall": 0.9154929577464789,
+          "threshold": 0.13,
+          "tp": 65
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.9117647058823529,
+          "fp": 3,
+          "precision": 0.9538461538461539,
+          "recall": 0.8732394366197183,
+          "threshold": 0.27,
+          "tp": 62
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 199,
+        "clear_negative_coverage": 0.84375,
+        "fp": 2,
+        "negative": 128,
+        "negative_uncertain": 18,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 5,
+          "uncertain": 28
+        },
+        "precision": 0.95,
+        "recall": 0.5352112676056338,
+        "tn": 108,
+        "tp": 38
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "ablation1-rich-criteria/vitaminc-combined-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.7643312101910829,
+          "fp": 26,
+          "precision": 0.6976744186046512,
+          "recall": 0.8450704225352113,
+          "threshold": 0.07,
+          "tp": 60
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.757396449704142,
+          "fp": 34,
+          "precision": 0.6530612244897959,
+          "recall": 0.9014084507042254,
+          "threshold": 0.05,
+          "tp": 64
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.5306122448979592,
+          "fp": 1,
+          "precision": 0.9629629629629629,
+          "recall": 0.36619718309859156,
+          "threshold": 0.85,
+          "tp": 26
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 200,
+        "clear_negative_coverage": 0.7596899224806202,
+        "fp": 2,
+        "negative": 129,
+        "negative_uncertain": 29,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 7,
+          "uncertain": 36
+        },
+        "precision": 0.9333333333333333,
+        "recall": 0.39436619718309857,
+        "tn": 98,
+        "tp": 28
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "ablation2-baseline/scifact-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.8823529411764706,
+          "fp": 5,
+          "precision": 0.9230769230769231,
+          "recall": 0.8450704225352113,
+          "threshold": 0.13,
+          "tp": 60
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.8533333333333334,
+          "fp": 15,
+          "precision": 0.810126582278481,
+          "recall": 0.9014084507042254,
+          "threshold": 0.05,
+          "tp": 64
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.8412698412698413,
+          "fp": 2,
+          "precision": 0.9636363636363636,
+          "recall": 0.7464788732394366,
+          "threshold": 0.32,
+          "tp": 53
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 199,
+        "clear_negative_coverage": 0.8359375,
+        "fp": 2,
+        "negative": 128,
+        "negative_uncertain": 19,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 3,
+          "uncertain": 34
+        },
+        "precision": 0.9444444444444444,
+        "recall": 0.4788732394366197,
+        "tn": 107,
+        "tp": 34
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "ablation2-baseline/vitaminc-combined-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.7432432432432432,
+          "fp": 22,
+          "precision": 0.7142857142857143,
+          "recall": 0.7746478873239436,
+          "threshold": 0.13,
+          "tp": 55
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.6476190476190476,
+          "fp": 71,
+          "precision": 0.4892086330935252,
+          "recall": 0.9577464788732394,
+          "threshold": 0.01,
+          "tp": 68
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.4731182795698925,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.30985915492957744,
+          "threshold": 0.89,
+          "tp": 22
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 200,
+        "clear_negative_coverage": 0.7984496124031008,
+        "fp": 3,
+        "negative": 129,
+        "negative_uncertain": 23,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 8,
+          "uncertain": 36
+        },
+        "precision": 0.9,
+        "recall": 0.38028169014084506,
+        "tn": 103,
+        "tp": 27
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "ablation2-rich-criteria-examples/scifact-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.9154929577464789,
+          "fp": 6,
+          "precision": 0.9154929577464789,
+          "recall": 0.9154929577464789,
+          "threshold": 0.09,
+          "tp": 65
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.9142857142857143,
+          "fp": 5,
+          "precision": 0.927536231884058,
+          "recall": 0.9014084507042254,
+          "threshold": 0.11,
+          "tp": 64
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.9037037037037037,
+          "fp": 3,
+          "precision": 0.953125,
+          "recall": 0.8591549295774648,
+          "threshold": 0.25,
+          "tp": 61
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 199,
+        "clear_negative_coverage": 0.875,
+        "fp": 2,
+        "negative": 128,
+        "negative_uncertain": 14,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 5,
+          "uncertain": 28
+        },
+        "precision": 0.95,
+        "recall": 0.5352112676056338,
+        "tn": 112,
+        "tp": 38
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "ablation2-rich-criteria-examples/vitaminc-combined-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.7448275862068966,
+          "fp": 20,
+          "precision": 0.7297297297297297,
+          "recall": 0.7605633802816901,
+          "threshold": 0.12,
+          "tp": 54
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.7262569832402235,
+          "fp": 43,
+          "precision": 0.6018518518518519,
+          "recall": 0.9154929577464789,
+          "threshold": 0.03,
+          "tp": 65
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.5154639175257731,
+          "fp": 1,
+          "precision": 0.9615384615384616,
+          "recall": 0.352112676056338,
+          "threshold": 0.87,
+          "tp": 25
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 200,
+        "clear_negative_coverage": 0.7674418604651163,
+        "fp": 3,
+        "negative": 129,
+        "negative_uncertain": 27,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 9,
+          "uncertain": 34
+        },
+        "precision": 0.9032258064516129,
+        "recall": 0.39436619718309857,
+        "tn": 99,
+        "tp": 28
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "ablation2-rich-criteria/scifact-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.9295774647887324,
+          "fp": 5,
+          "precision": 0.9295774647887324,
+          "recall": 0.9295774647887324,
+          "threshold": 0.1,
+          "tp": 66
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.9285714285714286,
+          "fp": 4,
+          "precision": 0.9420289855072463,
+          "recall": 0.9154929577464789,
+          "threshold": 0.14,
+          "tp": 65
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.9197080291970803,
+          "fp": 3,
+          "precision": 0.9545454545454546,
+          "recall": 0.8873239436619719,
+          "threshold": 0.18,
+          "tp": 63
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 199,
+        "clear_negative_coverage": 0.84375,
+        "fp": 2,
+        "negative": 128,
+        "negative_uncertain": 18,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 5,
+          "uncertain": 27
+        },
+        "precision": 0.9512195121951219,
+        "recall": 0.5492957746478874,
+        "tn": 108,
+        "tp": 39
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "ablation2-rich-criteria/vitaminc-combined-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.775,
+          "fp": 27,
+          "precision": 0.6966292134831461,
+          "recall": 0.8732394366197183,
+          "threshold": 0.07,
+          "tp": 62
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.735632183908046,
+          "fp": 39,
+          "precision": 0.6213592233009708,
+          "recall": 0.9014084507042254,
+          "threshold": 0.04,
+          "tp": 64
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.5,
+          "fp": 1,
+          "precision": 0.96,
+          "recall": 0.3380281690140845,
+          "threshold": 0.87,
+          "tp": 24
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 200,
+        "clear_negative_coverage": 0.7441860465116279,
+        "fp": 2,
+        "negative": 129,
+        "negative_uncertain": 31,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 7,
+          "uncertain": 37
+        },
+        "precision": 0.9310344827586207,
+        "recall": 0.38028169014084506,
+        "tn": 96,
+        "tp": 27
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "ablation3-baseline/scifact-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.8951048951048951,
+          "fp": 8,
+          "precision": 0.8888888888888888,
+          "recall": 0.9014084507042254,
+          "threshold": 0.07,
+          "tp": 64
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.8951048951048951,
+          "fp": 8,
+          "precision": 0.8888888888888888,
+          "recall": 0.9014084507042254,
+          "threshold": 0.07,
+          "tp": 64
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.8225806451612904,
+          "fp": 2,
+          "precision": 0.9622641509433962,
+          "recall": 0.7183098591549296,
+          "threshold": 0.36,
+          "tp": 51
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 199,
+        "clear_negative_coverage": 0.8046875,
+        "fp": 2,
+        "negative": 128,
+        "negative_uncertain": 23,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 3,
+          "uncertain": 34
+        },
+        "precision": 0.9444444444444444,
+        "recall": 0.4788732394366197,
+        "tn": 103,
+        "tp": 34
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "ablation3-baseline/vitaminc-combined-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.7417218543046358,
+          "fp": 24,
+          "precision": 0.7,
+          "recall": 0.7887323943661971,
+          "threshold": 0.11,
+          "tp": 56
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.6736842105263158,
+          "fp": 55,
+          "precision": 0.5378151260504201,
+          "recall": 0.9014084507042254,
+          "threshold": 0.02,
+          "tp": 64
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.5,
+          "fp": 1,
+          "precision": 0.96,
+          "recall": 0.3380281690140845,
+          "threshold": 0.88,
+          "tp": 24
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 200,
+        "clear_negative_coverage": 0.751937984496124,
+        "fp": 3,
+        "negative": 129,
+        "negative_uncertain": 29,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 8,
+          "uncertain": 34
+        },
+        "precision": 0.90625,
+        "recall": 0.4084507042253521,
+        "tn": 97,
+        "tp": 29
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "ablation3-rich-criteria-examples/scifact-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.9305555555555556,
+          "fp": 6,
+          "precision": 0.9178082191780822,
+          "recall": 0.9436619718309859,
+          "threshold": 0.08,
+          "tp": 67
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.920863309352518,
+          "fp": 4,
+          "precision": 0.9411764705882353,
+          "recall": 0.9014084507042254,
+          "threshold": 0.13,
+          "tp": 64
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.9197080291970803,
+          "fp": 3,
+          "precision": 0.9545454545454546,
+          "recall": 0.8873239436619719,
+          "threshold": 0.15,
+          "tp": 63
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 199,
+        "clear_negative_coverage": 0.875,
+        "fp": 2,
+        "negative": 128,
+        "negative_uncertain": 14,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 4,
+          "uncertain": 29
+        },
+        "precision": 0.95,
+        "recall": 0.5352112676056338,
+        "tn": 112,
+        "tp": 38
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "ablation3-rich-criteria-examples/vitaminc-combined-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.7571428571428571,
+          "fp": 16,
+          "precision": 0.7681159420289855,
+          "recall": 0.7464788732394366,
+          "threshold": 0.13,
+          "tp": 53
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.7529411764705882,
+          "fp": 35,
+          "precision": 0.6464646464646465,
+          "recall": 0.9014084507042254,
+          "threshold": 0.04,
+          "tp": 64
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.5306122448979592,
+          "fp": 1,
+          "precision": 0.9629629629629629,
+          "recall": 0.36619718309859156,
+          "threshold": 0.87,
+          "tp": 26
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 200,
+        "clear_negative_coverage": 0.7596899224806202,
+        "fp": 2,
+        "negative": 129,
+        "negative_uncertain": 29,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 10,
+          "uncertain": 33
+        },
+        "precision": 0.9333333333333333,
+        "recall": 0.39436619718309857,
+        "tn": 98,
+        "tp": 28
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "ablation3-rich-criteria/scifact-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.9285714285714286,
+          "fp": 4,
+          "precision": 0.9420289855072463,
+          "recall": 0.9154929577464789,
+          "threshold": 0.12,
+          "tp": 65
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.9285714285714286,
+          "fp": 4,
+          "precision": 0.9420289855072463,
+          "recall": 0.9154929577464789,
+          "threshold": 0.12,
+          "tp": 65
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.9117647058823529,
+          "fp": 3,
+          "precision": 0.9538461538461539,
+          "recall": 0.8732394366197183,
+          "threshold": 0.29,
+          "tp": 62
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 199,
+        "clear_negative_coverage": 0.828125,
+        "fp": 2,
+        "negative": 128,
+        "negative_uncertain": 20,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 5,
+          "uncertain": 28
+        },
+        "precision": 0.95,
+        "recall": 0.5352112676056338,
+        "tn": 106,
+        "tp": 38
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "ablation3-rich-criteria/vitaminc-combined-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.7664670658682635,
+          "fp": 32,
+          "precision": 0.6666666666666666,
+          "recall": 0.9014084507042254,
+          "threshold": 0.05,
+          "tp": 64
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.7664670658682635,
+          "fp": 32,
+          "precision": 0.6666666666666666,
+          "recall": 0.9014084507042254,
+          "threshold": 0.05,
+          "tp": 64
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.5,
+          "fp": 1,
+          "precision": 0.96,
+          "recall": 0.3380281690140845,
+          "threshold": 0.88,
+          "tp": 24
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 200,
+        "clear_negative_coverage": 0.7441860465116279,
+        "fp": 2,
+        "negative": 129,
+        "negative_uncertain": 31,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 8,
+          "uncertain": 34
+        },
+        "precision": 0.9354838709677419,
+        "recall": 0.4084507042253521,
+        "tn": 96,
+        "tp": 29
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "balanced-v1/scifact-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.8794326241134752,
+          "fp": 8,
+          "precision": 0.8857142857142857,
+          "recall": 0.8732394366197183,
+          "threshold": 0.08,
+          "tp": 62
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.8421052631578947,
+          "fp": 17,
+          "precision": 0.7901234567901234,
+          "recall": 0.9014084507042254,
+          "threshold": 0.05,
+          "tp": 64
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.773109243697479,
+          "fp": 2,
+          "precision": 0.9583333333333334,
+          "recall": 0.647887323943662,
+          "threshold": 0.44,
+          "tp": 46
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 199,
+        "clear_negative_coverage": 0.8125,
+        "fp": 2,
+        "negative": 128,
+        "negative_uncertain": 22,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 3,
+          "uncertain": 36
+        },
+        "precision": 0.9411764705882353,
+        "recall": 0.4507042253521127,
+        "tn": 104,
+        "tp": 32
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "balanced-v1/vitaminc-combined-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.7466666666666667,
+          "fp": 23,
+          "precision": 0.7088607594936709,
+          "recall": 0.7887323943661971,
+          "threshold": 0.11,
+          "tp": 56
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.6175115207373272,
+          "fp": 79,
+          "precision": 0.4589041095890411,
+          "recall": 0.9436619718309859,
+          "threshold": 0.01,
+          "tp": 67
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.45161290322580644,
+          "fp": 1,
+          "precision": 0.9545454545454546,
+          "recall": 0.29577464788732394,
+          "threshold": 0.89,
+          "tp": 21
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 200,
+        "clear_negative_coverage": 0.7674418604651163,
+        "fp": 2,
+        "negative": 129,
+        "negative_uncertain": 28,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 10,
+          "uncertain": 34
+        },
+        "precision": 0.9310344827586207,
+        "recall": 0.38028169014084506,
+        "tn": 99,
+        "tp": 27
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "semantic-v2/scifact-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.8516129032258064,
+          "fp": 18,
+          "precision": 0.7857142857142857,
+          "recall": 0.9295774647887324,
+          "threshold": 0.07,
+          "tp": 66
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.847682119205298,
+          "fp": 16,
+          "precision": 0.8,
+          "recall": 0.9014084507042254,
+          "threshold": 0.09,
+          "tp": 64
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.7079646017699115,
+          "fp": 2,
+          "precision": 0.9523809523809523,
+          "recall": 0.5633802816901409,
+          "threshold": 0.58,
+          "tp": 40
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 199,
+        "clear_negative_coverage": 0.8125,
+        "fp": 2,
+        "negative": 128,
+        "negative_uncertain": 22,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 3,
+          "uncertain": 40
+        },
+        "precision": 0.9333333333333333,
+        "recall": 0.39436619718309857,
+        "tn": 104,
+        "tp": 28
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "semantic-v2/vitaminc-combined-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.7248322147651006,
+          "fp": 24,
+          "precision": 0.6923076923076923,
+          "recall": 0.7605633802816901,
+          "threshold": 0.12,
+          "tp": 54
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.5811965811965812,
+          "fp": 95,
+          "precision": 0.4171779141104294,
+          "recall": 0.9577464788732394,
+          "threshold": 0.01,
+          "tp": 68
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.45161290322580644,
+          "fp": 1,
+          "precision": 0.9545454545454546,
+          "recall": 0.29577464788732394,
+          "threshold": 0.89,
+          "tp": 21
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 200,
+        "clear_negative_coverage": 0.7984496124031008,
+        "fp": 2,
+        "negative": 129,
+        "negative_uncertain": 24,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 12,
+          "uncertain": 32
+        },
+        "precision": 0.9310344827586207,
+        "recall": 0.38028169014084506,
+        "tn": 103,
+        "tp": 27
+      },
+      "score_kind": "native four-way contradiction probability"
+    },
+    "structured-reviewed/scifact-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.8345323741007195,
+          "fp": 10,
+          "precision": 0.8529411764705882,
+          "recall": 0.8169014084507042,
+          "threshold": 0.06,
+          "tp": 58
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.8311688311688312,
+          "fp": 19,
+          "precision": 0.7710843373493976,
+          "recall": 0.9014084507042254,
+          "threshold": 0.02,
+          "tp": 64
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.7304347826086957,
+          "fp": 2,
+          "precision": 0.9545454545454546,
+          "recall": 0.5915492957746479,
+          "threshold": 0.3,
+          "tp": 42
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 199,
+        "clear_negative_coverage": 0.0625,
+        "fp": 0,
+        "negative": 128,
+        "negative_uncertain": 120,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 0,
+          "uncertain": 63
+        },
+        "precision": 1.0,
+        "recall": 0.11267605633802817,
+        "tn": 8,
+        "tp": 8
+      },
+      "score_kind": "mixed-choice contradiction-option mass, not verdict probability"
+    },
+    "structured-reviewed/vitaminc-combined-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.6962025316455697,
+          "fp": 32,
+          "precision": 0.632183908045977,
+          "recall": 0.7746478873239436,
+          "threshold": 0.07,
+          "tp": 55
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.5887445887445888,
+          "fp": 92,
+          "precision": 0.425,
+          "recall": 0.9577464788732394,
+          "threshold": 0.01,
+          "tp": 68
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.24691358024691357,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.14084507042253522,
+          "threshold": 0.88,
+          "tp": 10
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 200,
+        "clear_negative_coverage": 0.07751937984496124,
+        "fp": 1,
+        "negative": 129,
+        "negative_uncertain": 118,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 0,
+          "uncertain": 71
+        },
+        "precision": 0.0,
+        "recall": 0.0,
+        "tn": 10,
+        "tp": 0
+      },
+      "score_kind": "mixed-choice contradiction-option mass, not verdict probability"
+    },
+    "structured-value-v1/scifact-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.8333333333333334,
+          "fp": 20,
+          "precision": 0.7647058823529411,
+          "recall": 0.9154929577464789,
+          "threshold": 0.02,
+          "tp": 65
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.8333333333333334,
+          "fp": 20,
+          "precision": 0.7647058823529411,
+          "recall": 0.9154929577464789,
+          "threshold": 0.02,
+          "tp": 65
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.46808510638297873,
+          "fp": 1,
+          "precision": 0.9565217391304348,
+          "recall": 0.30985915492957744,
+          "threshold": 0.71,
+          "tp": 22
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 199,
+        "clear_negative_coverage": 0.109375,
+        "fp": 0,
+        "negative": 128,
+        "negative_uncertain": 114,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 0,
+          "uncertain": 62
+        },
+        "precision": 1.0,
+        "recall": 0.1267605633802817,
+        "tn": 14,
+        "tp": 9
+      },
+      "score_kind": "mixed-choice contradiction-option mass, not verdict probability"
+    },
+    "structured-value-v1/vitaminc-combined-dev": {
+      "frontier": {
+        "any_95_precision_90_recall": false,
+        "best_f1": {
+          "f1": 0.7114093959731543,
+          "fp": 25,
+          "precision": 0.6794871794871795,
+          "recall": 0.7464788732394366,
+          "threshold": 0.08,
+          "tp": 53
+        },
+        "best_precision_at_recall_90": {
+          "f1": 0.5752212389380531,
+          "fp": 90,
+          "precision": 0.41935483870967744,
+          "recall": 0.9154929577464789,
+          "threshold": 0.01,
+          "tp": 65
+        },
+        "best_recall_at_precision_95": {
+          "f1": 0.10666666666666667,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.056338028169014086,
+          "threshold": 0.94,
+          "tp": 4
+        },
+        "selection_on_same_seen_development_labels": true,
+        "unique_score_ties_enter_together": true
+      },
+      "recorded": {
+        "binary_pairs": 200,
+        "clear_negative_coverage": 0.09302325581395349,
+        "fp": 1,
+        "negative": 129,
+        "negative_uncertain": 116,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 0,
+          "uncertain": 69
+        },
+        "precision": 0.6666666666666666,
+        "recall": 0.028169014084507043,
+        "tn": 12,
+        "tp": 2
+      },
+      "score_kind": "mixed-choice contradiction-option mass, not verdict probability"
+    }
+  },
+  "purpose": "offline diagnosis on previously examined development labels, not heldout optimization evidence",
+  "representative_cases_for_manual_diagnostic_review_not_new_adjudication": {
+    "contract-diagnostic": {
+      "rich_tp_lost": [],
+      "semantic_contract_errors": [
+        {
+          "after_contradiction": 0.88,
+          "after_verdict": "contradiction",
+          "before_contradiction": 0.88,
+          "before_verdict": "contradiction",
+          "candidate_coverage": null,
+          "pair": {
+            "claim": "There are two current services. This text omits which service it names: it requires a licence.",
+            "dataset": "synthetic-smoke",
+            "evidence": "There are two current services. This text also omits which service it names: it does not require a licence.",
+            "gold": "non_contradiction",
+            "group_id": "prompt-contract:unresolved-referent",
+            "id": "prompt-contract:31",
+            "native_label": "uncertain",
+            "source_id": "unresolved-referent",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "unresolved-referent",
+              "expected_verdict": "uncertain",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0.28,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.28,
+          "before_verdict": "uncertain",
+          "candidate_coverage": null,
+          "pair": {
+            "claim": "The packing policy requires a label on every box.",
+            "dataset": "synthetic-smoke",
+            "evidence": "An auditor found an unlabeled box.",
+            "gold": "non_contradiction",
+            "group_id": "prompt-contract:rule-violation",
+            "id": "prompt-contract:17",
+            "native_label": "no_contradiction",
+            "source_id": "rule-violation",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "rule-violation",
+              "expected_verdict": "no_contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0.04,
+          "after_verdict": "no_contradiction",
+          "before_contradiction": 0.04,
+          "before_verdict": "no_contradiction",
+          "candidate_coverage": null,
+          "pair": {
+            "claim": "The final inspection result was [illegible: either 'passed' or 'failed'].",
+            "dataset": "synthetic-smoke",
+            "evidence": "The final inspection result was passed.",
+            "gold": "non_contradiction",
+            "group_id": "prompt-contract:illegible-outcome",
+            "id": "prompt-contract:29",
+            "native_label": "uncertain",
+            "source_id": "illegible-outcome",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "illegible-outcome",
+              "expected_verdict": "uncertain",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0,
+          "before_verdict": "uncertain",
+          "candidate_coverage": null,
+          "pair": {
+            "claim": "Dock A has five berths.",
+            "dataset": "synthetic-smoke",
+            "evidence": "Dock B has seven berths.",
+            "gold": "non_contradiction",
+            "group_id": "prompt-contract:different-entity",
+            "id": "prompt-contract:22",
+            "native_label": "no_contradiction",
+            "source_id": "different-entity",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "different-entity",
+              "expected_verdict": "no_contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": null
+        }
+      ],
+      "semantic_fp": [],
+      "structured_contract_errors": [
+        {
+          "after_contradiction": 0.96,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.96,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            }
+          },
+          "pair": {
+            "claim": "Every Opal shipment in August arrived within four days.",
+            "dataset": "synthetic-smoke",
+            "evidence": "An Opal shipment in August took six days to arrive.",
+            "gold": "contradiction",
+            "group_id": "prompt-contract:universal-counterexample",
+            "id": "prompt-contract:02",
+            "native_label": "contradiction",
+            "source_id": "universal-counterexample",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "universal-counterexample",
+              "expected_verdict": "contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0.91,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.91,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 2
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 2
+            }
+          },
+          "pair": {
+            "claim": "The Redwood plan costs exactly USD31 per month on 1 June 2026.",
+            "dataset": "synthetic-smoke",
+            "evidence": "The Redwood plan costs exactly USD45 per month on 1 June 2026.",
+            "gold": "contradiction",
+            "group_id": "prompt-contract:exact-price",
+            "id": "prompt-contract:00",
+            "native_label": "contradiction",
+            "source_id": "exact-price",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "exact-price",
+              "expected_verdict": "contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0.89,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.89,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            }
+          },
+          "pair": {
+            "claim": "The final sample in Report K contains exactly 180 participants.",
+            "dataset": "synthetic-smoke",
+            "evidence": "The final sample in Report K contains exactly 230 participants.",
+            "gold": "contradiction",
+            "group_id": "prompt-contract:exact-sample",
+            "id": "prompt-contract:03",
+            "native_label": "contradiction",
+            "source_id": "exact-sample",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "exact-sample",
+              "expected_verdict": "contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0.79,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.79,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            }
+          },
+          "pair": {
+            "claim": "The Cedar office is open every Tuesday.",
+            "dataset": "synthetic-smoke",
+            "evidence": "The Cedar office is closed every Tuesday.",
+            "gold": "contradiction",
+            "group_id": "prompt-contract:explicit-negation",
+            "id": "prompt-contract:01",
+            "native_label": "contradiction",
+            "source_id": "explicit-negation",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "explicit-negation",
+              "expected_verdict": "contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0.12,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.12,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            }
+          },
+          "pair": {
+            "claim": "The packing policy requires a label on every box.",
+            "dataset": "synthetic-smoke",
+            "evidence": "An auditor found an unlabeled box.",
+            "gold": "non_contradiction",
+            "group_id": "prompt-contract:rule-violation",
+            "id": "prompt-contract:17",
+            "native_label": "no_contradiction",
+            "source_id": "rule-violation",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "rule-violation",
+              "expected_verdict": "no_contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0.06,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.06,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            }
+          },
+          "pair": {
+            "claim": "The shipment might be delayed.",
+            "dataset": "synthetic-smoke",
+            "evidence": "The shipment might arrive on time.",
+            "gold": "non_contradiction",
+            "group_id": "prompt-contract:modality",
+            "id": "prompt-contract:16",
+            "native_label": "no_contradiction",
+            "source_id": "modality",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "modality",
+              "expected_verdict": "no_contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0.01,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.01,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            }
+          },
+          "pair": {
+            "claim": "The draft proposed one hundred units, but that proposal was rejected. The approved count is two hundred units.",
+            "dataset": "synthetic-smoke",
+            "evidence": "The approved count is two hundred units.",
+            "gold": "non_contradiction",
+            "group_id": "prompt-contract:rejected-statement",
+            "id": "prompt-contract:24",
+            "native_label": "no_contradiction",
+            "source_id": "rejected-statement",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "rejected-statement",
+              "expected_verdict": "no_contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0.01,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.01,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            }
+          },
+          "pair": {
+            "claim": "The average purchase cost is twenty dollars.",
+            "dataset": "synthetic-smoke",
+            "evidence": "One purchase cost thirty dollars.",
+            "gold": "non_contradiction",
+            "group_id": "prompt-contract:aggregate-individual",
+            "id": "prompt-contract:26",
+            "native_label": "no_contradiction",
+            "source_id": "aggregate-individual",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "aggregate-individual",
+              "expected_verdict": "no_contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            }
+          },
+          "pair": {
+            "claim": "The Harbor Suite provides API access and analytics.",
+            "dataset": "synthetic-smoke",
+            "evidence": "The Harbor Suite provides API access.",
+            "gold": "non_contradiction",
+            "group_id": "prompt-contract:omission",
+            "id": "prompt-contract:13",
+            "native_label": "no_contradiction",
+            "source_id": "omission",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "omission",
+              "expected_verdict": "no_contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            }
+          },
+          "pair": {
+            "claim": "The Meadow office closes at eighteen hundred hours.",
+            "dataset": "synthetic-smoke",
+            "evidence": "The Meadow office closes at six in the evening.",
+            "gold": "non_contradiction",
+            "group_id": "prompt-contract:restatement",
+            "id": "prompt-contract:14",
+            "native_label": "no_contradiction",
+            "source_id": "restatement",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "restatement",
+              "expected_verdict": "no_contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            }
+          },
+          "pair": {
+            "claim": "Some employees are mentors.",
+            "dataset": "synthetic-smoke",
+            "evidence": "Some employees are not mentors.",
+            "gold": "non_contradiction",
+            "group_id": "prompt-contract:existential-compatible",
+            "id": "prompt-contract:15",
+            "native_label": "no_contradiction",
+            "source_id": "existential-compatible",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "existential-compatible",
+              "expected_verdict": "no_contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            }
+          },
+          "pair": {
+            "claim": "On 12 May the Elm office opens at eight.",
+            "dataset": "synthetic-smoke",
+            "evidence": "On 13 May the Elm office opens at ten.",
+            "gold": "non_contradiction",
+            "group_id": "prompt-contract:different-date",
+            "id": "prompt-contract:18",
+            "native_label": "no_contradiction",
+            "source_id": "different-date",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "different-date",
+              "expected_verdict": "no_contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            }
+          },
+          "pair": {
+            "claim": "The adult ferry ticket costs ten dollars.",
+            "dataset": "synthetic-smoke",
+            "evidence": "The child ferry ticket costs five dollars.",
+            "gold": "non_contradiction",
+            "group_id": "prompt-contract:different-population",
+            "id": "prompt-contract:20",
+            "native_label": "no_contradiction",
+            "source_id": "different-population",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "different-population",
+              "expected_verdict": "no_contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            }
+          },
+          "pair": {
+            "claim": "The observations show a correlation between A and B.",
+            "dataset": "synthetic-smoke",
+            "evidence": "The experiment does not establish that A causes B.",
+            "gold": "non_contradiction",
+            "group_id": "prompt-contract:causal-evidence",
+            "id": "prompt-contract:25",
+            "native_label": "no_contradiction",
+            "source_id": "causal-evidence",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "causal-evidence",
+              "expected_verdict": "no_contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            }
+          },
+          "pair": {
+            "claim": "Project P took at least ten days.",
+            "dataset": "synthetic-smoke",
+            "evidence": "Project P took exactly twelve days.",
+            "gold": "non_contradiction",
+            "group_id": "prompt-contract:minimum-exact",
+            "id": "prompt-contract:27",
+            "native_label": "no_contradiction",
+            "source_id": "minimum-exact",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "minimum-exact",
+              "expected_verdict": "no_contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        }
+      ],
+      "structured_fp": [],
+      "structured_vetoed_tp": [
+        {
+          "after_contradiction": 0.96,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.96,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            }
+          },
+          "pair": {
+            "claim": "Every Opal shipment in August arrived within four days.",
+            "dataset": "synthetic-smoke",
+            "evidence": "An Opal shipment in August took six days to arrive.",
+            "gold": "contradiction",
+            "group_id": "prompt-contract:universal-counterexample",
+            "id": "prompt-contract:02",
+            "native_label": "contradiction",
+            "source_id": "universal-counterexample",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "universal-counterexample",
+              "expected_verdict": "contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0.91,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.91,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 2
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 2
+            }
+          },
+          "pair": {
+            "claim": "The Redwood plan costs exactly USD31 per month on 1 June 2026.",
+            "dataset": "synthetic-smoke",
+            "evidence": "The Redwood plan costs exactly USD45 per month on 1 June 2026.",
+            "gold": "contradiction",
+            "group_id": "prompt-contract:exact-price",
+            "id": "prompt-contract:00",
+            "native_label": "contradiction",
+            "source_id": "exact-price",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "exact-price",
+              "expected_verdict": "contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0.89,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.89,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            }
+          },
+          "pair": {
+            "claim": "The final sample in Report K contains exactly 180 participants.",
+            "dataset": "synthetic-smoke",
+            "evidence": "The final sample in Report K contains exactly 230 participants.",
+            "gold": "contradiction",
+            "group_id": "prompt-contract:exact-sample",
+            "id": "prompt-contract:03",
+            "native_label": "contradiction",
+            "source_id": "exact-sample",
+            "source_metadata": {
+              "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only",
+              "case": "exact-sample",
+              "expected_verdict": "contradiction",
+              "label_status": "AI-authored diagnostic; not independently human-adjudicated"
+            },
+            "split": "synthetic",
+            "variant": "prompt-contract-diagnostic"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        }
+      ]
+    },
+    "scifact-dev": {
+      "rich_tp_lost": [
+        {
+          "after_contradiction": 0.59,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.95,
+          "before_verdict": "contradiction",
+          "candidate_coverage": null,
+          "pair": {
+            "claim": "PD-1 triggering on monocytes reduces IL-10 production by monocytes.",
+            "dataset": "scifact",
+            "evidence": "We describe a new function for PD-1 whereby microbial products inhibit T cell expansion and function by upregulating PD-1 levels and IL-10 production by monocytes after binding of PD-1 by PD-L1.",
+            "gold": "contradiction",
+            "group_id": "scifact:903",
+            "id": "scifact:dev:903:10648422:1",
+            "native_label": "CONTRADICT",
+            "rationale": {
+              "document_id": "10648422",
+              "sentence_indices": [5],
+              "set_index": 1
+            },
+            "source_id": "903",
+            "split": "dev",
+            "variant": "gold-rationale-set"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0.61,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.93,
+          "before_verdict": "contradiction",
+          "candidate_coverage": null,
+          "pair": {
+            "claim": "TNFAIP3 is a tumor suppressor in glioblastoma.",
+            "dataset": "scifact",
+            "evidence": "Although inactivating mutations in A20 in lymphoma suggest A20 can act as a tumor suppressor, similar point mutations have not been identified through glioma genomic sequencing: in fact, our data suggest A20 may function as a tumor enhancer in glioma through promotion of GSC survival.",
+            "gold": "contradiction",
+            "group_id": "scifact:1137",
+            "id": "scifact:dev:1137:33370:1",
+            "native_label": "CONTRADICT",
+            "rationale": {
+              "document_id": "33370",
+              "sentence_indices": [9],
+              "set_index": 1
+            },
+            "source_id": "1137",
+            "split": "dev",
+            "variant": "gold-rationale-set"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0.76,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.93,
+          "before_verdict": "contradiction",
+          "candidate_coverage": null,
+          "pair": {
+            "claim": "Macrolides protect against myocardial infarction.",
+            "dataset": "scifact",
+            "evidence": "No effect was found for previous use of macrolides (primarily erythromycin), sulfonamides, penicillins, or cephalosporins.   \n",
+            "gold": "contradiction",
+            "group_id": "scifact:743",
+            "id": "scifact:dev:743:32159283:0",
+            "native_label": "CONTRADICT",
+            "rationale": {
+              "document_id": "32159283",
+              "sentence_indices": [8],
+              "set_index": 0
+            },
+            "source_id": "743",
+            "split": "dev",
+            "variant": "gold-rationale-set"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0.74,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.91,
+          "before_verdict": "contradiction",
+          "candidate_coverage": null,
+          "pair": {
+            "claim": "Combination nicotine replacement therapies with varenicline or bupropion lead to significantly higher long-term abstinence rates at 52 weeks than varenicline monotherapy.",
+            "dataset": "scifact",
+            "evidence": "At 52 weeks, 30.9% of the combination therapy group achieved prolonged and 36.6% achieved 7-day point-prevalence smoking abstinence compared with 24.5% and 29.2% in varenicline monotherapy (OR, 1.39; 95% CI, 0.93-2.07; P = .11 and OR, 1.40; 95% CI, 0.96-2.05; P = .08, respectively).",
+            "gold": "contradiction",
+            "group_id": "scifact:274",
+            "id": "scifact:dev:274:11614737:0",
+            "native_label": "CONTRADICT",
+            "rationale": {
+              "document_id": "11614737",
+              "sentence_indices": [10],
+              "set_index": 0
+            },
+            "source_id": "274",
+            "split": "dev",
+            "variant": "gold-rationale-set"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0.7,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.89,
+          "before_verdict": "contradiction",
+          "candidate_coverage": null,
+          "pair": {
+            "claim": "Blocking the interaction between TDP-43 and respiratory complex I proteins ND3 and ND6 leads to increased TDP-43-induced neuronal loss.",
+            "dataset": "scifact",
+            "evidence": "The suppression of TDP-43 mitochondrial localization abolishes WT and mutant TDP-43-induced mitochondrial dysfunction and neuronal loss, and improves phenotypes of transgenic mutant TDP-43 mice.",
+            "gold": "contradiction",
+            "group_id": "scifact:180",
+            "id": "scifact:dev:180:16966326:0",
+            "native_label": "CONTRADICT",
+            "rationale": {
+              "document_id": "16966326",
+              "sentence_indices": [5],
+              "set_index": 0
+            },
+            "source_id": "180",
+            "split": "dev",
+            "variant": "gold-rationale-set"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0.76,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.88,
+          "before_verdict": "contradiction",
+          "candidate_coverage": null,
+          "pair": {
+            "claim": "Combination nicotine replacement therapies with varenicline or bupropion lead to significantly higher long-term abstinence rates at 52 weeks than varenicline monotherapy.",
+            "dataset": "scifact",
+            "evidence": "Neither outcome was significantly different at 52 weeks.",
+            "gold": "contradiction",
+            "group_id": "scifact:274",
+            "id": "scifact:dev:274:11614737:1",
+            "native_label": "CONTRADICT",
+            "rationale": {
+              "document_id": "11614737",
+              "sentence_indices": [13],
+              "set_index": 1
+            },
+            "source_id": "274",
+            "split": "dev",
+            "variant": "gold-rationale-set"
+          },
+          "structured_reason": null
+        }
+      ],
+      "semantic_fp": [
+        {
+          "after_contradiction": 0.97,
+          "after_verdict": "contradiction",
+          "before_contradiction": 0.97,
+          "before_verdict": "contradiction",
+          "candidate_coverage": null,
+          "pair": {
+            "claim": "Incidence of heart failure decreased by 10% in women since 1979.",
+            "dataset": "scifact",
+            "evidence": "RESULTS The incidence of heart failure was higher among men (378/100 000 persons; 95% confidence interval [CI], 361-395 for men; 289/100 000 persons; 95% CI, 277-300 for women) and did not change over time among men or women.",
+            "gold": "non_contradiction",
+            "group_id": "scifact:593",
+            "id": "scifact:dev:593:19675911:0",
+            "native_label": "SUPPORT",
+            "rationale": {
+              "document_id": "19675911",
+              "sentence_indices": [5],
+              "set_index": 0
+            },
+            "source_id": "593",
+            "split": "dev",
+            "variant": "gold-rationale-set"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0.81,
+          "after_verdict": "contradiction",
+          "before_contradiction": 0.81,
+          "before_verdict": "contradiction",
+          "candidate_coverage": null,
+          "pair": {
+            "claim": "cSMAC formation enhances weak ligand signalling.",
+            "dataset": "scifact",
+            "evidence": "This conclusion was supported by experiments that showed that enhancing cSMAC formation reduced stimulatory capacity of the weak peptide.",
+            "gold": "non_contradiction",
+            "group_id": "scifact:1385",
+            "id": "scifact:dev:1385:306006:0",
+            "native_label": "SUPPORT",
+            "rationale": {
+              "document_id": "306006",
+              "sentence_indices": [4],
+              "set_index": 0
+            },
+            "source_id": "1385",
+            "split": "dev",
+            "variant": "gold-rationale-set"
+          },
+          "structured_reason": null
+        }
+      ],
+      "structured_fp": [],
+      "structured_vetoed_tp": [
+        {
+          "after_contradiction": 0.96,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.96,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 2,
+              "unsupported_spans": 5
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            }
+          },
+          "pair": {
+            "claim": "Autologous transplantation of mesenchymal stem cells causes a higher rate of opportunistic infections than induction therapy with anti-interleukin-2 receptor antibodies.",
+            "dataset": "scifact",
+            "evidence": "Also, during the 1-year follow-up, combined analysis of MSC-treated groups revealed significantly decreased risk of opportunistic infections than the control group (hazard ratio, 0.42; 95% CI, 0.20-0.85, P=.02)   CONCLUSION Among patients undergoing renal transplant, the use of autologous MSCs compared with anti-IL-2 receptor antibody induction therapy resulted in lower incidence of acute rejection, decreased risk of opportunistic infection, and better estimated renal function at 1 year.   \n",
+            "gold": "contradiction",
+            "group_id": "scifact:142",
+            "id": "scifact:dev:142:10582939:0",
+            "native_label": "CONTRADICT",
+            "rationale": {
+              "document_id": "10582939",
+              "sentence_indices": [12],
+              "set_index": 0
+            },
+            "source_id": "142",
+            "split": "dev",
+            "variant": "gold-rationale-set"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0.93,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.93,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            }
+          },
+          "pair": {
+            "claim": "T regulatory cells (tTregs) lacking αvβ8 are more adept at suppressing pathogenic T-cell responses during active inflammation.",
+            "dataset": "scifact",
+            "evidence": "However, Treg cells lacking expression of integrin αvβ8 were unable to suppress pathogenic T cell responses during active inflammation.",
+            "gold": "contradiction",
+            "group_id": "scifact:1130",
+            "id": "scifact:dev:1130:17997584:0",
+            "native_label": "CONTRADICT",
+            "rationale": {
+              "document_id": "17997584",
+              "sentence_indices": [3],
+              "set_index": 0
+            },
+            "source_id": "1130",
+            "split": "dev",
+            "variant": "gold-rationale-set"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0.92,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.92,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 15,
+              "unsupported_spans": 4
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            }
+          },
+          "pair": {
+            "claim": "Ultrasound guidance significantly raises the number of traumatic procedures when attempting needle insertion.",
+            "dataset": "scifact",
+            "evidence": "Ultrasound imaging reduced the risk of failed procedures (risk ratio 0.21 (95% confidence interval 0.10 to 0.43), P<0.001). Risk reduction was similar when subgroup analysis was performed for lumbar punctures (risk ratio 0.19 (0.07 to 0.56), P=0.002) or epidural catheterisations (0.23 (0.09 to 0.60), P=0.003). Ultrasound imaging also significantly reduced the risk of traumatic procedures (risk ratio 0.27 (0.11 to 0.67), P=0.005), the number of insertion attempts (mean difference -0.44 (-0.64 to -0.24), P<0.001), and the number of needle redirections (mean difference -1.00 (-1.24 to -0.75), P<0.001).   \n",
+            "gold": "contradiction",
+            "group_id": "scifact:1339",
+            "id": "scifact:dev:1339:15482274:0",
+            "native_label": "CONTRADICT",
+            "rationale": {
+              "document_id": "15482274",
+              "sentence_indices": [7, 8, 9],
+              "set_index": 0
+            },
+            "source_id": "1339",
+            "split": "dev",
+            "variant": "gold-rationale-set"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0.92,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.92,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 1,
+              "unsupported_spans": 9
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 3
+            }
+          },
+          "pair": {
+            "claim": "CX3CR1 on the Th2 cells impairs T cell survival",
+            "dataset": "scifact",
+            "evidence": "We found that CX3CR1 signaling promoted T(H)2 survival in the inflamed lungs, and injection of B cell leukemia/lymphoma-2 protein (BCl-2)-transduced CX3CR1-deficient T(H)2 cells into CX3CR1-deficient mice restored asthma.",
+            "gold": "contradiction",
+            "group_id": "scifact:216",
+            "id": "scifact:dev:216:21366394:0",
+            "native_label": "CONTRADICT",
+            "rationale": {
+              "document_id": "21366394",
+              "sentence_indices": [4],
+              "set_index": 0
+            },
+            "source_id": "216",
+            "split": "dev",
+            "variant": "gold-rationale-set"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0.89,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.89,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 2,
+              "unsupported_spans": 1
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            }
+          },
+          "pair": {
+            "claim": "Patients in stable partnerships have a faster progression from HIV to AIDS.",
+            "dataset": "scifact",
+            "evidence": "In an analysis stratified by previous antiretroviral therapy and clinical stage when starting HAART (US Centers for Disease Control and Prevention group A, B, or C), the adjusted hazard ratio for progression to AIDS or death was 0.79 (95% confidence interval 0.63 to 0.98) for participants with a stable partnership compared with those without.",
+            "gold": "contradiction",
+            "group_id": "scifact:922",
+            "id": "scifact:dev:922:17077004:0",
+            "native_label": "CONTRADICT",
+            "rationale": {
+              "document_id": "17077004",
+              "sentence_indices": [7],
+              "set_index": 0
+            },
+            "source_id": "922",
+            "split": "dev",
+            "variant": "gold-rationale-set"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0.88,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.88,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 2
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            }
+          },
+          "pair": {
+            "claim": "ALDH1 expression is associated with better breast cancer outcomes.",
+            "dataset": "scifact",
+            "evidence": "In a series of 577 breast carcinomas, expression of ALDH1 detected by immunostaining correlated with poor prognosis.",
+            "gold": "contradiction",
+            "group_id": "scifact:51",
+            "id": "scifact:dev:51:45638119:0",
+            "native_label": "CONTRADICT",
+            "rationale": {
+              "document_id": "45638119",
+              "sentence_indices": [4],
+              "set_index": 0
+            },
+            "source_id": "51",
+            "split": "dev",
+            "variant": "gold-rationale-set"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        }
+      ]
+    },
+    "vitaminc-combined-dev": {
+      "rich_tp_lost": [
+        {
+          "after_contradiction": 0.67,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.96,
+          "before_verdict": "contradiction",
+          "candidate_coverage": null,
+          "pair": {
+            "claim": "The film has an approval rating of less than 28 % based on more than 65 reviews .",
+            "dataset": "vitaminc",
+            "evidence": "On review aggregator Rotten Tomatoes , the film has an approval rating of 30 % based on 63 reviews , with an average rating of 3.8/10 .",
+            "gold": "contradiction",
+            "group_id": "vitaminc:revision-817401226",
+            "id": "vitaminc:combined:dev:5eb29887c9e77c0008d92dba_3",
+            "native_label": "REFUTES",
+            "source_id": "5eb29887c9e77c0008d92dba_3",
+            "source_metadata": {
+              "case_id": "5eb29887c9e77c0008d92dba",
+              "page": "Bright -LRB-film-RRB-",
+              "wiki_revision_id": "817401226"
+            },
+            "split": "dev",
+            "variant": "combined"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0.77,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.89,
+          "before_verdict": "contradiction",
+          "candidate_coverage": null,
+          "pair": {
+            "claim": "More than 24,500 people have died from coronavirus in Italy , along with more than 50,000 recoveries .",
+            "dataset": "vitaminc",
+            "evidence": "The total of confirmed cases is 181,228 , with 24,114 deaths , and 48,877 recoveries or dismissals .",
+            "gold": "contradiction",
+            "group_id": "vitaminc:revision-952316478",
+            "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccb917_3",
+            "native_label": "REFUTES",
+            "source_id": "5ee393b6c9e77c0008ccb917_3",
+            "source_metadata": {
+              "case_id": "5ee393b6c9e77c0008ccb917",
+              "page": "2020 coronavirus pandemic in Italy",
+              "wiki_revision_id": "952316478"
+            },
+            "split": "dev",
+            "variant": "combined"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0.76,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.85,
+          "before_verdict": "contradiction",
+          "candidate_coverage": null,
+          "pair": {
+            "claim": "There were over 125,000 , coronavirus cases , more than 15,500 deaths and over 21,000 recoveries in Italy , in 2020 .",
+            "dataset": "vitaminc",
+            "evidence": "The total of confirmed cases is 124,632 , with 15,362 deaths , and 20,996 recoveries or dismissals .",
+            "gold": "contradiction",
+            "group_id": "vitaminc:revision-949304814",
+            "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccbd6d_3",
+            "native_label": "REFUTES",
+            "source_id": "5ee393b6c9e77c0008ccbd6d_3",
+            "source_metadata": {
+              "case_id": "5ee393b6c9e77c0008ccbd6d",
+              "page": "2020 coronavirus pandemic in Italy",
+              "wiki_revision_id": "949304814"
+            },
+            "split": "dev",
+            "variant": "combined"
+          },
+          "structured_reason": null
+        }
+      ],
+      "semantic_fp": [
+        {
+          "after_contradiction": 0.95,
+          "after_verdict": "contradiction",
+          "before_contradiction": 0.95,
+          "before_verdict": "contradiction",
+          "candidate_coverage": null,
+          "pair": {
+            "claim": "Less than 1,400,000 COVID-19 tests had been done in Italy before April 21 , 2020 .",
+            "dataset": "vitaminc",
+            "evidence": "By 21 April , Italy had conducted about 1,450,000 tests for the virus .",
+            "gold": "non_contradiction",
+            "group_id": "vitaminc:revision-952316478",
+            "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccb918_2",
+            "native_label": "NOT ENOUGH INFO",
+            "source_id": "5ee393b6c9e77c0008ccb918_2",
+            "source_metadata": {
+              "case_id": "5ee393b6c9e77c0008ccb918",
+              "page": "2020 coronavirus pandemic in Italy",
+              "wiki_revision_id": "952316478"
+            },
+            "split": "dev",
+            "variant": "combined"
+          },
+          "structured_reason": null
+        },
+        {
+          "after_contradiction": 0.88,
+          "after_verdict": "contradiction",
+          "before_contradiction": 0.88,
+          "before_verdict": "contradiction",
+          "candidate_coverage": null,
+          "pair": {
+            "claim": "Coronavirus is airborne for a limited period .",
+            "dataset": "vitaminc",
+            "evidence": "Respiratory droplets may also be produced during breathing out , including when talking , though the virus is not thought to be airborne .",
+            "gold": "non_contradiction",
+            "group_id": "vitaminc:revision-947731797",
+            "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb615_1",
+            "native_label": "NOT ENOUGH INFO",
+            "source_id": "5ee3932dc9e77c0008ccb615_1",
+            "source_metadata": {
+              "case_id": "5ee3932dc9e77c0008ccb615",
+              "page": "2019–20 coronavirus pandemic",
+              "wiki_revision_id": "947731797"
+            },
+            "split": "dev",
+            "variant": "combined"
+          },
+          "structured_reason": null
+        }
+      ],
+      "structured_fp": [
+        {
+          "after_contradiction": 0.82,
+          "after_verdict": "contradiction",
+          "before_contradiction": 0.82,
+          "before_verdict": "contradiction",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            }
+          },
+          "pair": {
+            "claim": "Coronavirus is airborne for a limited period .",
+            "dataset": "vitaminc",
+            "evidence": "Respiratory droplets may also be produced during breathing out , including when talking , though the virus is not thought to be airborne .",
+            "gold": "non_contradiction",
+            "group_id": "vitaminc:revision-947731797",
+            "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb615_1",
+            "native_label": "NOT ENOUGH INFO",
+            "source_id": "5ee3932dc9e77c0008ccb615_1",
+            "source_metadata": {
+              "case_id": "5ee3932dc9e77c0008ccb615",
+              "page": "2019–20 coronavirus pandemic",
+              "wiki_revision_id": "947731797"
+            },
+            "split": "dev",
+            "variant": "combined"
+          },
+          "structured_reason": null
+        }
+      ],
+      "structured_vetoed_tp": [
+        {
+          "after_contradiction": 0.96,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.96,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            }
+          },
+          "pair": {
+            "claim": "Presently , Shady Records has under 9 signed acts .",
+            "dataset": "vitaminc",
+            "evidence": "Since its formation , Shady Records has signed fourteen acts and is currently home to nine .",
+            "gold": "contradiction",
+            "group_id": "vitaminc:revision-849457428",
+            "id": "vitaminc:combined:dev:5ec55991c9e77c000842d9f5_3",
+            "native_label": "REFUTES",
+            "source_id": "5ec55991c9e77c000842d9f5_3",
+            "source_metadata": {
+              "case_id": "5ec55991c9e77c000842d9f5",
+              "page": "Shady Records",
+              "wiki_revision_id": "849457428"
+            },
+            "split": "dev",
+            "variant": "combined"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0.96,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.96,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 2,
+              "unsupported_spans": 2
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 2
+            }
+          },
+          "pair": {
+            "claim": "Less than 4,300 people have died due to the 2019-20 coronavirus .",
+            "dataset": "vitaminc",
+            "evidence": "More than 66,000 people have recovered from the disease and more than 4,300 have died ( 3,200 in China , or ~75 % of total deaths ) .The virus spreads between people in a similar way to influenza , via respiratory droplets from coughing or sneezing .",
+            "gold": "contradiction",
+            "group_id": "vitaminc:revision-945013203",
+            "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca3f3_2",
+            "native_label": "REFUTES",
+            "source_id": "5ee3932bc9e77c0008cca3f3_2",
+            "source_metadata": {
+              "case_id": "5ee3932bc9e77c0008cca3f3",
+              "page": "2019–20 coronavirus pandemic",
+              "wiki_revision_id": "945013203"
+            },
+            "split": "dev",
+            "variant": "combined"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0.96,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.96,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 5
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 1,
+              "unsupported_spans": 3
+            }
+          },
+          "pair": {
+            "claim": "As of March 16 , 2020 , there are fewer than 79,500 COVID-19 recoveries globally .",
+            "dataset": "vitaminc",
+            "evidence": "As of 16 March , more than 186,000 cases of the disease have been reported in over 160 countries and territories , resulting in more than 7,400 deaths and around 80,000 recoveries .",
+            "gold": "contradiction",
+            "group_id": "vitaminc:revision-945992691",
+            "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb4a5_2",
+            "native_label": "REFUTES",
+            "source_id": "5ee3932dc9e77c0008ccb4a5_2",
+            "source_metadata": {
+              "case_id": "5ee3932dc9e77c0008ccb4a5",
+              "page": "2019–20 coronavirus pandemic",
+              "wiki_revision_id": "945992691"
+            },
+            "split": "dev",
+            "variant": "combined"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0.94,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.94,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 0
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            }
+          },
+          "pair": {
+            "claim": "Presently , Shady Records has over 8 signed acts .",
+            "dataset": "vitaminc",
+            "evidence": "Since its formation , Shady Records has signed fourteen acts and is currently home to eight .",
+            "gold": "contradiction",
+            "group_id": "vitaminc:revision-849457428",
+            "id": "vitaminc:combined:dev:5ec55991c9e77c000842d9f5_2",
+            "native_label": "REFUTES",
+            "source_id": "5ec55991c9e77c000842d9f5_2",
+            "source_metadata": {
+              "case_id": "5ec55991c9e77c000842d9f5",
+              "page": "Shady Records",
+              "wiki_revision_id": "849457428"
+            },
+            "split": "dev",
+            "variant": "combined"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0.94,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.94,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 2
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 1,
+              "unsupported_spans": 3
+            }
+          },
+          "pair": {
+            "claim": "Less than 675,000 COVID-19 tests had been performed in Italy before April 5 , 2020 .",
+            "dataset": "vitaminc",
+            "evidence": "By 5 April , Italy had conducted about 691,500 tests for the virus .",
+            "gold": "contradiction",
+            "group_id": "vitaminc:revision-949304814",
+            "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca220_2",
+            "native_label": "REFUTES",
+            "source_id": "5ee3932bc9e77c0008cca220_2",
+            "source_metadata": {
+              "case_id": "5ee3932bc9e77c0008cca220",
+              "page": "2020 coronavirus pandemic in Italy",
+              "wiki_revision_id": "949304814"
+            },
+            "split": "dev",
+            "variant": "combined"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        },
+        {
+          "after_contradiction": 0.94,
+          "after_verdict": "uncertain",
+          "before_contradiction": 0.94,
+          "before_verdict": "uncertain",
+          "candidate_coverage": {
+            "against": {
+              "overflow": false,
+              "recognized_spans": 2,
+              "unsupported_spans": 2
+            },
+            "claim": {
+              "overflow": false,
+              "recognized_spans": 0,
+              "unsupported_spans": 1
+            }
+          },
+          "pair": {
+            "claim": "Less than 4,250 people have died from coronavirus .",
+            "dataset": "vitaminc",
+            "evidence": "More than 66,000 people have recovered from the disease and more than 4,300 have died ( 3,200 in China , or ~75 % of total deaths ) .The virus spreads between people in a similar way to influenza , via respiratory droplets from coughing or sneezing .",
+            "gold": "contradiction",
+            "group_id": "vitaminc:revision-945013203",
+            "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccbff0_2",
+            "native_label": "REFUTES",
+            "source_id": "5ee393b6c9e77c0008ccbff0_2",
+            "source_metadata": {
+              "case_id": "5ee393b6c9e77c0008ccbff0",
+              "page": "2019–20 coronavirus pandemic",
+              "wiki_revision_id": "945013203"
+            },
+            "split": "dev",
+            "variant": "combined"
+          },
+          "structured_reason": "incomplete_candidate_coverage"
+        }
+      ]
+    }
+  },
+  "structured_gate": {
+    "contract-diagnostic": {
+      "candidate_option_count_distribution": {
+        "0": 32
+      },
+      "counterfactual_caveat": "Same mixed-choice outputs only; not an independent semantic query, not a safe deployed policy or recalibrated probability.",
+      "counts": {
+        "candidate_mass_positive_rows": 0,
+        "candidate_top_choice_rows": 0,
+        "contradiction_argmax_rows": 13,
+        "contradiction_threshold_rescued_if_numeric_mass_pooled": 0,
+        "negative/all": 16,
+        "negative/incomplete": 5,
+        "negative/selected/consistent": 10,
+        "negative/selected/different_scope": 5,
+        "negative/selected/unknown": 1,
+        "negative/semantic_without_veto/no_contradiction": 9,
+        "negative/semantic_without_veto/uncertain": 7,
+        "negative/vetoed_negative": 4,
+        "negative/vetoed_positive": 0,
+        "positive/all": 12,
+        "positive/incomplete": 3,
+        "positive/selected/contradiction": 12,
+        "positive/semantic_without_veto/contradiction": 11,
+        "positive/semantic_without_veto/uncertain": 1,
+        "positive/vetoed_negative": 0,
+        "positive/vetoed_positive": 3,
+        "raw_semantic_contradiction_at_least_0_8": 11,
+        "unknown/all": 4,
+        "unknown/incomplete": 1,
+        "unknown/selected/contradiction": 1,
+        "unknown/selected/unknown": 3,
+        "unknown/semantic_without_veto/uncertain": 4,
+        "unknown/vetoed_negative": 0,
+        "unknown/vetoed_positive": 0
+      },
+      "mean_numeric_choice_mass": 0.0,
+      "mean_unknown_mass": 0.16593750000000002,
+      "without_global_veto_counterfactual": {
+        "binary_pairs": 28,
+        "clear_negative_coverage": 0.5625,
+        "fp": 0,
+        "negative": 16,
+        "negative_uncertain": 7,
+        "positive": 12,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 0,
+          "uncertain": 1
+        },
+        "precision": 1.0,
+        "recall": 0.9166666666666666,
+        "tn": 9,
+        "tp": 11
+      }
+    },
+    "scifact-dev": {
+      "candidate_option_count_distribution": {
+        "0": 198,
+        "1": 1
+      },
+      "counterfactual_caveat": "Same mixed-choice outputs only; not an independent semantic query, not a safe deployed policy or recalibrated probability.",
+      "counts": {
+        "candidate_mass_positive_rows": 1,
+        "candidate_top_choice_rows": 0,
+        "contradiction_argmax_rows": 41,
+        "contradiction_threshold_rescued_if_numeric_mass_pooled": 0,
+        "negative/all": 128,
+        "negative/incomplete": 86,
+        "negative/selected/consistent": 100,
+        "negative/selected/contradiction": 2,
+        "negative/selected/unknown": 26,
+        "negative/semantic_without_veto/contradiction": 1,
+        "negative/semantic_without_veto/no_contradiction": 37,
+        "negative/semantic_without_veto/uncertain": 90,
+        "negative/vetoed_negative": 29,
+        "negative/vetoed_positive": 1,
+        "positive/all": 71,
+        "positive/incomplete": 44,
+        "positive/selected/consistent": 3,
+        "positive/selected/contradiction": 39,
+        "positive/selected/different_scope": 1,
+        "positive/selected/unknown": 28,
+        "positive/semantic_without_veto/contradiction": 18,
+        "positive/semantic_without_veto/uncertain": 53,
+        "positive/vetoed_negative": 0,
+        "positive/vetoed_positive": 10,
+        "raw_semantic_contradiction_at_least_0_8": 19
+      },
+      "mean_numeric_choice_mass": 0.0006030150753768844,
+      "mean_unknown_mass": 0.26567839195979903,
+      "without_global_veto_counterfactual": {
+        "binary_pairs": 199,
+        "clear_negative_coverage": 0.2890625,
+        "fp": 1,
+        "negative": 128,
+        "negative_uncertain": 90,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 0,
+          "uncertain": 53
+        },
+        "precision": 0.9473684210526315,
+        "recall": 0.2535211267605634,
+        "tn": 37,
+        "tp": 18
+      }
+    },
+    "vitaminc-combined-dev": {
+      "candidate_option_count_distribution": {
+        "0": 200
+      },
+      "counterfactual_caveat": "Same mixed-choice outputs only; not an independent semantic query, not a safe deployed policy or recalibrated probability.",
+      "counts": {
+        "candidate_mass_positive_rows": 0,
+        "candidate_top_choice_rows": 0,
+        "contradiction_argmax_rows": 42,
+        "contradiction_threshold_rescued_if_numeric_mass_pooled": 0,
+        "negative/all": 129,
+        "negative/incomplete": 108,
+        "negative/selected/consistent": 108,
+        "negative/selected/contradiction": 7,
+        "negative/selected/different_scope": 4,
+        "negative/selected/unknown": 10,
+        "negative/semantic_without_veto/contradiction": 2,
+        "negative/semantic_without_veto/no_contradiction": 58,
+        "negative/semantic_without_veto/uncertain": 69,
+        "negative/vetoed_negative": 48,
+        "negative/vetoed_positive": 1,
+        "positive/all": 71,
+        "positive/incomplete": 62,
+        "positive/selected/consistent": 21,
+        "positive/selected/contradiction": 35,
+        "positive/selected/different_scope": 4,
+        "positive/selected/unknown": 11,
+        "positive/semantic_without_veto/contradiction": 14,
+        "positive/semantic_without_veto/no_contradiction": 3,
+        "positive/semantic_without_veto/uncertain": 54,
+        "positive/vetoed_negative": 3,
+        "positive/vetoed_positive": 14,
+        "raw_semantic_contradiction_at_least_0_8": 16
+      },
+      "mean_numeric_choice_mass": 0.0,
+      "mean_unknown_mass": 0.166,
+      "without_global_veto_counterfactual": {
+        "binary_pairs": 200,
+        "clear_negative_coverage": 0.4496124031007752,
+        "fp": 2,
+        "negative": 129,
+        "negative_uncertain": 69,
+        "positive": 71,
+        "positive_misses": {
+          "error": 0,
+          "excluded": 0,
+          "no_contradiction": 3,
+          "uncertain": 54
+        },
+        "precision": 0.875,
+        "recall": 0.19718309859154928,
+        "tn": 58,
+        "tp": 14
+      }
+    }
+  },
+  "target_resolution": {
+    "maximum_fp_for_95_precision_at_64_to_71_tp": 3,
+    "minimum_clear_tn_scifact_for_85_coverage": 109,
+    "minimum_clear_tn_vitaminc_for_85_coverage": 110,
+    "minimum_tp_for_90_recall": 64,
+    "positives_each_public_dataset": 71
+  }
+}

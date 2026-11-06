@@ -1,0 +1,32 @@
+import {spawn,execFileSync} from 'node:child_process';
+import {readFile,writeFile} from 'node:fs/promises';
+import {parseEnv} from 'node:util';
+import {gzipSync} from 'node:zlib';
+import {sourceFingerprint} from '../iteration/fingerprint.ts';
+const root=process.cwd();
+const sourceFiles={...(await sourceFingerprint(root)),...(await sourceFingerprint(root,'scripts/eval.ts'))};
+const snapshot={};for(const file of Object.keys(sourceFiles))snapshot[file]=await readFile(file,'utf8');
+const freeze={kind:'business-first-pass-runtime-freeze',created_at:new Date().toISOString(),source_files:sourceFiles,entries:['scripts/iterate.ts','scripts/eval.ts'],protocol:'eval/results/business-2026-11-04/protocol.json',model_calls_before_freeze:0};
+await writeFile('eval/reports/business-phase1.sources.json.gz',gzipSync(JSON.stringify(snapshot)),{flag:'wx'});
+await writeFile('eval/reports/business-phase1.freeze.json',JSON.stringify(freeze,null,2)+'\n',{flag:'wx'});
+const envFile=parseEnv(await readFile('.env','utf8'));
+const original=parseEnv(await readFile('../nicia/apps/api/.dev.vars','utf8'));
+let token;try{token=JSON.parse(execFileSync('pnpm',['exec','wrangler','auth','token','--profile','nicia-ai','--json'],{encoding:'utf8',stdio:['ignore','pipe','pipe']})).token;}catch{throw new Error('Named Cloudflare profile credential unavailable');}
+const env={...process.env,TYPESAFE_API_KEY:envFile.TYPESAFE_API_KEY??envFile.TYPESAFE_AI_KEY,OPENROUTER_API_KEY:original.OPENROUTER_API_KEY,CLOUDFLARE_ACCOUNT_ID:'42de207988eb23793aa308feb01dc9c7',CLOUDFLARE_API_TOKEN:token};
+if(!env.TYPESAFE_API_KEY||!env.OPENROUTER_API_KEY||!token)throw new Error('Required benchmark credential unavailable');
+const commands=[];
+for(const[name,manifest,n]of [['contractnli','eval/data/business/contractnli-dev-200.json',199],['mnli','eval/data/business/mnli-nonfiction-dev-200.json',200]]){
+ for(const backend of ['jev','clef','decider'])commands.push({runtime:'node',args:['scripts/eval.ts','--manifest',manifest,'--backend',backend,'--profile','balanced-v1','--out',`eval/reports/business-${name}-${backend}-balanced`,'--live','--max-calls',String(n),'--cost-per-call-usd','.001','--max-spend-usd','.201']});
+ for(const[backend,profile]of [['jev','literal-contract'],['decider','evidence-refutation']])commands.push({runtime:'node',args:['scripts/iterate.ts','--manifest',manifest,'--backend',backend,'--profiles',profile,'--purpose','regression','--out',`eval/reports/business-${name}-${backend}-${profile}`,'--live','--max-calls',String(n),'--cost-per-call-usd','.001','--max-spend-usd','.201']});
+ commands.push({runtime:'python',args:['eval/deberta.py','--manifest',manifest,'--out',`eval/reports/business-${name}-deberta.predictions.jsonl`,'--max-pairs','200','--threads','4']});
+ commands.push({runtime:'node',args:['scripts/eval.ts','--manifest',manifest,'--backend','replay','--predictions',`eval/reports/business-${name}-deberta.predictions.jsonl`,'--out',`eval/reports/business-${name}-deberta`]});
+}
+for(const {runtime,args}of commands){
+ const now={...(await sourceFingerprint(root)),...(await sourceFingerprint(root,'scripts/eval.ts'))};
+ if(JSON.stringify(now)!==JSON.stringify(sourceFiles))throw new Error('Business runtime changed; no further calls dispatched');
+ await new Promise((resolve,reject)=>{const child=spawn(runtime==='python'?'eval/data/venv-deberta/bin/python':process.execPath,runtime==='python'?args:['--import=tsx',...args],{env:runtime==='python'?{...process.env,HF_HUB_OFFLINE:'1',TRANSFORMERS_OFFLINE:'1'}:env,stdio:['ignore','pipe','pipe']});child.stdout.on('data',()=>{});child.stderr.on('data',()=>{});child.on('error',()=>reject(new Error('Business baseline phase failed')));child.on('exit',code=>code===0?resolve():reject(new Error(`Business baseline stopped: ${args[args.indexOf('--out')+1]}`)));});
+ console.log('Completed',args[args.indexOf('--out')+1]);
+}
+const after={...(await sourceFingerprint(root)),...(await sourceFingerprint(root,'scripts/eval.ts'))};
+if(JSON.stringify(after)!==JSON.stringify(sourceFiles))throw new Error('Business runtime changed during execution');
+await writeFile('eval/reports/business-phase1-completion.json',JSON.stringify({source_stable:true,completed_at:new Date().toISOString(),planned_hosted_calls:1995,stages:commands.length},null,2)+'\n',{flag:'wx'});

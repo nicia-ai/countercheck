@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-11-03T22:15:44.392144+00:00",
+  "purpose": "Check repeatability after initial discovery of18/399 archived-vs-fresh baseline verdict differences with identical payload hashes; selected after discovery, not held-out evidence",
+  "profiles": [
+    "baseline",
+    "rich-criteria",
+    "rich-criteria-examples"
+  ],
+  "additional_runs": 2,
+  "calls_per_run": 1293,
+  "global_concurrency_across_runs": 2,
+  "per_run_concurrency": 1,
+  "prompt_and_threshold_changes": false,
+  "profile_sha256": "40edc4582663719a46f4f124cb461279f2904a8da52f54d9d0f58cdf3ed0f7bd",
+  "primary_protocol_sha256": "d896850993214ce63a6bb79921cb9ff0c976779a46a9482a031eb486297745c2",
+  "pooling": "Keep runs separate; repeated observations are not new independent labeled cases. Request IDs repeat across runs, so usage/cost must be aggregated with run identity."
+}

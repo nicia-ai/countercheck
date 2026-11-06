@@ -1,0 +1,43 @@
+{
+  "manifest_sha256": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+  "model": null,
+  "backend": "service",
+  "expected_pair_observations": 10,
+  "selected_pair_ids": [
+    "scifact:dev:100:4381486:0",
+    "scifact:dev:1020:9433958:0",
+    "scifact:dev:1107:20532591:0",
+    "scifact:dev:216:21366394:0",
+    "scifact:dev:513:13230773:0",
+    "scifact:dev:569:23460562:0",
+    "scifact:dev:613:9638032:0",
+    "scifact:dev:619:20888849:0",
+    "scifact:dev:674:2095573:0",
+    "scifact:dev:880:8426046:0"
+  ],
+  "source_protocol": {
+    "passes": 1,
+    "presentation": "original",
+    "batch_size": 1,
+    "concurrency": 1,
+    "timeout_ms": 6000,
+    "timeout_policy": "route_default",
+    "timeout_scope": "client_upload_network_and_server_total",
+    "transport_route": "http_service",
+    "production_deadline_equivalence": "server_enforced",
+    "service_deadline_budgets": {
+      "body_read_ms": 2000,
+      "application_ms": 3000,
+      "provider_within_application_ms": 2500,
+      "default_network_margin_ms": 1000
+    },
+    "packing": {
+      "method": "fixed_identical_claim_groups",
+      "requested_max_comparisons": 1,
+      "assessment": "pair_isolation",
+      "envelope_failure": "exclude_entire_submitted_batch",
+      "automatic_repacking": false
+    }
+  },
+  "checkpoint_semantics": "Incremental completed batches; exact replay coverage required; no automatic resume or retry"
+}

@@ -1,0 +1,25 @@
+node_modules
+public/dashboard.js
+public/dashboard.css
+dist
+.wrangler
+eval/data
+eval/reports
+coverage
+eval/reports
+pnpm-lock.yaml
+eval/results/**/*.json
+# Measured artifacts are immutable; human READMEs remain formatted.
+eval/results/**/*.report.md
+eval/results/**/*.predictions.jsonl
+eval/results/**/*.manifest
+# Upstream license and attribution bytes are preserved verbatim.
+eval/results/**/licenses/**
+
+# Private publication-review backups are not source files.
+.publication-private
+
+# Deterministically generated analysis README is hash-bound to its generator.
+eval/results/hosted-models-analysis-2026-11-05/README.md
+eval/results/separate-calibration-2026-11-05/README.md
+eval/results/calibration-followup-2026-11-06/README.md

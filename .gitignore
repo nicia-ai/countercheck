@@ -1,0 +1,22 @@
+node_modules/
+dist/
+coverage/
+.wrangler/
+.direnv/
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+!.dev.vars.example
+eval/reports/
+eval/data/
+*.log
+__pycache__/
+*.py[cod]
+public/dashboard.js
+public/dashboard.css
+
+# Private release-review backups and workstation/tool state.
+/.publication-private/
+/.impeccable/
+.DS_Store

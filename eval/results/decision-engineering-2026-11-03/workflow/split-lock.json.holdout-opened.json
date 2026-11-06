@@ -1,0 +1,8 @@
+{
+  "kind": "holdout-opened-for-evaluation",
+  "freeze_sha256": "24317b610a584a98fbb24453718c6839a9465492ad4ffb2efb3cda171ee7b959",
+  "calibration_sha256": "b4328159bb7cf2569102b255f32933c837c44384ec3e30ec58dc4259776c5ed4",
+  "checkpoint": "/Users/paul/orgs/nicia/countercheck/eval/reports/decision-engineering-workflow-holdout.predictions.jsonl",
+  "opened_at": "2026-11-04T02:20:36.333Z",
+  "note": "A second opening/tuning is forbidden by workflow; files are not cryptographically access-controlled."
+}

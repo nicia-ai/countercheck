@@ -1,0 +1,12 @@
+{
+  "protocol.json": "5746b97195b1af948abb8a626dab316dd44ba311d6658ba803079421117097b0",
+  "execution-sources.json.gz": "ad860cece85040f8734896a27624c4b9955ee220ebaf43ad9ff3156c310e7ce6",
+  "analysis-sources.json.gz": "510d58a212946f2c9588c712c699784334624ba69a371561357363637ab25554",
+  "analysis-provenance.json": "d83eb5878b05589af6e93d71625c9d61f3feae99e4b56f295274c5bf05ab13a1",
+  "catalog-observation.json": "c81c3ff4c47c30b24929a35f752180ed943df708bfbbe122e9f6c7accb74c2ee",
+  "data-provenance.json": "b3cab2b1c90248a546bc099d59c345fcac62cd3dfb4a4afc0077ab0e28a2dff1",
+  "summary.json": "591366966e98b03e1681d87ecaf3ec9d46b4734ba6797a0dcb1a732d257fbecd",
+  "observations.redacted.jsonl.gz": "5df7ba22f10cabfc04ba55aaa765d770b50f4700766f4e65ebba545c3539a516",
+  "original-artifact-sha256.json": "c8c2dea7f4825a8f407fc4627e87f483e53da531bec16916f8b855b60de4373b",
+  "README.md": "45152227cbae10c596f63d80412a6bad356cfeb9315ae8e44c8b4a7dd8b782da"
+}

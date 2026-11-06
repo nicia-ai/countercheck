@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "adapter_version": "countercheck-public-pairs-v1",
+  "purpose": "synthetic-smoke",
+  "sources": [
+    {
+      "name": "hand-authored synthetic fixtures",
+      "url": "local:eval/fixtures/synthetic-smoke.json",
+      "revision": "countercheck-synthetic-smoke-v1",
+      "sha256": "f66c32d685bc96031145d407f505537c2ef3c510e2f456aa6b2314d981c15bf7",
+      "license": "CC0-1.0 (hand-authored synthetic fixture text only)",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  ],
+  "sampling": {
+    "seed": "countercheck-v1",
+    "max_pairs": 8,
+    "method": "entire explicitly synthetic fixture; not public benchmark data",
+    "available_pairs": 8,
+    "selected_pairs": 8,
+    "excluded_unlabeled": 0,
+    "strata": {
+      "synthetic-smoke/hand-authored-smoke/synthetic-conflict": 1,
+      "synthetic-smoke/hand-authored-smoke/synthetic-restatement": 2,
+      "synthetic-smoke/hand-authored-smoke/synthetic-scope": 1,
+      "synthetic-smoke/hand-authored-smoke/synthetic-unrelated": 1,
+      "synthetic-smoke/hand-authored-smoke/synthetic-numeric": 1,
+      "synthetic-smoke/hand-authored-smoke/synthetic-time": 1,
+      "synthetic-smoke/hand-authored-smoke/synthetic-guidance": 1
+    }
+  },
+  "pairs": [
+    {
+      "id": "synthetic:0",
+      "dataset": "synthetic-smoke",
+      "variant": "hand-authored-smoke",
+      "split": "synthetic",
+      "source_id": "smoke-0",
+      "group_id": "synthetic:40378d2e424285425c0c",
+      "claim": "The Starter plan includes SSO.",
+      "evidence": "The Starter plan does not include SSO.",
+      "gold": "contradiction",
+      "native_label": "synthetic-conflict"
+    },
+    {
+      "id": "synthetic:1",
+      "dataset": "synthetic-smoke",
+      "variant": "hand-authored-smoke",
+      "split": "synthetic",
+      "source_id": "smoke-1",
+      "group_id": "synthetic:40378d2e424285425c0c",
+      "claim": "The Starter plan includes SSO.",
+      "evidence": "The Starter plan includes single sign-on.",
+      "gold": "non_contradiction",
+      "native_label": "synthetic-restatement"
+    },
+    {
+      "id": "synthetic:2",
+      "dataset": "synthetic-smoke",
+      "variant": "hand-authored-smoke",
+      "split": "synthetic",
+      "source_id": "smoke-2",
+      "group_id": "synthetic:40378d2e424285425c0c",
+      "claim": "The Starter plan includes SSO.",
+      "evidence": "The Enterprise plan excludes SSO.",
+      "gold": "non_contradiction",
+      "native_label": "synthetic-scope"
+    },
+    {
+      "id": "synthetic:3",
+      "dataset": "synthetic-smoke",
+      "variant": "hand-authored-smoke",
+      "split": "synthetic",
+      "source_id": "smoke-3",
+      "group_id": "synthetic:40378d2e424285425c0c",
+      "claim": "The Starter plan includes SSO.",
+      "evidence": "The office opens at nine.",
+      "gold": "non_contradiction",
+      "native_label": "synthetic-unrelated"
+    },
+    {
+      "id": "synthetic:4",
+      "dataset": "synthetic-smoke",
+      "variant": "hand-authored-smoke",
+      "split": "synthetic",
+      "source_id": "smoke-4",
+      "group_id": "synthetic:9f2942d0669e980ab989",
+      "claim": "Standard costs 49 dollars per month.",
+      "evidence": "Standard costs 79 dollars per month.",
+      "gold": "contradiction",
+      "native_label": "synthetic-numeric"
+    },
+    {
+      "id": "synthetic:5",
+      "dataset": "synthetic-smoke",
+      "variant": "hand-authored-smoke",
+      "split": "synthetic",
+      "source_id": "smoke-5",
+      "group_id": "synthetic:de0e5945ef617e5121ba",
+      "claim": "January Standard costs 49 dollars.",
+      "evidence": "June Standard costs 79 dollars.",
+      "gold": "non_contradiction",
+      "native_label": "synthetic-time"
+    },
+    {
+      "id": "synthetic:6",
+      "dataset": "synthetic-smoke",
+      "variant": "hand-authored-smoke",
+      "split": "synthetic",
+      "source_id": "smoke-6",
+      "group_id": "synthetic:d04775438415da7e0abd",
+      "claim": "All approved invoices must be paid.",
+      "evidence": "No approved invoices may be paid.",
+      "gold": "contradiction",
+      "native_label": "synthetic-guidance"
+    },
+    {
+      "id": "synthetic:7",
+      "dataset": "synthetic-smoke",
+      "variant": "hand-authored-smoke",
+      "split": "synthetic",
+      "source_id": "smoke-7",
+      "group_id": "synthetic:1f909f0d074d94691d3b",
+      "claim": "The office is closed on Sundays.",
+      "evidence": "The office closes on Sundays.",
+      "gold": "non_contradiction",
+      "native_label": "synthetic-restatement"
+    }
+  ]
+}

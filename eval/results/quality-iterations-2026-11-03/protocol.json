@@ -1,0 +1,28 @@
+{
+  "kind": "pre-inference-iteration-protocol",
+  "model": "jev-1.14.0",
+  "initial_candidates": [
+    "rich-control",
+    "local-mini",
+    "literal-contract",
+    "nli-three-way",
+    "noul-conflict",
+    "semantic-numeric"
+  ],
+  "selection": "screen on disjoint original-training source groups, fit thresholds on original-training fit groups; independent validation after freeze; final locked cohort once only; previously seen399dev and32synthetics diagnostic only",
+  "targets": {
+    "precision": 0.95,
+    "recall": 0.9,
+    "clear_negative_coverage": 0.85
+  },
+  "native_and_contract": "separate; no native relabeling; no synthetic human qualification",
+  "max_total_live_requests": 10000,
+  "max_concurrency": 2,
+  "per_request_deadline_ms": 3000,
+  "retries": 0,
+  "per_call_reservation_usd": 0.001,
+  "max_reserved_usd": 10,
+  "planning": "each run writes compiler/evaluator source snapshots and frozeninput/sourcehashes BEFORE dispatch; incrementalcompletedcall checkpoints; later arms and selection recorded before runs",
+  "production": "baseline and deployment unchanged; no automatic qualification",
+  "test_access": "locked labels and source groups never tuned; insufficient targets or errors remain visible; repeated samepairs not independentlabels"
+}

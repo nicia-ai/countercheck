@@ -1,0 +1,61 @@
+{
+  "manifest_sha256": "4906005f4843b97a1cc6f256f62467cced5183965a0bafa9d713ee0099326311",
+  "freeze_sha256": "fa4b6530826cab0fe0b54f4517ddc1ef4b9f838e396010d6fb15473766cd3e5f",
+  "protocol": {
+    "source_files": {
+      "eval/args.ts": "a7d16f541e68050b8428878365b2d3e6c46d2382f62f2c72aa2b225a0d9fdad2",
+      "eval/checkpoint.ts": "bbecf6675bcf112582331f7bb816a2ebb171bc98c5d7a9691ae0e36e937c31e4",
+      "eval/iteration/access.ts": "5d941f185d36942b094bac86f8faa944f00d69e9984f63fae9bc1cef191ca94e",
+      "eval/iteration/backends.ts": "952a3eaded425d380ecb25bfb44076e6d94ad8cbd6cfdd0ad648522a28051f74",
+      "eval/iteration/bundle.ts": "23c7e3124c489ad5c104288a843af5a8361c3e7138f1b42e73b18090ec6a16ce",
+      "eval/iteration/bundled-runner.ts": "20013dbdaa46e226a42ee2eee8204f49370689c3d19dc115ab33e0d2087a36e3",
+      "eval/iteration/calibrate.ts": "06f50da3b1a7b8611e12a143dde1fe452075f03f1cd80ff00e97dffdb54202a1",
+      "eval/iteration/fingerprint.ts": "9379943863d979671e2cdf3ea7febe05f5f0f47949cd5d1485f3fea552c86876",
+      "eval/iteration/fusion.ts": "ccb65977b30125a9c62b6267c918a9e35ec077a843b1421f345f6e854c11dea9",
+      "eval/iteration/profiles.ts": "fe5db767121ad77d072ebbf73e60acac542a186d30ce807be6435efcc20bee0e",
+      "eval/iteration/round-two.ts": "f92f0a566b16a9caf68c58d0a2d19e1a92687130274a4fe2b937436d220b165a",
+      "eval/iteration/runner.ts": "94cbe5855eaf7a1965b820d32ad709ef7f0c01e7ff2f39c250d268499105ce18",
+      "eval/metrics.ts": "fd9a1fdde154e24c48e056943a719550bd0d552c7bac42e85e2667fbbec144b5",
+      "eval/prompt-ablation/profiles.ts": "40edc4582663719a46f4f124cb461279f2904a8da52f54d9d0f58cdf3ed0f7bd",
+      "eval/types.ts": "8e22eeac37d00c1087334d3197f4f78e966020db0730c1f3bee392cc020f034b",
+      "package.json": "11852c6116fbda0c262d94451b1c7cc50a29c27ac550cff71c2cd5da7d529bf4",
+      "pnpm-lock.yaml": "098673e8330444f3e5da8c7d004fe155cfb2d49312afc1cc051e404b75890f4a",
+      "scripts/iterate.ts": "49ed935aa59bada7f6ba71955d34bccea5ce4c4dc3350a842394acad47607382",
+      "src/contracts/errors.ts": "02a7ead3f40517159a9c43cd57bfcebb0315a33ac4ac8fe960b184b3530e44b0",
+      "src/contracts/index.ts": "3b3848305bde2c6f63296264b319e2f7282e7a843830522a39d2f5d7524bcdb4",
+      "src/contracts/limits.ts": "a3f0d87dded41a587a6d6d78aaafcca761615e0fda5aa77a4d7b96f6b59f856c",
+      "src/http/deadline.ts": "498633081b578faafc9df35ef3f488c7d2fefb75b58f58ba845cb08ceb9d7d88",
+      "src/json.ts": "fc114686e914b7ddb209e86c6d8a9cdb7fa6dc39a91f1f9d5de72fad42a6951d",
+      "src/kernel/experimental.ts": "8366bd36e422201ad92fb72a6a9b34ed0a1a96266d880c886199fc3ad677d863",
+      "src/kernel/index.ts": "6a48cdf9ff08584925e89f30224b740c888b6984bc1071269a8d0adae04b5a64",
+      "src/kernel/values.ts": "caf4955363fbbb4d55080324da80b8c5911560fc0b84f25f65acb8960f8d508e",
+      "src/providers/clef.ts": "76795db0e7430998b18ec7a32e0c97d77ac7c206169aa41a5c76bee2c177001f",
+      "src/providers/decider.ts": "fe06c870da5e7ff49b6ddaa23155947b5fca2fe375d66d996bbb452b66125bd7",
+      "src/providers/jev.ts": "1320d720abf513fa754e80f4d5388ebfa74f8d4607c87ff80b7502b088a8838e",
+      "src/providers/response.ts": "1af04450b37321d166d86b4b5ae9f232c53d3ef8f9add53a0dbf61edae77b1eb",
+      "src/providers/transport.ts": "c06688e9d00a8fcc4611aca9e5852e26501918228e2f95cddab8832db6fe1aab"
+    },
+    "execution": {
+      "compiler_mode": "isolated",
+      "backend": "decider",
+      "model": "perplexity/pplx-decider-v1.2"
+    },
+    "manifest_sha256": "4906005f4843b97a1cc6f256f62467cced5183965a0bafa9d713ee0099326311",
+    "profiles": [
+      "evidence-refutation"
+    ],
+    "passes": 1,
+    "purpose": "regression",
+    "iteration_protocol": null,
+    "locked_policy_kind": null,
+    "locked_policy_sha256": null,
+    "planned_calls": 199,
+    "max_concurrency": 2,
+    "deadline_ms": 3000,
+    "retries": 0,
+    "per_call_reservation_usd": 0.001,
+    "max_reserved_usd": 0.199,
+    "qualification": "not_assessed",
+    "created_at": "2026-11-04T18:22:01.403Z"
+  }
+}

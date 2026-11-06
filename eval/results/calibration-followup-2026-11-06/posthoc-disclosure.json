@@ -1,0 +1,9 @@
+{
+  "primary_chosen_after_original_zero_budget_validation_seen": true,
+  "primary_basis": "Owner-selected per-model shipped-fit false-clear counts; not a choice of the best sensitivity-grid validation result",
+  "negative_parameters_fitted_on_original_fit_only": true,
+  "positive_thresholds_unchanged": true,
+  "protocol_field_clarification": "validation_selects_budget=false records absence of an automated validation-grid winner, not independence of the human choice of primary criterion from the previously observed validation results",
+  "original_zero_budget_results_preserved": true,
+  "qualification": "Exploratory post-hoc sensitivity; not confirmatory validation"
+}

@@ -1,0 +1,38 @@
+{
+  "manifest_sha256": "ab4f24fadb14b48d939d7cbd0658e555f0e25af2cf8b11b8ecb533328083c417",
+  "model": "clef",
+  "backend": "clef",
+  "expected_pair_observations": 10,
+  "selected_pair_ids": [
+    "scifact:dev:100:4381486:0",
+    "scifact:dev:1020:9433958:0",
+    "scifact:dev:1107:20532591:0",
+    "scifact:dev:216:21366394:0",
+    "scifact:dev:513:13230773:0",
+    "scifact:dev:569:23460562:0",
+    "scifact:dev:613:9638032:0",
+    "scifact:dev:619:20888849:0",
+    "scifact:dev:674:2095573:0",
+    "scifact:dev:880:8426046:0"
+  ],
+  "source_protocol": {
+    "passes": 1,
+    "presentation": "original",
+    "batch_size": 1,
+    "concurrency": 1,
+    "timeout_ms": 3000,
+    "timeout_policy": "route_default",
+    "timeout_scope": "kernel_compilation_and_provider_total",
+    "transport_route": "kernel_to_provider",
+    "production_deadline_equivalence": "not_equivalent_provider_has_kernel_budget",
+    "service_deadline_budgets": null,
+    "packing": {
+      "method": "fixed_identical_claim_groups",
+      "requested_max_comparisons": 1,
+      "assessment": "pair_isolation",
+      "envelope_failure": "exclude_entire_submitted_batch",
+      "automatic_repacking": false
+    }
+  },
+  "checkpoint_semantics": "Incremental completed batches; exact replay coverage required; no automatic resume or retry"
+}

@@ -1,0 +1,26 @@
+# jev-1.14.0: ONLY after budget approval and verification of protocol/freeze hashes
+pnpm eval:run --backend hosted --model jev-1.14.0 --manifest eval/data/calibration-study-2026-11-05/fit.json --profile balanced-v1 --live --max-calls 2512 --cost-per-call-usd .002 --max-spend-usd 5.024 --out eval/reports/calibration-fit-jev-1-14-0
+
+# clef: ONLY after budget approval and verification of protocol/freeze hashes
+pnpm eval:run --backend hosted --model clef --manifest eval/data/calibration-study-2026-11-05/fit.json --profile balanced-v1 --live --max-calls 2512 --cost-per-call-usd .002 --max-spend-usd 5.024 --out eval/reports/calibration-fit-clef
+
+# clef-flash: ONLY after budget approval and verification of protocol/freeze hashes
+pnpm eval:run --backend hosted --model clef-flash --manifest eval/data/calibration-study-2026-11-05/fit.json --profile balanced-v1 --live --max-calls 2512 --cost-per-call-usd .002 --max-spend-usd 5.024 --out eval/reports/calibration-fit-clef-flash
+
+# clef-omni: ONLY after budget approval and verification of protocol/freeze hashes
+pnpm eval:run --backend hosted --model clef-omni --manifest eval/data/calibration-study-2026-11-05/fit.json --profile balanced-v1 --live --max-calls 2512 --cost-per-call-usd .002 --max-spend-usd 5.024 --out eval/reports/calibration-fit-clef-omni
+
+# gpt-6-luna: ONLY after budget approval and verification of protocol/freeze hashes
+pnpm eval:run --backend hosted --model gpt-6-luna --manifest eval/data/calibration-study-2026-11-05/fit.json --profile balanced-v1 --live --max-calls 2512 --cost-per-call-usd .002 --max-spend-usd 5.024 --out eval/reports/calibration-fit-gpt-6-luna
+
+# microsoft/microsoft-decision-1: ONLY after budget approval and verification of protocol/freeze hashes
+pnpm eval:run --backend hosted --model microsoft/microsoft-decision-1 --manifest eval/data/calibration-study-2026-11-05/fit.json --profile balanced-v1 --live --max-calls 2512 --cost-per-call-usd .002 --max-spend-usd 5.024 --out eval/reports/calibration-fit-microsoft-microsoft-decision-1
+
+# perplexity/pplx-decider-v1.2: ONLY after budget approval and verification of protocol/freeze hashes
+pnpm eval:run --backend hosted --model perplexity/pplx-decider-v1.2 --manifest eval/data/calibration-study-2026-11-05/fit.json --profile balanced-v1 --live --max-calls 2512 --cost-per-call-usd .002 --max-spend-usd 5.024 --out eval/reports/calibration-fit-perplexity-pplx-decider-v1-2
+
+# perplexity/pplx-decider-flash-v1.2: ONLY after budget approval and verification of protocol/freeze hashes
+pnpm eval:run --backend hosted --model perplexity/pplx-decider-flash-v1.2 --manifest eval/data/calibration-study-2026-11-05/fit.json --profile balanced-v1 --live --max-calls 2512 --cost-per-call-usd .002 --max-spend-usd 5.024 --out eval/reports/calibration-fit-perplexity-pplx-decider-flash-v1-2
+
+# fastino/GLiDE: ONLY after budget approval and verification of protocol/freeze hashes
+pnpm eval:run --backend fastino --manifest eval/data/calibration-study-2026-11-05/fit.json --profile balanced-v1 --live --max-calls 2512 --cost-per-call-usd .002 --max-spend-usd 5.024 --out eval/reports/calibration-fit-fastino-GLiDE

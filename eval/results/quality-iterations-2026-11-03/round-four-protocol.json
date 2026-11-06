@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "round": 4,
+  "recorded_before_inference": true,
+  "reason": "Increase training coverage for the strongest native-label challenger before adding more heads; scalar Decider refutation outperformed high-dimensional fusion on reused development validation.",
+  "candidate": {
+    "backend": "decider",
+    "model": "perplexity/pplx-decider-v1.2",
+    "compiler_mode": "bundle",
+    "profiles": ["nli-three-way", "evidence-refutation"],
+    "prompt_changes": false
+  },
+  "data": {
+    "fit_target_pairs": 800,
+    "fit_preserves_original_400": true,
+    "additional_selection": "Label-blind whole source/content components from cached native public train; exclude full public dev and original validation/locked components; preserve labels and original split.",
+    "validation_pairs": 200,
+    "validation_status": "Previously used development monitoring; not an unseen release qualification set.",
+    "locked_holdout": "Unopened unless a frozen candidate meets all development targets and contract checks. No current candidate qualifies."
+  },
+  "composition": {
+    "primary": "Train-only per-head scalar thresholds with actual composition and zero training false clears; report both heads as one predeclared comparison family.",
+    "secondary": "L2 logistic group-CV fusion using the same two heads; no additional nonlinear model or validation threshold selection.",
+    "targets": {"precision": 0.95, "recall": 0.9, "clear_negative_coverage": 0.85}
+  },
+  "execution": {
+    "planned_new_calls": 1000,
+    "completed_prior_calls": 9797,
+    "projected_total_calls": 10797,
+    "amended_global_call_cap": 11000,
+    "previous_call_cap": 10000,
+    "reserved_usd_per_call": 0.001,
+    "amended_reservation_cap_usd": 11,
+    "measured_billed_cost": null,
+    "global_concurrency": 2,
+    "orchestration": "One live CLI at a time; await completion before the next.",
+    "timeout_ms": 3000,
+    "retries": 0,
+    "fallbacks": false
+  },
+  "promotion": "None automatic; retain balanced-v1 and report unmet targets without lowering them."
+}

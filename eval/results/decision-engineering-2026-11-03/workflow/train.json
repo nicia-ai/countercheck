@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "kind": "decision-engineering-split",
+  "role": "train",
+  "seed": "engineering-2026-11-03",
+  "sources": [
+    {
+      "name": "Invented workflow fixture; SHA256 of JSON.stringify(pairs)",
+      "url": "local:eval/engineering/synthetic-workflow.json",
+      "revision": "synthetic-workflow-only-v1",
+      "sha256": "177067fd0805d3ca9a58754bca352bc61ac949e5e35a8e4db8fe42b691fb10ce",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  ],
+  "cases": [
+    {
+      "pair": {
+        "id": "workflow:2:0",
+        "dataset": "synthetic-smoke",
+        "variant": "synthetic-workflow-only-v1",
+        "split": "synthetic",
+        "source_id": "invented-price-Cedar",
+        "group_id": "invented-organization-Cedar",
+        "claim": "The invented Cedar plan costs exactly 20 USD monthly.",
+        "evidence": "The invented Cedar plan costs exactly 35 USD monthly.",
+        "gold": "contradiction",
+        "native_label": "SYNTHETIC_CONTRADICTION",
+        "source_metadata": {
+          "author": "AI-authored transport fixture, not human adjudication",
+          "intended_use": "Executable fake workflow only; no performance or release gate claims"
+        }
+      },
+      "content_sha256": "5cc15abbb812e884b93b7ab6a6f27bd562e9464670904ae40f31dec4cc984253",
+      "group_sha256": "aadbbce1cbe688ff59e7f1b03c6dc4ee4944a6e88101df032131ea49a805c78f",
+      "source_manifest_sha256": "fb7c511712a4573d6508553cf38221b84bc04e21a31cd9c72265648c6b3de8e0",
+      "native_label": {
+        "label": "SYNTHETIC_CONTRADICTION",
+        "binary_gold": "contradiction",
+        "provenance": "synthetic-fixture"
+      },
+      "service_contract": null,
+      "calibration_fold": null
+    },
+    {
+      "pair": {
+        "id": "workflow:2:1",
+        "dataset": "synthetic-smoke",
+        "variant": "synthetic-workflow-only-v1",
+        "split": "synthetic",
+        "source_id": "invented-price-Cedar",
+        "group_id": "invented-organization-Cedar",
+        "claim": "The invented Cedar plan costs exactly 20 USD monthly.",
+        "evidence": "The invented Cedar plan costs exactly 20 USD monthly.",
+        "gold": "non_contradiction",
+        "native_label": "SYNTHETIC_CONSISTENT",
+        "source_metadata": {
+          "author": "AI-authored transport fixture, not human adjudication",
+          "intended_use": "Executable fake workflow only; no performance or release gate claims"
+        }
+      },
+      "content_sha256": "9039f7e5a90e83c398c595a47064f9cdba22bab87c0bc8454afdd10a9440b950",
+      "group_sha256": "aadbbce1cbe688ff59e7f1b03c6dc4ee4944a6e88101df032131ea49a805c78f",
+      "source_manifest_sha256": "fb7c511712a4573d6508553cf38221b84bc04e21a31cd9c72265648c6b3de8e0",
+      "native_label": {
+        "label": "SYNTHETIC_CONSISTENT",
+        "binary_gold": "non_contradiction",
+        "provenance": "synthetic-fixture"
+      },
+      "service_contract": null,
+      "calibration_fold": null
+    },
+    {
+      "pair": {
+        "id": "workflow:3:0",
+        "dataset": "synthetic-smoke",
+        "variant": "synthetic-workflow-only-v1",
+        "split": "synthetic",
+        "source_id": "invented-price-Dune",
+        "group_id": "invented-organization-Dune",
+        "claim": "The invented Dune plan costs exactly 20 USD monthly.",
+        "evidence": "The invented Dune plan costs exactly 35 USD monthly.",
+        "gold": "contradiction",
+        "native_label": "SYNTHETIC_CONTRADICTION",
+        "source_metadata": {
+          "author": "AI-authored transport fixture, not human adjudication",
+          "intended_use": "Executable fake workflow only; no performance or release gate claims"
+        }
+      },
+      "content_sha256": "a112a8e0d4bdd83b38586fda975d719f631db5479b0ff0df7818fae088fcf234",
+      "group_sha256": "7179967b8881064e179efdaa5456b26ee4c70cab78eaa69853c8375efb334eae",
+      "source_manifest_sha256": "fb7c511712a4573d6508553cf38221b84bc04e21a31cd9c72265648c6b3de8e0",
+      "native_label": {
+        "label": "SYNTHETIC_CONTRADICTION",
+        "binary_gold": "contradiction",
+        "provenance": "synthetic-fixture"
+      },
+      "service_contract": null,
+      "calibration_fold": null
+    },
+    {
+      "pair": {
+        "id": "workflow:3:1",
+        "dataset": "synthetic-smoke",
+        "variant": "synthetic-workflow-only-v1",
+        "split": "synthetic",
+        "source_id": "invented-price-Dune",
+        "group_id": "invented-organization-Dune",
+        "claim": "The invented Dune plan costs exactly 20 USD monthly.",
+        "evidence": "The invented Dune plan costs exactly 20 USD monthly.",
+        "gold": "non_contradiction",
+        "native_label": "SYNTHETIC_CONSISTENT",
+        "source_metadata": {
+          "author": "AI-authored transport fixture, not human adjudication",
+          "intended_use": "Executable fake workflow only; no performance or release gate claims"
+        }
+      },
+      "content_sha256": "6de97dcbdbc01975dcb05eb541b9ba99b7bceea5d52bef0cd192f0a0a4ab5afc",
+      "group_sha256": "7179967b8881064e179efdaa5456b26ee4c70cab78eaa69853c8375efb334eae",
+      "source_manifest_sha256": "fb7c511712a4573d6508553cf38221b84bc04e21a31cd9c72265648c6b3de8e0",
+      "native_label": {
+        "label": "SYNTHETIC_CONSISTENT",
+        "binary_gold": "non_contradiction",
+        "provenance": "synthetic-fixture"
+      },
+      "service_contract": null,
+      "calibration_fold": null
+    },
+    {
+      "pair": {
+        "id": "workflow:5:0",
+        "dataset": "synthetic-smoke",
+        "variant": "synthetic-workflow-only-v1",
+        "split": "synthetic",
+        "source_id": "invented-price-Fir",
+        "group_id": "invented-organization-Fir",
+        "claim": "The invented Fir plan costs exactly 20 USD monthly.",
+        "evidence": "The invented Fir plan costs exactly 35 USD monthly.",
+        "gold": "contradiction",
+        "native_label": "SYNTHETIC_CONTRADICTION",
+        "source_metadata": {
+          "author": "AI-authored transport fixture, not human adjudication",
+          "intended_use": "Executable fake workflow only; no performance or release gate claims"
+        }
+      },
+      "content_sha256": "48cccb159a170d8a2a8f0ffc859dd2197c03007c2464a354015235f6582a6f5b",
+      "group_sha256": "6bd987bc0e9ce6d965cea39e7296b6cb4bfaaccd8059138110a7ea08a0b8aa9c",
+      "source_manifest_sha256": "fb7c511712a4573d6508553cf38221b84bc04e21a31cd9c72265648c6b3de8e0",
+      "native_label": {
+        "label": "SYNTHETIC_CONTRADICTION",
+        "binary_gold": "contradiction",
+        "provenance": "synthetic-fixture"
+      },
+      "service_contract": null,
+      "calibration_fold": null
+    },
+    {
+      "pair": {
+        "id": "workflow:5:1",
+        "dataset": "synthetic-smoke",
+        "variant": "synthetic-workflow-only-v1",
+        "split": "synthetic",
+        "source_id": "invented-price-Fir",
+        "group_id": "invented-organization-Fir",
+        "claim": "The invented Fir plan costs exactly 20 USD monthly.",
+        "evidence": "The invented Fir plan costs exactly 20 USD monthly.",
+        "gold": "non_contradiction",
+        "native_label": "SYNTHETIC_CONSISTENT",
+        "source_metadata": {
+          "author": "AI-authored transport fixture, not human adjudication",
+          "intended_use": "Executable fake workflow only; no performance or release gate claims"
+        }
+      },
+      "content_sha256": "0f3f4207b83cf6637a3c13f5467a5296517e2176cfe41a98f4f945d7676c8f4a",
+      "group_sha256": "6bd987bc0e9ce6d965cea39e7296b6cb4bfaaccd8059138110a7ea08a0b8aa9c",
+      "source_manifest_sha256": "fb7c511712a4573d6508553cf38221b84bc04e21a31cd9c72265648c6b3de8e0",
+      "native_label": {
+        "label": "SYNTHETIC_CONSISTENT",
+        "binary_gold": "non_contradiction",
+        "provenance": "synthetic-fixture"
+      },
+      "service_contract": null,
+      "calibration_fold": null
+    }
+  ]
+}

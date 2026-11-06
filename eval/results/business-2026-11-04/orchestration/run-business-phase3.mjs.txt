@@ -1,0 +1,21 @@
+import {spawn,execFileSync} from 'node:child_process';
+import {readFile,writeFile} from 'node:fs/promises';
+import {parseEnv} from 'node:util';
+import {gzipSync} from 'node:zlib';
+import {sourceFingerprint} from '../iteration/fingerprint.ts';
+import {sha256} from '../types.ts';
+const root=process.cwd();
+const before={...(await sourceFingerprint(root)),...(await sourceFingerprint(root,'scripts/eval.ts'))};
+before['eval/deberta.py']=sha256(await readFile('eval/deberta.py'));
+const snapshot={};for(const f of Object.keys(before))snapshot[f]=await readFile(f,'utf8');
+await writeFile('eval/reports/business-phase3.sources.json.gz',gzipSync(JSON.stringify(snapshot)),{flag:'wx'});
+await writeFile('eval/reports/business-phase3.freeze.json',JSON.stringify({kind:'business-finance-runtime-freeze',created_at:new Date().toISOString(),node:process.version,source_files:before,protocol:'eval/results/business-2026-11-04/finance-phase3-protocol.json',completed_prior_hosted_calls:2064},null,2)+'\n',{flag:'wx'});
+const local=parseEnv(await readFile('.env','utf8'));const original=parseEnv(await readFile('../nicia/apps/api/.dev.vars','utf8'));
+let token;try{token=JSON.parse(execFileSync('pnpm',['exec','wrangler','auth','token','--profile','nicia-ai','--json'],{encoding:'utf8',stdio:['ignore','pipe','pipe']})).token;}catch{throw new Error('Named profile credential unavailable');}
+const env={...process.env,TYPESAFE_API_KEY:local.TYPESAFE_API_KEY??local.TYPESAFE_AI_KEY,OPENROUTER_API_KEY:original.OPENROUTER_API_KEY,CLOUDFLARE_ACCOUNT_ID:'42de207988eb23793aa308feb01dc9c7',CLOUDFLARE_API_TOKEN:token};
+const manifest='eval/data/business/findver-testmini-ie-individual-82.json';
+const commands=[];for(const backend of ['jev','clef','decider'])commands.push({runtime:'node',args:['scripts/eval.ts','--manifest',manifest,'--backend',backend,'--profile','balanced-v1','--out',`eval/reports/business-findver-individual-${backend}-balanced`,'--live','--max-calls','82','--cost-per-call-usd','.001','--max-spend-usd','.083']});
+commands.push({runtime:'python',args:['eval/deberta.py','--manifest',manifest,'--out','eval/reports/business-findver-individual-deberta.predictions.jsonl','--max-pairs','82','--threads','4']});
+commands.push({runtime:'node',args:['scripts/eval.ts','--manifest',manifest,'--backend','replay','--predictions','eval/reports/business-findver-individual-deberta.predictions.jsonl','--out','eval/reports/business-findver-individual-deberta-replay']});
+for(const{runtime,args}of commands){const now={...(await sourceFingerprint(root)),...(await sourceFingerprint(root,'scripts/eval.ts'))};now['eval/deberta.py']=sha256(await readFile('eval/deberta.py'));if(JSON.stringify(now)!==JSON.stringify(before))throw new Error('Finance runtime changed; no further calls');await new Promise((resolve,reject)=>{const child=spawn(runtime==='python'?'eval/data/venv-deberta/bin/python':process.execPath,runtime==='python'?args:['--import=tsx',...args],{env:runtime==='python'?{...process.env,HF_HUB_OFFLINE:'1',TRANSFORMERS_OFFLINE:'1'}:env,stdio:['ignore','pipe','pipe']});child.stdout.on('data',()=>{});child.stderr.on('data',()=>{});child.on('error',()=>reject(new Error('Finance baseline phase failed')));child.on('exit',code=>code===0?resolve():reject(new Error('Finance baseline stage stopped')));});console.log('Completed',args[args.indexOf('--out')+1]);}
+await writeFile('eval/reports/business-phase3-completion.json',JSON.stringify({source_stable:true,completed_at:new Date().toISOString(),hosted_calls:246,node:process.version},null,2)+'\n',{flag:'wx'});

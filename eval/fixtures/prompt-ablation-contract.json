@@ -1,0 +1,606 @@
+{
+  "schema_version": 1,
+  "adapter_version": "countercheck-public-pairs-v1",
+  "purpose": "synthetic-smoke",
+  "sources": [
+    {
+      "name": "AI-authored contract diagnostic; source hash pins canonical pair JSON",
+      "url": "local:eval/fixtures/prompt-ablation-contract.json",
+      "revision": "prompt-contract-v1",
+      "sha256": "5b90348d81a43dee0fd41100e324615b7baf0aa5e921a30c7d4acfdc870f1f7c",
+      "license": "CC0-1.0 (synthetic fixture text only)",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  ],
+  "sampling": {
+    "seed": "prompt-contract-v1",
+    "max_pairs": 32,
+    "method": "Entire fixed diagnostic; separate from rubric examples; not a release qualification set",
+    "available_pairs": 32,
+    "selected_pairs": 32,
+    "excluded_unlabeled": 0,
+    "strata": {
+      "contradiction": 12,
+      "no_contradiction": 16,
+      "uncertain": 4
+    }
+  },
+  "pairs": [
+    {
+      "id": "prompt-contract:00",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "exact-price",
+      "group_id": "prompt-contract:exact-price",
+      "claim": "The Redwood plan costs exactly USD31 per month on 1 June 2026.",
+      "evidence": "The Redwood plan costs exactly USD45 per month on 1 June 2026.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "expected_verdict": "contradiction",
+        "case": "exact-price",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:01",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "explicit-negation",
+      "group_id": "prompt-contract:explicit-negation",
+      "claim": "The Cedar office is open every Tuesday.",
+      "evidence": "The Cedar office is closed every Tuesday.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "expected_verdict": "contradiction",
+        "case": "explicit-negation",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:02",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "universal-counterexample",
+      "group_id": "prompt-contract:universal-counterexample",
+      "claim": "Every Opal shipment in August arrived within four days.",
+      "evidence": "An Opal shipment in August took six days to arrive.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "expected_verdict": "contradiction",
+        "case": "universal-counterexample",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:03",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "exact-sample",
+      "group_id": "prompt-contract:exact-sample",
+      "claim": "The final sample in Report K contains exactly 180 participants.",
+      "evidence": "The final sample in Report K contains exactly 230 participants.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "expected_verdict": "contradiction",
+        "case": "exact-sample",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:04",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "feature-negation",
+      "group_id": "prompt-contract:feature-negation",
+      "claim": "The Delta plan includes CSV export.",
+      "evidence": "CSV export is excluded from the Delta plan.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "expected_verdict": "contradiction",
+        "case": "feature-negation",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:05",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "overlap-time",
+      "group_id": "prompt-contract:overlap-time",
+      "claim": "Valve K remained off throughout Test Seven.",
+      "evidence": "Valve K was on during Test Seven.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "expected_verdict": "contradiction",
+        "case": "overlap-time",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:06",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "single-vote",
+      "group_id": "prompt-contract:single-vote",
+      "claim": "The team approved Option A in its single final vote.",
+      "evidence": "The team rejected Option A in its single final vote.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "expected_verdict": "contradiction",
+        "case": "single-vote",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:07",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "bound-conflict",
+      "group_id": "prompt-contract:bound-conflict",
+      "claim": "The final value of X is strictly below forty.",
+      "evidence": "The final value of X is at least forty.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "expected_verdict": "contradiction",
+        "case": "bound-conflict",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:08",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "universal-page",
+      "group_id": "prompt-contract:universal-page",
+      "claim": "Every issue of Journal N has exactly twelve pages.",
+      "evidence": "Issue Four of Journal N has fourteen pages.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "expected_verdict": "contradiction",
+        "case": "universal-page",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:09",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "policy-negation",
+      "group_id": "prompt-contract:policy-negation",
+      "claim": "The current Server T policy requires TLS for every connection.",
+      "evidence": "The current Server T policy prohibits TLS for every connection.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "expected_verdict": "contradiction",
+        "case": "policy-negation",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:10",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "counterexample-status",
+      "group_id": "prompt-contract:counterexample-status",
+      "claim": "Every approved invoice is paid.",
+      "evidence": "Invoice Seven is approved and unpaid.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "expected_verdict": "contradiction",
+        "case": "counterexample-status",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:11",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "permission-negation",
+      "group_id": "prompt-contract:permission-negation",
+      "claim": "The current Library J policy permits visitors on Floor Two.",
+      "evidence": "The current Library J policy prohibits visitors on Floor Two.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "expected_verdict": "contradiction",
+        "case": "permission-negation",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:12",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "compatible-lower-bounds",
+      "group_id": "prompt-contract:compatible-lower-bounds",
+      "claim": "More than six hundred units were sold in the final quarter.",
+      "evidence": "More than six hundred and fifty units were sold in the final quarter.",
+      "gold": "non_contradiction",
+      "native_label": "no_contradiction",
+      "source_metadata": {
+        "expected_verdict": "no_contradiction",
+        "case": "compatible-lower-bounds",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:13",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "omission",
+      "group_id": "prompt-contract:omission",
+      "claim": "The Harbor Suite provides API access and analytics.",
+      "evidence": "The Harbor Suite provides API access.",
+      "gold": "non_contradiction",
+      "native_label": "no_contradiction",
+      "source_metadata": {
+        "expected_verdict": "no_contradiction",
+        "case": "omission",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:14",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "restatement",
+      "group_id": "prompt-contract:restatement",
+      "claim": "The Meadow office closes at eighteen hundred hours.",
+      "evidence": "The Meadow office closes at six in the evening.",
+      "gold": "non_contradiction",
+      "native_label": "no_contradiction",
+      "source_metadata": {
+        "expected_verdict": "no_contradiction",
+        "case": "restatement",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:15",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "existential-compatible",
+      "group_id": "prompt-contract:existential-compatible",
+      "claim": "Some employees are mentors.",
+      "evidence": "Some employees are not mentors.",
+      "gold": "non_contradiction",
+      "native_label": "no_contradiction",
+      "source_metadata": {
+        "expected_verdict": "no_contradiction",
+        "case": "existential-compatible",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:16",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "modality",
+      "group_id": "prompt-contract:modality",
+      "claim": "The shipment might be delayed.",
+      "evidence": "The shipment might arrive on time.",
+      "gold": "non_contradiction",
+      "native_label": "no_contradiction",
+      "source_metadata": {
+        "expected_verdict": "no_contradiction",
+        "case": "modality",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:17",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "rule-violation",
+      "group_id": "prompt-contract:rule-violation",
+      "claim": "The packing policy requires a label on every box.",
+      "evidence": "An auditor found an unlabeled box.",
+      "gold": "non_contradiction",
+      "native_label": "no_contradiction",
+      "source_metadata": {
+        "expected_verdict": "no_contradiction",
+        "case": "rule-violation",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:18",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "different-date",
+      "group_id": "prompt-contract:different-date",
+      "claim": "On 12 May the Elm office opens at eight.",
+      "evidence": "On 13 May the Elm office opens at ten.",
+      "gold": "non_contradiction",
+      "native_label": "no_contradiction",
+      "source_metadata": {
+        "expected_verdict": "no_contradiction",
+        "case": "different-date",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:19",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "different-region",
+      "group_id": "prompt-contract:different-region",
+      "claim": "Plan X in the US requires MFA.",
+      "evidence": "Plan X in the EU makes MFA optional.",
+      "gold": "non_contradiction",
+      "native_label": "no_contradiction",
+      "source_metadata": {
+        "expected_verdict": "no_contradiction",
+        "case": "different-region",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:20",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "different-population",
+      "group_id": "prompt-contract:different-population",
+      "claim": "The adult ferry ticket costs ten dollars.",
+      "evidence": "The child ferry ticket costs five dollars.",
+      "gold": "non_contradiction",
+      "native_label": "no_contradiction",
+      "source_metadata": {
+        "expected_verdict": "no_contradiction",
+        "case": "different-population",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:21",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "different-version",
+      "group_id": "prompt-contract:different-version",
+      "claim": "Version One allows files up to eight megabytes.",
+      "evidence": "Version Two allows files up to sixteen megabytes.",
+      "gold": "non_contradiction",
+      "native_label": "no_contradiction",
+      "source_metadata": {
+        "expected_verdict": "no_contradiction",
+        "case": "different-version",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:22",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "different-entity",
+      "group_id": "prompt-contract:different-entity",
+      "claim": "Dock A has five berths.",
+      "evidence": "Dock B has seven berths.",
+      "gold": "non_contradiction",
+      "native_label": "no_contradiction",
+      "source_metadata": {
+        "expected_verdict": "no_contradiction",
+        "case": "different-entity",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:23",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "compatible-interval",
+      "group_id": "prompt-contract:compatible-interval",
+      "claim": "The value of Y is at least fifty.",
+      "evidence": "The value of Y is at most eighty.",
+      "gold": "non_contradiction",
+      "native_label": "no_contradiction",
+      "source_metadata": {
+        "expected_verdict": "no_contradiction",
+        "case": "compatible-interval",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:24",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "rejected-statement",
+      "group_id": "prompt-contract:rejected-statement",
+      "claim": "The draft proposed one hundred units, but that proposal was rejected. The approved count is two hundred units.",
+      "evidence": "The approved count is two hundred units.",
+      "gold": "non_contradiction",
+      "native_label": "no_contradiction",
+      "source_metadata": {
+        "expected_verdict": "no_contradiction",
+        "case": "rejected-statement",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:25",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "causal-evidence",
+      "group_id": "prompt-contract:causal-evidence",
+      "claim": "The observations show a correlation between A and B.",
+      "evidence": "The experiment does not establish that A causes B.",
+      "gold": "non_contradiction",
+      "native_label": "no_contradiction",
+      "source_metadata": {
+        "expected_verdict": "no_contradiction",
+        "case": "causal-evidence",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:26",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "aggregate-individual",
+      "group_id": "prompt-contract:aggregate-individual",
+      "claim": "The average purchase cost is twenty dollars.",
+      "evidence": "One purchase cost thirty dollars.",
+      "gold": "non_contradiction",
+      "native_label": "no_contradiction",
+      "source_metadata": {
+        "expected_verdict": "no_contradiction",
+        "case": "aggregate-individual",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:27",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "minimum-exact",
+      "group_id": "prompt-contract:minimum-exact",
+      "claim": "Project P took at least ten days.",
+      "evidence": "Project P took exactly twelve days.",
+      "gold": "non_contradiction",
+      "native_label": "no_contradiction",
+      "source_metadata": {
+        "expected_verdict": "no_contradiction",
+        "case": "minimum-exact",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:28",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "missing-bound",
+      "group_id": "prompt-contract:missing-bound",
+      "claim": "The final score was greater than [missing number].",
+      "evidence": "The final score was less than forty-seven.",
+      "gold": "non_contradiction",
+      "native_label": "uncertain",
+      "source_metadata": {
+        "expected_verdict": "uncertain",
+        "case": "missing-bound",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:29",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "illegible-outcome",
+      "group_id": "prompt-contract:illegible-outcome",
+      "claim": "The final inspection result was [illegible: either 'passed' or 'failed'].",
+      "evidence": "The final inspection result was passed.",
+      "gold": "non_contradiction",
+      "native_label": "uncertain",
+      "source_metadata": {
+        "expected_verdict": "uncertain",
+        "case": "illegible-outcome",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:30",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "undefined-rule",
+      "group_id": "prompt-contract:undefined-rule",
+      "claim": "Rule M requires an exact final score of [illegible number]; this record satisfies Rule M.",
+      "evidence": "The record's final score is 0.7.",
+      "gold": "non_contradiction",
+      "native_label": "uncertain",
+      "source_metadata": {
+        "expected_verdict": "uncertain",
+        "case": "undefined-rule",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    },
+    {
+      "id": "prompt-contract:31",
+      "dataset": "synthetic-smoke",
+      "variant": "prompt-contract-diagnostic",
+      "split": "synthetic",
+      "source_id": "unresolved-referent",
+      "group_id": "prompt-contract:unresolved-referent",
+      "claim": "There are two current services. This text omits which service it names: it requires a licence.",
+      "evidence": "There are two current services. This text also omits which service it names: it does not require a licence.",
+      "gold": "non_contradiction",
+      "native_label": "uncertain",
+      "source_metadata": {
+        "expected_verdict": "uncertain",
+        "case": "unresolved-referent",
+        "label_status": "AI-authored diagnostic; not independently human-adjudicated",
+        "binary_label_policy": "exclude uncertain expectation from binary metrics; proxy non_contradiction is schema-only"
+      }
+    }
+  ]
+}

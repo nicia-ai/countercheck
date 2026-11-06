@@ -1,0 +1,14 @@
+import {spawn} from 'node:child_process';
+import {readFile} from 'node:fs/promises';
+import {parseEnv} from 'node:util';
+let key;try{key=parseEnv(await readFile('../nicia/apps/api/.dev.vars','utf8')).OPENROUTER_API_KEY;}catch{}
+if(!key)throw new Error('Existing decision-model credential unavailable');
+const env={...process.env,OPENROUTER_API_KEY:key};
+const heads='nli-three-way,evidence-refutation';
+const commands=[
+ ['scripts/iterate.ts','--manifest','eval/data/iteration-fit.json','--profiles',heads,'--out','eval/reports/quality-r3-decider-fit','--purpose','tune','--backend','decider','--bundle','--live','--max-calls','400','--cost-per-call-usd','0.001','--max-spend-usd','0.41'],
+ ['scripts/fuse-iteration.ts','--mode','fit','--regularization','group-cv','--run','eval/reports/quality-r3-decider-fit.json','--manifest','eval/data/iteration-fit.json','--out','eval/reports/quality-r3-decider-fusion-model.json','--seed','r3-decider-group-cv'],
+ ['scripts/iterate.ts','--manifest','eval/data/iteration-validation.json','--profiles',heads,'--out','eval/reports/quality-r3-decider-validation','--purpose','validation','--backend','decider','--bundle','--live','--max-calls','200','--cost-per-call-usd','0.001','--max-spend-usd','0.21'],
+ ['scripts/fuse-iteration.ts','--mode','evaluate','--run','eval/reports/quality-r3-decider-validation.json','--manifest','eval/data/iteration-validation.json','--model','eval/reports/quality-r3-decider-fusion-model.json','--out','eval/reports/quality-r3-decider-fusion-validation.json'],
+];
+for(const args of commands){await new Promise((resolve,reject)=>{const child=spawn(process.execPath,['--import=tsx',...args],{env,stdio:['ignore','pipe','pipe']});child.stdout.on('data',()=>{});child.stderr.on('data',()=>{});child.on('error',()=>reject(new Error('Decider phase failed')));child.on('exit',code=>code===0?resolve():reject(new Error('Decider phase stopped')));});console.log('Completed',args[0],args.includes('tune')?'fit':args.includes('validation')?'validation':args.includes('evaluate')?'evaluate':'calibration');}

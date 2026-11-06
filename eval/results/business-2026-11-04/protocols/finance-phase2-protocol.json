@@ -1,0 +1,33 @@
+{
+  "recorded_before_inference": true,
+  "dataset": "findver",
+  "variant": "testmini-ie complete annotated contexts",
+  "manifest_sha256": "94cc439d2373a9feefad3e6ab3ed17a20565b1272cc1e44a23e41d88d58192dc",
+  "native_split": "testmini public evaluation variant; canonical test, never tuning",
+  "available_ie_pairs": 250,
+  "eligible_and_selected_pairs": 23,
+  "selected_report_groups": 16,
+  "native_entailed": 10,
+  "native_refuted": 13,
+  "envelope_excluded_pairs": 227,
+  "envelope_excluded_groups": 83,
+  "evidence_limit_bytes": 2048,
+  "configurations": [
+    "jev-1.14.0 balanced-v1",
+    "clef balanced-v1",
+    "perplexity/pplx-decider-v1.2 balanced-v1",
+    "pinned local DeBERTa forced argmax"
+  ],
+  "experimental_profiles": "Not run on this native public evaluation split; existing iteration runner intentionally rejects unassigned locked-test data. Do not loosen that guard.",
+  "new_hosted_calls": 69,
+  "phase1_hosted_calls": 1995,
+  "planned_total_hosted_calls": 2064,
+  "global_hosted_call_cap": 3000,
+  "live_cli_overlap": false,
+  "runtime": "Node24 via pnpm exec node; earlier phase1 initial995 ran under systemNode26 and are retained with disclosed runtime variation",
+  "thresholds": "unchanged balanced-v1 positive>=.8 and clear-negative .2/.8; no fitting",
+  "artifact_policy": "Raw issuer report text, derived finance manifest and full pair-containing reports remain local/ignored. Preserve exact hashes, source provenance, IDs, labels, predictions, redacted derived reports and rebuild tools. Do not call redacted artifacts exact-byte originals.",
+  "qualification": "Only a small source-conditioned native-label diagnostic; no representative finance performance, full-report leaderboard equivalence or customer-release gate is established.",
+  "manifest_path": "eval/data/business/findver-testmini-ie-23.json",
+  "preparation_identity": "Stable resource inventory only; cache-hit/download counts are logged separately and do not change the manifest hash."
+}

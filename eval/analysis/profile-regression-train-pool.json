@@ -1,0 +1,40 @@
+{
+  "scifact": {
+    "archive_sha256": "11c621288d41ac144d29b13b0f8503b3820b7d6e8b1f6ff24dff335c196d76be",
+    "claims": 809,
+    "documents_overlapping_full_dev": 110,
+    "full_dev_evidence_documents": 182,
+    "gold_rationale_set_pairs": 957,
+    "label_counts": {
+      "CONTRADICT": 341,
+      "SUPPORT": 616
+    },
+    "labelled_claims": 505,
+    "member": "data/claims_train.jsonl",
+    "member_sha256": "f4c8fa82d8bd0653a9cc8d61a6ea48c25eacea64e90af5dbf390ebb1b74372f0",
+    "scope": "Metadata/label/group scan only. Preserve each complete rationale set; unannotated docs remain unlabeled.",
+    "train_claims_using_any_dev_document": 166,
+    "train_evidence_documents": 365
+  },
+  "vitaminc": {
+    "archive_sha256": "49d82dc1690cbee420d18e2c26f687a7937710bb211845d2571430dfd4dc0337",
+    "full_dev_pages": 2975,
+    "full_dev_revision_groups": 11312,
+    "label_counts": {
+      "NOT ENOUGH INFO": 52981,
+      "REFUTES": 131958,
+      "SUPPORTS": 185714
+    },
+    "member": "vitaminc/train.jsonl",
+    "member_sha256": "446163d81ec9b654d2514e8ba5b8f2e4bd8938342e34c98e7660fe05a8a3ca39",
+    "pages_overlapping_full_dev": 17,
+    "revision_groups_overlapping_full_dev": 0,
+    "rows": 370653,
+    "scope": "Metadata/label/group scan only; no candidate prompt selection or train model calls.",
+    "train_pages": 22198,
+    "train_revision_groups": 74414,
+    "train_rows_on_pages_seen_in_full_dev": 298,
+    "train_rows_with_revision_seen_in_full_dev": 0,
+    "uncompressed_bytes": 164411764
+  }
+}

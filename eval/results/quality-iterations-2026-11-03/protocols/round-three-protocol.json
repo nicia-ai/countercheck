@@ -1,0 +1,28 @@
+{
+  "kind": "pre-inference-round3",
+  "purpose": "actualonecall5headfusion+providercompatiblechallengercomparison",
+  "jev_bundle_profiles": [
+    "literal-contract",
+    "nli-three-way",
+    "noul-conflict",
+    "semantic-numeric-v2",
+    "evidence-refutation"
+  ],
+  "head_order": "canonical sorted, source bound; fresh outputs, not reused isolated scores",
+  "jev_bundle_fit_requests": 400,
+  "jev_bundle_validation_requests": 200,
+  "fusion": "3source-group folds, lambdas[1,10,100], choose minimumtrainingOOFlogloss, thresholds fromOOFscores; no validation selection",
+  "challenger_models": {
+    "clef": "@cf/cloudflare/clef (full model, named nicia-ai authprofile)",
+    "decider": "perplexity/pplx-decider-v1.2, Perplexityonly,nofallback"
+  },
+  "challenger_probe_requests_per_provider": 8,
+  "challenger_screen_requests_per_provider": 160,
+  "challenger_heads": [
+    "nli-three-way",
+    "evidence-refutation"
+  ],
+  "limits": "protocol.json cumulative10000maxphysicalcalls, globalconcurrency2,3000msdeadline,no retries",
+  "locked_holdout": "staysclosedunlessallqualitygatespassvalidation; existingvalidationis nowa repeateddevelopmentmonitor, notunseenreleaseevidence",
+  "production": "baseline/deploymentunchanged; no automaticpromotion"
+}

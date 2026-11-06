@@ -1,0 +1,96 @@
+{
+  "description": "Post-run diagnostics of the unchanged greedy label-proportion sampler. This is no new model run or population-representative performance claim. Original manifests and results remain unchanged; selected pairs match exactly.",
+  "tracks": [
+    {
+      "track": "VitaminC combined development",
+      "original_manifest_sha256": "982a5dc43919853176d372c53bf90bc98d4bc49e56d8703165feb14345aff0ff",
+      "source_file_sha256": "a3258bc959754c84bade150d3bf447fd9c91a529d93bb676f034fdafda5f26e5",
+      "sampling": {
+        "population": {
+          "pairs": 63054,
+          "groups": 16503,
+          "group_size_counts": {
+            "1": 129,
+            "2": 4660,
+            "3": 5,
+            "4": 10372,
+            "5": 2,
+            "6": 229,
+            "8": 734,
+            "9": 1,
+            "10": 34,
+            "11": 1,
+            "12": 246,
+            "14": 10,
+            "16": 59,
+            "18": 2,
+            "20": 12,
+            "22": 2,
+            "24": 3,
+            "28": 1,
+            "30": 1
+          },
+          "mean_group_size": 3.8207598618433014,
+          "max_group_size": 30,
+          "mixed_native_label_groups": 16347,
+          "mixed_native_label_group_fraction": 0.9905471732412289
+        },
+        "selected": {
+          "pairs": 200,
+          "groups": 25,
+          "group_size_counts": {
+            "2": 2,
+            "6": 14,
+            "8": 4,
+            "16": 5
+          },
+          "mean_group_size": 8,
+          "max_group_size": 16,
+          "mixed_native_label_groups": 25,
+          "mixed_native_label_group_fraction": 1
+        },
+        "bias_disclosure": "Greedy native-label proportion matching is a development diagnostic sample, not a uniform group sample or a population-representative split estimate. Seeded hashes break ties; mixed-label/group-size composition can be preferentially selected. Compare population and selected group diagnostics."
+      }
+    },
+    {
+      "track": "SciFact gold rationale development",
+      "original_manifest_sha256": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+      "source_file_sha256": "86f0435d08fdb65d1aa41d1472684f57e6e71930626497bdf4d7a9ec1a632217",
+      "sampling": {
+        "population": {
+          "pairs": 338,
+          "groups": 188,
+          "group_size_counts": {
+            "1": 105,
+            "2": 49,
+            "3": 20,
+            "4": 8,
+            "5": 1,
+            "6": 2,
+            "7": 1,
+            "8": 1,
+            "11": 1
+          },
+          "mean_group_size": 1.797872340425532,
+          "max_group_size": 11,
+          "mixed_native_label_groups": 0,
+          "mixed_native_label_group_fraction": 0
+        },
+        "selected": {
+          "pairs": 199,
+          "groups": 151,
+          "group_size_counts": {
+            "1": 105,
+            "2": 44,
+            "3": 2
+          },
+          "mean_group_size": 1.3178807947019868,
+          "max_group_size": 3,
+          "mixed_native_label_groups": 0,
+          "mixed_native_label_group_fraction": 0
+        },
+        "bias_disclosure": "Greedy native-label proportion matching is a development diagnostic sample, not a uniform group sample or a population-representative split estimate. Seeded hashes break ties; mixed-label/group-size composition can be preferentially selected. Compare population and selected group diagnostics."
+      }
+    }
+  ]
+}

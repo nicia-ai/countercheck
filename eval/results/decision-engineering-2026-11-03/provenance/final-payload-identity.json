@@ -1,0 +1,58 @@
+{
+  "kind": "independent-offline-final-compiler-payload-check",
+  "final_source_freeze_sha256": "5fee2f10e08b9a19220a54442ed179418cb22cd3be65d5a077bad48003fa9ee2",
+  "model_calls": 0,
+  "matched_pair_observations": 942,
+  "checks": [
+    {
+      "profile": "balanced-v1",
+      "dataset": "vitaminc-combined-dev",
+      "matched_pair_observations": 200
+    },
+    {
+      "profile": "balanced-v1",
+      "dataset": "scifact-dev",
+      "matched_pair_observations": 199
+    },
+    {
+      "profile": "balanced-v1",
+      "dataset": "contract-diagnostic",
+      "matched_pair_observations": 32
+    },
+    {
+      "profile": "balanced-v1",
+      "dataset": "batch20-original",
+      "matched_pair_observations": 20
+    },
+    {
+      "profile": "balanced-v1",
+      "dataset": "batch20-reversed",
+      "matched_pair_observations": 20
+    },
+    {
+      "profile": "semantic-v2",
+      "dataset": "vitaminc-combined-dev",
+      "matched_pair_observations": 200
+    },
+    {
+      "profile": "semantic-v2",
+      "dataset": "scifact-dev",
+      "matched_pair_observations": 199
+    },
+    {
+      "profile": "semantic-v2",
+      "dataset": "contract-diagnostic",
+      "matched_pair_observations": 32
+    },
+    {
+      "profile": "semantic-v2",
+      "dataset": "batch20-original",
+      "matched_pair_observations": 20
+    },
+    {
+      "profile": "semantic-v2",
+      "dataset": "batch20-reversed",
+      "matched_pair_observations": 20
+    }
+  ]
+}

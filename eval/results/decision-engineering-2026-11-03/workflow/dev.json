@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "kind": "decision-engineering-split",
+  "role": "dev",
+  "seed": "engineering-2026-11-03",
+  "sources": [
+    {
+      "name": "Invented workflow fixture; SHA256 of JSON.stringify(pairs)",
+      "url": "local:eval/engineering/synthetic-workflow.json",
+      "revision": "synthetic-workflow-only-v1",
+      "sha256": "177067fd0805d3ca9a58754bca352bc61ac949e5e35a8e4db8fe42b691fb10ce",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  ],
+  "cases": [
+    {
+      "pair": {
+        "id": "workflow:0:0",
+        "dataset": "synthetic-smoke",
+        "variant": "synthetic-workflow-only-v1",
+        "split": "synthetic",
+        "source_id": "invented-price-Aster",
+        "group_id": "invented-organization-Aster",
+        "claim": "The invented Aster plan costs exactly 20 USD monthly.",
+        "evidence": "The invented Aster plan costs exactly 35 USD monthly.",
+        "gold": "contradiction",
+        "native_label": "SYNTHETIC_CONTRADICTION",
+        "source_metadata": {
+          "author": "AI-authored transport fixture, not human adjudication",
+          "intended_use": "Executable fake workflow only; no performance or release gate claims"
+        }
+      },
+      "content_sha256": "4bda1d36b637d5b53235a025223e56d30f262b01028656f07011027c0e563ab9",
+      "group_sha256": "1f4889032765d4d081789ff4700b41f153bb7bde78cc5d3a8b5e8ccc1a4d0831",
+      "source_manifest_sha256": "fb7c511712a4573d6508553cf38221b84bc04e21a31cd9c72265648c6b3de8e0",
+      "native_label": {
+        "label": "SYNTHETIC_CONTRADICTION",
+        "binary_gold": "contradiction",
+        "provenance": "synthetic-fixture"
+      },
+      "service_contract": null,
+      "calibration_fold": "tune"
+    },
+    {
+      "pair": {
+        "id": "workflow:0:1",
+        "dataset": "synthetic-smoke",
+        "variant": "synthetic-workflow-only-v1",
+        "split": "synthetic",
+        "source_id": "invented-price-Aster",
+        "group_id": "invented-organization-Aster",
+        "claim": "The invented Aster plan costs exactly 20 USD monthly.",
+        "evidence": "The invented Aster plan costs exactly 20 USD monthly.",
+        "gold": "non_contradiction",
+        "native_label": "SYNTHETIC_CONSISTENT",
+        "source_metadata": {
+          "author": "AI-authored transport fixture, not human adjudication",
+          "intended_use": "Executable fake workflow only; no performance or release gate claims"
+        }
+      },
+      "content_sha256": "dd597e2869698f0b054801d46df7f0025d6a3d03b50a6f677d83c4d32ff914f0",
+      "group_sha256": "1f4889032765d4d081789ff4700b41f153bb7bde78cc5d3a8b5e8ccc1a4d0831",
+      "source_manifest_sha256": "fb7c511712a4573d6508553cf38221b84bc04e21a31cd9c72265648c6b3de8e0",
+      "native_label": {
+        "label": "SYNTHETIC_CONSISTENT",
+        "binary_gold": "non_contradiction",
+        "provenance": "synthetic-fixture"
+      },
+      "service_contract": null,
+      "calibration_fold": "tune"
+    },
+    {
+      "pair": {
+        "id": "workflow:1:0",
+        "dataset": "synthetic-smoke",
+        "variant": "synthetic-workflow-only-v1",
+        "split": "synthetic",
+        "source_id": "invented-price-Birch",
+        "group_id": "invented-organization-Birch",
+        "claim": "The invented Birch plan costs exactly 20 USD monthly.",
+        "evidence": "The invented Birch plan costs exactly 35 USD monthly.",
+        "gold": "contradiction",
+        "native_label": "SYNTHETIC_CONTRADICTION",
+        "source_metadata": {
+          "author": "AI-authored transport fixture, not human adjudication",
+          "intended_use": "Executable fake workflow only; no performance or release gate claims"
+        }
+      },
+      "content_sha256": "15dffaa6c2bd968b1a4b1974c6fbea4707077423cb9e444816a27bdaa9d6d847",
+      "group_sha256": "5024679d6189ec709efcd58a195daab00300aa082b5e91fe5c24bd77b06890f5",
+      "source_manifest_sha256": "fb7c511712a4573d6508553cf38221b84bc04e21a31cd9c72265648c6b3de8e0",
+      "native_label": {
+        "label": "SYNTHETIC_CONTRADICTION",
+        "binary_gold": "contradiction",
+        "provenance": "synthetic-fixture"
+      },
+      "service_contract": null,
+      "calibration_fold": "validation"
+    },
+    {
+      "pair": {
+        "id": "workflow:1:1",
+        "dataset": "synthetic-smoke",
+        "variant": "synthetic-workflow-only-v1",
+        "split": "synthetic",
+        "source_id": "invented-price-Birch",
+        "group_id": "invented-organization-Birch",
+        "claim": "The invented Birch plan costs exactly 20 USD monthly.",
+        "evidence": "The invented Birch plan costs exactly 20 USD monthly.",
+        "gold": "non_contradiction",
+        "native_label": "SYNTHETIC_CONSISTENT",
+        "source_metadata": {
+          "author": "AI-authored transport fixture, not human adjudication",
+          "intended_use": "Executable fake workflow only; no performance or release gate claims"
+        }
+      },
+      "content_sha256": "18dbe34dbaa59d864d407f06bb5765cb036a45e362a509355b2902dcf5f42584",
+      "group_sha256": "5024679d6189ec709efcd58a195daab00300aa082b5e91fe5c24bd77b06890f5",
+      "source_manifest_sha256": "fb7c511712a4573d6508553cf38221b84bc04e21a31cd9c72265648c6b3de8e0",
+      "native_label": {
+        "label": "SYNTHETIC_CONSISTENT",
+        "binary_gold": "non_contradiction",
+        "provenance": "synthetic-fixture"
+      },
+      "service_contract": null,
+      "calibration_fold": "validation"
+    }
+  ]
+}

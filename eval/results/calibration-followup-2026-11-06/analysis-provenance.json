@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "source_files": {
+    "scripts/analyze-calibration-followup.py": "7f29b7606f31f64eb0f1916d5eee8b89cda3afdd0ddac5f2907fb3491eb031e9",
+    "scripts/verify-calibration-followup.py": "6258617150f0675f827a0a06e3d4aeefcf0c31aac6ff0646ed8fb76da7e05426"
+  },
+  "input_artifacts": {
+    "protocol.json": "afc0f1b3375cab185dd84d574135c61ca2f7ea2795671c99cb5e81a2027df9ad",
+    "jev-checkpoint.json.gz": "9baacf46ac256c3a2b8e5844753f91c3b1f791d704e05e511c2edd4e1ca9869f",
+    "jev-validation.redacted.jsonl.gz": "209c0a57d1aee20dc532b9e1c4d52a36722c5dae095c3b47e38eac2964314e53",
+    "negative-policies.json": "0f8bb8fe6a9d229231575595aa411bb8bf04e7aa606b6f6d34181407a5af9b54",
+    "metric-crosscheck.json": "2a6fe49801db6619ccb806cec80cce7089d4cf2e510a820a82602c36ca844c0d",
+    "analysis-ts-receipt.json": "a60cea34022070fbcec0e98b5baa3ddb2b34f1f5ea775e52b92c287f0e9820ad",
+    "rerun-receipt.json": "76561860379ac95afe8cea9124ad0567ba3b68f5585b45e5ecf018631a34f6ef",
+    "posthoc-disclosure.json": "a38aef633ea51bdc2496f38a4627a2898e7d398aa7811026af3d83cde81c2969"
+  },
+  "independence": "Existing TypeScript metric engine and prefix-count fitter; independent Python bisect fitter and point metrics; paired bootstrap reused from prior verified supplement",
+  "new_model_calls": 688,
+  "reservation_usd": 1.38,
+  "raw_dataset_text_required": false
+}

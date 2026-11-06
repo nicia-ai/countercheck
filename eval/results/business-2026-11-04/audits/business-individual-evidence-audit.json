@@ -1,0 +1,27 @@
+{
+  "kind": "finance-individual-complete-evidence-byte-coverage",
+  "model_calls": 0,
+  "scope": "Individual raw text limits only, without whole-report-group exclusion. Not compiled request, model-token or semantic-quality qualification.",
+  "rows": [
+    {
+      "evidence_bytes": 2048,
+      "individually_within_text_limits": 82,
+      "total_pairs": 250
+    },
+    {
+      "evidence_bytes": 4096,
+      "individually_within_text_limits": 202,
+      "total_pairs": 250
+    },
+    {
+      "evidence_bytes": 8192,
+      "individually_within_text_limits": 234,
+      "total_pairs": 250
+    },
+    {
+      "evidence_bytes": 12288,
+      "individually_within_text_limits": 242,
+      "total_pairs": 250
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "protocol_sha256": "3febdaed3c22ad1396ea98dec60b5e747ee52700ac417bb88949b216cc29c0f2",
+  "owner_approval": "Approved",
+  "recorded_at": "2026-11-06T07:57:00.651Z",
+  "max_calls": 28800,
+  "reservation_usd": 57.6,
+  "fit_calls_per_model": 2512,
+  "validation_calls_per_model": 688,
+  "no_retries": true
+}

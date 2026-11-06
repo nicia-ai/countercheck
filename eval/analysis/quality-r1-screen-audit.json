@@ -1,0 +1,1679 @@
+{
+  "all_six_conflict_score_below_0_5_positive_cases": [
+    {
+      "decisions": {
+        "literal-contract": "no_contradiction",
+        "local-mini": "no_contradiction",
+        "nli-three-way": "no_contradiction",
+        "noul-conflict": "no_contradiction",
+        "rich-control": "no_contradiction",
+        "semantic-numeric": "no_contradiction"
+      },
+      "pair": {
+        "claim": "Citrullinated proteins externalized in neutrophil extracellular traps act indirectly to disrupt the inflammatory cycle.",
+        "dataset": "scifact",
+        "evidence": "Indeed, during NETosis, neutrophils externalized the citrullinated autoantigens implicated in RA pathogenesis, and anti-citrullinated vimentin antibodies potently induced NET formation. In turn, NETs significantly augmented inflammatory responses in RA and OA synovial fibroblasts, including induction of IL-6, IL-8, chemokines, and adhesion molecules.",
+        "gold": "contradiction",
+        "group_id": "iteration:88089577fa8ddde95c0aec673d16f83647f0a928afb2e9d5fe92a02b9cbaffa8",
+        "id": "scifact:train:263:11328820:0",
+        "native_label": "CONTRADICT",
+        "rationale": {
+          "document_id": "11328820",
+          "sentence_indices": [7, 9],
+          "set_index": 0
+        },
+        "source_id": "263",
+        "source_metadata": {
+          "iteration_component_sha256": "88089577fa8ddde95c0aec673d16f83647f0a928afb2e9d5fe92a02b9cbaffa8",
+          "original_group_id": "scifact:263"
+        },
+        "split": "train",
+        "variant": "gold-rationale-set"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.14,
+        "local-mini": 0.15,
+        "nli-three-way": 0.13,
+        "noul-conflict": 0.09,
+        "rich-control": 0.09,
+        "semantic-numeric": 0.1
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "uncertain",
+        "local-mini": "no_contradiction",
+        "nli-three-way": "no_contradiction",
+        "noul-conflict": "no_contradiction",
+        "rich-control": "no_contradiction",
+        "semantic-numeric": "no_contradiction"
+      },
+      "pair": {
+        "claim": "Citrullinated proteins externalized in neutrophil extracellular traps act indirectly to disrupt the inflammatory cycle.",
+        "dataset": "scifact",
+        "evidence": "BACKGROUND Histone deimination regulates gene function and contributes to antimicrobial response, allowing the formation of neutrophil extracellular traps (NETs). Deiminated proteins are target of anti-citrullinated peptides antibodies (ACPA) in rheumatoid arthritis (RA).   \n",
+        "gold": "contradiction",
+        "group_id": "iteration:88089577fa8ddde95c0aec673d16f83647f0a928afb2e9d5fe92a02b9cbaffa8",
+        "id": "scifact:train:263:30041340:0",
+        "native_label": "CONTRADICT",
+        "rationale": {
+          "document_id": "30041340",
+          "sentence_indices": [0, 1],
+          "set_index": 0
+        },
+        "source_id": "263",
+        "source_metadata": {
+          "iteration_component_sha256": "88089577fa8ddde95c0aec673d16f83647f0a928afb2e9d5fe92a02b9cbaffa8",
+          "original_group_id": "scifact:263"
+        },
+        "split": "train",
+        "variant": "gold-rationale-set"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.01,
+        "local-mini": 0.01,
+        "nli-three-way": 0,
+        "noul-conflict": 0.08,
+        "rich-control": 0,
+        "semantic-numeric": 0.01
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "uncertain",
+        "local-mini": "no_contradiction",
+        "nli-three-way": "no_contradiction",
+        "noul-conflict": "no_contradiction",
+        "rich-control": "no_contradiction",
+        "semantic-numeric": "no_contradiction"
+      },
+      "pair": {
+        "claim": "Citrullinated proteins externalized in neutrophil extracellular traps act indirectly to disrupt the inflammatory cycle.",
+        "dataset": "scifact",
+        "evidence": "CONCLUSIONS Citrullinated H4 from activated neutrophils and NETs is a target of antibodies in RA, and synthetic citrullinated H4-derived peptides are a new substrate for ACPA detection.",
+        "gold": "contradiction",
+        "group_id": "iteration:88089577fa8ddde95c0aec673d16f83647f0a928afb2e9d5fe92a02b9cbaffa8",
+        "id": "scifact:train:263:30041340:1",
+        "native_label": "CONTRADICT",
+        "rationale": {
+          "document_id": "30041340",
+          "sentence_indices": [11],
+          "set_index": 1
+        },
+        "source_id": "263",
+        "source_metadata": {
+          "iteration_component_sha256": "88089577fa8ddde95c0aec673d16f83647f0a928afb2e9d5fe92a02b9cbaffa8",
+          "original_group_id": "scifact:263"
+        },
+        "split": "train",
+        "variant": "gold-rationale-set"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.01,
+        "local-mini": 0.01,
+        "nli-three-way": 0,
+        "noul-conflict": 0.07,
+        "rich-control": 0,
+        "semantic-numeric": 0.01
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "uncertain",
+        "local-mini": "uncertain",
+        "nli-three-way": "no_contradiction",
+        "noul-conflict": "no_contradiction",
+        "rich-control": "uncertain",
+        "semantic-numeric": "uncertain"
+      },
+      "pair": {
+        "claim": "In S. cerevisiae, the absence of RNA surveillance pathways reduces sensitivity to high iron conditions.",
+        "dataset": "scifact",
+        "evidence": "We show that many mRNAs encoding iron uptake or iron mobilization proteins are expressed in iron-replete conditions in the absence of the S. cerevisiae RNase III ortholog Rnt1p or of the nuclear exosome component Rrp6p. Extended forms of these mRNAs accumulate in the absence of Rnt1p or of the 5'-->3' exonucleases Xrn1p and Rat1p, showing that multiple degradative pathways contribute to the surveillance of aberrant forms of these transcripts.",
+        "gold": "contradiction",
+        "group_id": "iteration:322ab8eae542e85e46ea8266f021f52312b7f3e629c0a0c4d12138d37954239b",
+        "id": "scifact:train:566:16120395:0",
+        "native_label": "CONTRADICT",
+        "rationale": {
+          "document_id": "16120395",
+          "sentence_indices": [1, 2],
+          "set_index": 0
+        },
+        "source_id": "566",
+        "source_metadata": {
+          "iteration_component_sha256": "322ab8eae542e85e46ea8266f021f52312b7f3e629c0a0c4d12138d37954239b",
+          "original_group_id": "scifact:566"
+        },
+        "split": "train",
+        "variant": "gold-rationale-set"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.14,
+        "local-mini": 0.17,
+        "nli-three-way": 0.09,
+        "noul-conflict": 0.13,
+        "rich-control": 0.09,
+        "semantic-numeric": 0.07
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "uncertain",
+        "local-mini": "uncertain",
+        "nli-three-way": "uncertain",
+        "noul-conflict": "uncertain",
+        "rich-control": "uncertain",
+        "semantic-numeric": "uncertain"
+      },
+      "pair": {
+        "claim": "In S. cerevisiae, the absence of RNA surveillance pathways reduces sensitivity to high iron conditions.",
+        "dataset": "scifact",
+        "evidence": "These results show that RNA surveillance through multiple ribonucleolytic pathways plays a role in iron homeostasis in yeast to avoid the potentially toxic effects of the expression of the iron starvation response in iron-replete conditions.",
+        "gold": "contradiction",
+        "group_id": "iteration:322ab8eae542e85e46ea8266f021f52312b7f3e629c0a0c4d12138d37954239b",
+        "id": "scifact:train:566:16120395:2",
+        "native_label": "CONTRADICT",
+        "rationale": {
+          "document_id": "16120395",
+          "sentence_indices": [4],
+          "set_index": 2
+        },
+        "source_id": "566",
+        "source_metadata": {
+          "iteration_component_sha256": "322ab8eae542e85e46ea8266f021f52312b7f3e629c0a0c4d12138d37954239b",
+          "original_group_id": "scifact:566"
+        },
+        "split": "train",
+        "variant": "gold-rationale-set"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.41,
+        "local-mini": 0.39,
+        "nli-three-way": 0.35,
+        "noul-conflict": 0.4,
+        "rich-control": 0.3,
+        "semantic-numeric": 0.3
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "uncertain",
+        "local-mini": "uncertain",
+        "nli-three-way": "no_contradiction",
+        "noul-conflict": "no_contradiction",
+        "rich-control": "uncertain",
+        "semantic-numeric": "uncertain"
+      },
+      "pair": {
+        "claim": "Noninvasive positive pressure ventilation is not predictive of acute respiratory failure after solid organ transplantation.",
+        "dataset": "scifact",
+        "evidence": "Within the first hour of treatment, 14 patients (70%) in the NIV group, and 5 patients (25%) in the standard treatment group improved their ratio of the PaO2 to the fraction of inspired oxygen (FIO2).",
+        "gold": "contradiction",
+        "group_id": "iteration:d9e0915c686375bee586261f64beffd6b2e298ca1d10b38fe7476db42e326699",
+        "id": "scifact:train:855:8190282:0",
+        "native_label": "CONTRADICT",
+        "rationale": {
+          "document_id": "8190282",
+          "sentence_indices": [8],
+          "set_index": 0
+        },
+        "source_id": "855",
+        "source_metadata": {
+          "iteration_component_sha256": "d9e0915c686375bee586261f64beffd6b2e298ca1d10b38fe7476db42e326699",
+          "original_group_id": "scifact:855"
+        },
+        "split": "train",
+        "variant": "gold-rationale-set"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.17,
+        "local-mini": 0.17,
+        "nli-three-way": 0.17,
+        "noul-conflict": 0.14,
+        "rich-control": 0.08,
+        "semantic-numeric": 0.11
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "uncertain",
+        "local-mini": "uncertain",
+        "nli-three-way": "uncertain",
+        "noul-conflict": "no_contradiction",
+        "rich-control": "uncertain",
+        "semantic-numeric": "uncertain"
+      },
+      "pair": {
+        "claim": "Noninvasive positive pressure ventilation is not predictive of acute respiratory failure after solid organ transplantation.",
+        "dataset": "scifact",
+        "evidence": "Over time, a sustained improvement in PaO2 to FIO2 was noted in 12 patients (60%) in the NIV group, and in 5 patients (25%) randomized to standard treatment (P = .03).",
+        "gold": "contradiction",
+        "group_id": "iteration:d9e0915c686375bee586261f64beffd6b2e298ca1d10b38fe7476db42e326699",
+        "id": "scifact:train:855:8190282:1",
+        "native_label": "CONTRADICT",
+        "rationale": {
+          "document_id": "8190282",
+          "sentence_indices": [9],
+          "set_index": 1
+        },
+        "source_id": "855",
+        "source_metadata": {
+          "iteration_component_sha256": "d9e0915c686375bee586261f64beffd6b2e298ca1d10b38fe7476db42e326699",
+          "original_group_id": "scifact:855"
+        },
+        "split": "train",
+        "variant": "gold-rationale-set"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.24,
+        "local-mini": 0.18,
+        "nli-three-way": 0.21,
+        "noul-conflict": 0.17,
+        "rich-control": 0.08,
+        "semantic-numeric": 0.13
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "uncertain",
+        "local-mini": "no_contradiction",
+        "nli-three-way": "no_contradiction",
+        "noul-conflict": "no_contradiction",
+        "rich-control": "no_contradiction",
+        "semantic-numeric": "no_contradiction"
+      },
+      "pair": {
+        "claim": "Noninvasive positive pressure ventilation is not predictive of acute respiratory failure after solid organ transplantation.",
+        "dataset": "scifact",
+        "evidence": "CONCLUSIONS These results indicate that transplantation programs should consider NIV in the treatment of selected recipients of transplantation with acute respiratory failure.",
+        "gold": "contradiction",
+        "group_id": "iteration:d9e0915c686375bee586261f64beffd6b2e298ca1d10b38fe7476db42e326699",
+        "id": "scifact:train:855:8190282:3",
+        "native_label": "CONTRADICT",
+        "rationale": {
+          "document_id": "8190282",
+          "sentence_indices": [12],
+          "set_index": 3
+        },
+        "source_id": "855",
+        "source_metadata": {
+          "iteration_component_sha256": "d9e0915c686375bee586261f64beffd6b2e298ca1d10b38fe7476db42e326699",
+          "original_group_id": "scifact:855"
+        },
+        "split": "train",
+        "variant": "gold-rationale-set"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.12,
+        "local-mini": 0.1,
+        "nli-three-way": 0.16,
+        "noul-conflict": 0.12,
+        "rich-control": 0.06,
+        "semantic-numeric": 0.09
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "no_contradiction",
+        "local-mini": "no_contradiction",
+        "nli-three-way": "no_contradiction",
+        "noul-conflict": "no_contradiction",
+        "rich-control": "no_contradiction",
+        "semantic-numeric": "no_contradiction"
+      },
+      "pair": {
+        "claim": "Sheikh Humaid bin Rashid Al Nuaimi III is originally from the Al Nuaimi tribe .",
+        "dataset": "vitaminc",
+        "evidence": "Ajman is ruled by Sheikh Humaid bin Rashid Al Nuaimi III of the Na'im tribe .",
+        "gold": "contradiction",
+        "group_id": "iteration:6d50329f064bae76a643e9bd5a9c0a4f3c0438d9be62e3b54d3e0b5653f7caed",
+        "id": "vitaminc:combined:train:5ed4de07c9e77c000848a0f2_2",
+        "native_label": "REFUTES",
+        "source_id": "5ed4de07c9e77c000848a0f2_2",
+        "source_metadata": {
+          "case_id": "5ed4de07c9e77c000848a0f2",
+          "iteration_component_sha256": "6d50329f064bae76a643e9bd5a9c0a4f3c0438d9be62e3b54d3e0b5653f7caed",
+          "original_group_id": "vitaminc:revision-865049642",
+          "page": "Emirate of Ajman",
+          "wiki_revision_id": "865049642"
+        },
+        "split": "train",
+        "variant": "combined"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.05,
+        "local-mini": 0.11,
+        "nli-three-way": 0.07,
+        "noul-conflict": 0.11,
+        "rich-control": 0.07,
+        "semantic-numeric": 0.14
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "no_contradiction",
+        "local-mini": "no_contradiction",
+        "nli-three-way": "no_contradiction",
+        "noul-conflict": "no_contradiction",
+        "rich-control": "no_contradiction",
+        "semantic-numeric": "no_contradiction"
+      },
+      "pair": {
+        "claim": "Sheikh Humaid bin Rashid Al Nuaimi III is originally from the Na'im tribe .",
+        "dataset": "vitaminc",
+        "evidence": "Ajman is ruled by Sheikh Humaid bin Rashid Al Nuaimi III of the Al Nuaimi tribe .",
+        "gold": "contradiction",
+        "group_id": "iteration:6d50329f064bae76a643e9bd5a9c0a4f3c0438d9be62e3b54d3e0b5653f7caed",
+        "id": "vitaminc:combined:train:5ed4de07c9e77c000848a0f2_3",
+        "native_label": "REFUTES",
+        "source_id": "5ed4de07c9e77c000848a0f2_3",
+        "source_metadata": {
+          "case_id": "5ed4de07c9e77c000848a0f2",
+          "iteration_component_sha256": "6d50329f064bae76a643e9bd5a9c0a4f3c0438d9be62e3b54d3e0b5653f7caed",
+          "original_group_id": "vitaminc:revision-865049642",
+          "page": "Emirate of Ajman",
+          "wiki_revision_id": "865049642"
+        },
+        "split": "train",
+        "variant": "combined"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.11,
+        "local-mini": 0.1,
+        "nli-three-way": 0.05,
+        "noul-conflict": 0.12,
+        "rich-control": 0.09,
+        "semantic-numeric": 0.11
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "no_contradiction",
+        "local-mini": "no_contradiction",
+        "nli-three-way": "no_contradiction",
+        "noul-conflict": "no_contradiction",
+        "rich-control": "no_contradiction",
+        "semantic-numeric": "no_contradiction"
+      },
+      "pair": {
+        "claim": "André 3000 is of African-American and Native American descent .",
+        "dataset": "vitaminc",
+        "evidence": "He is of [ [ African Americans|African-American ] descent .",
+        "gold": "contradiction",
+        "group_id": "iteration:ade2ba9e08b62cc496053c0500b79569b9a44d258f420f9b936d47fa0b967001",
+        "id": "vitaminc:combined:train:5ed7acfec9e77c00084a5814_2",
+        "native_label": "REFUTES",
+        "source_id": "5ed7acfec9e77c00084a5814_2",
+        "source_metadata": {
+          "case_id": "5ed7acfec9e77c00084a5814",
+          "iteration_component_sha256": "ade2ba9e08b62cc496053c0500b79569b9a44d258f420f9b936d47fa0b967001",
+          "original_group_id": "vitaminc:revision-819098904",
+          "page": "André 3000",
+          "wiki_revision_id": "819098904"
+        },
+        "split": "train",
+        "variant": "combined"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.01,
+        "local-mini": 0,
+        "nli-three-way": 0,
+        "noul-conflict": 0.04,
+        "rich-control": 0,
+        "semantic-numeric": 0.01
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "no_contradiction",
+        "local-mini": "no_contradiction",
+        "nli-three-way": "no_contradiction",
+        "noul-conflict": "no_contradiction",
+        "rich-control": "no_contradiction",
+        "semantic-numeric": "no_contradiction"
+      },
+      "pair": {
+        "claim": "André 3000 is of African-American descent .",
+        "dataset": "vitaminc",
+        "evidence": "He is of African-American and Native American descent .",
+        "gold": "contradiction",
+        "group_id": "iteration:ade2ba9e08b62cc496053c0500b79569b9a44d258f420f9b936d47fa0b967001",
+        "id": "vitaminc:combined:train:5ed7acfec9e77c00084a5814_3",
+        "native_label": "REFUTES",
+        "source_id": "5ed7acfec9e77c00084a5814_3",
+        "source_metadata": {
+          "case_id": "5ed7acfec9e77c00084a5814",
+          "iteration_component_sha256": "ade2ba9e08b62cc496053c0500b79569b9a44d258f420f9b936d47fa0b967001",
+          "original_group_id": "vitaminc:revision-819098904",
+          "page": "André 3000",
+          "wiki_revision_id": "819098904"
+        },
+        "split": "train",
+        "variant": "combined"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.01,
+        "local-mini": 0,
+        "nli-three-way": 0,
+        "noul-conflict": 0.05,
+        "rich-control": 0.01,
+        "semantic-numeric": 0.01
+      }
+    }
+  ],
+  "manifest_sha256": "0fe13090664631f45733eb66e719b020f8d32895e5687ad6b863d8670d03549e",
+  "report_sha256": "e61cfe2996445e684738f2d705b4dd59a36531264d2ea40ce2b0525387931624",
+  "scope": "R1 optimization-train screen only. No validation or holdout read.",
+  "semantic_numeric_raw_positive_but_abstained": [
+    {
+      "decisions": {
+        "literal-contract": "contradiction",
+        "local-mini": "contradiction",
+        "nli-three-way": "contradiction",
+        "noul-conflict": "contradiction",
+        "rich-control": "contradiction",
+        "semantic-numeric": "uncertain"
+      },
+      "numeric_features": {
+        "applicability": null,
+        "conflict": 0.91,
+        "negative": 0.07,
+        "numeric_available": false,
+        "numeric_probability": null,
+        "numeric_relation": null,
+        "quantitative_decisive": 0.92,
+        "scope": 0.02,
+        "unknown": 0.02
+      },
+      "pair": {
+        "claim": "Manchester City allegedly paid less than £5 million for Oleksandr Zinchenko .",
+        "dataset": "vitaminc",
+        "evidence": "On 4 July 2016 , Zinchenko was signed by Manchester City for an undisclosed fee believed to be in the region of £15 million .",
+        "gold": "contradiction",
+        "group_id": "iteration:669e695c07d73aba360d6cb82ed4c2449e41cfe772e6b92475d17f7222e9849f",
+        "id": "vitaminc:combined:train:5eb29887c9e77c0008d9300c_2",
+        "native_label": "REFUTES",
+        "source_id": "5eb29887c9e77c0008d9300c_2",
+        "source_metadata": {
+          "case_id": "5eb29887c9e77c0008d9300c",
+          "iteration_component_sha256": "669e695c07d73aba360d6cb82ed4c2449e41cfe772e6b92475d17f7222e9849f",
+          "original_group_id": "vitaminc:revision-824539983",
+          "page": "Oleksandr Zinchenko -LRB-footballer-RRB-",
+          "wiki_revision_id": "824539983"
+        },
+        "split": "train",
+        "variant": "combined"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.94,
+        "local-mini": 0.92,
+        "nli-three-way": 0.92,
+        "noul-conflict": 0.89,
+        "rich-control": 0.86,
+        "semantic-numeric": 0.91
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "contradiction",
+        "local-mini": "contradiction",
+        "nli-three-way": "contradiction",
+        "noul-conflict": "contradiction",
+        "rich-control": "contradiction",
+        "semantic-numeric": "uncertain"
+      },
+      "numeric_features": {
+        "applicability": null,
+        "conflict": 0.88,
+        "negative": 0.1,
+        "numeric_available": false,
+        "numeric_probability": null,
+        "numeric_relation": null,
+        "quantitative_decisive": 0.92,
+        "scope": 0.02,
+        "unknown": 0.02
+      },
+      "pair": {
+        "claim": "Manchester City allegedly paid more than £5 million for Oleksandr Zinchenko .",
+        "dataset": "vitaminc",
+        "evidence": "On 4 July 2016 , Zinchenko was signed by Manchester City for an undisclosed fee believed to be in the region of £1.7 million .",
+        "gold": "contradiction",
+        "group_id": "iteration:669e695c07d73aba360d6cb82ed4c2449e41cfe772e6b92475d17f7222e9849f",
+        "id": "vitaminc:combined:train:5eb29887c9e77c0008d9300c_3",
+        "native_label": "REFUTES",
+        "source_id": "5eb29887c9e77c0008d9300c_3",
+        "source_metadata": {
+          "case_id": "5eb29887c9e77c0008d9300c",
+          "iteration_component_sha256": "669e695c07d73aba360d6cb82ed4c2449e41cfe772e6b92475d17f7222e9849f",
+          "original_group_id": "vitaminc:revision-824539983",
+          "page": "Oleksandr Zinchenko -LRB-footballer-RRB-",
+          "wiki_revision_id": "824539983"
+        },
+        "split": "train",
+        "variant": "combined"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.93,
+        "local-mini": 0.92,
+        "nli-three-way": 0.88,
+        "noul-conflict": 0.8,
+        "rich-control": 0.8,
+        "semantic-numeric": 0.88
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "contradiction",
+        "local-mini": "contradiction",
+        "nli-three-way": "contradiction",
+        "noul-conflict": "contradiction",
+        "rich-control": "contradiction",
+        "semantic-numeric": "uncertain"
+      },
+      "numeric_features": {
+        "applicability": null,
+        "conflict": 0.95,
+        "negative": 0.04,
+        "numeric_available": false,
+        "numeric_probability": null,
+        "numeric_relation": null,
+        "quantitative_decisive": 0.94,
+        "scope": 0,
+        "unknown": 0.01
+      },
+      "pair": {
+        "claim": "Manchester City had to pay a fee of over £5 million for Oleksandr Zinchenko .",
+        "dataset": "vitaminc",
+        "evidence": "On 4 July 2016 , Zinchenko signed for Premier League club Manchester City for an undisclosed fee believed to be in region of £1.7 million .",
+        "gold": "contradiction",
+        "group_id": "iteration:669e695c07d73aba360d6cb82ed4c2449e41cfe772e6b92475d17f7222e9849f",
+        "id": "vitaminc:combined:train:5eb29888c9e77c0008d93821_2",
+        "native_label": "REFUTES",
+        "source_id": "5eb29888c9e77c0008d93821_2",
+        "source_metadata": {
+          "case_id": "5eb29888c9e77c0008d93821",
+          "iteration_component_sha256": "669e695c07d73aba360d6cb82ed4c2449e41cfe772e6b92475d17f7222e9849f",
+          "original_group_id": "vitaminc:revision-852837857",
+          "page": "Oleksandr Zinchenko -LRB-footballer-RRB-",
+          "wiki_revision_id": "852837857"
+        },
+        "split": "train",
+        "variant": "combined"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.98,
+        "local-mini": 0.98,
+        "nli-three-way": 0.96,
+        "noul-conflict": 0.89,
+        "rich-control": 0.91,
+        "semantic-numeric": 0.95
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "contradiction",
+        "local-mini": "contradiction",
+        "nli-three-way": "contradiction",
+        "noul-conflict": "contradiction",
+        "rich-control": "contradiction",
+        "semantic-numeric": "uncertain"
+      },
+      "numeric_features": {
+        "applicability": null,
+        "conflict": 0.98,
+        "negative": 0.01,
+        "numeric_available": false,
+        "numeric_probability": null,
+        "numeric_relation": null,
+        "quantitative_decisive": 0.95,
+        "scope": 0,
+        "unknown": 0.01
+      },
+      "pair": {
+        "claim": "Manchester City had to pay a fee of less than £5 million for Oleksandr Zinchenko .",
+        "dataset": "vitaminc",
+        "evidence": "On 4 July 2016 , Zinchenko signed for Premier League club Manchester City for an undisclosed fee believed to be in region of £15 million .",
+        "gold": "contradiction",
+        "group_id": "iteration:669e695c07d73aba360d6cb82ed4c2449e41cfe772e6b92475d17f7222e9849f",
+        "id": "vitaminc:combined:train:5eb29888c9e77c0008d93821_3",
+        "native_label": "REFUTES",
+        "source_id": "5eb29888c9e77c0008d93821_3",
+        "source_metadata": {
+          "case_id": "5eb29888c9e77c0008d93821",
+          "iteration_component_sha256": "669e695c07d73aba360d6cb82ed4c2449e41cfe772e6b92475d17f7222e9849f",
+          "original_group_id": "vitaminc:revision-852837857",
+          "page": "Oleksandr Zinchenko -LRB-footballer-RRB-",
+          "wiki_revision_id": "852837857"
+        },
+        "split": "train",
+        "variant": "combined"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.98,
+        "local-mini": 0.98,
+        "nli-three-way": 0.98,
+        "noul-conflict": 0.92,
+        "rich-control": 0.9,
+        "semantic-numeric": 0.98
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "contradiction",
+        "local-mini": "contradiction",
+        "nli-three-way": "contradiction",
+        "noul-conflict": "uncertain",
+        "rich-control": "uncertain",
+        "semantic-numeric": "uncertain"
+      },
+      "numeric_features": {
+        "applicability": null,
+        "conflict": 0.82,
+        "negative": 0.14,
+        "numeric_available": false,
+        "numeric_probability": null,
+        "numeric_relation": null,
+        "quantitative_decisive": 0.82,
+        "scope": 0.06,
+        "unknown": 0.04
+      },
+      "pair": {
+        "claim": "Oleksandr Zinchenko signed a contract with Manchester City for more than £50 million .",
+        "dataset": "vitaminc",
+        "evidence": "Zinchenko began his career at Russian Premier League team FC Ufa before joining Manchester City in 2016 for a fee in the region of �1 million .",
+        "gold": "contradiction",
+        "group_id": "iteration:669e695c07d73aba360d6cb82ed4c2449e41cfe772e6b92475d17f7222e9849f",
+        "id": "vitaminc:combined:train:5eb95739c9e77c0008fa15df_2",
+        "native_label": "REFUTES",
+        "source_id": "5eb95739c9e77c0008fa15df_2",
+        "source_metadata": {
+          "case_id": "5eb95739c9e77c0008fa15df",
+          "iteration_component_sha256": "669e695c07d73aba360d6cb82ed4c2449e41cfe772e6b92475d17f7222e9849f",
+          "original_group_id": "vitaminc:revision-912207718",
+          "page": "Oleksandr Zinchenko -LRB-footballer-RRB-",
+          "wiki_revision_id": "912207718"
+        },
+        "split": "train",
+        "variant": "combined"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.83,
+        "local-mini": 0.82,
+        "nli-three-way": 0.88,
+        "noul-conflict": 0.77,
+        "rich-control": 0.68,
+        "semantic-numeric": 0.82
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "contradiction",
+        "local-mini": "contradiction",
+        "nli-three-way": "contradiction",
+        "noul-conflict": "contradiction",
+        "rich-control": "uncertain",
+        "semantic-numeric": "uncertain"
+      },
+      "numeric_features": {
+        "applicability": null,
+        "conflict": 0.9,
+        "negative": 0.08,
+        "numeric_available": false,
+        "numeric_probability": null,
+        "numeric_relation": null,
+        "quantitative_decisive": 0.89,
+        "scope": 0.04,
+        "unknown": 0.02
+      },
+      "pair": {
+        "claim": "Oleksandr Zinchenko signed a contract with Manchester City for less than £50 million .",
+        "dataset": "vitaminc",
+        "evidence": "Zinchenko began his career at Russian Premier League team FC Ufa before joining Manchester City in 2016 for a fee in the region of �100 million .",
+        "gold": "contradiction",
+        "group_id": "iteration:669e695c07d73aba360d6cb82ed4c2449e41cfe772e6b92475d17f7222e9849f",
+        "id": "vitaminc:combined:train:5eb95739c9e77c0008fa15df_3",
+        "native_label": "REFUTES",
+        "source_id": "5eb95739c9e77c0008fa15df_3",
+        "source_metadata": {
+          "case_id": "5eb95739c9e77c0008fa15df",
+          "iteration_component_sha256": "669e695c07d73aba360d6cb82ed4c2449e41cfe772e6b92475d17f7222e9849f",
+          "original_group_id": "vitaminc:revision-912207718",
+          "page": "Oleksandr Zinchenko -LRB-footballer-RRB-",
+          "wiki_revision_id": "912207718"
+        },
+        "split": "train",
+        "variant": "combined"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.91,
+        "local-mini": 0.9,
+        "nli-three-way": 0.95,
+        "noul-conflict": 0.83,
+        "rich-control": 0.77,
+        "semantic-numeric": 0.9
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "contradiction",
+        "local-mini": "contradiction",
+        "nli-three-way": "contradiction",
+        "noul-conflict": "contradiction",
+        "rich-control": "contradiction",
+        "semantic-numeric": "uncertain"
+      },
+      "numeric_features": {
+        "applicability": null,
+        "conflict": 1,
+        "negative": 0,
+        "numeric_available": false,
+        "numeric_probability": null,
+        "numeric_relation": null,
+        "quantitative_decisive": 0.96,
+        "scope": 0,
+        "unknown": 0
+      },
+      "pair": {
+        "claim": "Life of Kylie will debut after 20 July 2017 .",
+        "dataset": "vitaminc",
+        "evidence": "The eight-part half-hour series will debut on July 6 , 2017 , on the E !",
+        "gold": "contradiction",
+        "group_id": "iteration:19290d3146652ab71c73c1e981042674915d941c0f974ff0a7124d4f3efad376",
+        "id": "vitaminc:combined:train:5ec284fcc9e77c0008415ae2_2",
+        "native_label": "REFUTES",
+        "source_id": "5ec284fcc9e77c0008415ae2_2",
+        "source_metadata": {
+          "case_id": "5ec284fcc9e77c0008415ae2",
+          "iteration_component_sha256": "19290d3146652ab71c73c1e981042674915d941c0f974ff0a7124d4f3efad376",
+          "original_group_id": "vitaminc:revision-785317399",
+          "page": "Life of Kylie",
+          "wiki_revision_id": "785317399"
+        },
+        "split": "train",
+        "variant": "combined"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 1,
+        "local-mini": 0.99,
+        "nli-three-way": 1,
+        "noul-conflict": 0.97,
+        "rich-control": 0.98,
+        "semantic-numeric": 1
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "contradiction",
+        "local-mini": "contradiction",
+        "nli-three-way": "contradiction",
+        "noul-conflict": "contradiction",
+        "rich-control": "contradiction",
+        "semantic-numeric": "uncertain"
+      },
+      "numeric_features": {
+        "applicability": null,
+        "conflict": 0.99,
+        "negative": 0.01,
+        "numeric_available": false,
+        "numeric_probability": null,
+        "numeric_relation": null,
+        "quantitative_decisive": 0.96,
+        "scope": 0,
+        "unknown": 0
+      },
+      "pair": {
+        "claim": "Life of Kylie will debut before 20 July 2017 .",
+        "dataset": "vitaminc",
+        "evidence": "The eight-part half-hour series will debut on August 6 , 2017 , on the E !",
+        "gold": "contradiction",
+        "group_id": "iteration:19290d3146652ab71c73c1e981042674915d941c0f974ff0a7124d4f3efad376",
+        "id": "vitaminc:combined:train:5ec284fcc9e77c0008415ae2_3",
+        "native_label": "REFUTES",
+        "source_id": "5ec284fcc9e77c0008415ae2_3",
+        "source_metadata": {
+          "case_id": "5ec284fcc9e77c0008415ae2",
+          "iteration_component_sha256": "19290d3146652ab71c73c1e981042674915d941c0f974ff0a7124d4f3efad376",
+          "original_group_id": "vitaminc:revision-785317399",
+          "page": "Life of Kylie",
+          "wiki_revision_id": "785317399"
+        },
+        "split": "train",
+        "variant": "combined"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 1,
+        "local-mini": 1,
+        "nli-three-way": 1,
+        "noul-conflict": 0.97,
+        "rich-control": 1,
+        "semantic-numeric": 0.99
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "contradiction",
+        "local-mini": "contradiction",
+        "nli-three-way": "contradiction",
+        "noul-conflict": "contradiction",
+        "rich-control": "uncertain",
+        "semantic-numeric": "uncertain"
+      },
+      "numeric_features": {
+        "applicability": null,
+        "conflict": 0.9,
+        "negative": 0.06,
+        "numeric_available": false,
+        "numeric_probability": null,
+        "numeric_relation": null,
+        "quantitative_decisive": 0.91,
+        "scope": 0.02,
+        "unknown": 0.04
+      },
+      "pair": {
+        "claim": "Paris FC was sold for less than £50 million .",
+        "dataset": "vitaminc",
+        "evidence": "In June 2013 , Paris FC is bought for 80 million pounds by Chinese regal Jason Wong , who became the current owner of the club.",
+        "gold": "contradiction",
+        "group_id": "iteration:112e41dc611d7c62d4a566832ff2d59f0595fced11d5496093352f7feae56186",
+        "id": "vitaminc:combined:train:5ece9461c9e77c0008465f34_3",
+        "native_label": "REFUTES",
+        "source_id": "5ece9461c9e77c0008465f34_3",
+        "source_metadata": {
+          "case_id": "5ece9461c9e77c0008465f34",
+          "iteration_component_sha256": "112e41dc611d7c62d4a566832ff2d59f0595fced11d5496093352f7feae56186",
+          "original_group_id": "vitaminc:revision-596125049",
+          "page": "Paris FC",
+          "wiki_revision_id": "596125049"
+        },
+        "split": "train",
+        "variant": "combined"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.92,
+        "local-mini": 0.92,
+        "nli-three-way": 0.97,
+        "noul-conflict": 0.92,
+        "rich-control": 0.75,
+        "semantic-numeric": 0.9
+      }
+    }
+  ],
+  "summaries": {
+    "literal-contract": {
+      "combined": {
+        "frontier": {
+          "all_thresholds_group_complete": true,
+          "best_precision_at_90recall": {
+            "cut": 0.11,
+            "fp": 23,
+            "precision": 0.6617647058823529,
+            "recall": 0.9,
+            "tp": 45
+          },
+          "best_recall_at_95precision": {
+            "cut": 0.97,
+            "fp": 1,
+            "precision": 0.9523809523809523,
+            "recall": 0.4,
+            "tp": 20
+          },
+          "in_sample_training_only": true
+        },
+        "recorded": {
+          "clear_negative_coverage": 0.7272727272727273,
+          "fp": 3,
+          "negative": 110,
+          "positive": 50,
+          "precision": 0.9117647058823529,
+          "recall": 0.62,
+          "tn": 80,
+          "tp": 31
+        }
+      },
+      "scifact": {
+        "frontier": {
+          "all_thresholds_group_complete": true,
+          "best_precision_at_90recall": {
+            "cut": 0.12,
+            "fp": 4,
+            "precision": 0.875,
+            "recall": 0.9333333333333333,
+            "tp": 28
+          },
+          "best_recall_at_95precision": {
+            "cut": 1,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.16666666666666666,
+            "tp": 5
+          },
+          "in_sample_training_only": true
+        },
+        "recorded": {
+          "clear_negative_coverage": 0.84,
+          "fp": 3,
+          "negative": 50,
+          "positive": 30,
+          "precision": 0.8636363636363636,
+          "recall": 0.6333333333333333,
+          "tn": 42,
+          "tp": 19
+        }
+      },
+      "vitaminc": {
+        "frontier": {
+          "all_thresholds_group_complete": true,
+          "best_precision_at_90recall": {
+            "cut": 0.05,
+            "fp": 27,
+            "precision": 0.4,
+            "recall": 0.9,
+            "tp": 18
+          },
+          "best_recall_at_95precision": {
+            "cut": 0.78,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.65,
+            "tp": 13
+          },
+          "in_sample_training_only": true
+        },
+        "recorded": {
+          "clear_negative_coverage": 0.6333333333333333,
+          "fp": 0,
+          "negative": 60,
+          "positive": 20,
+          "precision": 1.0,
+          "recall": 0.6,
+          "tn": 38,
+          "tp": 12
+        }
+      }
+    },
+    "local-mini": {
+      "combined": {
+        "frontier": {
+          "all_thresholds_group_complete": true,
+          "best_precision_at_90recall": {
+            "cut": 0.1,
+            "fp": 19,
+            "precision": 0.7076923076923077,
+            "recall": 0.92,
+            "tp": 46
+          },
+          "best_recall_at_95precision": {
+            "cut": 1,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.14,
+            "tp": 7
+          },
+          "in_sample_training_only": true
+        },
+        "recorded": {
+          "clear_negative_coverage": 0.7454545454545455,
+          "fp": 5,
+          "negative": 110,
+          "positive": 50,
+          "precision": 0.8648648648648649,
+          "recall": 0.64,
+          "tn": 82,
+          "tp": 32
+        }
+      },
+      "scifact": {
+        "frontier": {
+          "all_thresholds_group_complete": true,
+          "best_precision_at_90recall": {
+            "cut": 0.1,
+            "fp": 4,
+            "precision": 0.875,
+            "recall": 0.9333333333333333,
+            "tp": 28
+          },
+          "best_recall_at_95precision": {
+            "cut": 1,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.16666666666666666,
+            "tp": 5
+          },
+          "in_sample_training_only": true
+        },
+        "recorded": {
+          "clear_negative_coverage": 0.86,
+          "fp": 3,
+          "negative": 50,
+          "positive": 30,
+          "precision": 0.8695652173913043,
+          "recall": 0.6666666666666666,
+          "tn": 43,
+          "tp": 20
+        }
+      },
+      "vitaminc": {
+        "frontier": {
+          "all_thresholds_group_complete": true,
+          "best_precision_at_90recall": {
+            "cut": 0.1,
+            "fp": 15,
+            "precision": 0.5454545454545454,
+            "recall": 0.9,
+            "tp": 18
+          },
+          "best_recall_at_95precision": {
+            "cut": 0.83,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.55,
+            "tp": 11
+          },
+          "in_sample_training_only": true
+        },
+        "recorded": {
+          "clear_negative_coverage": 0.65,
+          "fp": 2,
+          "negative": 60,
+          "positive": 20,
+          "precision": 0.8571428571428571,
+          "recall": 0.6,
+          "tn": 39,
+          "tp": 12
+        }
+      }
+    },
+    "nli-three-way": {
+      "combined": {
+        "frontier": {
+          "all_thresholds_group_complete": true,
+          "best_precision_at_90recall": {
+            "cut": 0.07,
+            "fp": 19,
+            "precision": 0.703125,
+            "recall": 0.9,
+            "tp": 45
+          },
+          "best_recall_at_95precision": {
+            "cut": 0.95,
+            "fp": 1,
+            "precision": 0.9583333333333334,
+            "recall": 0.46,
+            "tp": 23
+          },
+          "in_sample_training_only": true
+        },
+        "recorded": {
+          "clear_negative_coverage": 0.9,
+          "fp": 3,
+          "negative": 110,
+          "positive": 50,
+          "precision": 0.9117647058823529,
+          "recall": 0.62,
+          "tn": 99,
+          "tp": 31
+        }
+      },
+      "scifact": {
+        "frontier": {
+          "all_thresholds_group_complete": true,
+          "best_precision_at_90recall": {
+            "cut": 0.09,
+            "fp": 3,
+            "precision": 0.9032258064516129,
+            "recall": 0.9333333333333333,
+            "tp": 28
+          },
+          "best_recall_at_95precision": {
+            "cut": 0.98,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.43333333333333335,
+            "tp": 13
+          },
+          "in_sample_training_only": true
+        },
+        "recorded": {
+          "clear_negative_coverage": 0.94,
+          "fp": 3,
+          "negative": 50,
+          "positive": 30,
+          "precision": 0.8636363636363636,
+          "recall": 0.6333333333333333,
+          "tn": 47,
+          "tp": 19
+        }
+      },
+      "vitaminc": {
+        "frontier": {
+          "all_thresholds_group_complete": true,
+          "best_precision_at_90recall": {
+            "cut": 0.05,
+            "fp": 21,
+            "precision": 0.46153846153846156,
+            "recall": 0.9,
+            "tp": 18
+          },
+          "best_recall_at_95precision": {
+            "cut": 0.88,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.6,
+            "tp": 12
+          },
+          "in_sample_training_only": true
+        },
+        "recorded": {
+          "clear_negative_coverage": 0.8666666666666667,
+          "fp": 0,
+          "negative": 60,
+          "positive": 20,
+          "precision": 1.0,
+          "recall": 0.6,
+          "tn": 52,
+          "tp": 12
+        }
+      }
+    },
+    "noul-conflict": {
+      "combined": {
+        "frontier": {
+          "all_thresholds_group_complete": true,
+          "best_precision_at_90recall": {
+            "cut": 0.11,
+            "fp": 26,
+            "precision": 0.6338028169014085,
+            "recall": 0.9,
+            "tp": 45
+          },
+          "best_recall_at_95precision": {
+            "cut": 0.84,
+            "fp": 1,
+            "precision": 0.9565217391304348,
+            "recall": 0.44,
+            "tp": 22
+          },
+          "in_sample_training_only": true
+        },
+        "recorded": {
+          "clear_negative_coverage": 0.8363636363636363,
+          "fp": 3,
+          "negative": 110,
+          "positive": 50,
+          "precision": 0.9,
+          "recall": 0.54,
+          "tn": 92,
+          "tp": 27
+        }
+      },
+      "scifact": {
+        "frontier": {
+          "all_thresholds_group_complete": true,
+          "best_precision_at_90recall": {
+            "cut": 0.09,
+            "fp": 4,
+            "precision": 0.875,
+            "recall": 0.9333333333333333,
+            "tp": 28
+          },
+          "best_recall_at_95precision": {
+            "cut": 0.85,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.4,
+            "tp": 12
+          },
+          "in_sample_training_only": true
+        },
+        "recorded": {
+          "clear_negative_coverage": 0.94,
+          "fp": 3,
+          "negative": 50,
+          "positive": 30,
+          "precision": 0.85,
+          "recall": 0.5666666666666667,
+          "tn": 47,
+          "tp": 17
+        }
+      },
+      "vitaminc": {
+        "frontier": {
+          "all_thresholds_group_complete": true,
+          "best_precision_at_90recall": {
+            "cut": 0.11,
+            "fp": 22,
+            "precision": 0.45,
+            "recall": 0.9,
+            "tp": 18
+          },
+          "best_recall_at_95precision": {
+            "cut": 0.77,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.6,
+            "tp": 12
+          },
+          "in_sample_training_only": true
+        },
+        "recorded": {
+          "clear_negative_coverage": 0.75,
+          "fp": 0,
+          "negative": 60,
+          "positive": 20,
+          "precision": 1.0,
+          "recall": 0.5,
+          "tn": 45,
+          "tp": 10
+        }
+      }
+    },
+    "rich-control": {
+      "combined": {
+        "frontier": {
+          "all_thresholds_group_complete": true,
+          "best_precision_at_90recall": {
+            "cut": 0.07,
+            "fp": 18,
+            "precision": 0.7142857142857143,
+            "recall": 0.9,
+            "tp": 45
+          },
+          "best_recall_at_95precision": {
+            "cut": 0.98,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.18,
+            "tp": 9
+          },
+          "in_sample_training_only": true
+        },
+        "recorded": {
+          "clear_negative_coverage": 0.7636363636363637,
+          "fp": 3,
+          "negative": 110,
+          "positive": 50,
+          "precision": 0.9,
+          "recall": 0.54,
+          "tn": 84,
+          "tp": 27
+        }
+      },
+      "scifact": {
+        "frontier": {
+          "all_thresholds_group_complete": true,
+          "best_precision_at_90recall": {
+            "cut": 0.08,
+            "fp": 3,
+            "precision": 0.9,
+            "recall": 0.9,
+            "tp": 27
+          },
+          "best_recall_at_95precision": {
+            "cut": 0.98,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.16666666666666666,
+            "tp": 5
+          },
+          "in_sample_training_only": true
+        },
+        "recorded": {
+          "clear_negative_coverage": 0.86,
+          "fp": 3,
+          "negative": 50,
+          "positive": 30,
+          "precision": 0.8636363636363636,
+          "recall": 0.6333333333333333,
+          "tn": 43,
+          "tp": 19
+        }
+      },
+      "vitaminc": {
+        "frontier": {
+          "all_thresholds_group_complete": true,
+          "best_precision_at_90recall": {
+            "cut": 0.07,
+            "fp": 15,
+            "precision": 0.5454545454545454,
+            "recall": 0.9,
+            "tp": 18
+          },
+          "best_recall_at_95precision": {
+            "cut": 0.75,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.5,
+            "tp": 10
+          },
+          "in_sample_training_only": true
+        },
+        "recorded": {
+          "clear_negative_coverage": 0.6833333333333333,
+          "fp": 0,
+          "negative": 60,
+          "positive": 20,
+          "precision": 1.0,
+          "recall": 0.4,
+          "tn": 41,
+          "tp": 8
+        }
+      }
+    },
+    "semantic-numeric": {
+      "combined": {
+        "frontier": {
+          "all_thresholds_group_complete": true,
+          "best_precision_at_90recall": {
+            "cut": 0.09,
+            "fp": 24,
+            "precision": 0.6521739130434783,
+            "recall": 0.9,
+            "tp": 45
+          },
+          "best_recall_at_95precision": {
+            "cut": 0.89,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.48,
+            "tp": 24
+          },
+          "in_sample_training_only": true
+        },
+        "recorded": {
+          "clear_negative_coverage": 0.7,
+          "fp": 3,
+          "negative": 110,
+          "positive": 50,
+          "precision": 0.8636363636363636,
+          "recall": 0.38,
+          "tn": 77,
+          "tp": 19
+        }
+      },
+      "scifact": {
+        "frontier": {
+          "all_thresholds_group_complete": true,
+          "best_precision_at_90recall": {
+            "cut": 0.07,
+            "fp": 4,
+            "precision": 0.875,
+            "recall": 0.9333333333333333,
+            "tp": 28
+          },
+          "best_recall_at_95precision": {
+            "cut": 0.89,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.5,
+            "tp": 15
+          },
+          "in_sample_training_only": true
+        },
+        "recorded": {
+          "clear_negative_coverage": 0.92,
+          "fp": 3,
+          "negative": 50,
+          "positive": 30,
+          "precision": 0.85,
+          "recall": 0.5666666666666667,
+          "tn": 46,
+          "tp": 17
+        }
+      },
+      "vitaminc": {
+        "frontier": {
+          "all_thresholds_group_complete": true,
+          "best_precision_at_90recall": {
+            "cut": 0.11,
+            "fp": 19,
+            "precision": 0.4864864864864865,
+            "recall": 0.9,
+            "tp": 18
+          },
+          "best_recall_at_95precision": {
+            "cut": 0.7400000000000001,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.6,
+            "tp": 12
+          },
+          "in_sample_training_only": true
+        },
+        "recorded": {
+          "clear_negative_coverage": 0.5166666666666667,
+          "fp": 0,
+          "negative": 60,
+          "positive": 20,
+          "precision": 1.0,
+          "recall": 0.1,
+          "tn": 31,
+          "tp": 2
+        }
+      }
+    }
+  },
+  "target_resolution": {
+    "fp_budget_at_45_to_50_tp": 2,
+    "minimum_tp_for_90recall": 45,
+    "positives": 50
+  },
+  "unique_native_false_positive_cases": [
+    {
+      "decisions": {
+        "literal-contract": "contradiction",
+        "local-mini": "contradiction",
+        "nli-three-way": "contradiction",
+        "noul-conflict": "contradiction",
+        "rich-control": "contradiction",
+        "semantic-numeric": "contradiction"
+      },
+      "pair": {
+        "claim": "Bariatric surgery increases rates of colorectal cancer.",
+        "dataset": "scifact",
+        "evidence": "No association was detected between bariatric surgery and fractures, cancer, or stroke.",
+        "gold": "non_contradiction",
+        "group_id": "iteration:0d15f4f8ebf6a16fa7fc816c8f0e95e31dd9e1686b70707ce669cffccebdf92a",
+        "id": "scifact:train:164:5824985:0",
+        "native_label": "SUPPORT",
+        "rationale": {
+          "document_id": "5824985",
+          "sentence_indices": [11],
+          "set_index": 0
+        },
+        "source_id": "164",
+        "source_metadata": {
+          "iteration_component_sha256": "0d15f4f8ebf6a16fa7fc816c8f0e95e31dd9e1686b70707ce669cffccebdf92a",
+          "original_group_id": "scifact:164"
+        },
+        "split": "train",
+        "variant": "gold-rationale-set"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.94,
+        "local-mini": 0.98,
+        "nli-three-way": 0.97,
+        "noul-conflict": 0.82,
+        "rich-control": 0.95,
+        "semantic-numeric": 0.88
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "contradiction",
+        "local-mini": "contradiction",
+        "nli-three-way": "contradiction",
+        "noul-conflict": "contradiction",
+        "rich-control": "contradiction",
+        "semantic-numeric": "contradiction"
+      },
+      "pair": {
+        "claim": "Bariatric surgery increases rates of postmenopausal breast cancer.",
+        "dataset": "scifact",
+        "evidence": "No association was detected between bariatric surgery and fractures, cancer, or stroke.",
+        "gold": "non_contradiction",
+        "group_id": "iteration:0d15f4f8ebf6a16fa7fc816c8f0e95e31dd9e1686b70707ce669cffccebdf92a",
+        "id": "scifact:train:165:5824985:0",
+        "native_label": "SUPPORT",
+        "rationale": {
+          "document_id": "5824985",
+          "sentence_indices": [11],
+          "set_index": 0
+        },
+        "source_id": "165",
+        "source_metadata": {
+          "iteration_component_sha256": "0d15f4f8ebf6a16fa7fc816c8f0e95e31dd9e1686b70707ce669cffccebdf92a",
+          "original_group_id": "scifact:165"
+        },
+        "split": "train",
+        "variant": "gold-rationale-set"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.93,
+        "local-mini": 0.94,
+        "nli-three-way": 0.94,
+        "noul-conflict": 0.83,
+        "rich-control": 0.91,
+        "semantic-numeric": 0.84
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "contradiction",
+        "local-mini": "contradiction",
+        "nli-three-way": "contradiction",
+        "noul-conflict": "contradiction",
+        "rich-control": "contradiction",
+        "semantic-numeric": "contradiction"
+      },
+      "pair": {
+        "claim": "Pediatric SCD patients with vaso-occlusive crisis show increased morphine use after breathing 80 ppm iNO for 4 hours.",
+        "dataset": "scifact",
+        "evidence": "Morphine use over 6 hours was significantly less in the INO group (mean cumulative use, 0.29 vs 0.44 mg/kg; P =.03) but was not different over 4 hours (0.26 vs 0.32 mg/kg; P =.21) or 24 hours (0.63 vs 0.91 mg/kg; P =.15).",
+        "gold": "non_contradiction",
+        "group_id": "iteration:0cf97849c9b6498b6c2410b36e214f449b14f0df6c280f97e2fe485302c77070",
+        "id": "scifact:train:933:14711483:0",
+        "native_label": "SUPPORT",
+        "rationale": {
+          "document_id": "14711483",
+          "sentence_indices": [12],
+          "set_index": 0
+        },
+        "source_id": "933",
+        "source_metadata": {
+          "iteration_component_sha256": "0cf97849c9b6498b6c2410b36e214f449b14f0df6c280f97e2fe485302c77070",
+          "original_group_id": "scifact:933"
+        },
+        "split": "train",
+        "variant": "gold-rationale-set"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.99,
+        "local-mini": 0.99,
+        "nli-three-way": 0.94,
+        "noul-conflict": 0.84,
+        "rich-control": 0.97,
+        "semantic-numeric": 0.88
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "uncertain",
+        "local-mini": "contradiction",
+        "nli-three-way": "uncertain",
+        "noul-conflict": "uncertain",
+        "rich-control": "uncertain",
+        "semantic-numeric": "uncertain"
+      },
+      "pair": {
+        "claim": "Ray Conniff 's son , Jimmy Conniff , died in 2015 .",
+        "dataset": "vitaminc",
+        "evidence": "Conniff was survived by his wife , Vera ; a daughter , Tamara Conniff ; son , Jimmy Conniff ; and three grandchildren.",
+        "gold": "non_contradiction",
+        "group_id": "iteration:108ede62473b8e57e1975dfb9a97654ec4cd953a39b3b48a3d6d8e2147cba6ac",
+        "id": "vitaminc:combined:train:5ebe6f32c9e77c00084099c8_3",
+        "native_label": "NOT ENOUGH INFO",
+        "source_id": "5ebe6f32c9e77c00084099c8_3",
+        "source_metadata": {
+          "case_id": "5ebe6f32c9e77c00084099c8",
+          "iteration_component_sha256": "108ede62473b8e57e1975dfb9a97654ec4cd953a39b3b48a3d6d8e2147cba6ac",
+          "original_group_id": "vitaminc:revision-681296426",
+          "page": "Ray Conniff",
+          "wiki_revision_id": "681296426"
+        },
+        "split": "train",
+        "variant": "combined"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.76,
+        "local-mini": 0.81,
+        "nli-three-way": 0.71,
+        "noul-conflict": 0.62,
+        "rich-control": 0.68,
+        "semantic-numeric": 0.46
+      }
+    },
+    {
+      "decisions": {
+        "literal-contract": "uncertain",
+        "local-mini": "contradiction",
+        "nli-three-way": "uncertain",
+        "noul-conflict": "uncertain",
+        "rich-control": "uncertain",
+        "semantic-numeric": "uncertain"
+      },
+      "pair": {
+        "claim": "André 3000 and Alicia Silverstone were the 'World 's Sexiest Vegetarian Celebrity '' according to PETA .",
+        "dataset": "vitaminc",
+        "evidence": "In 2004 , alongside Alicia Silverstone , Benjamin was voted by People for the Ethical Treatment of Animals ( PETA ) to be the 'World 's Sexiest Vegetarian Celebrity ' .",
+        "gold": "non_contradiction",
+        "group_id": "iteration:ade2ba9e08b62cc496053c0500b79569b9a44d258f420f9b936d47fa0b967001",
+        "id": "vitaminc:combined:train:5ed7acfec9e77c00084a5816_1",
+        "native_label": "SUPPORTS",
+        "source_id": "5ed7acfec9e77c00084a5816_1",
+        "source_metadata": {
+          "case_id": "5ed7acfec9e77c00084a5816",
+          "iteration_component_sha256": "ade2ba9e08b62cc496053c0500b79569b9a44d258f420f9b936d47fa0b967001",
+          "original_group_id": "vitaminc:revision-691392613",
+          "page": "André 3000",
+          "wiki_revision_id": "691392613"
+        },
+        "split": "train",
+        "variant": "combined"
+      },
+      "provenance": "Upstream native training labels; diagnostic text review is not new human service-contract adjudication",
+      "scores": {
+        "literal-contract": 0.61,
+        "local-mini": 0.82,
+        "nli-three-way": 0.72,
+        "noul-conflict": 0.71,
+        "rich-control": 0.69,
+        "semantic-numeric": 0.72
+      }
+    }
+  ]
+}

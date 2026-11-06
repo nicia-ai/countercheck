@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "kind": "decision-engineering-split",
+  "role": "holdout",
+  "seed": "engineering-2026-11-03",
+  "sources": [
+    {
+      "name": "Invented workflow fixture; SHA256 of JSON.stringify(pairs)",
+      "url": "local:eval/engineering/synthetic-workflow.json",
+      "revision": "synthetic-workflow-only-v1",
+      "sha256": "177067fd0805d3ca9a58754bca352bc61ac949e5e35a8e4db8fe42b691fb10ce",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  ],
+  "cases": [
+    {
+      "pair": {
+        "id": "workflow:4:0",
+        "dataset": "synthetic-smoke",
+        "variant": "synthetic-workflow-only-v1",
+        "split": "synthetic",
+        "source_id": "invented-price-Elm",
+        "group_id": "invented-organization-Elm",
+        "claim": "The invented Elm plan costs exactly 20 USD monthly.",
+        "evidence": "The invented Elm plan costs exactly 35 USD monthly.",
+        "gold": "contradiction",
+        "native_label": "SYNTHETIC_CONTRADICTION",
+        "source_metadata": {
+          "author": "AI-authored transport fixture, not human adjudication",
+          "intended_use": "Executable fake workflow only; no performance or release gate claims"
+        }
+      },
+      "content_sha256": "5ca79b8940c97b16c8a692f17d1a77d4f609dd1e9725e6272fd2aecf49c71034",
+      "group_sha256": "8c67bbd47af5b8baea1d076647a804a76ac8becbfa4f9b755e1e305b0fe6a761",
+      "source_manifest_sha256": "fb7c511712a4573d6508553cf38221b84bc04e21a31cd9c72265648c6b3de8e0",
+      "native_label": {
+        "label": "SYNTHETIC_CONTRADICTION",
+        "binary_gold": "contradiction",
+        "provenance": "synthetic-fixture"
+      },
+      "service_contract": null,
+      "calibration_fold": null
+    },
+    {
+      "pair": {
+        "id": "workflow:4:1",
+        "dataset": "synthetic-smoke",
+        "variant": "synthetic-workflow-only-v1",
+        "split": "synthetic",
+        "source_id": "invented-price-Elm",
+        "group_id": "invented-organization-Elm",
+        "claim": "The invented Elm plan costs exactly 20 USD monthly.",
+        "evidence": "The invented Elm plan costs exactly 20 USD monthly.",
+        "gold": "non_contradiction",
+        "native_label": "SYNTHETIC_CONSISTENT",
+        "source_metadata": {
+          "author": "AI-authored transport fixture, not human adjudication",
+          "intended_use": "Executable fake workflow only; no performance or release gate claims"
+        }
+      },
+      "content_sha256": "f206757540a06c75a8b8a88ab30815d1cc616f0475a6e853b52a27d7a62fab89",
+      "group_sha256": "8c67bbd47af5b8baea1d076647a804a76ac8becbfa4f9b755e1e305b0fe6a761",
+      "source_manifest_sha256": "fb7c511712a4573d6508553cf38221b84bc04e21a31cd9c72265648c6b3de8e0",
+      "native_label": {
+        "label": "SYNTHETIC_CONSISTENT",
+        "binary_gold": "non_contradiction",
+        "provenance": "synthetic-fixture"
+      },
+      "service_contract": null,
+      "calibration_fold": null
+    }
+  ]
+}

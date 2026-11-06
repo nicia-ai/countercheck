@@ -1,0 +1,169 @@
+{
+  "changed_files": [
+    "src/kernel/values.ts"
+  ],
+  "comparisons": [
+    {
+      "profile": "balanced-v1",
+      "name": "vitaminc-combined-dev",
+      "observations": 200,
+      "changed_pair_ids": []
+    },
+    {
+      "profile": "balanced-v1",
+      "name": "scifact-dev",
+      "observations": 199,
+      "changed_pair_ids": []
+    },
+    {
+      "profile": "balanced-v1",
+      "name": "contract-diagnostic",
+      "observations": 32,
+      "changed_pair_ids": []
+    },
+    {
+      "profile": "balanced-v1",
+      "name": "batch20-original",
+      "observations": 20,
+      "changed_pair_ids": []
+    },
+    {
+      "profile": "balanced-v1",
+      "name": "batch20-reversed",
+      "observations": 20,
+      "changed_pair_ids": []
+    },
+    {
+      "profile": "semantic-v2",
+      "name": "vitaminc-combined-dev",
+      "observations": 200,
+      "changed_pair_ids": []
+    },
+    {
+      "profile": "semantic-v2",
+      "name": "scifact-dev",
+      "observations": 199,
+      "changed_pair_ids": []
+    },
+    {
+      "profile": "semantic-v2",
+      "name": "contract-diagnostic",
+      "observations": 32,
+      "changed_pair_ids": []
+    },
+    {
+      "profile": "semantic-v2",
+      "name": "batch20-original",
+      "observations": 20,
+      "changed_pair_ids": []
+    },
+    {
+      "profile": "semantic-v2",
+      "name": "batch20-reversed",
+      "observations": 20,
+      "changed_pair_ids": []
+    },
+    {
+      "profile": "structured-value-v1",
+      "name": "vitaminc-combined-dev",
+      "observations": 200,
+      "changed_pair_ids": [
+        "vitaminc:combined:dev:5eb29887c9e77c0008d92dba_1",
+        "vitaminc:combined:dev:5eb29887c9e77c0008d92dba_2",
+        "vitaminc:combined:dev:5eb29887c9e77c0008d92dba_3",
+        "vitaminc:combined:dev:5eb29887c9e77c0008d92dba_4",
+        "vitaminc:combined:dev:5ebe6f31c9e77c0008408e59_1",
+        "vitaminc:combined:dev:5ebe6f31c9e77c0008408e59_2",
+        "vitaminc:combined:dev:5ebe6f31c9e77c0008408e59_3",
+        "vitaminc:combined:dev:5ebe6f31c9e77c0008408e59_4",
+        "vitaminc:combined:dev:5ec55991c9e77c000842d9f5_1",
+        "vitaminc:combined:dev:5ec55991c9e77c000842d9f5_2",
+        "vitaminc:combined:dev:5ec55991c9e77c000842d9f5_3",
+        "vitaminc:combined:dev:5ec55991c9e77c000842d9f5_4",
+        "vitaminc:combined:dev:5ee39329c9e77c0008cc9344_1",
+        "vitaminc:combined:dev:5ee39329c9e77c0008cc9344_2",
+        "vitaminc:combined:dev:5ee39329c9e77c0008cc9344_3",
+        "vitaminc:combined:dev:5ee39329c9e77c0008cc9344_4",
+        "vitaminc:combined:dev:5ee3932ac9e77c0008cc99bd_1",
+        "vitaminc:combined:dev:5ee3932ac9e77c0008cc99bd_2",
+        "vitaminc:combined:dev:5ee3932cc9e77c0008ccb132_1",
+        "vitaminc:combined:dev:5ee3932cc9e77c0008ccb132_2",
+        "vitaminc:combined:dev:5ee3932ac9e77c0008cc99bd_3",
+        "vitaminc:combined:dev:5ee3932ac9e77c0008cc99bd_4",
+        "vitaminc:combined:dev:5ee3932cc9e77c0008ccb132_3",
+        "vitaminc:combined:dev:5ee3932cc9e77c0008ccb132_4",
+        "vitaminc:combined:dev:5ee3932bc9e77c0008cc9eb4_1",
+        "vitaminc:combined:dev:5ee3932bc9e77c0008cc9eb4_2",
+        "vitaminc:combined:dev:5ee3932bc9e77c0008cc9eb4_3",
+        "vitaminc:combined:dev:5ee3932bc9e77c0008cc9eb4_4",
+        "vitaminc:combined:dev:5ee3932bc9e77c0008cc9f1e_1",
+        "vitaminc:combined:dev:5ee3932bc9e77c0008cc9f1e_2",
+        "vitaminc:combined:dev:5ee3932bc9e77c0008cc9f1e_3",
+        "vitaminc:combined:dev:5ee3932bc9e77c0008cc9f1e_4",
+        "vitaminc:combined:dev:5ee3932bc9e77c0008cca21f_1",
+        "vitaminc:combined:dev:5ee3932bc9e77c0008cca21f_2",
+        "vitaminc:combined:dev:5ee3932bc9e77c0008cca21f_3",
+        "vitaminc:combined:dev:5ee3932bc9e77c0008cca21f_4",
+        "vitaminc:combined:dev:5ee3932bc9e77c0008cca3f3_1",
+        "vitaminc:combined:dev:5ee3932bc9e77c0008cca3f3_2",
+        "vitaminc:combined:dev:5ee3932bc9e77c0008cca3f3_3",
+        "vitaminc:combined:dev:5ee3932bc9e77c0008cca3f3_4",
+        "vitaminc:combined:dev:5ee3932cc9e77c0008ccb1f8_1",
+        "vitaminc:combined:dev:5ee3932cc9e77c0008ccb1f8_2",
+        "vitaminc:combined:dev:5ee3932cc9e77c0008ccb1f8_3",
+        "vitaminc:combined:dev:5ee3932cc9e77c0008ccb1f8_4",
+        "vitaminc:combined:dev:5ee3932dc9e77c0008ccb735_1",
+        "vitaminc:combined:dev:5ee3932dc9e77c0008ccb735_2",
+        "vitaminc:combined:dev:5ee3932dc9e77c0008ccb735_3",
+        "vitaminc:combined:dev:5ee3932dc9e77c0008ccb735_4",
+        "vitaminc:combined:dev:5ee3932dc9e77c0008ccb749_1",
+        "vitaminc:combined:dev:5ee3932dc9e77c0008ccb749_2",
+        "vitaminc:combined:dev:5ee3932dc9e77c0008ccb749_3",
+        "vitaminc:combined:dev:5ee3932dc9e77c0008ccb749_4",
+        "vitaminc:combined:dev:5ee393b6c9e77c0008ccb917_1",
+        "vitaminc:combined:dev:5ee393b6c9e77c0008ccb917_2",
+        "vitaminc:combined:dev:5ee393b6c9e77c0008ccb917_3",
+        "vitaminc:combined:dev:5ee393b6c9e77c0008ccb917_4",
+        "vitaminc:combined:dev:5ee393b6c9e77c0008ccbd6d_1",
+        "vitaminc:combined:dev:5ee393b6c9e77c0008ccbd6d_2",
+        "vitaminc:combined:dev:5ee393b6c9e77c0008ccbd6d_3",
+        "vitaminc:combined:dev:5ee393b6c9e77c0008ccbd6d_4",
+        "vitaminc:combined:dev:5ee393b6c9e77c0008ccbff0_1",
+        "vitaminc:combined:dev:5ee393b6c9e77c0008ccbff0_2",
+        "vitaminc:combined:dev:5ee393b6c9e77c0008ccbff0_3",
+        "vitaminc:combined:dev:5ee393b6c9e77c0008ccbff0_4",
+        "vitaminc:combined:dev:5ee393b6c9e77c0008ccc236_1",
+        "vitaminc:combined:dev:5ee393b6c9e77c0008ccc236_2",
+        "vitaminc:combined:dev:5ee393b6c9e77c0008ccc236_3",
+        "vitaminc:combined:dev:5ee393b6c9e77c0008ccc236_4"
+      ]
+    },
+    {
+      "profile": "structured-value-v1",
+      "name": "scifact-dev",
+      "observations": 199,
+      "changed_pair_ids": [
+        "scifact:dev:521:34873974:0"
+      ]
+    },
+    {
+      "profile": "structured-value-v1",
+      "name": "contract-diagnostic",
+      "observations": 32,
+      "changed_pair_ids": []
+    },
+    {
+      "profile": "structured-value-v1",
+      "name": "batch20-original",
+      "observations": 20,
+      "changed_pair_ids": []
+    },
+    {
+      "profile": "structured-value-v1",
+      "name": "batch20-reversed",
+      "observations": 20,
+      "changed_pair_ids": []
+    }
+  ],
+  "note": "Payload equality alone does not claim arbitrary code behavior equality; reviewed patch only marks unsupported spans before candidate construction."
+}

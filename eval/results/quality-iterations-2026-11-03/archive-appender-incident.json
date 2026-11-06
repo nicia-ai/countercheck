@@ -1,0 +1,14 @@
+{
+  "active_r4_input_changed": false,
+  "active_r4_input_path": "eval/data/iteration-expanded-fit.json",
+  "active_r4_input_sha256": "dfe24df4df07402dc288ca69da0f7f94247d5642674d07b6b630de552eb77e84",
+  "affected_path": "eval/data/iteration-expanded-extra-fit.json",
+  "cause": "A new input-copy loop reused the inventory destination variable; the first append wrote inventory JSON to the extra-fit input path instead of artifact-sha256.json.",
+  "final_original_bytes_verified": true,
+  "kind": "local-archive-appender-incident",
+  "locked_labels_opened": false,
+  "model_calls_by_archive": 0,
+  "recovery": "Detected immediately because the verifier still saw the previous97-entry inventory. Restored exact original bytes from inputs/expanded-extra-fit.manifest.gz before rerunning archive append. Renamed the inventory destination variable to inventory_path.",
+  "restored_sha256": "6a962eb45af104767b148f03db83160eb88dc0b13578d636175b94883547673a",
+  "runtime_changed": false
+}

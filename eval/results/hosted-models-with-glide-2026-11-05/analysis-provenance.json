@@ -1,0 +1,8 @@
+{
+  "recorded_at": "2026-11-05T20:24:11.087717+00:00",
+  "phase": "Post-inference analysis; inference source unchanged and verified against the pre-run protocol",
+  "source_files": {
+    "scripts/compare-fastino.py": "0aa61f930cf03787732e48f94355569e4c7d497732b5340bb1316eae9dcd9ccc",
+    "eval/results/business-2026-11-04/metrics.py": "ebd741940080f46125213a88cbff4f73e377c20fbee107bde6289f1da4d7841c"
+  }
+}

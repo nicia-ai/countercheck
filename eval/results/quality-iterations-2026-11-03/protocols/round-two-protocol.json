@@ -1,0 +1,19 @@
+{
+  "purpose": "controlled training-only second screen",
+  "input": "iteration-screen160 originaltrain sourcecomponents",
+  "new_candidates": [
+    "aligned-roles",
+    "evidence-refutation",
+    "semantic-numeric-v2"
+  ],
+  "control": "rich-control repeatedunchanged",
+  "changes": "role alignment andstatisticalnondetection contrasts; refutationNoul withnegative-onlydeterminability; fixsamplecountsaredecisivewheninclaim",
+  "planned_calls": 640,
+  "fitting": "all9candidate heads then train400; scalarthresholds+fixedL2=1logisticfusion frommatchedrawsignals. No datasetID infeatures",
+  "selection": "chooseusingtraininginnercheck BEFORE validation200; locked200fittedartifactone-shot AFTER finalcandidatefreeze",
+  "batching": "richcontrol andR2richroles/refutation areunqualifiedsinglepair prototypes;20paircompiledbytesmeasured,overbudgetrequestsrejectedbeforedispatch; no APIpromotion",
+  "max_concurrency": 2,
+  "retries": 0,
+  "deadline_ms": 3000,
+  "cumulative_budget_protocol": "protocol.json max10000livecalls reservation10USD"
+}

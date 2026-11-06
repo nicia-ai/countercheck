@@ -1,0 +1,49 @@
+{
+  "manifest_sha256": "0ca87c2190f4ce8e45c1313b5e921153beaba64b70a025d776704c03dd4a0307",
+  "model": "jev-1.14.0",
+  "backend": "jev",
+  "expected_pair_observations": 20,
+  "selected_pair_ids": [
+    "batch20-01",
+    "batch20-02",
+    "batch20-03",
+    "batch20-04",
+    "batch20-05",
+    "batch20-06",
+    "batch20-07",
+    "batch20-08",
+    "batch20-09",
+    "batch20-10",
+    "batch20-11",
+    "batch20-12",
+    "batch20-13",
+    "batch20-14",
+    "batch20-15",
+    "batch20-16",
+    "batch20-17",
+    "batch20-18",
+    "batch20-19",
+    "batch20-20"
+  ],
+  "source_protocol": {
+    "profile": "structured-value-v1",
+    "passes": 1,
+    "presentation": "reversed",
+    "batch_size": 20,
+    "concurrency": 1,
+    "timeout_ms": 3000,
+    "timeout_policy": "route_default",
+    "timeout_scope": "kernel_compilation_and_provider_total",
+    "transport_route": "kernel_to_provider",
+    "production_deadline_equivalence": "not_equivalent_provider_has_kernel_budget",
+    "service_deadline_budgets": null,
+    "packing": {
+      "method": "fixed_identical_claim_groups",
+      "requested_max_comparisons": 20,
+      "assessment": "atomic_batch_envelope_stress",
+      "envelope_failure": "exclude_entire_submitted_batch",
+      "automatic_repacking": false
+    }
+  },
+  "checkpoint_semantics": "Incremental completed batches; exact replay coverage required; no automatic resume or retry"
+}

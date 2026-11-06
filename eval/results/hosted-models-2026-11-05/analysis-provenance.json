@@ -1,0 +1,10 @@
+{
+  "created_at": "2026-11-05T20:11:17.759Z",
+  "phase": "Analysis code developed during inference; snapshot recorded at post-inference archive creation, not pre-inference",
+  "inference_protocol_sha256": "5746b97195b1af948abb8a626dab316dd44ba311d6658ba803079421117097b0",
+  "source_hashes": {
+    "scripts/summarize-hosted-matrix.ts": "cd4d3ebd8d13563a9edc79f64abf52bb6ae7b64da427c5b7143cdeb64368c905",
+    "scripts/check-hosted-matrix.py": "1c9318589c8d2d68a26b34ffde36d05df23ec24280c102d0344a0174f3561648",
+    "eval/results/business-2026-11-04/metrics.py": "ebd741940080f46125213a88cbff4f73e377c20fbee107bde6289f1da4d7841c"
+  }
+}

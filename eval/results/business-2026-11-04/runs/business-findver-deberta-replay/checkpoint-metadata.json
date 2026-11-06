@@ -1,0 +1,67 @@
+{
+  "model": "cross-encoder/nli-deberta-v3-base",
+  "revision": "6c749ce3425cd33b46d187e45b92bbf96ee12ec7",
+  "model_card": "https://huggingface.co/cross-encoder/nli-deberta-v3-base/blob/6c749ce3425cd33b46d187e45b92bbf96ee12ec7/README.md",
+  "label_order": {
+    "0": "contradiction",
+    "1": "entailment",
+    "2": "neutral"
+  },
+  "training": "SNLI and MultiNLI, per model card; zero-shot on this public pair adaptation",
+  "manifest_sha256": "94cc439d2373a9feefad3e6ab3ed17a20565b1272cc1e44a23e41d88d58192dc",
+  "device": "cpu",
+  "batch_size": 8,
+  "policy": "forced",
+  "max_tokens": 512,
+  "excluded": 3,
+  "truncation": false,
+  "timing": "batch model forward wall time copied to each pair, excludes model load/tokenization; not service request latency",
+  "cost_usd": null,
+  "packages": {
+    "torch": "2.9.0",
+    "transformers": "4.57.1",
+    "sentencepiece": "0.2.1"
+  },
+  "weight_format": "safetensors",
+  "cpu_model": "Apple M4 Pro",
+  "logical_cpu_count": 14,
+  "started_at": "2026-11-04T18:31:19.605636+00:00",
+  "completed_at": "2026-11-04T18:31:24.731596+00:00",
+  "machine": {
+    "platform": "macOS-26.7.1-arm64-arm-64bit",
+    "architecture": "arm64",
+    "processor": "arm",
+    "python": "3.12.16 (main, Oct 25 2026, 18:24:37) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "torch_threads": 4,
+    "route": "local PyTorch CPU, no hosted inference"
+  },
+  "runtime_seconds": {
+    "model_load_including_download": 0.19637045892886817,
+    "preflight_tokenization": 0.013602416031062603,
+    "inference_loop": 2.991053167032078,
+    "model_forward_total": 2.9834171251859516,
+    "total_before_metadata": 5.151361250085756
+  },
+  "batch_observations": [
+    {
+      "batch_index": 0,
+      "pairs": 8,
+      "elapsed_ms": 1741.7012921068817,
+      "max_pair_tokens": 500
+    },
+    {
+      "batch_index": 1,
+      "pairs": 8,
+      "elapsed_ms": 816.5307501330972,
+      "max_pair_tokens": 462
+    },
+    {
+      "batch_index": 2,
+      "pairs": 4,
+      "elapsed_ms": 425.1850829459727,
+      "max_pair_tokens": 455
+    }
+  ],
+  "max_observed_accepted_tokens": 500,
+  "downloads_allowed": false
+}

@@ -1,0 +1,49 @@
+{
+  "observed_deployed_bindings": {
+    "TYPESAFE_API_KEY": "secret_text",
+    "DB": "d1",
+    "RATE_LIMITER": "ratelimit",
+    "INGRESS_LIMITER": "ratelimit",
+    "AI": "ai",
+    "PROVIDER": "plain_text"
+  },
+  "observed_log_settings": {
+    "enabled": true,
+    "redact_query_string": true,
+    "invocation_logs": false
+  },
+  "observed_rate_settings": {
+    "RATE_LIMITER": {
+      "namespace_id": "1679165447",
+      "limit": 60,
+      "period": 60
+    },
+    "INGRESS_LIMITER": {
+      "namespace_id": "1679165448",
+      "limit": 120,
+      "period": 60
+    }
+  },
+  "observed_usage_rows": [
+    {
+      "requests": 2,
+      "comparisons": 2,
+      "input_tokens": 1288,
+      "unknown_token_requests": 0
+    },
+    {
+      "requests": 10,
+      "comparisons": 10,
+      "input_tokens": 6968,
+      "unknown_token_requests": 0
+    }
+  ],
+  "observed_primary_d1": true,
+  "authorized_readiness_after_probe": 200,
+  "worker_startup_ms": 24,
+  "bundle_kib": 865.54,
+  "gzip_kib": 143.99,
+  "auth_profile": "nicia-ai",
+  "production_qualification": "not_assessed",
+  "waf_ruleset_access_http_status": 403
+}

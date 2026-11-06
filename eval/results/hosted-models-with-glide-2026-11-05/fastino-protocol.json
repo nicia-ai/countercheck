@@ -1,0 +1,161 @@
+{
+  "recorded_before_benchmark_inference": true,
+  "created_at": "2026-11-05T20:15:17.529Z",
+  "node": "v24.22.2",
+  "models": [
+    {
+      "id": "fastino/GLiDE",
+      "name": "GLiDE 27B (Fastino API)",
+      "provider": "fastino"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "vitaminc",
+      "path": "eval/data/vitaminc-combined-dev-200.json",
+      "sha256": "982a5dc43919853176d372c53bf90bc98d4bc49e56d8703165feb14345aff0ff",
+      "pairs": 200,
+      "purpose": "development"
+    },
+    {
+      "id": "scifact",
+      "path": "eval/data/scifact-dev-200.json",
+      "sha256": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+      "pairs": 199,
+      "purpose": "development"
+    },
+    {
+      "id": "contractnli",
+      "path": "eval/data/business/contractnli-dev-200.json",
+      "sha256": "4906005f4843b97a1cc6f256f62467cced5183965a0bafa9d713ee0099326311",
+      "pairs": 199,
+      "purpose": "development"
+    },
+    {
+      "id": "mnli",
+      "path": "eval/data/business/mnli-nonfiction-dev-200.json",
+      "sha256": "114ee3ca8ff9960fc2146bf7bca19f38284281812c9cec27e25e9815746337b6",
+      "pairs": 200,
+      "purpose": "development"
+    },
+    {
+      "id": "findver",
+      "path": "eval/data/business/findver-testmini-ie-individual-82.json",
+      "sha256": "3e3f6515bdf307c218dbdac18c280188d9c36a9cf21a843e349fc4d4b368ae12",
+      "pairs": 82,
+      "purpose": "locked-test"
+    },
+    {
+      "id": "synthetic-smoke",
+      "path": "eval/fixtures/synthetic-smoke.json",
+      "sha256": "b1a96134ba41cb728cf12e7af0c30cc6a754ef2b734ebaff8b3397196bfbad79",
+      "pairs": 8,
+      "purpose": "synthetic-smoke"
+    },
+    {
+      "id": "synthetic-contract",
+      "path": "eval/fixtures/prompt-ablation-contract.json",
+      "sha256": "3abd761205be0fe9113b4be89fbdb71313f12a96e3331a8c9b746b9698bf3ecb",
+      "pairs": 32,
+      "purpose": "synthetic-smoke"
+    }
+  ],
+  "sources": {
+    "scripts/run-hosted-matrix.ts": "86cc07858f0892df821021881dd4e8c39918351bd440db19610c8b62b284dbba",
+    "scripts/eval.ts": "326f87ac13ba003c811b90906897d8ca74db52f61b4abaa395dbbb773b634cea",
+    "eval/providers.ts": "4a65fef65299bc633536ca0d85f13c9778f4c09c5ba966a14d18d0461beb01b7",
+    "eval/backends.ts": "b6df75fd9c0229c28c453ab6ac103b8cef13c384938c1e4699a25acc7934107e",
+    "eval/metrics.ts": "fd9a1fdde154e24c48e056943a719550bd0d552c7bac42e85e2667fbbec144b5",
+    "eval/types.ts": "8e22eeac37d00c1087334d3197f4f78e966020db0730c1f3bee392cc020f034b",
+    "eval/protocol.ts": "6b29f8ef053150459cb4b977f857ae2f30f95b8c72f3dc4e08890ec50c838296",
+    "eval/checkpoint.ts": "bbecf6675bcf112582331f7bb816a2ebb171bc98c5d7a9691ae0e36e937c31e4",
+    "src/contracts/models.ts": "96dfd1a29f9812615ba069048e1945d1d962b25f297e4067e56e77cd31d0513d",
+    "src/contracts/index.ts": "d5c75ad16aea3e041ebae38a5853750bd465ed1426aa8df610219cebefd7128f",
+    "src/contracts/limits.ts": "a3f0d87dded41a587a6d6d78aaafcca761615e0fda5aa77a4d7b96f6b59f856c",
+    "src/kernel/index.ts": "5f648ef004b17341692f32a1f83b50b5b14883382262336187a9a381a103ccab",
+    "src/kernel/experimental.ts": "8366bd36e422201ad92fb72a6a9b34ed0a1a96266d880c886199fc3ad677d863",
+    "src/providers/catalog.ts": "2986d9d67e23978303e9640ea847fb3dfb05b61ef75a9091d4c9d45111ac0f8e",
+    "src/providers/jev.ts": "661dde8836042768b02c79d9310468206fd2635145ff38d2e196ae6375cf4b35",
+    "src/providers/clef.ts": "686dfde0a380eb825ff41ff5b8b2105f3e3df1bf918902867643d163b3ae6991",
+    "src/providers/decider.ts": "52bf97e280afb6f0214aadcf3ba240bb59debd7ca123b3cfc780ceb473f18533",
+    "src/providers/openai-decisions.ts": "25de813283f9bab080a1292c1d953a008fd095e002abaac99ecc5c707f59d652",
+    "src/providers/transport.ts": "cb00796c870ec19b18c038ea6fc21fc68a011a4c710b386c812727a0d9510c5d",
+    "src/providers/response.ts": "84e8ac017f3abeed8c3102e5543103e3ecfaccda9492b9a5c742d24880bde60c",
+    "src/http/deadline.ts": "498633081b578faafc9df35ef3f488c7d2fefb75b58f58ba845cb08ceb9d7d88",
+    "pnpm-lock.yaml": "139262ec9a93c55291db4541098980d44aac175e5bcebce960f4796cd1f8945f",
+    "eval/fastino-provider.ts": "483c4a5f44b474ab91e938ef596188f11392e56a23a4ab7c106b4cc9462ccd87",
+    "scripts/run-fastino-benchmark.ts": "2ff515af6b2b6b0b421cadbc96e7119f7fc6871ca6768a7548a6ca0aca087c19"
+  },
+  "planned_calls": 920,
+  "prior_integration_probes": 3,
+  "max_calls_including_probes": 923,
+  "reservation_per_call_usd": 0.002,
+  "reservation_cap_usd": 2,
+  "actual_billed_cost": null,
+  "profile": "balanced-v1",
+  "passes": 1,
+  "presentation": "original",
+  "batch_size": 1,
+  "concurrency": 1,
+  "timeout_ms": 3000,
+  "retries": 0,
+  "fallbacks": false,
+  "store": false,
+  "thinking": false,
+  "observed_retention_header": "not-stored",
+  "reported_engine": "glide_v2",
+  "checkpoint_revision": null,
+  "model_catalog": {
+    "id": "fastino/GLiDE",
+    "label": "GLiDE",
+    "description": "One-pass GLiDE v2.3 decision model served in NVFP4 on a B200.",
+    "task_type": "systemone",
+    "context_window": 65536,
+    "max_input_tokens": 65536,
+    "max_output_tokens": null,
+    "release_month": "Sep 2026",
+    "input_price_per_million": 0.04,
+    "output_price_per_million": 0,
+    "cache_read_price_per_million": 0.04,
+    "cache_write_price_per_million": 0.04,
+    "supports_inference": true,
+    "is_chat_model": false,
+    "supports_on_demand_inference": false,
+    "supports_image_input": false,
+    "supports_zdr": true,
+    "supports_training": false,
+    "training_types": [],
+    "encoder_features": null,
+    "default_training_batch_size": null,
+    "max_training_batch_size": null,
+    "max_training_length": null,
+    "license": "Apache-2.0",
+    "tier": "research",
+    "featured_rank": null,
+    "deprecated": false,
+    "replacement_model": null,
+    "deprecation_date": null,
+    "sunset_date": null,
+    "coding_benchmark_mean": null,
+    "agentic_benchmark_mean": null,
+    "coding_benchmarks": [],
+    "agentic_benchmarks": [],
+    "market_input_price_per_million": null,
+    "market_output_price_per_million": null,
+    "market_price_provider_count": null
+  },
+  "availability": {
+    "source": "https://fastino.ai/blog/glide-decision-model-family",
+    "hosted": "fastino/GLiDE",
+    "pending_open_weights": [
+      "fastino/GLiDE-0.4B",
+      "fastino/GLiDE-0.8B",
+      "fastino/GLiDE-2B",
+      "fastino/GLiDE-9B"
+    ],
+    "owner_decision": "Evaluate hosted27B now; leave smaller sizes pending."
+  },
+  "baseline_protocol_sha256": "5746b97195b1af948abb8a626dab316dd44ba311d6658ba803079421117097b0",
+  "baseline_archive": "eval/results/hosted-models-2026-11-05",
+  "qualification": "Evaluation-only comparator; not an exposed service model or independently qualified contract."
+}

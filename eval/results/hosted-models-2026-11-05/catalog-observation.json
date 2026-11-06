@@ -1,0 +1,59 @@
+{
+  "observed_at": "2026-11-05T19:49:19.699Z",
+  "observed_during_run": true,
+  "url": "https://countercheck.nicia.ai/v1/models",
+  "status": 200,
+  "catalog": {
+    "default": "jev-1.14.0",
+    "models": [
+      {
+        "id": "jev-1.14.0",
+        "name": "Jev 1.14",
+        "provider": "typesafe",
+        "configured": true
+      },
+      {
+        "id": "clef",
+        "name": "Clef",
+        "provider": "cloudflare-workers-ai",
+        "configured": true
+      },
+      {
+        "id": "clef-flash",
+        "name": "Clef Flash",
+        "provider": "cloudflare-workers-ai",
+        "configured": true
+      },
+      {
+        "id": "clef-omni",
+        "name": "Clef Omni",
+        "provider": "cloudflare-workers-ai",
+        "configured": true
+      },
+      {
+        "id": "gpt-6-luna",
+        "name": "GPT-6 Luna (OpenAI Decisions)",
+        "provider": "openai-decisions",
+        "configured": true
+      },
+      {
+        "id": "microsoft/microsoft-decision-1",
+        "name": "Decision-1 (OpenRouter)",
+        "provider": "openrouter-microsoft",
+        "configured": true
+      },
+      {
+        "id": "perplexity/pplx-decider-v1.2",
+        "name": "Pplx Decider v1.2 (OpenRouter)",
+        "provider": "openrouter-perplexity",
+        "configured": true
+      },
+      {
+        "id": "perplexity/pplx-decider-flash-v1.2",
+        "name": "Pplx Decider Flash v1.2 (OpenRouter)",
+        "provider": "openrouter-perplexity",
+        "configured": true
+      }
+    ]
+  }
+}

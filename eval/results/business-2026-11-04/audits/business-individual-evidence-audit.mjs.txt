@@ -1,0 +1,5 @@
+import{writeFile}from'node:fs/promises';
+import{fetchFindverTestmini}from'../business/fetch-findver.ts';import{parseFindver}from'../business/findver.ts';
+const cached=await fetchFindverTestmini({fetch:async()=>{throw new Error('No network permitted');}});const pairs=parseFindver(cached.value,cached.reports,'ie').pairs;
+const rows=[2048,4096,8192,12288].map(limit=>({evidence_bytes:limit,individually_within_text_limits:pairs.filter(p=>Buffer.byteLength(p.evidence)<=limit&&Buffer.byteLength(p.claim)<=4096).length,total_pairs:pairs.length}));
+const output={kind:'finance-individual-complete-evidence-byte-coverage',model_calls:0,scope:'Individual raw text limits only, without whole-report-group exclusion. Not compiled request, model-token or semantic-quality qualification.',rows};await writeFile('eval/reports/business-individual-evidence-audit.json',JSON.stringify(output,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify(output));

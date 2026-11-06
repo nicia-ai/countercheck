@@ -1,0 +1,2141 @@
+{
+  "all_run_rows": [
+    {
+      "all_cases": 199,
+      "auroc": 0.9615426936619719,
+      "binary_cases": 199,
+      "clear_negative_coverage": 0.828125,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "scifact/gold-rationale-set/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.6226415094339622,
+      "false_positive": 2,
+      "precision": 0.9428571428571428,
+      "profile": "baseline",
+      "recall": 0.4647887323943662,
+      "run": "run-1",
+      "true_positive": 33,
+      "uncertain_pairs": 55
+    },
+    {
+      "all_cases": 32,
+      "auroc": 1,
+      "binary_cases": 28,
+      "clear_negative_coverage": 0.875,
+      "contract_expected_correct": 28,
+      "contract_expected_total": 32,
+      "dataset": "synthetic-smoke/prompt-contract-diagnostic/synthetic",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": 2,
+      "expected_uncertain_total": 4,
+      "f1": 1,
+      "false_positive": 0,
+      "precision": 1,
+      "profile": "baseline",
+      "recall": 1,
+      "run": "run-1",
+      "true_positive": 12,
+      "uncertain_pairs": 4
+    },
+    {
+      "all_cases": 200,
+      "auroc": 0.8623212141063434,
+      "binary_cases": 200,
+      "clear_negative_coverage": 0.7674418604651163,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "vitaminc/combined/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.5686274509803921,
+      "false_positive": 2,
+      "precision": 0.9354838709677419,
+      "profile": "baseline",
+      "recall": 0.4084507042253521,
+      "run": "run-1",
+      "true_positive": 29,
+      "uncertain_pairs": 62
+    },
+    {
+      "all_cases": 199,
+      "auroc": 0.9798635563380281,
+      "binary_cases": 199,
+      "clear_negative_coverage": 0.875,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "scifact/gold-rationale-set/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.6846846846846847,
+      "false_positive": 2,
+      "precision": 0.95,
+      "profile": "inline-policy",
+      "recall": 0.5352112676056338,
+      "run": "run-1",
+      "true_positive": 38,
+      "uncertain_pairs": 44
+    },
+    {
+      "all_cases": 32,
+      "auroc": 1,
+      "binary_cases": 28,
+      "clear_negative_coverage": 0.75,
+      "contract_expected_correct": 26,
+      "contract_expected_total": 32,
+      "dataset": "synthetic-smoke/prompt-contract-diagnostic/synthetic",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": 2,
+      "expected_uncertain_total": 4,
+      "f1": 1,
+      "false_positive": 0,
+      "precision": 1,
+      "profile": "inline-policy",
+      "recall": 1,
+      "run": "run-1",
+      "true_positive": 12,
+      "uncertain_pairs": 6
+    },
+    {
+      "all_cases": 200,
+      "auroc": 0.8774975433999345,
+      "binary_cases": 200,
+      "clear_negative_coverage": 0.7674418604651163,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "vitaminc/combined/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.5849056603773585,
+      "false_positive": 4,
+      "precision": 0.8857142857142857,
+      "profile": "inline-policy",
+      "recall": 0.43661971830985913,
+      "run": "run-1",
+      "true_positive": 31,
+      "uncertain_pairs": 58
+    },
+    {
+      "all_cases": 199,
+      "auroc": 0.9818992077464789,
+      "binary_cases": 199,
+      "clear_negative_coverage": 0.84375,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "scifact/gold-rationale-set/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.6846846846846847,
+      "false_positive": 2,
+      "precision": 0.95,
+      "profile": "rich-criteria",
+      "recall": 0.5352112676056338,
+      "run": "run-1",
+      "true_positive": 38,
+      "uncertain_pairs": 46
+    },
+    {
+      "all_cases": 32,
+      "auroc": 1,
+      "binary_cases": 28,
+      "clear_negative_coverage": 0.875,
+      "contract_expected_correct": 29,
+      "contract_expected_total": 32,
+      "dataset": "synthetic-smoke/prompt-contract-diagnostic/synthetic",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": 3,
+      "expected_uncertain_total": 4,
+      "f1": 1,
+      "false_positive": 0,
+      "precision": 1,
+      "profile": "rich-criteria",
+      "recall": 1,
+      "run": "run-1",
+      "true_positive": 12,
+      "uncertain_pairs": 5
+    },
+    {
+      "all_cases": 200,
+      "auroc": 0.8836117480074244,
+      "binary_cases": 200,
+      "clear_negative_coverage": 0.7596899224806202,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "vitaminc/combined/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.5544554455445545,
+      "false_positive": 2,
+      "precision": 0.9333333333333333,
+      "profile": "rich-criteria",
+      "recall": 0.39436619718309857,
+      "run": "run-1",
+      "true_positive": 28,
+      "uncertain_pairs": 65
+    },
+    {
+      "all_cases": 199,
+      "auroc": 0.9818441901408451,
+      "binary_cases": 199,
+      "clear_negative_coverage": 0.859375,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "scifact/gold-rationale-set/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.6846846846846847,
+      "false_positive": 2,
+      "precision": 0.95,
+      "profile": "rich-criteria-examples",
+      "recall": 0.5352112676056338,
+      "run": "run-1",
+      "true_positive": 38,
+      "uncertain_pairs": 44
+    },
+    {
+      "all_cases": 32,
+      "auroc": 1,
+      "binary_cases": 28,
+      "clear_negative_coverage": 1,
+      "contract_expected_correct": 32,
+      "contract_expected_total": 32,
+      "dataset": "synthetic-smoke/prompt-contract-diagnostic/synthetic",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": 4,
+      "expected_uncertain_total": 4,
+      "f1": 1,
+      "false_positive": 0,
+      "precision": 1,
+      "profile": "rich-criteria-examples",
+      "recall": 1,
+      "run": "run-1",
+      "true_positive": 12,
+      "uncertain_pairs": 4
+    },
+    {
+      "all_cases": 200,
+      "auroc": 0.8823561524183863,
+      "binary_cases": 200,
+      "clear_negative_coverage": 0.7751937984496124,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "vitaminc/combined/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.5631067961165048,
+      "false_positive": 3,
+      "precision": 0.90625,
+      "profile": "rich-criteria-examples",
+      "recall": 0.4084507042253521,
+      "run": "run-1",
+      "true_positive": 29,
+      "uncertain_pairs": 60
+    },
+    {
+      "all_cases": 199,
+      "auroc": 0.9768926056338029,
+      "binary_cases": 199,
+      "clear_negative_coverage": 0.625,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "scifact/gold-rationale-set/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.5882352941176471,
+      "false_positive": 1,
+      "precision": 0.967741935483871,
+      "profile": "dual-noul",
+      "recall": 0.4225352112676056,
+      "run": "run-1",
+      "true_positive": 30,
+      "uncertain_pairs": 87
+    },
+    {
+      "all_cases": 32,
+      "auroc": 1,
+      "binary_cases": 28,
+      "clear_negative_coverage": 0.6875,
+      "contract_expected_correct": 25,
+      "contract_expected_total": 32,
+      "dataset": "synthetic-smoke/prompt-contract-diagnostic/synthetic",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": 3,
+      "expected_uncertain_total": 4,
+      "f1": 0.9565217391304348,
+      "false_positive": 0,
+      "precision": 1,
+      "profile": "dual-noul",
+      "recall": 0.9166666666666666,
+      "run": "run-1",
+      "true_positive": 11,
+      "uncertain_pairs": 9
+    },
+    {
+      "all_cases": 200,
+      "auroc": 0.901517632929359,
+      "binary_cases": 200,
+      "clear_negative_coverage": 0.7596899224806202,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "vitaminc/combined/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.43478260869565216,
+      "false_positive": 1,
+      "precision": 0.9523809523809523,
+      "profile": "dual-noul",
+      "recall": 0.28169014084507044,
+      "run": "run-1",
+      "true_positive": 20,
+      "uncertain_pairs": 74
+    },
+    {
+      "all_cases": 199,
+      "auroc": 0.9648987676056338,
+      "binary_cases": 199,
+      "clear_negative_coverage": 0.8359375,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "scifact/gold-rationale-set/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.6355140186915887,
+      "false_positive": 2,
+      "precision": 0.9444444444444444,
+      "profile": "baseline",
+      "recall": 0.4788732394366197,
+      "run": "run-2",
+      "true_positive": 34,
+      "uncertain_pairs": 53
+    },
+    {
+      "all_cases": 32,
+      "auroc": 1,
+      "binary_cases": 28,
+      "clear_negative_coverage": 0.875,
+      "contract_expected_correct": 28,
+      "contract_expected_total": 32,
+      "dataset": "synthetic-smoke/prompt-contract-diagnostic/synthetic",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": 2,
+      "expected_uncertain_total": 4,
+      "f1": 1,
+      "false_positive": 0,
+      "precision": 1,
+      "profile": "baseline",
+      "recall": 1,
+      "run": "run-2",
+      "true_positive": 12,
+      "uncertain_pairs": 4
+    },
+    {
+      "all_cases": 200,
+      "auroc": 0.8686537831641009,
+      "binary_cases": 200,
+      "clear_negative_coverage": 0.7984496124031008,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "vitaminc/combined/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.5346534653465347,
+      "false_positive": 3,
+      "precision": 0.9,
+      "profile": "baseline",
+      "recall": 0.38028169014084506,
+      "run": "run-2",
+      "true_positive": 27,
+      "uncertain_pairs": 59
+    },
+    {
+      "all_cases": 199,
+      "auroc": 0.9824493838028169,
+      "binary_cases": 199,
+      "clear_negative_coverage": 0.84375,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "scifact/gold-rationale-set/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.6964285714285714,
+      "false_positive": 2,
+      "precision": 0.9512195121951219,
+      "profile": "rich-criteria",
+      "recall": 0.5492957746478874,
+      "run": "run-2",
+      "true_positive": 39,
+      "uncertain_pairs": 45
+    },
+    {
+      "all_cases": 32,
+      "auroc": 1,
+      "binary_cases": 28,
+      "clear_negative_coverage": 0.875,
+      "contract_expected_correct": 29,
+      "contract_expected_total": 32,
+      "dataset": "synthetic-smoke/prompt-contract-diagnostic/synthetic",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": 3,
+      "expected_uncertain_total": 4,
+      "f1": 1,
+      "false_positive": 0,
+      "precision": 1,
+      "profile": "rich-criteria",
+      "recall": 1,
+      "run": "run-2",
+      "true_positive": 12,
+      "uncertain_pairs": 5
+    },
+    {
+      "all_cases": 200,
+      "auroc": 0.8860137569603669,
+      "binary_cases": 200,
+      "clear_negative_coverage": 0.7441860465116279,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "vitaminc/combined/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.54,
+      "false_positive": 2,
+      "precision": 0.9310344827586207,
+      "profile": "rich-criteria",
+      "recall": 0.38028169014084506,
+      "run": "run-2",
+      "true_positive": 27,
+      "uncertain_pairs": 68
+    },
+    {
+      "all_cases": 199,
+      "auroc": 0.9809088908450704,
+      "binary_cases": 199,
+      "clear_negative_coverage": 0.875,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "scifact/gold-rationale-set/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.6846846846846847,
+      "false_positive": 2,
+      "precision": 0.95,
+      "profile": "rich-criteria-examples",
+      "recall": 0.5352112676056338,
+      "run": "run-2",
+      "true_positive": 38,
+      "uncertain_pairs": 42
+    },
+    {
+      "all_cases": 32,
+      "auroc": 1,
+      "binary_cases": 28,
+      "clear_negative_coverage": 1,
+      "contract_expected_correct": 32,
+      "contract_expected_total": 32,
+      "dataset": "synthetic-smoke/prompt-contract-diagnostic/synthetic",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": 4,
+      "expected_uncertain_total": 4,
+      "f1": 1,
+      "false_positive": 0,
+      "precision": 1,
+      "profile": "rich-criteria-examples",
+      "recall": 1,
+      "run": "run-2",
+      "true_positive": 12,
+      "uncertain_pairs": 4
+    },
+    {
+      "all_cases": 200,
+      "auroc": 0.8798449612403101,
+      "binary_cases": 200,
+      "clear_negative_coverage": 0.7674418604651163,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "vitaminc/combined/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.5490196078431373,
+      "false_positive": 3,
+      "precision": 0.9032258064516129,
+      "profile": "rich-criteria-examples",
+      "recall": 0.39436619718309857,
+      "run": "run-2",
+      "true_positive": 28,
+      "uncertain_pairs": 61
+    },
+    {
+      "all_cases": 199,
+      "auroc": 0.9673745598591549,
+      "binary_cases": 199,
+      "clear_negative_coverage": 0.8046875,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "scifact/gold-rationale-set/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.6355140186915887,
+      "false_positive": 2,
+      "precision": 0.9444444444444444,
+      "profile": "baseline",
+      "recall": 0.4788732394366197,
+      "run": "run-3",
+      "true_positive": 34,
+      "uncertain_pairs": 57
+    },
+    {
+      "all_cases": 32,
+      "auroc": 1,
+      "binary_cases": 28,
+      "clear_negative_coverage": 0.875,
+      "contract_expected_correct": 28,
+      "contract_expected_total": 32,
+      "dataset": "synthetic-smoke/prompt-contract-diagnostic/synthetic",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": 2,
+      "expected_uncertain_total": 4,
+      "f1": 1,
+      "false_positive": 0,
+      "precision": 1,
+      "profile": "baseline",
+      "recall": 1,
+      "run": "run-3",
+      "true_positive": 12,
+      "uncertain_pairs": 4
+    },
+    {
+      "all_cases": 200,
+      "auroc": 0.8637405830330822,
+      "binary_cases": 200,
+      "clear_negative_coverage": 0.751937984496124,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "vitaminc/combined/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.5631067961165048,
+      "false_positive": 3,
+      "precision": 0.90625,
+      "profile": "baseline",
+      "recall": 0.4084507042253521,
+      "run": "run-3",
+      "true_positive": 29,
+      "uncertain_pairs": 63
+    },
+    {
+      "all_cases": 199,
+      "auroc": 0.9807988556338029,
+      "binary_cases": 199,
+      "clear_negative_coverage": 0.828125,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "scifact/gold-rationale-set/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.6846846846846847,
+      "false_positive": 2,
+      "precision": 0.95,
+      "profile": "rich-criteria",
+      "recall": 0.5352112676056338,
+      "run": "run-3",
+      "true_positive": 38,
+      "uncertain_pairs": 48
+    },
+    {
+      "all_cases": 32,
+      "auroc": 1,
+      "binary_cases": 28,
+      "clear_negative_coverage": 0.9375,
+      "contract_expected_correct": 30,
+      "contract_expected_total": 32,
+      "dataset": "synthetic-smoke/prompt-contract-diagnostic/synthetic",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": 3,
+      "expected_uncertain_total": 4,
+      "f1": 1,
+      "false_positive": 0,
+      "precision": 1,
+      "profile": "rich-criteria",
+      "recall": 1,
+      "run": "run-3",
+      "true_positive": 12,
+      "uncertain_pairs": 4
+    },
+    {
+      "all_cases": 200,
+      "auroc": 0.8822469701932525,
+      "binary_cases": 200,
+      "clear_negative_coverage": 0.7441860465116279,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "vitaminc/combined/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.5686274509803921,
+      "false_positive": 2,
+      "precision": 0.9354838709677419,
+      "profile": "rich-criteria",
+      "recall": 0.4084507042253521,
+      "run": "run-3",
+      "true_positive": 29,
+      "uncertain_pairs": 65
+    },
+    {
+      "all_cases": 199,
+      "auroc": 0.9820092429577465,
+      "binary_cases": 199,
+      "clear_negative_coverage": 0.875,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "scifact/gold-rationale-set/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.6846846846846847,
+      "false_positive": 2,
+      "precision": 0.95,
+      "profile": "rich-criteria-examples",
+      "recall": 0.5352112676056338,
+      "run": "run-3",
+      "true_positive": 38,
+      "uncertain_pairs": 43
+    },
+    {
+      "all_cases": 32,
+      "auroc": 1,
+      "binary_cases": 28,
+      "clear_negative_coverage": 1,
+      "contract_expected_correct": 32,
+      "contract_expected_total": 32,
+      "dataset": "synthetic-smoke/prompt-contract-diagnostic/synthetic",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": 4,
+      "expected_uncertain_total": 4,
+      "f1": 1,
+      "false_positive": 0,
+      "precision": 1,
+      "profile": "rich-criteria-examples",
+      "recall": 1,
+      "run": "run-3",
+      "true_positive": 12,
+      "uncertain_pairs": 4
+    },
+    {
+      "all_cases": 200,
+      "auroc": 0.8853040724969975,
+      "binary_cases": 200,
+      "clear_negative_coverage": 0.7596899224806202,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "vitaminc/combined/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.5544554455445545,
+      "false_positive": 2,
+      "precision": 0.9333333333333333,
+      "profile": "rich-criteria-examples",
+      "recall": 0.39436619718309857,
+      "run": "run-3",
+      "true_positive": 28,
+      "uncertain_pairs": 62
+    }
+  ],
+  "dual_noul_gate_counterfactual": {
+    "scifact/gold-rationale-set/dev": {
+      "false_positives_suppressed_by_determinability": 1,
+      "gold_positives_suppressed_by_determinability": 3,
+      "interpretation": "Post-hoc composition counterfactual on the same saved dual-question outputs; not a rerun, single-Noul simulation, deployed policy, or calibrated joint three-way distribution",
+      "recorded_conflict_and_determinability_gates": {
+        "false_positive": 1,
+        "precision": 0.967741935483871,
+        "recall": 0.4225352112676056,
+        "true_positive": 30
+      },
+      "ungated_positive_threshold_0_8": {
+        "false_positive": 2,
+        "precision": 0.9428571428571428,
+        "recall": 0.4647887323943662,
+        "true_positive": 33
+      }
+    },
+    "vitaminc/combined/dev": {
+      "false_positives_suppressed_by_determinability": 0,
+      "gold_positives_suppressed_by_determinability": 9,
+      "interpretation": "Post-hoc composition counterfactual on the same saved dual-question outputs; not a rerun, single-Noul simulation, deployed policy, or calibrated joint three-way distribution",
+      "recorded_conflict_and_determinability_gates": {
+        "false_positive": 1,
+        "precision": 0.9523809523809523,
+        "recall": 0.28169014084507044,
+        "true_positive": 20
+      },
+      "ungated_positive_threshold_0_8": {
+        "false_positive": 1,
+        "precision": 0.9666666666666667,
+        "recall": 0.4084507042253521,
+        "true_positive": 29
+      }
+    }
+  },
+  "earlier_vs_fresh_baseline": {
+    "scifact/gold-rationale-set/dev": {
+      "counts": {
+        "both_completed": 199,
+        "identical_payload_hash": 199,
+        "lost_positive": 2,
+        "native_scores_changed": 137,
+        "new_false_positive": 0,
+        "pairs": 199,
+        "recovered_positive": 1,
+        "removed_false_positive": 0,
+        "verdict_changes": 6
+      },
+      "max_absolute_contradiction_score_change": 0.20999999999999996,
+      "mean_absolute_contradiction_score_change": 0.011055276381909548
+    },
+    "vitaminc/combined/dev": {
+      "counts": {
+        "both_completed": 200,
+        "identical_payload_hash": 200,
+        "lost_positive": 1,
+        "native_scores_changed": 146,
+        "new_false_positive": 0,
+        "pairs": 200,
+        "recovered_positive": 2,
+        "removed_false_positive": 1,
+        "verdict_changes": 12
+      },
+      "max_absolute_contradiction_score_change": 0.30999999999999994,
+      "mean_absolute_contradiction_score_change": 0.014449999999999998
+    }
+  },
+  "examples_vs_rich_paired_counts": {
+    "run-1": {
+      "scifact/gold-rationale-set/dev": {
+        "counts": {
+          "both_completed": 199,
+          "identical_payload_hash": 0,
+          "lost_positive": 1,
+          "native_scores_changed": 143,
+          "new_false_positive": 0,
+          "pairs": 199,
+          "recovered_positive": 1,
+          "removed_false_positive": 0,
+          "verdict_changes": 8
+        },
+        "max_absolute_contradiction_score_change": 0.20000000000000007,
+        "mean_absolute_contradiction_score_change": 0.011507537688442211
+      },
+      "synthetic-smoke/prompt-contract-diagnostic/synthetic": {
+        "counts": {
+          "both_completed": 32,
+          "expected_uncertain_cases": 4,
+          "identical_payload_hash": 0,
+          "lost_expected_uncertain": 0,
+          "lost_positive": 0,
+          "native_scores_changed": 14,
+          "new_false_positive": 0,
+          "pairs": 32,
+          "recovered_expected_uncertain": 1,
+          "recovered_positive": 0,
+          "removed_false_positive": 0,
+          "verdict_changes": 3
+        },
+        "max_absolute_contradiction_score_change": 0.1,
+        "mean_absolute_contradiction_score_change": 0.008437499999999999
+      },
+      "vitaminc/combined/dev": {
+        "counts": {
+          "both_completed": 200,
+          "identical_payload_hash": 0,
+          "lost_positive": 0,
+          "native_scores_changed": 155,
+          "new_false_positive": 1,
+          "pairs": 200,
+          "recovered_positive": 1,
+          "removed_false_positive": 0,
+          "verdict_changes": 9
+        },
+        "max_absolute_contradiction_score_change": 0.13000000000000006,
+        "mean_absolute_contradiction_score_change": 0.01615
+      }
+    },
+    "run-2": {
+      "scifact/gold-rationale-set/dev": {
+        "counts": {
+          "both_completed": 199,
+          "identical_payload_hash": 0,
+          "lost_positive": 1,
+          "native_scores_changed": 143,
+          "new_false_positive": 0,
+          "pairs": 199,
+          "recovered_positive": 0,
+          "removed_false_positive": 0,
+          "verdict_changes": 7
+        },
+        "max_absolute_contradiction_score_change": 0.13,
+        "mean_absolute_contradiction_score_change": 0.011005025125628138
+      },
+      "synthetic-smoke/prompt-contract-diagnostic/synthetic": {
+        "counts": {
+          "both_completed": 32,
+          "expected_uncertain_cases": 4,
+          "identical_payload_hash": 0,
+          "lost_expected_uncertain": 0,
+          "lost_positive": 0,
+          "native_scores_changed": 15,
+          "new_false_positive": 0,
+          "pairs": 32,
+          "recovered_expected_uncertain": 1,
+          "recovered_positive": 0,
+          "removed_false_positive": 0,
+          "verdict_changes": 3
+        },
+        "max_absolute_contradiction_score_change": 0.13,
+        "mean_absolute_contradiction_score_change": 0.009062500000000001
+      },
+      "vitaminc/combined/dev": {
+        "counts": {
+          "both_completed": 200,
+          "identical_payload_hash": 0,
+          "lost_positive": 0,
+          "native_scores_changed": 157,
+          "new_false_positive": 1,
+          "pairs": 200,
+          "recovered_positive": 1,
+          "removed_false_positive": 0,
+          "verdict_changes": 11
+        },
+        "max_absolute_contradiction_score_change": 0.15000000000000002,
+        "mean_absolute_contradiction_score_change": 0.017150000000000002
+      }
+    },
+    "run-3": {
+      "scifact/gold-rationale-set/dev": {
+        "counts": {
+          "both_completed": 199,
+          "identical_payload_hash": 0,
+          "lost_positive": 0,
+          "native_scores_changed": 141,
+          "new_false_positive": 0,
+          "pairs": 199,
+          "recovered_positive": 0,
+          "removed_false_positive": 0,
+          "verdict_changes": 9
+        },
+        "max_absolute_contradiction_score_change": 0.13,
+        "mean_absolute_contradiction_score_change": 0.010653266331658294
+      },
+      "synthetic-smoke/prompt-contract-diagnostic/synthetic": {
+        "counts": {
+          "both_completed": 32,
+          "expected_uncertain_cases": 4,
+          "identical_payload_hash": 0,
+          "lost_expected_uncertain": 0,
+          "lost_positive": 0,
+          "native_scores_changed": 14,
+          "new_false_positive": 0,
+          "pairs": 32,
+          "recovered_expected_uncertain": 1,
+          "recovered_positive": 0,
+          "removed_false_positive": 0,
+          "verdict_changes": 2
+        },
+        "max_absolute_contradiction_score_change": 0.15999999999999992,
+        "mean_absolute_contradiction_score_change": 0.008437499999999997
+      },
+      "vitaminc/combined/dev": {
+        "counts": {
+          "both_completed": 200,
+          "identical_payload_hash": 0,
+          "lost_positive": 1,
+          "native_scores_changed": 164,
+          "new_false_positive": 0,
+          "pairs": 200,
+          "recovered_positive": 0,
+          "removed_false_positive": 0,
+          "verdict_changes": 7
+        },
+        "max_absolute_contradiction_score_change": 0.16000000000000003,
+        "mean_absolute_contradiction_score_change": 0.0159
+      }
+    }
+  },
+  "initial_five_arm_rows": [
+    {
+      "all_cases": 199,
+      "auroc": 0.9615426936619719,
+      "binary_cases": 199,
+      "clear_negative_coverage": 0.828125,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "scifact/gold-rationale-set/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.6226415094339622,
+      "false_positive": 2,
+      "precision": 0.9428571428571428,
+      "profile": "baseline",
+      "recall": 0.4647887323943662,
+      "run": "run-1",
+      "true_positive": 33,
+      "uncertain_pairs": 55
+    },
+    {
+      "all_cases": 32,
+      "auroc": 1,
+      "binary_cases": 28,
+      "clear_negative_coverage": 0.875,
+      "contract_expected_correct": 28,
+      "contract_expected_total": 32,
+      "dataset": "synthetic-smoke/prompt-contract-diagnostic/synthetic",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": 2,
+      "expected_uncertain_total": 4,
+      "f1": 1,
+      "false_positive": 0,
+      "precision": 1,
+      "profile": "baseline",
+      "recall": 1,
+      "run": "run-1",
+      "true_positive": 12,
+      "uncertain_pairs": 4
+    },
+    {
+      "all_cases": 200,
+      "auroc": 0.8623212141063434,
+      "binary_cases": 200,
+      "clear_negative_coverage": 0.7674418604651163,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "vitaminc/combined/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.5686274509803921,
+      "false_positive": 2,
+      "precision": 0.9354838709677419,
+      "profile": "baseline",
+      "recall": 0.4084507042253521,
+      "run": "run-1",
+      "true_positive": 29,
+      "uncertain_pairs": 62
+    },
+    {
+      "all_cases": 199,
+      "auroc": 0.9798635563380281,
+      "binary_cases": 199,
+      "clear_negative_coverage": 0.875,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "scifact/gold-rationale-set/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.6846846846846847,
+      "false_positive": 2,
+      "precision": 0.95,
+      "profile": "inline-policy",
+      "recall": 0.5352112676056338,
+      "run": "run-1",
+      "true_positive": 38,
+      "uncertain_pairs": 44
+    },
+    {
+      "all_cases": 32,
+      "auroc": 1,
+      "binary_cases": 28,
+      "clear_negative_coverage": 0.75,
+      "contract_expected_correct": 26,
+      "contract_expected_total": 32,
+      "dataset": "synthetic-smoke/prompt-contract-diagnostic/synthetic",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": 2,
+      "expected_uncertain_total": 4,
+      "f1": 1,
+      "false_positive": 0,
+      "precision": 1,
+      "profile": "inline-policy",
+      "recall": 1,
+      "run": "run-1",
+      "true_positive": 12,
+      "uncertain_pairs": 6
+    },
+    {
+      "all_cases": 200,
+      "auroc": 0.8774975433999345,
+      "binary_cases": 200,
+      "clear_negative_coverage": 0.7674418604651163,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "vitaminc/combined/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.5849056603773585,
+      "false_positive": 4,
+      "precision": 0.8857142857142857,
+      "profile": "inline-policy",
+      "recall": 0.43661971830985913,
+      "run": "run-1",
+      "true_positive": 31,
+      "uncertain_pairs": 58
+    },
+    {
+      "all_cases": 199,
+      "auroc": 0.9818992077464789,
+      "binary_cases": 199,
+      "clear_negative_coverage": 0.84375,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "scifact/gold-rationale-set/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.6846846846846847,
+      "false_positive": 2,
+      "precision": 0.95,
+      "profile": "rich-criteria",
+      "recall": 0.5352112676056338,
+      "run": "run-1",
+      "true_positive": 38,
+      "uncertain_pairs": 46
+    },
+    {
+      "all_cases": 32,
+      "auroc": 1,
+      "binary_cases": 28,
+      "clear_negative_coverage": 0.875,
+      "contract_expected_correct": 29,
+      "contract_expected_total": 32,
+      "dataset": "synthetic-smoke/prompt-contract-diagnostic/synthetic",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": 3,
+      "expected_uncertain_total": 4,
+      "f1": 1,
+      "false_positive": 0,
+      "precision": 1,
+      "profile": "rich-criteria",
+      "recall": 1,
+      "run": "run-1",
+      "true_positive": 12,
+      "uncertain_pairs": 5
+    },
+    {
+      "all_cases": 200,
+      "auroc": 0.8836117480074244,
+      "binary_cases": 200,
+      "clear_negative_coverage": 0.7596899224806202,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "vitaminc/combined/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.5544554455445545,
+      "false_positive": 2,
+      "precision": 0.9333333333333333,
+      "profile": "rich-criteria",
+      "recall": 0.39436619718309857,
+      "run": "run-1",
+      "true_positive": 28,
+      "uncertain_pairs": 65
+    },
+    {
+      "all_cases": 199,
+      "auroc": 0.9818441901408451,
+      "binary_cases": 199,
+      "clear_negative_coverage": 0.859375,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "scifact/gold-rationale-set/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.6846846846846847,
+      "false_positive": 2,
+      "precision": 0.95,
+      "profile": "rich-criteria-examples",
+      "recall": 0.5352112676056338,
+      "run": "run-1",
+      "true_positive": 38,
+      "uncertain_pairs": 44
+    },
+    {
+      "all_cases": 32,
+      "auroc": 1,
+      "binary_cases": 28,
+      "clear_negative_coverage": 1,
+      "contract_expected_correct": 32,
+      "contract_expected_total": 32,
+      "dataset": "synthetic-smoke/prompt-contract-diagnostic/synthetic",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": 4,
+      "expected_uncertain_total": 4,
+      "f1": 1,
+      "false_positive": 0,
+      "precision": 1,
+      "profile": "rich-criteria-examples",
+      "recall": 1,
+      "run": "run-1",
+      "true_positive": 12,
+      "uncertain_pairs": 4
+    },
+    {
+      "all_cases": 200,
+      "auroc": 0.8823561524183863,
+      "binary_cases": 200,
+      "clear_negative_coverage": 0.7751937984496124,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "vitaminc/combined/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.5631067961165048,
+      "false_positive": 3,
+      "precision": 0.90625,
+      "profile": "rich-criteria-examples",
+      "recall": 0.4084507042253521,
+      "run": "run-1",
+      "true_positive": 29,
+      "uncertain_pairs": 60
+    },
+    {
+      "all_cases": 199,
+      "auroc": 0.9768926056338029,
+      "binary_cases": 199,
+      "clear_negative_coverage": 0.625,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "scifact/gold-rationale-set/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.5882352941176471,
+      "false_positive": 1,
+      "precision": 0.967741935483871,
+      "profile": "dual-noul",
+      "recall": 0.4225352112676056,
+      "run": "run-1",
+      "true_positive": 30,
+      "uncertain_pairs": 87
+    },
+    {
+      "all_cases": 32,
+      "auroc": 1,
+      "binary_cases": 28,
+      "clear_negative_coverage": 0.6875,
+      "contract_expected_correct": 25,
+      "contract_expected_total": 32,
+      "dataset": "synthetic-smoke/prompt-contract-diagnostic/synthetic",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": 3,
+      "expected_uncertain_total": 4,
+      "f1": 0.9565217391304348,
+      "false_positive": 0,
+      "precision": 1,
+      "profile": "dual-noul",
+      "recall": 0.9166666666666666,
+      "run": "run-1",
+      "true_positive": 11,
+      "uncertain_pairs": 9
+    },
+    {
+      "all_cases": 200,
+      "auroc": 0.901517632929359,
+      "binary_cases": 200,
+      "clear_negative_coverage": 0.7596899224806202,
+      "contract_expected_correct": null,
+      "contract_expected_total": null,
+      "dataset": "vitaminc/combined/dev",
+      "errors": 0,
+      "exclusions": 0,
+      "expected_uncertain_correct": null,
+      "expected_uncertain_total": null,
+      "f1": 0.43478260869565216,
+      "false_positive": 1,
+      "precision": 0.9523809523809523,
+      "profile": "dual-noul",
+      "recall": 0.28169014084507044,
+      "run": "run-1",
+      "true_positive": 20,
+      "uncertain_pairs": 74
+    }
+  ],
+  "per_run": {
+    "run-1": {
+      "concurrency": 2,
+      "created_at": "2026-11-03T22:12:44.161Z",
+      "errors": 0,
+      "exclusions": 0,
+      "observations": 2155,
+      "per_profile": {
+        "baseline": {
+          "compiled_bytes_max": 2480,
+          "compiled_bytes_min": 1650,
+          "usage": {
+            "actual_billed_cost_usd": null,
+            "estimated_input_list_cost_usd": 0.012571314,
+            "input_tokens": 299317,
+            "known_input_subtotal": 299317,
+            "known_output_subtotal": 24399,
+            "output_tokens": 24399,
+            "requests": 431,
+            "unknown_input_requests": 0,
+            "unknown_output_requests": 0
+          }
+        },
+        "dual-noul": {
+          "compiled_bytes_max": 3511,
+          "compiled_bytes_min": 2681,
+          "usage": {
+            "actual_billed_cost_usd": null,
+            "estimated_input_list_cost_usd": 0.016137408,
+            "input_tokens": 384224,
+            "known_input_subtotal": 384224,
+            "known_output_subtotal": 18102,
+            "output_tokens": 18102,
+            "requests": 431,
+            "unknown_input_requests": 0,
+            "unknown_output_requests": 0
+          }
+        },
+        "inline-policy": {
+          "compiled_bytes_max": 2398,
+          "compiled_bytes_min": 1568,
+          "usage": {
+            "actual_billed_cost_usd": null,
+            "estimated_input_list_cost_usd": 0.01217307,
+            "input_tokens": 289835,
+            "known_input_subtotal": 289835,
+            "known_output_subtotal": 23140,
+            "output_tokens": 23140,
+            "requests": 431,
+            "unknown_input_requests": 0,
+            "unknown_output_requests": 0
+          }
+        },
+        "rich-criteria": {
+          "compiled_bytes_max": 3878,
+          "compiled_bytes_min": 3048,
+          "usage": {
+            "actual_billed_cost_usd": null,
+            "estimated_input_list_cost_usd": 0.01832775,
+            "input_tokens": 436375,
+            "known_input_subtotal": 436375,
+            "known_output_subtotal": 23132,
+            "output_tokens": 23132,
+            "requests": 431,
+            "unknown_input_requests": 0,
+            "unknown_output_requests": 0
+          }
+        },
+        "rich-criteria-examples": {
+          "compiled_bytes_max": 5466,
+          "compiled_bytes_min": 4636,
+          "usage": {
+            "actual_billed_cost_usd": null,
+            "estimated_input_list_cost_usd": 0.027487362,
+            "input_tokens": 654461,
+            "known_input_subtotal": 654461,
+            "known_output_subtotal": 23120,
+            "output_tokens": 23120,
+            "requests": 431,
+            "unknown_input_requests": 0,
+            "unknown_output_requests": 0
+          }
+        }
+      },
+      "profiles": [
+        "baseline",
+        "inline-policy",
+        "rich-criteria",
+        "rich-criteria-examples",
+        "dual-noul"
+      ],
+      "usage": {
+        "actual_billed_cost_usd": null,
+        "estimated_input_list_cost_usd": 0.086696904,
+        "input_tokens": 2064212,
+        "known_input_subtotal": 2064212,
+        "known_output_subtotal": 111893,
+        "output_tokens": 111893,
+        "requests": 2155,
+        "unknown_input_requests": 0,
+        "unknown_output_requests": 0
+      }
+    },
+    "run-2": {
+      "concurrency": 1,
+      "created_at": "2026-11-03T22:17:17.025Z",
+      "errors": 0,
+      "exclusions": 0,
+      "observations": 1293,
+      "per_profile": {
+        "baseline": {
+          "compiled_bytes_max": 2480,
+          "compiled_bytes_min": 1650,
+          "usage": {
+            "actual_billed_cost_usd": null,
+            "estimated_input_list_cost_usd": 0.012571314,
+            "input_tokens": 299317,
+            "known_input_subtotal": 299317,
+            "known_output_subtotal": 24410,
+            "output_tokens": 24410,
+            "requests": 431,
+            "unknown_input_requests": 0,
+            "unknown_output_requests": 0
+          }
+        },
+        "rich-criteria": {
+          "compiled_bytes_max": 3878,
+          "compiled_bytes_min": 3048,
+          "usage": {
+            "actual_billed_cost_usd": null,
+            "estimated_input_list_cost_usd": 0.01832775,
+            "input_tokens": 436375,
+            "known_input_subtotal": 436375,
+            "known_output_subtotal": 23121,
+            "output_tokens": 23121,
+            "requests": 431,
+            "unknown_input_requests": 0,
+            "unknown_output_requests": 0
+          }
+        },
+        "rich-criteria-examples": {
+          "compiled_bytes_max": 5466,
+          "compiled_bytes_min": 4636,
+          "usage": {
+            "actual_billed_cost_usd": null,
+            "estimated_input_list_cost_usd": 0.027487362,
+            "input_tokens": 654461,
+            "known_input_subtotal": 654461,
+            "known_output_subtotal": 23115,
+            "output_tokens": 23115,
+            "requests": 431,
+            "unknown_input_requests": 0,
+            "unknown_output_requests": 0
+          }
+        }
+      },
+      "profiles": [
+        "baseline",
+        "rich-criteria",
+        "rich-criteria-examples"
+      ],
+      "usage": {
+        "actual_billed_cost_usd": null,
+        "estimated_input_list_cost_usd": 0.058386426,
+        "input_tokens": 1390153,
+        "known_input_subtotal": 1390153,
+        "known_output_subtotal": 70646,
+        "output_tokens": 70646,
+        "requests": 1293,
+        "unknown_input_requests": 0,
+        "unknown_output_requests": 0
+      }
+    },
+    "run-3": {
+      "concurrency": 1,
+      "created_at": "2026-11-03T22:17:20.912Z",
+      "errors": 0,
+      "exclusions": 0,
+      "observations": 1293,
+      "per_profile": {
+        "baseline": {
+          "compiled_bytes_max": 2480,
+          "compiled_bytes_min": 1650,
+          "usage": {
+            "actual_billed_cost_usd": null,
+            "estimated_input_list_cost_usd": 0.012571314,
+            "input_tokens": 299317,
+            "known_input_subtotal": 299317,
+            "known_output_subtotal": 24411,
+            "output_tokens": 24411,
+            "requests": 431,
+            "unknown_input_requests": 0,
+            "unknown_output_requests": 0
+          }
+        },
+        "rich-criteria": {
+          "compiled_bytes_max": 3878,
+          "compiled_bytes_min": 3048,
+          "usage": {
+            "actual_billed_cost_usd": null,
+            "estimated_input_list_cost_usd": 0.01832775,
+            "input_tokens": 436375,
+            "known_input_subtotal": 436375,
+            "known_output_subtotal": 23136,
+            "output_tokens": 23136,
+            "requests": 431,
+            "unknown_input_requests": 0,
+            "unknown_output_requests": 0
+          }
+        },
+        "rich-criteria-examples": {
+          "compiled_bytes_max": 5466,
+          "compiled_bytes_min": 4636,
+          "usage": {
+            "actual_billed_cost_usd": null,
+            "estimated_input_list_cost_usd": 0.027487362,
+            "input_tokens": 654461,
+            "known_input_subtotal": 654461,
+            "known_output_subtotal": 23124,
+            "output_tokens": 23124,
+            "requests": 431,
+            "unknown_input_requests": 0,
+            "unknown_output_requests": 0
+          }
+        }
+      },
+      "profiles": [
+        "baseline",
+        "rich-criteria",
+        "rich-criteria-examples"
+      ],
+      "usage": {
+        "actual_billed_cost_usd": null,
+        "estimated_input_list_cost_usd": 0.058386426,
+        "input_tokens": 1390153,
+        "known_input_subtotal": 1390153,
+        "known_output_subtotal": 70671,
+        "output_tokens": 70671,
+        "requests": 1293,
+        "unknown_input_requests": 0,
+        "unknown_output_requests": 0
+      }
+    }
+  },
+  "scope": "Exploratory development experiment plus two post-discovery repeatability passes; no held-out, production, human-adjudication or statistical-significance claim",
+  "three_run_descriptive_ranges": {
+    "baseline": {
+      "scifact/gold-rationale-set/dev": {
+        "contract_expected_correct_by_run": null,
+        "contract_total_per_run": null,
+        "f1": [
+          0.6226415094339622,
+          0.6355140186915887
+        ],
+        "independent_new_cases_from_repetition": 0,
+        "precision": [
+          0.9428571428571428,
+          0.9444444444444444
+        ],
+        "recall": [
+          0.4647887323943662,
+          0.4788732394366197
+        ],
+        "runs": 3,
+        "unique_labeled_cases": 199
+      },
+      "synthetic-smoke/prompt-contract-diagnostic/synthetic": {
+        "contract_expected_correct_by_run": [
+          28,
+          28,
+          28
+        ],
+        "contract_total_per_run": 32,
+        "f1": [
+          1,
+          1
+        ],
+        "independent_new_cases_from_repetition": 0,
+        "precision": [
+          1,
+          1
+        ],
+        "recall": [
+          1,
+          1
+        ],
+        "runs": 3,
+        "unique_labeled_cases": 32
+      },
+      "vitaminc/combined/dev": {
+        "contract_expected_correct_by_run": null,
+        "contract_total_per_run": null,
+        "f1": [
+          0.5346534653465347,
+          0.5686274509803921
+        ],
+        "independent_new_cases_from_repetition": 0,
+        "precision": [
+          0.9,
+          0.9354838709677419
+        ],
+        "recall": [
+          0.38028169014084506,
+          0.4084507042253521
+        ],
+        "runs": 3,
+        "unique_labeled_cases": 200
+      }
+    },
+    "rich-criteria": {
+      "scifact/gold-rationale-set/dev": {
+        "contract_expected_correct_by_run": null,
+        "contract_total_per_run": null,
+        "f1": [
+          0.6846846846846847,
+          0.6964285714285714
+        ],
+        "independent_new_cases_from_repetition": 0,
+        "precision": [
+          0.95,
+          0.9512195121951219
+        ],
+        "recall": [
+          0.5352112676056338,
+          0.5492957746478874
+        ],
+        "runs": 3,
+        "unique_labeled_cases": 199
+      },
+      "synthetic-smoke/prompt-contract-diagnostic/synthetic": {
+        "contract_expected_correct_by_run": [
+          29,
+          29,
+          30
+        ],
+        "contract_total_per_run": 32,
+        "f1": [
+          1,
+          1
+        ],
+        "independent_new_cases_from_repetition": 0,
+        "precision": [
+          1,
+          1
+        ],
+        "recall": [
+          1,
+          1
+        ],
+        "runs": 3,
+        "unique_labeled_cases": 32
+      },
+      "vitaminc/combined/dev": {
+        "contract_expected_correct_by_run": null,
+        "contract_total_per_run": null,
+        "f1": [
+          0.54,
+          0.5686274509803921
+        ],
+        "independent_new_cases_from_repetition": 0,
+        "precision": [
+          0.9310344827586207,
+          0.9354838709677419
+        ],
+        "recall": [
+          0.38028169014084506,
+          0.4084507042253521
+        ],
+        "runs": 3,
+        "unique_labeled_cases": 200
+      }
+    },
+    "rich-criteria-examples": {
+      "scifact/gold-rationale-set/dev": {
+        "contract_expected_correct_by_run": null,
+        "contract_total_per_run": null,
+        "f1": [
+          0.6846846846846847,
+          0.6846846846846847
+        ],
+        "independent_new_cases_from_repetition": 0,
+        "precision": [
+          0.95,
+          0.95
+        ],
+        "recall": [
+          0.5352112676056338,
+          0.5352112676056338
+        ],
+        "runs": 3,
+        "unique_labeled_cases": 199
+      },
+      "synthetic-smoke/prompt-contract-diagnostic/synthetic": {
+        "contract_expected_correct_by_run": [
+          32,
+          32,
+          32
+        ],
+        "contract_total_per_run": 32,
+        "f1": [
+          1,
+          1
+        ],
+        "independent_new_cases_from_repetition": 0,
+        "precision": [
+          1,
+          1
+        ],
+        "recall": [
+          1,
+          1
+        ],
+        "runs": 3,
+        "unique_labeled_cases": 32
+      },
+      "vitaminc/combined/dev": {
+        "contract_expected_correct_by_run": null,
+        "contract_total_per_run": null,
+        "f1": [
+          0.5490196078431373,
+          0.5631067961165048
+        ],
+        "independent_new_cases_from_repetition": 0,
+        "precision": [
+          0.9032258064516129,
+          0.9333333333333333
+        ],
+        "recall": [
+          0.39436619718309857,
+          0.4084507042253521
+        ],
+        "runs": 3,
+        "unique_labeled_cases": 200
+      }
+    }
+  },
+  "unchanged_profile_pairwise_variation": {
+    "baseline": {
+      "run-1_vs_run-2": {
+        "scifact/gold-rationale-set/dev": {
+          "counts": {
+            "both_completed": 199,
+            "identical_payload_hash": 199,
+            "lost_positive": 1,
+            "native_scores_changed": 137,
+            "new_false_positive": 0,
+            "pairs": 199,
+            "recovered_positive": 2,
+            "removed_false_positive": 0,
+            "verdict_changes": 4
+          },
+          "max_absolute_contradiction_score_change": 0.26,
+          "mean_absolute_contradiction_score_change": 0.011507537688442213
+        },
+        "synthetic-smoke/prompt-contract-diagnostic/synthetic": {
+          "counts": {
+            "both_completed": 32,
+            "expected_uncertain_cases": 4,
+            "identical_payload_hash": 32,
+            "lost_expected_uncertain": 0,
+            "lost_positive": 0,
+            "native_scores_changed": 14,
+            "new_false_positive": 0,
+            "pairs": 32,
+            "recovered_expected_uncertain": 0,
+            "recovered_positive": 0,
+            "removed_false_positive": 0,
+            "verdict_changes": 0
+          },
+          "max_absolute_contradiction_score_change": 0.07000000000000006,
+          "mean_absolute_contradiction_score_change": 0.004375000000000003
+        },
+        "vitaminc/combined/dev": {
+          "counts": {
+            "both_completed": 200,
+            "identical_payload_hash": 200,
+            "lost_positive": 2,
+            "native_scores_changed": 143,
+            "new_false_positive": 1,
+            "pairs": 200,
+            "recovered_positive": 0,
+            "removed_false_positive": 0,
+            "verdict_changes": 7
+          },
+          "max_absolute_contradiction_score_change": 0.29999999999999993,
+          "mean_absolute_contradiction_score_change": 0.012499999999999997
+        }
+      },
+      "run-1_vs_run-3": {
+        "scifact/gold-rationale-set/dev": {
+          "counts": {
+            "both_completed": 199,
+            "identical_payload_hash": 199,
+            "lost_positive": 1,
+            "native_scores_changed": 128,
+            "new_false_positive": 0,
+            "pairs": 199,
+            "recovered_positive": 2,
+            "removed_false_positive": 0,
+            "verdict_changes": 8
+          },
+          "max_absolute_contradiction_score_change": 0.29000000000000004,
+          "mean_absolute_contradiction_score_change": 0.01241206030150754
+        },
+        "synthetic-smoke/prompt-contract-diagnostic/synthetic": {
+          "counts": {
+            "both_completed": 32,
+            "expected_uncertain_cases": 4,
+            "identical_payload_hash": 32,
+            "lost_expected_uncertain": 0,
+            "lost_positive": 0,
+            "native_scores_changed": 11,
+            "new_false_positive": 0,
+            "pairs": 32,
+            "recovered_expected_uncertain": 0,
+            "recovered_positive": 0,
+            "removed_false_positive": 0,
+            "verdict_changes": 0
+          },
+          "max_absolute_contradiction_score_change": 0.040000000000000036,
+          "mean_absolute_contradiction_score_change": 0.002500000000000002
+        },
+        "vitaminc/combined/dev": {
+          "counts": {
+            "both_completed": 200,
+            "identical_payload_hash": 200,
+            "lost_positive": 1,
+            "native_scores_changed": 139,
+            "new_false_positive": 1,
+            "pairs": 200,
+            "recovered_positive": 1,
+            "removed_false_positive": 0,
+            "verdict_changes": 9
+          },
+          "max_absolute_contradiction_score_change": 0.19999999999999996,
+          "mean_absolute_contradiction_score_change": 0.01275
+        }
+      },
+      "run-2_vs_run-3": {
+        "scifact/gold-rationale-set/dev": {
+          "counts": {
+            "both_completed": 199,
+            "identical_payload_hash": 199,
+            "lost_positive": 0,
+            "native_scores_changed": 139,
+            "new_false_positive": 0,
+            "pairs": 199,
+            "recovered_positive": 0,
+            "removed_false_positive": 0,
+            "verdict_changes": 4
+          },
+          "max_absolute_contradiction_score_change": 0.13,
+          "mean_absolute_contradiction_score_change": 0.010050251256281409
+        },
+        "synthetic-smoke/prompt-contract-diagnostic/synthetic": {
+          "counts": {
+            "both_completed": 32,
+            "expected_uncertain_cases": 4,
+            "identical_payload_hash": 32,
+            "lost_expected_uncertain": 0,
+            "lost_positive": 0,
+            "native_scores_changed": 15,
+            "new_false_positive": 0,
+            "pairs": 32,
+            "recovered_expected_uncertain": 0,
+            "recovered_positive": 0,
+            "removed_false_positive": 0,
+            "verdict_changes": 0
+          },
+          "max_absolute_contradiction_score_change": 0.050000000000000044,
+          "mean_absolute_contradiction_score_change": 0.0031250000000000023
+        },
+        "vitaminc/combined/dev": {
+          "counts": {
+            "both_completed": 200,
+            "identical_payload_hash": 200,
+            "lost_positive": 0,
+            "native_scores_changed": 146,
+            "new_false_positive": 0,
+            "pairs": 200,
+            "recovered_positive": 2,
+            "removed_false_positive": 0,
+            "verdict_changes": 8
+          },
+          "max_absolute_contradiction_score_change": 0.10999999999999999,
+          "mean_absolute_contradiction_score_change": 0.013250000000000001
+        }
+      }
+    },
+    "rich-criteria": {
+      "run-1_vs_run-2": {
+        "scifact/gold-rationale-set/dev": {
+          "counts": {
+            "both_completed": 199,
+            "identical_payload_hash": 199,
+            "lost_positive": 0,
+            "native_scores_changed": 131,
+            "new_false_positive": 0,
+            "pairs": 199,
+            "recovered_positive": 1,
+            "removed_false_positive": 0,
+            "verdict_changes": 3
+          },
+          "max_absolute_contradiction_score_change": 0.12,
+          "mean_absolute_contradiction_score_change": 0.008743718592964824
+        },
+        "synthetic-smoke/prompt-contract-diagnostic/synthetic": {
+          "counts": {
+            "both_completed": 32,
+            "expected_uncertain_cases": 4,
+            "identical_payload_hash": 32,
+            "lost_expected_uncertain": 0,
+            "lost_positive": 0,
+            "native_scores_changed": 15,
+            "new_false_positive": 0,
+            "pairs": 32,
+            "recovered_expected_uncertain": 0,
+            "recovered_positive": 0,
+            "removed_false_positive": 0,
+            "verdict_changes": 0
+          },
+          "max_absolute_contradiction_score_change": 0.03,
+          "mean_absolute_contradiction_score_change": 0.003750000000000001
+        },
+        "vitaminc/combined/dev": {
+          "counts": {
+            "both_completed": 200,
+            "identical_payload_hash": 200,
+            "lost_positive": 1,
+            "native_scores_changed": 143,
+            "new_false_positive": 0,
+            "pairs": 200,
+            "recovered_positive": 0,
+            "removed_false_positive": 0,
+            "verdict_changes": 5
+          },
+          "max_absolute_contradiction_score_change": 0.12,
+          "mean_absolute_contradiction_score_change": 0.0121
+        }
+      },
+      "run-1_vs_run-3": {
+        "scifact/gold-rationale-set/dev": {
+          "counts": {
+            "both_completed": 199,
+            "identical_payload_hash": 199,
+            "lost_positive": 1,
+            "native_scores_changed": 118,
+            "new_false_positive": 0,
+            "pairs": 199,
+            "recovered_positive": 1,
+            "removed_false_positive": 0,
+            "verdict_changes": 6
+          },
+          "max_absolute_contradiction_score_change": 0.12,
+          "mean_absolute_contradiction_score_change": 0.008994974874371859
+        },
+        "synthetic-smoke/prompt-contract-diagnostic/synthetic": {
+          "counts": {
+            "both_completed": 32,
+            "expected_uncertain_cases": 4,
+            "identical_payload_hash": 32,
+            "lost_expected_uncertain": 0,
+            "lost_positive": 0,
+            "native_scores_changed": 15,
+            "new_false_positive": 0,
+            "pairs": 32,
+            "recovered_expected_uncertain": 0,
+            "recovered_positive": 0,
+            "removed_false_positive": 0,
+            "verdict_changes": 1
+          },
+          "max_absolute_contradiction_score_change": 0.07999999999999999,
+          "mean_absolute_contradiction_score_change": 0.0053125
+        },
+        "vitaminc/combined/dev": {
+          "counts": {
+            "both_completed": 200,
+            "identical_payload_hash": 200,
+            "lost_positive": 0,
+            "native_scores_changed": 138,
+            "new_false_positive": 0,
+            "pairs": 200,
+            "recovered_positive": 1,
+            "removed_false_positive": 0,
+            "verdict_changes": 6
+          },
+          "max_absolute_contradiction_score_change": 0.12,
+          "mean_absolute_contradiction_score_change": 0.015250000000000001
+        }
+      },
+      "run-2_vs_run-3": {
+        "scifact/gold-rationale-set/dev": {
+          "counts": {
+            "both_completed": 199,
+            "identical_payload_hash": 199,
+            "lost_positive": 1,
+            "native_scores_changed": 131,
+            "new_false_positive": 0,
+            "pairs": 199,
+            "recovered_positive": 0,
+            "removed_false_positive": 0,
+            "verdict_changes": 5
+          },
+          "max_absolute_contradiction_score_change": 0.1299999999999999,
+          "mean_absolute_contradiction_score_change": 0.009195979899497487
+        },
+        "synthetic-smoke/prompt-contract-diagnostic/synthetic": {
+          "counts": {
+            "both_completed": 32,
+            "expected_uncertain_cases": 4,
+            "identical_payload_hash": 32,
+            "lost_expected_uncertain": 0,
+            "lost_positive": 0,
+            "native_scores_changed": 11,
+            "new_false_positive": 0,
+            "pairs": 32,
+            "recovered_expected_uncertain": 0,
+            "recovered_positive": 0,
+            "removed_false_positive": 0,
+            "verdict_changes": 1
+          },
+          "max_absolute_contradiction_score_change": 0.06,
+          "mean_absolute_contradiction_score_change": 0.004062500000000001
+        },
+        "vitaminc/combined/dev": {
+          "counts": {
+            "both_completed": 200,
+            "identical_payload_hash": 200,
+            "lost_positive": 0,
+            "native_scores_changed": 141,
+            "new_false_positive": 0,
+            "pairs": 200,
+            "recovered_positive": 2,
+            "removed_false_positive": 0,
+            "verdict_changes": 5
+          },
+          "max_absolute_contradiction_score_change": 0.13,
+          "mean_absolute_contradiction_score_change": 0.012950000000000001
+        }
+      }
+    },
+    "rich-criteria-examples": {
+      "run-1_vs_run-2": {
+        "scifact/gold-rationale-set/dev": {
+          "counts": {
+            "both_completed": 199,
+            "identical_payload_hash": 199,
+            "lost_positive": 0,
+            "native_scores_changed": 128,
+            "new_false_positive": 0,
+            "pairs": 199,
+            "recovered_positive": 0,
+            "removed_false_positive": 0,
+            "verdict_changes": 4
+          },
+          "max_absolute_contradiction_score_change": 0.16000000000000003,
+          "mean_absolute_contradiction_score_change": 0.008542713567839196
+        },
+        "synthetic-smoke/prompt-contract-diagnostic/synthetic": {
+          "counts": {
+            "both_completed": 32,
+            "expected_uncertain_cases": 4,
+            "identical_payload_hash": 32,
+            "lost_expected_uncertain": 0,
+            "lost_positive": 0,
+            "native_scores_changed": 13,
+            "new_false_positive": 0,
+            "pairs": 32,
+            "recovered_expected_uncertain": 0,
+            "recovered_positive": 0,
+            "removed_false_positive": 0,
+            "verdict_changes": 0
+          },
+          "max_absolute_contradiction_score_change": 0.030000000000000027,
+          "mean_absolute_contradiction_score_change": 0.0031250000000000015
+        },
+        "vitaminc/combined/dev": {
+          "counts": {
+            "both_completed": 200,
+            "identical_payload_hash": 200,
+            "lost_positive": 1,
+            "native_scores_changed": 140,
+            "new_false_positive": 0,
+            "pairs": 200,
+            "recovered_positive": 0,
+            "removed_false_positive": 0,
+            "verdict_changes": 5
+          },
+          "max_absolute_contradiction_score_change": 0.1,
+          "mean_absolute_contradiction_score_change": 0.012000000000000002
+        }
+      },
+      "run-1_vs_run-3": {
+        "scifact/gold-rationale-set/dev": {
+          "counts": {
+            "both_completed": 199,
+            "identical_payload_hash": 199,
+            "lost_positive": 0,
+            "native_scores_changed": 121,
+            "new_false_positive": 0,
+            "pairs": 199,
+            "recovered_positive": 0,
+            "removed_false_positive": 0,
+            "verdict_changes": 5
+          },
+          "max_absolute_contradiction_score_change": 0.12999999999999995,
+          "mean_absolute_contradiction_score_change": 0.00934673366834171
+        },
+        "synthetic-smoke/prompt-contract-diagnostic/synthetic": {
+          "counts": {
+            "both_completed": 32,
+            "expected_uncertain_cases": 4,
+            "identical_payload_hash": 32,
+            "lost_expected_uncertain": 0,
+            "lost_positive": 0,
+            "native_scores_changed": 11,
+            "new_false_positive": 0,
+            "pairs": 32,
+            "recovered_expected_uncertain": 0,
+            "recovered_positive": 0,
+            "removed_false_positive": 0,
+            "verdict_changes": 0
+          },
+          "max_absolute_contradiction_score_change": 0.07999999999999996,
+          "mean_absolute_contradiction_score_change": 0.004687499999999998
+        },
+        "vitaminc/combined/dev": {
+          "counts": {
+            "both_completed": 200,
+            "identical_payload_hash": 200,
+            "lost_positive": 1,
+            "native_scores_changed": 134,
+            "new_false_positive": 0,
+            "pairs": 200,
+            "recovered_positive": 0,
+            "removed_false_positive": 1,
+            "verdict_changes": 6
+          },
+          "max_absolute_contradiction_score_change": 0.11000000000000001,
+          "mean_absolute_contradiction_score_change": 0.0114
+        }
+      },
+      "run-2_vs_run-3": {
+        "scifact/gold-rationale-set/dev": {
+          "counts": {
+            "both_completed": 199,
+            "identical_payload_hash": 199,
+            "lost_positive": 0,
+            "native_scores_changed": 127,
+            "new_false_positive": 0,
+            "pairs": 199,
+            "recovered_positive": 0,
+            "removed_false_positive": 0,
+            "verdict_changes": 3
+          },
+          "max_absolute_contradiction_score_change": 0.2099999999999999,
+          "mean_absolute_contradiction_score_change": 0.01085427135678392
+        },
+        "synthetic-smoke/prompt-contract-diagnostic/synthetic": {
+          "counts": {
+            "both_completed": 32,
+            "expected_uncertain_cases": 4,
+            "identical_payload_hash": 32,
+            "lost_expected_uncertain": 0,
+            "lost_positive": 0,
+            "native_scores_changed": 12,
+            "new_false_positive": 0,
+            "pairs": 32,
+            "recovered_expected_uncertain": 0,
+            "recovered_positive": 0,
+            "removed_false_positive": 0,
+            "verdict_changes": 0
+          },
+          "max_absolute_contradiction_score_change": 0.04999999999999993,
+          "mean_absolute_contradiction_score_change": 0.004687499999999999
+        },
+        "vitaminc/combined/dev": {
+          "counts": {
+            "both_completed": 200,
+            "identical_payload_hash": 200,
+            "lost_positive": 0,
+            "native_scores_changed": 134,
+            "new_false_positive": 0,
+            "pairs": 200,
+            "recovered_positive": 0,
+            "removed_false_positive": 1,
+            "verdict_changes": 5
+          },
+          "max_absolute_contradiction_score_change": 0.12,
+          "mean_absolute_contradiction_score_change": 0.012000000000000002
+        }
+      }
+    }
+  },
+  "usage_across_runs": {
+    "accounting": "Deduplicate only within(run_id,request_id); include all32contract cases, not only28binary-quality cases. Do not pool repeated cases for quality.",
+    "actual_billed_cost_usd": null,
+    "bare_request_ids": 3017,
+    "estimated_input_list_cost_usd": 0.203469756,
+    "input_price_usd_per_million": 0.042,
+    "input_tokens": 4844518,
+    "known_input_subtotal": 4844518,
+    "price_reference": "https://docs.typesafe.ai/models.md",
+    "provider_calls": 4741,
+    "reused_request_ids_across_runs": 1724,
+    "unknown_input_requests": 0
+  }
+}

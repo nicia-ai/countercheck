@@ -1,0 +1,491 @@
+import { z } from "zod";
+import { probabilitySchema } from "../../src/contracts/index.js";
+import { wilson } from "../metrics.js";
+import {
+  isUncertainFixture,
+  predictionSchema,
+  sha256,
+  validateManifest,
+  type Manifest,
+  type Pair,
+} from "../types.js";
+import { CANDIDATE_IDS, compileCandidate, type CandidateId } from "./profiles.js";
+import {
+  parseResponse,
+  extractFeatures,
+  compose,
+  DEFAULT_POLICY,
+  type Features,
+} from "./runner.js";
+import { candidateSourceHash, executionSchema, DEFAULT_EXECUTION } from "./fingerprint.js";
+
+const hash = z.string().regex(/^[a-f0-9]{64}$/);
+const featureSchema = z.strictObject({
+  conflict: probabilitySchema,
+  negative: z.number().finite().min(0).max(1.001),
+  unknown: probabilitySchema,
+  scope: probabilitySchema,
+  applicability: probabilitySchema.nullable(),
+  determinable: probabilitySchema.nullable().default(null),
+  quantitative_decisive: probabilitySchema.nullable(),
+  numeric_probability: probabilitySchema.nullable(),
+  numeric_relation: z.enum(["incompatible", "compatible", "unknown"]).nullable(),
+  numeric_available: z.boolean(),
+});
+const runSchema = z
+  .object({
+    kind: z.literal("decision-quality-iteration"),
+    source_stable: z.literal(true),
+    freeze: z
+      .object({
+        manifest_sha256: hash,
+        profiles: z.array(z.enum(CANDIDATE_IDS)).min(1),
+        passes: z.number().int().positive(),
+        purpose: z.enum(["tune", "validation", "regression"]),
+        source_files: z.record(z.string(), hash),
+        execution: executionSchema.default(DEFAULT_EXECUTION),
+      })
+      .passthrough(),
+    observations: z.array(
+      z
+        .object({
+          profile: z.enum(CANDIDATE_IDS),
+          pair_id: z.string(),
+          pass: z.number().int().positive(),
+          prompt_sha256: hash,
+          features: featureSchema,
+          raw_answers: z.record(z.string(), z.unknown()),
+          prediction: predictionSchema,
+        })
+        .passthrough(),
+    ),
+  })
+  .passthrough();
+export type CalibrationRow = {
+  pair: Pair;
+  profile: CandidateId;
+  features: Features;
+  raw_answers: Record<string, unknown>;
+};
+export type CalibrationInput = {
+  manifest: Manifest;
+  manifest_sha256: string;
+  run_sha256: string;
+  source_sha256: string;
+  profiles: CandidateId[];
+  purpose: "tune" | "validation" | "regression";
+  rows: CalibrationRow[];
+  passes: number;
+};
+export function groupKey(p: Pair): string {
+  const component = p.source_metadata?.iteration_component_sha256;
+  if (component !== undefined || p.group_id.startsWith("iteration:")) {
+    if (
+      typeof component !== "string" ||
+      !/^[a-f0-9]{64}$/.test(component) ||
+      p.group_id !== `iteration:${component}`
+    )
+      throw new Error("Invalid canonical iteration source-component identity.");
+    return p.group_id;
+  }
+  return `${p.dataset}:${p.group_id}`;
+}
+export const contentKey = (p: Pair) =>
+  sha256(
+    JSON.stringify(
+      [p.claim, p.evidence].map((s) =>
+        s.normalize("NFKC").replace(/\s+/g, " ").trim().toLowerCase(),
+      ),
+    ),
+  );
+
+export function assertDisjointFromTraining(
+  pairs: readonly Pair[],
+  training: {
+    training_groups: readonly string[];
+    training_sources: readonly string[];
+    training_content: readonly string[];
+  },
+): void {
+  const groups = new Set(training.training_groups),
+    sources = new Set(training.training_sources),
+    content = new Set(training.training_content);
+  if (
+    pairs.some(
+      (pair) =>
+        groups.has(groupKey(pair)) ||
+        sources.has(`${pair.dataset}:${pair.source_id}`) ||
+        content.has(contentKey(pair)) ||
+        content.has(contentKey({ ...pair, claim: pair.evidence, evidence: pair.claim })),
+    )
+  )
+    throw new Error("Evaluation overlaps fitted training sources, groups or content.");
+}
+
+/** Complete, successful matched coverage is mandatory; errors are never imputed as probabilities. */
+export function loadCalibrationInput(
+  runValue: unknown,
+  manifestValue: unknown,
+  manifestSha256: string,
+  runSha256: string,
+): CalibrationInput {
+  const run = runSchema.parse(runValue),
+    manifest = validateManifest(manifestValue);
+  if (run.freeze.manifest_sha256 !== manifestSha256) throw new Error("Run/manifest hash mismatch.");
+  if (new Set(run.freeze.profiles).size !== run.freeze.profiles.length)
+    throw new Error("Duplicate run profiles.");
+  const pairs = new Map(manifest.pairs.map((p) => [p.id, p]));
+  const seen = new Set<string>(),
+    rows: CalibrationRow[] = [];
+  for (const o of run.observations) {
+    const pair = pairs.get(o.pair_id),
+      prediction = o.prediction;
+    const key = JSON.stringify([o.profile, o.pair_id, o.pass]);
+    if (
+      !pair ||
+      !run.freeze.profiles.includes(o.profile) ||
+      o.pass > run.freeze.passes ||
+      seen.has(key)
+    )
+      throw new Error("Unmatched or duplicate observation.");
+    seen.add(key);
+    if (
+      prediction.status !== "ok" ||
+      prediction.pair_id !== pair.id ||
+      prediction.pass !== o.pass ||
+      prediction.prompt_version !== o.profile ||
+      prediction.prompt_hash !== o.prompt_sha256
+    )
+      throw new Error("Successful matching prediction provenance is required.");
+    const compiled = compileCandidate(o.profile, { claim: pair.claim, evidence: pair.evidence });
+    const response = parseResponse({ answers: o.raw_answers }, compiled);
+    const expected = extractFeatures(response, compiled);
+    if (
+      (Object.keys(expected) as (keyof Features)[]).some((key) =>
+        typeof expected[key] === "number" && typeof o.features[key] === "number"
+          ? Math.abs((expected[key] as number) - (o.features[key] as number)) > 1e-9
+          : expected[key] !== o.features[key],
+      )
+    )
+      throw new Error("Features disagree with preserved raw answers.");
+    if (o.pass === 1)
+      rows.push({ pair, profile: o.profile, features: o.features, raw_answers: o.raw_answers });
+  }
+  if (seen.size !== manifest.pairs.length * run.freeze.profiles.length * run.freeze.passes)
+    throw new Error("Incomplete matched case coverage.");
+  return {
+    manifest,
+    manifest_sha256: manifestSha256,
+    run_sha256: runSha256,
+    source_sha256: candidateSourceHash(run.freeze.source_files, run.freeze.execution),
+    profiles: run.freeze.profiles,
+    purpose: run.freeze.purpose,
+    rows,
+    passes: run.freeze.passes,
+  };
+}
+export type ThresholdPolicy = { positive: number; negative_cut: number; negative_support: number };
+export const verdictFor = (f: Features, p: ThresholdPolicy) =>
+  compose(f, { ...DEFAULT_POLICY, ...p });
+
+export function calibrationMetrics(rows: readonly CalibrationRow[], policy: ThresholdPolicy) {
+  let tp = 0,
+    fp = 0,
+    tn = 0,
+    falseClear = 0,
+    positive = 0,
+    negative = 0,
+    uncertain = 0,
+    expected = 0,
+    correct = 0;
+  for (const row of rows) {
+    const verdict = verdictFor(row.features, policy);
+    const proxy = isUncertainFixture(row.pair);
+    if (proxy) {
+      expected++;
+      if (verdict === "uncertain") correct++;
+      continue;
+    }
+    const y = row.pair.gold === "contradiction";
+    if (y) positive++;
+    else negative++;
+    if (verdict === "contradiction") {
+      if (y) tp++;
+      else fp++;
+    } else if (verdict === "no_contradiction") {
+      if (y) falseClear++;
+      else tn++;
+    } else uncertain++;
+  }
+  return {
+    cases: rows.length,
+    binary_cases: positive + negative,
+    label_semantics: "upstream binary gold; expected-uncertain synthetic proxies excluded",
+    native_unknown_labels: rows.filter((r) =>
+      ["NOT ENOUGH INFO", "uncertain"].includes(r.pair.native_label),
+    ).length,
+    positive,
+    negative,
+    tp,
+    fp,
+    tn,
+    false_clears: falseClear,
+    uncertain,
+    precision: wilson(tp, tp + fp),
+    recall: wilson(tp, positive),
+    f1: 2 * tp + fp + positive - tp ? (2 * tp) / (2 * tp + fp + positive - tp) : null,
+    clear_negative_coverage: wilson(tn, negative),
+    false_clear_rate: wilson(falseClear, positive),
+    contract_diagnostics: {
+      expected_uncertain: expected,
+      correct_uncertain: correct,
+      binary_proxy_labels_excluded: expected,
+    },
+  };
+}
+const values = (rows: readonly CalibrationRow[]) =>
+  [
+    ...new Set([
+      0,
+      ...Array.from({ length: 101 }, (_, i) => i / 100),
+      ...rows.map((r) => r.features.conflict),
+      1.000001,
+    ]),
+  ].sort((a, b) => a - b);
+function selectThresholds(rows: readonly CalibrationRow[], target: number) {
+  const binary = rows.filter((r) => !isUncertainFixture(r.pair));
+  if (
+    !binary.some((r) => r.pair.gold === "contradiction") ||
+    !binary.some((r) => r.pair.gold === "non_contradiction")
+  )
+    throw new Error("Calibration requires both binary labels.");
+  const frontier = values(binary).map((positive) => {
+    const report = calibrationMetrics(binary, {
+      positive,
+      negative_cut: 0,
+      negative_support: 1.001,
+    });
+    return {
+      threshold: positive,
+      tp: report.tp,
+      fp: report.fp,
+      precision: report.precision.value,
+      recall: report.recall.value,
+    };
+  });
+  const eligible = frontier
+    .filter((p) => p.tp > 0 && p.precision !== null && p.precision >= target)
+    .sort((a, b) => b.tp - a.tp || b.precision! - a.precision! || b.threshold - a.threshold);
+  const positive = eligible[0]?.threshold ?? 1.000001;
+  let policy: ThresholdPolicy = { positive, negative_cut: 0, negative_support: 1.001 },
+    bestTn = -1;
+  for (const negative_cut of values(binary).filter((n) => n < positive && n <= 1))
+    for (const negative_support of [0, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 1, 1.001]) {
+      const report = calibrationMetrics(binary, { positive, negative_cut, negative_support });
+      if (report.false_clears === 0 && report.tn > bestTn) {
+        policy = { positive, negative_cut, negative_support };
+        bestTn = report.tn;
+      }
+    }
+  return {
+    policy,
+    precision_target_met: eligible.length > 0,
+    precision_target: target,
+    negative_fit_constraint: "zero_training_false_clears" as const,
+    frontier,
+  };
+}
+export function foldGroups(pairs: readonly Pair[], seed: string) {
+  const groups = [...new Set(pairs.map(groupKey))].sort((a, b) =>
+    sha256(`${seed}:${a}`).localeCompare(sha256(`${seed}:${b}`)),
+  );
+  if (groups.length < 5) throw new Error("At least five independent source groups are required.");
+  // Duplicate normalized content joins source groups even if supplied under another ID.
+  const contents = new Map<string, string>();
+  const sources = new Map<string, string>();
+  for (const p of pairs) {
+    const c = contentKey(p),
+      g = groupKey(p),
+      previous = contents.get(c);
+    if (previous && previous !== g)
+      throw new Error("Identical content crosses source groups; repair grouping first.");
+    contents.set(c, g);
+    const source = `${p.dataset}:${p.source_id}`,
+      priorSource = sources.get(source);
+    if (priorSource && priorSource !== g)
+      throw new Error("One source crosses source groups; repair grouping first.");
+    sources.set(source, g);
+  }
+  const check = new Set(groups.filter((_, i) => i % 5 === 0));
+  return { fit: groups.filter((g) => !check.has(g)), check: [...check] };
+}
+export const modelSchema = z.strictObject({
+  schema_version: z.literal(1),
+  kind: z.enum(["iteration-threshold-model", "iteration-threshold-diagnostic"]),
+  qualification: z.literal("not_assessed"),
+  probability_interpretation: z.literal(
+    "raw model signals; threshold policy has no calibrated truth probabilities",
+  ),
+  seed: z.string().min(1),
+  training_manifest_sha256: hash,
+  training_run_sha256: hash,
+  candidate_source_sha256: hash,
+  training_groups: z.array(z.string()),
+  training_sources: z.array(z.string()),
+  training_content: z.array(hash),
+  training_groups_sha256: hash,
+  inner_folds: z.strictObject({ fit: z.array(z.string()), check: z.array(z.string()) }),
+  composition_method: z.literal("runner_compose_default_policy_with_three_calibrated_cutoffs"),
+  feature_reader_version: z.literal("determinable_default_null_v2"),
+  first_pass_only: z.literal(true),
+  ignored_repeat_passes: z.number().int().nonnegative(),
+  profiles: z.partialRecord(
+    z.enum(CANDIDATE_IDS),
+    z
+      .object({
+        policy: z.strictObject({
+          positive: z.number().min(0).max(1.000001),
+          negative_cut: probabilitySchema,
+          negative_support: z.number().min(0).max(1.001),
+        }),
+      })
+      .passthrough(),
+  ),
+});
+export function fitCalibration(
+  input: CalibrationInput,
+  options: { seed: string; diagnostic?: boolean; precisionTarget?: number },
+) {
+  if (
+    input.purpose !== "tune" ||
+    input.manifest.purpose !== "development" ||
+    input.manifest.pairs.some((p) => p.split !== "train")
+  )
+    throw new Error(
+      "Fit/diagnose requires an explicit tune run on original train development pairs.",
+    );
+  if (!options.seed) throw new Error("A calibration split seed is required.");
+  const target = options.precisionTarget ?? 0.95;
+  if (!Number.isFinite(target) || target < 0.5 || target > 1)
+    throw new Error("Invalid precision target.");
+  const folds = foldGroups(input.manifest.pairs, options.seed),
+    fit = new Set(folds.fit),
+    check = new Set(folds.check);
+  const profiles = Object.fromEntries(
+    input.profiles.map((profile) => {
+      const rows = input.rows.filter((r) => r.profile === profile),
+        fitRows = rows.filter((r) => fit.has(groupKey(r.pair))),
+        checkRows = rows.filter((r) => check.has(groupKey(r.pair)));
+      const inner = selectThresholds(fitRows, target),
+        final = selectThresholds(rows, target);
+      const byDataset = Object.fromEntries(
+        [...new Set(rows.map((r) => r.pair.dataset))].map((dataset) => {
+          const subset = rows.filter((r) => r.pair.dataset === dataset);
+          const both =
+            subset.some((r) => r.pair.gold === "contradiction") &&
+            subset.some((r) => r.pair.gold === "non_contradiction");
+          return [
+            dataset,
+            {
+              global_policy_metrics: calibrationMetrics(subset, final.policy),
+              exploratory_dataset_only: both ? selectThresholds(subset, target) : null,
+            },
+          ];
+        }),
+      );
+      return [
+        profile,
+        {
+          ...final,
+          training_metrics: calibrationMetrics(rows, final.policy),
+          inner: {
+            policy: inner.policy,
+            fit_metrics: calibrationMetrics(fitRows, inner.policy),
+            check_metrics: calibrationMetrics(checkRows, inner.policy),
+            fit_groups_sha256: sha256(JSON.stringify(folds.fit)),
+            check_groups_sha256: sha256(JSON.stringify(folds.check)),
+          },
+          by_dataset: byDataset,
+        },
+      ];
+    }),
+  );
+  const groups = [...new Set(input.manifest.pairs.map(groupKey))].sort();
+  return {
+    schema_version: 1 as const,
+    kind: options.diagnostic
+      ? ("iteration-threshold-diagnostic" as const)
+      : ("iteration-threshold-model" as const),
+    qualification: "not_assessed" as const,
+    probability_interpretation:
+      "raw model signals; threshold policy has no calibrated truth probabilities" as const,
+    seed: options.seed,
+    training_manifest_sha256: input.manifest_sha256,
+    training_run_sha256: input.run_sha256,
+    candidate_source_sha256: input.source_sha256,
+    training_groups: groups,
+    training_sources: [
+      ...new Set(input.manifest.pairs.map((p) => `${p.dataset}:${p.source_id}`)),
+    ].sort(),
+    training_content: [...new Set(input.manifest.pairs.map(contentKey))].sort(),
+    training_groups_sha256: sha256(JSON.stringify(groups)),
+    inner_folds: folds,
+    composition_method: "runner_compose_default_policy_with_three_calibrated_cutoffs",
+    feature_reader_version: "determinable_default_null_v2",
+    first_pass_only: true as const,
+    ignored_repeat_passes: input.passes - 1,
+    profiles,
+  };
+}
+export function evaluateCalibration(modelValue: unknown, input: CalibrationInput) {
+  const model = modelSchema.parse(modelValue);
+  if (model.kind !== "iteration-threshold-model")
+    throw new Error("Diagnostic searches cannot be evaluated as frozen fitted models.");
+  if (input.purpose !== "validation" && input.purpose !== "regression")
+    throw new Error("Independent evaluation requires validation or regression run purpose.");
+  if (input.source_sha256 !== model.candidate_source_sha256)
+    throw new Error("Candidate source changed since calibration.");
+  assertDisjointFromTraining(input.manifest.pairs, model);
+  if (
+    JSON.stringify(Object.keys(model.profiles).sort()) !==
+    JSON.stringify([...input.profiles].sort())
+  )
+    throw new Error("Frozen model/profile coverage mismatch.");
+  return {
+    kind: "iteration-frozen-validation",
+    qualification: "not_assessed",
+    model_sha256: sha256(JSON.stringify(modelValue)),
+    manifest_sha256: input.manifest_sha256,
+    run_sha256: input.run_sha256,
+    first_pass_only: true,
+    profiles: Object.fromEntries(
+      input.profiles.map((profile) => {
+        const policy = model.profiles[profile]!.policy,
+          rows = input.rows.filter((r) => r.profile === profile);
+        return [
+          profile,
+          {
+            policy,
+            metrics: calibrationMetrics(rows, policy),
+            by_dataset: Object.fromEntries(
+              [...new Set(rows.map((r) => r.pair.dataset))].map((d) => [
+                d,
+                calibrationMetrics(
+                  rows.filter((r) => r.pair.dataset === d),
+                  policy,
+                ),
+              ]),
+            ),
+            rows: rows.map((r) => ({
+              pair_id: r.pair.id,
+              verdict: verdictFor(r.features, policy),
+              features: r.features,
+              raw_answers: r.raw_answers,
+              calibrated_estimate: null,
+            })),
+          },
+        ];
+      }),
+    ),
+  };
+}

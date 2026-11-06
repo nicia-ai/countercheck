@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "created_at": "2026-11-03T22:08:46.405268+00:00",
+  "status": "profiles and inputs frozen before inference; runner unit verification pending",
+  "purpose": "development-only decision-model engineering ablation; no production deployment",
+  "model": "jev-1.14.0",
+  "profiles": ["baseline", "inline-policy", "rich-criteria", "rich-criteria-examples", "dual-noul"],
+  "pairs_per_profile": 431,
+  "planned_provider_calls": 2155,
+  "passes": 1,
+  "global_concurrency": 2,
+  "deadline_ms": 3000,
+  "retries": 0,
+  "thresholds": {
+    "positive": 0.8,
+    "negative": 0.2,
+    "choice_negative_component_min": 0.8,
+    "dual_noul_determinable_min": 0.8
+  },
+  "example_source": "eight invented rubric examples in profiles.ts; no evaluated input/gold label copied into a request as an example",
+  "diagnostic_fixture": "32 AI-authored, independently AI-reviewed cases, not a human-adjudicated or locked release set; four expected-uncertain cases excluded from binary quality",
+  "clean_example_effect": "rich-criteria vs rich-criteria-examples differs only by examples",
+  "other_contrasts": "inline-policy moves same definition into instructions; rich-criteria changes instruction and criteria formulation; dual-noul changes primitives and determinability composition, so it is not a pure prompt-only comparison",
+  "interpretation": "All 399 public development pairs have already been examined. No generalization/held-out/model-capacity limit claim from this experiment. Literal compatibility contract stays fixed; native benchmark labels may differ. No adaptive prompt/threshold editing within a run.",
+  "envelope": "Single-pair experiment only. Independently simulated naive20-comparison challengers exceed16KiB; no production20-comparison qualification or promotion.",
+  "files": {
+    "eval/prompt-ablation/profiles.ts": "40edc4582663719a46f4f124cb461279f2904a8da52f54d9d0f58cdf3ed0f7bd",
+    "eval/fixtures/prompt-ablation-contract.json": "3abd761205be0fe9113b4be89fbdb71313f12a96e3331a8c9b746b9698bf3ecb",
+    "eval/data/vitaminc-combined-dev-200.json": "982a5dc43919853176d372c53bf90bc98d4bc49e56d8703165feb14345aff0ff",
+    "eval/data/scifact-dev-200.json": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c"
+  },
+  "primary_guidance": [
+    "https://docs.typesafe.ai/concepts/how-to-build-with-system-one",
+    "https://docs.typesafe.ai/primitives/advanced",
+    "https://docs.typesafe.ai/primitives/noul",
+    "https://docs.typesafe.ai/model-jaggedness"
+  ]
+}

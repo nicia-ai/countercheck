@@ -1,0 +1,11 @@
+{
+  "source_stable": true,
+  "completed_at": "2026-11-04T18:28:53.740Z",
+  "planned_hosted_calls": 1995,
+  "completed_prior_hosted_calls": 995,
+  "resume_hosted_calls": 1000,
+  "resume_node": "v24.22.2",
+  "initial_node": "v26.13.0",
+  "replay_output_collision": "Resolved with fresh -deberta-replay report prefix; original predictions unchanged",
+  "stages": 7
+}

@@ -1,0 +1,18 @@
+{
+  "actual_r4_used_combined_manifest": true,
+  "affected_manifest": "eval/data/iteration-expanded-extra-fit.json",
+  "affected_sha256": "6a962eb45af104767b148f03db83160eb88dc0b13578d636175b94883547673a",
+  "combined_manifest": "eval/data/iteration-expanded-fit.json",
+  "combined_original_pairs_unchanged": true,
+  "combined_recorded_value_correct": true,
+  "combined_sha256": "dfe24df4df07402dc288ca69da0f7f94247d5642674d07b6b630de552eb77e84",
+  "correct_value": false,
+  "field": "iteration_protocol.screen_subset_of_fit",
+  "future_preparer_fix": "screen_subset_of_fit is true only for combined fit, not extra-only additions",
+  "kind": "post-generation-extension-metadata-erratum",
+  "measured_artifacts_rewritten": false,
+  "original_screen_pairs": 160,
+  "qualification": "Metadata erratum only; no R4 input bytes, labels, source grouping, requests or outcomes changed",
+  "recorded_value": true,
+  "screen_pairs_in_extra_only": 0
+}

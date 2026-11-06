@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "kind": "decision-engineering-split-lock",
+  "seed": "engineering-2026-11-03",
+  "source_manifests": [
+    {
+      "name": "/Users/paul/orgs/nicia/countercheck/eval/engineering/synthetic-workflow.json",
+      "sha256": "fb7c511712a4573d6508553cf38221b84bc04e21a31cd9c72265648c6b3de8e0"
+    }
+  ],
+  "label_sidecar_sha256": null,
+  "separation": "source-group-and-identical-content-components",
+  "holdout_protection": "workflow-only-not-cryptographic-access-control",
+  "partitions": {
+    "train": {
+      "file": "train.json",
+      "sha256": "bde46f3635f68fb2f3caab39657446b288a29e382802180bd154bfe8be7d0ece",
+      "cases": [
+        {
+          "id": "workflow:2:0",
+          "content_sha256": "5cc15abbb812e884b93b7ab6a6f27bd562e9464670904ae40f31dec4cc984253",
+          "group_sha256": "aadbbce1cbe688ff59e7f1b03c6dc4ee4944a6e88101df032131ea49a805c78f",
+          "calibration_fold": null
+        },
+        {
+          "id": "workflow:2:1",
+          "content_sha256": "9039f7e5a90e83c398c595a47064f9cdba22bab87c0bc8454afdd10a9440b950",
+          "group_sha256": "aadbbce1cbe688ff59e7f1b03c6dc4ee4944a6e88101df032131ea49a805c78f",
+          "calibration_fold": null
+        },
+        {
+          "id": "workflow:3:0",
+          "content_sha256": "a112a8e0d4bdd83b38586fda975d719f631db5479b0ff0df7818fae088fcf234",
+          "group_sha256": "7179967b8881064e179efdaa5456b26ee4c70cab78eaa69853c8375efb334eae",
+          "calibration_fold": null
+        },
+        {
+          "id": "workflow:3:1",
+          "content_sha256": "6de97dcbdbc01975dcb05eb541b9ba99b7bceea5d52bef0cd192f0a0a4ab5afc",
+          "group_sha256": "7179967b8881064e179efdaa5456b26ee4c70cab78eaa69853c8375efb334eae",
+          "calibration_fold": null
+        },
+        {
+          "id": "workflow:5:0",
+          "content_sha256": "48cccb159a170d8a2a8f0ffc859dd2197c03007c2464a354015235f6582a6f5b",
+          "group_sha256": "6bd987bc0e9ce6d965cea39e7296b6cb4bfaaccd8059138110a7ea08a0b8aa9c",
+          "calibration_fold": null
+        },
+        {
+          "id": "workflow:5:1",
+          "content_sha256": "0f3f4207b83cf6637a3c13f5467a5296517e2176cfe41a98f4f945d7676c8f4a",
+          "group_sha256": "6bd987bc0e9ce6d965cea39e7296b6cb4bfaaccd8059138110a7ea08a0b8aa9c",
+          "calibration_fold": null
+        }
+      ]
+    },
+    "dev": {
+      "file": "dev.json",
+      "sha256": "ed5f8428e25d8c978187c13399c5841ba02d4edbbbff604be2b65d468244db89",
+      "cases": [
+        {
+          "id": "workflow:0:0",
+          "content_sha256": "4bda1d36b637d5b53235a025223e56d30f262b01028656f07011027c0e563ab9",
+          "group_sha256": "1f4889032765d4d081789ff4700b41f153bb7bde78cc5d3a8b5e8ccc1a4d0831",
+          "calibration_fold": "tune"
+        },
+        {
+          "id": "workflow:0:1",
+          "content_sha256": "dd597e2869698f0b054801d46df7f0025d6a3d03b50a6f677d83c4d32ff914f0",
+          "group_sha256": "1f4889032765d4d081789ff4700b41f153bb7bde78cc5d3a8b5e8ccc1a4d0831",
+          "calibration_fold": "tune"
+        },
+        {
+          "id": "workflow:1:0",
+          "content_sha256": "15dffaa6c2bd968b1a4b1974c6fbea4707077423cb9e444816a27bdaa9d6d847",
+          "group_sha256": "5024679d6189ec709efcd58a195daab00300aa082b5e91fe5c24bd77b06890f5",
+          "calibration_fold": "validation"
+        },
+        {
+          "id": "workflow:1:1",
+          "content_sha256": "18dbe34dbaa59d864d407f06bb5765cb036a45e362a509355b2902dcf5f42584",
+          "group_sha256": "5024679d6189ec709efcd58a195daab00300aa082b5e91fe5c24bd77b06890f5",
+          "calibration_fold": "validation"
+        }
+      ]
+    },
+    "holdout": {
+      "file": "holdout.json",
+      "sha256": "50efa8a1cf76f26f9536281c15d778fcff396cfc5487d5e8f85760bbc389023c",
+      "cases": [
+        {
+          "id": "workflow:4:0",
+          "content_sha256": "5ca79b8940c97b16c8a692f17d1a77d4f609dd1e9725e6272fd2aecf49c71034",
+          "group_sha256": "8c67bbd47af5b8baea1d076647a804a76ac8becbfa4f9b755e1e305b0fe6a761",
+          "calibration_fold": null
+        },
+        {
+          "id": "workflow:4:1",
+          "content_sha256": "f206757540a06c75a8b8a88ab30815d1cc616f0475a6e853b52a27d7a62fab89",
+          "group_sha256": "8c67bbd47af5b8baea1d076647a804a76ac8becbfa4f9b755e1e305b0fe6a761",
+          "calibration_fold": null
+        }
+      ]
+    }
+  }
+}

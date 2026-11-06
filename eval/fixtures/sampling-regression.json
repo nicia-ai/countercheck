@@ -1,0 +1,117 @@
+{
+  "provenance": "Fixed selected-ID digests from the original pre-optimization group sampler over the saved 2026-11-03 public development manifests.",
+  "cases": [
+    {
+      "dataset": "vitaminc-combined-dev",
+      "seed": "countercheck-v1",
+      "limit": 1,
+      "selected_count": 0,
+      "selected_ids_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "dataset": "vitaminc-combined-dev",
+      "seed": "countercheck-v1",
+      "limit": 10,
+      "selected_count": 10,
+      "selected_ids_sha256": "253935f5bef608b906c610bd719f8ca37f8cb184c3734aceaec1ec7b49afcb1d"
+    },
+    {
+      "dataset": "vitaminc-combined-dev",
+      "seed": "countercheck-v1",
+      "limit": 47,
+      "selected_count": 46,
+      "selected_ids_sha256": "98a6329f3e6a788da9ea01049146fcbf270a82d05c1bb49273fef9212c362c20"
+    },
+    {
+      "dataset": "vitaminc-combined-dev",
+      "seed": "countercheck-v1",
+      "limit": 200,
+      "selected_count": 200,
+      "selected_ids_sha256": "b8d8cdbbc5ddcee7abc5901f5e33735390b436ceab5edf8a88153620d99fb2e8"
+    },
+    {
+      "dataset": "vitaminc-combined-dev",
+      "seed": "different-seed",
+      "limit": 1,
+      "selected_count": 0,
+      "selected_ids_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "dataset": "vitaminc-combined-dev",
+      "seed": "different-seed",
+      "limit": 10,
+      "selected_count": 10,
+      "selected_ids_sha256": "d9018e15bbb8f52d8967dbe02388e3505316b59cccaf11858a886f87d16531f7"
+    },
+    {
+      "dataset": "vitaminc-combined-dev",
+      "seed": "different-seed",
+      "limit": 47,
+      "selected_count": 46,
+      "selected_ids_sha256": "d7f2746d42d935ea2767d4e10b45e52cca3734dd20f6d879886bfdf063e8e1ec"
+    },
+    {
+      "dataset": "vitaminc-combined-dev",
+      "seed": "different-seed",
+      "limit": 200,
+      "selected_count": 200,
+      "selected_ids_sha256": "b8d8cdbbc5ddcee7abc5901f5e33735390b436ceab5edf8a88153620d99fb2e8"
+    },
+    {
+      "dataset": "scifact-dev",
+      "seed": "countercheck-v1",
+      "limit": 1,
+      "selected_count": 1,
+      "selected_ids_sha256": "2e649ba6ce73586f6dc8ab9a90f3b62c331fc4a36725fc354a41c28dc0adf687"
+    },
+    {
+      "dataset": "scifact-dev",
+      "seed": "countercheck-v1",
+      "limit": 10,
+      "selected_count": 10,
+      "selected_ids_sha256": "0685b009298db06e9279f9c6bf5217f03eb7a4ba3d533d8de57e968d37b7b383"
+    },
+    {
+      "dataset": "scifact-dev",
+      "seed": "countercheck-v1",
+      "limit": 47,
+      "selected_count": 47,
+      "selected_ids_sha256": "39deb841f88becef640c56e48446c759ba148373ef938dad43221c3588ebf2d3"
+    },
+    {
+      "dataset": "scifact-dev",
+      "seed": "countercheck-v1",
+      "limit": 200,
+      "selected_count": 199,
+      "selected_ids_sha256": "e59966d7eda0dc6618ef8809be5acda92006cfdf534ad51afc5f3d6229ff7f45"
+    },
+    {
+      "dataset": "scifact-dev",
+      "seed": "different-seed",
+      "limit": 1,
+      "selected_count": 1,
+      "selected_ids_sha256": "4b47b1c41847fe3b845b2b04358a905d9356e216f29f1907a0ed3633ddde839d"
+    },
+    {
+      "dataset": "scifact-dev",
+      "seed": "different-seed",
+      "limit": 10,
+      "selected_count": 10,
+      "selected_ids_sha256": "e7652d88069e9bfe0432783e8ab97326944f196b9c0bfe407b6b9525fc6b3847"
+    },
+    {
+      "dataset": "scifact-dev",
+      "seed": "different-seed",
+      "limit": 47,
+      "selected_count": 47,
+      "selected_ids_sha256": "b618ba0453b707994765802c204f1ba057df8358ebc8531d46192cdb16460436"
+    },
+    {
+      "dataset": "scifact-dev",
+      "seed": "different-seed",
+      "limit": 200,
+      "selected_count": 199,
+      "selected_ids_sha256": "e59966d7eda0dc6618ef8809be5acda92006cfdf534ad51afc5f3d6229ff7f45"
+    }
+  ]
+}

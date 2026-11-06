@@ -1,0 +1,72 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "countercheck",
+  "account_id": "42de207988eb23793aa308feb01dc9c7",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-03",
+  "compatibility_flags": ["nodejs_compat", "enable_request_signal"],
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    {
+      "pattern": "countercheck.nicia.ai",
+      "custom_domain": true,
+    },
+  ],
+  "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": true },
+  "durable_objects": { "bindings": [{ "name": "ADMISSION", "class_name": "AdmissionDO" }] },
+  "migrations": [{ "tag": "admission-v1", "new_sqlite_classes": ["AdmissionDO"] }],
+  "triggers": {
+    "crons": ["0 0 * * *", "*/5 * * * *"],
+  },
+  "vars": {
+    "BETTER_AUTH_URL": "https://countercheck.nicia.ai",
+    "AUTH_EMAIL_FROM": "Countercheck <hello@nicia.ai>",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "countercheck",
+      "database_id": "ac5247f7-0410-4203-a322-0d086547f3d3",
+      "preview_database_id": "ac5247f7-0410-4203-a322-0d086547f3d3",
+      "migrations_dir": "migrations",
+    },
+  ],
+  "ratelimits": [
+    {
+      "name": "AUTH_LIMITER",
+      "namespace_id": "1679165449",
+      "simple": { "limit": 20, "period": 60 },
+    },
+    {
+      "name": "RATE_LIMITER",
+      "namespace_id": "1679165447",
+      "simple": {
+        "limit": 60,
+        "period": 60,
+      },
+    },
+    {
+      "name": "INGRESS_LIMITER",
+      "namespace_id": "1679165448",
+      "simple": {
+        "limit": 120,
+        "period": 60,
+      },
+    },
+  ],
+  "ai": {
+    "binding": "AI",
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1,
+    "redact_query_string": true,
+    "logs": {
+      "enabled": true,
+      "invocation_logs": false,
+      "head_sampling_rate": 1,
+      "persist": true,
+    },
+  },
+}

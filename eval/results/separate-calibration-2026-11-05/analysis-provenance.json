@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "source_files": {
+    "scripts/analyze-calibration-study.py": "316cce07ed0c0f248728310d908b27d76c89d503d50f0097cb250d4fb0436bd2",
+    "scripts/verify-calibration-study.py": "76df2563e2c7caa71a866c496bcd5ff1d60f5c9cec273f2b9ed89edf57ef6d72"
+  },
+  "protocol_sha256": "3febdaed3c22ad1396ea98dec60b5e747ee52700ac417bb88949b216cc29c0f2",
+  "approval_sha256": "8ec26a36f3003f84f9194e18d7a74d519b4a7c61de4d92b1b581b59011e48a45",
+  "policy_freeze_sha256": "1865645712d4056b8f20899d66044b12a3d5867f9d6e3e2dedcd488fc675f848",
+  "input_artifacts": {
+    "fit-observations.redacted.jsonl.gz": "1ddedb7cf9c271ab56bfde5c1c972da5d62afc5d92572d329f5bac3056b83ac1",
+    "validation-observations.redacted.jsonl.gz": "78d9f396c23562011b75112ad03ec95d654d005097085a81b12dd9514e0b58df",
+    "metric-crosscheck.json": "55ea1d80852749315643ebdfc486c0f26aa904b8de301ae0693bdc9c219d62e6"
+  },
+  "network_calls": 0,
+  "raw_dataset_text_required": false,
+  "independence": "Existing TypeScript selector and metric engine; independent Python threshold fitter and point metric engine; paired bootstrap design tested against the existing supplement with analytic fixtures."
+}

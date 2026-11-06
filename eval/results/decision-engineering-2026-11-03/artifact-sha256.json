@@ -1,0 +1,1139 @@
+{
+  "artifacts": [
+    {
+      "archived_bytes": 11089,
+      "archived_path": "batch20.manifest",
+      "archived_sha256": "0ca87c2190f4ce8e45c1313b5e921153beaba64b70a025d776704c03dd4a0307",
+      "encoding": "identity",
+      "original_bytes": 11089,
+      "original_sha256": "0ca87c2190f4ce8e45c1313b5e921153beaba64b70a025d776704c03dd4a0307",
+      "source_path": "eval/results/decision-engineering-2026-11-03/batch20.manifest"
+    },
+    {
+      "archived_bytes": 26127,
+      "archived_path": "inputs/contract-diagnostic.manifest",
+      "archived_sha256": "3abd761205be0fe9113b4be89fbdb71313f12a96e3331a8c9b746b9698bf3ecb",
+      "encoding": "identity",
+      "original_bytes": 26127,
+      "original_sha256": "3abd761205be0fe9113b4be89fbdb71313f12a96e3331a8c9b746b9698bf3ecb",
+      "source_path": "eval/results/prompt-ablation-2026-11-03/inputs/contract-diagnostic.manifest"
+    },
+    {
+      "archived_bytes": 155094,
+      "archived_path": "inputs/scifact-dev.manifest",
+      "archived_sha256": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+      "encoding": "identity",
+      "original_bytes": 155094,
+      "original_sha256": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+      "source_path": "eval/results/prompt-ablation-2026-11-03/inputs/scifact-dev.manifest"
+    },
+    {
+      "archived_bytes": 150852,
+      "archived_path": "inputs/vitaminc-combined-dev.manifest",
+      "archived_sha256": "982a5dc43919853176d372c53bf90bc98d4bc49e56d8703165feb14345aff0ff",
+      "encoding": "identity",
+      "original_bytes": 150852,
+      "original_sha256": "982a5dc43919853176d372c53bf90bc98d4bc49e56d8703165feb14345aff0ff",
+      "source_path": "eval/results/prompt-ablation-2026-11-03/inputs/vitaminc-combined-dev.manifest"
+    },
+    {
+      "archived_bytes": 6434,
+      "archived_path": "post-review-payload-check.json",
+      "archived_sha256": "5686e27afcd3ee6afa931dcce1bd8594aca9abe1af96209b715d790eb99da7d8",
+      "encoding": "identity",
+      "original_bytes": 6434,
+      "original_sha256": "5686e27afcd3ee6afa931dcce1bd8594aca9abe1af96209b715d790eb99da7d8",
+      "source_birthtime": 1793757879.6161015,
+      "source_mtime_ns": 1793757879616199304,
+      "source_path": "eval/results/decision-engineering-2026-11-03/post-review-payload-check.json"
+    },
+    {
+      "archived_bytes": 1145,
+      "archived_path": "post-review-protocol.json",
+      "archived_sha256": "b13cfb3c8521918169438281d9d623255a9be510984cd3c05d20f2f020ee4689",
+      "encoding": "identity",
+      "original_bytes": 1145,
+      "original_sha256": "b13cfb3c8521918169438281d9d623255a9be510984cd3c05d20f2f020ee4689",
+      "source_birthtime": 1793757995.399754,
+      "source_mtime_ns": 1793757995399847799,
+      "source_path": "eval/results/decision-engineering-2026-11-03/post-review-protocol.json"
+    },
+    {
+      "archived_bytes": 1391,
+      "archived_path": "post-review/structured-value-v1/batch20-original.metadata.json",
+      "archived_sha256": "7734f1430ce3b244a8cb52ba253e592f39860ab5266a262d4dca142da38262bb",
+      "encoding": "identity",
+      "original_bytes": 1391,
+      "original_sha256": "7734f1430ce3b244a8cb52ba253e592f39860ab5266a262d4dca142da38262bb",
+      "source_birthtime": 1793758826.1189368,
+      "source_mtime_ns": 1793758826119120952,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-batch20-original.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 959,
+      "archived_path": "post-review/structured-value-v1/batch20-original.predictions.jsonl.gz",
+      "archived_sha256": "1e15bb6188323d78f4e64b97f1ad2b145c56fcc4d650e3dc2a3628ace1959177",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 22648,
+      "original_sha256": "8df5a161f47278836aaec1c84c6cb063c54761dbf95247af225471dda7a79748",
+      "source_birthtime": 1793758826.1186383,
+      "source_mtime_ns": 1793758826286845152,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-batch20-original.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 4799,
+      "archived_path": "post-review/structured-value-v1/batch20-original.report.json.gz",
+      "archived_sha256": "12de4c2f16f9d456c41be1ae3475f16e5c2bcfd6a2a36279c0beb721b5abc311",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 78549,
+      "original_sha256": "3699585f4e0de7285f04afdee7162227da76504eefb26b48dc1f0688f445ad95",
+      "source_birthtime": 1793758826.2927854,
+      "source_mtime_ns": 1793758826293055994,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-batch20-original.json"
+    },
+    {
+      "archived_bytes": 1783,
+      "archived_path": "post-review/structured-value-v1/batch20-original.report.md",
+      "archived_sha256": "105346779b3b723d58d8195ef3dd342ff482a32ab3d175d29fd6effcba46808f",
+      "encoding": "identity",
+      "original_bytes": 1783,
+      "original_sha256": "105346779b3b723d58d8195ef3dd342ff482a32ab3d175d29fd6effcba46808f",
+      "source_birthtime": 1793758826.293234,
+      "source_mtime_ns": 1793758826293315786,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-batch20-original.md"
+    },
+    {
+      "archived_bytes": 1391,
+      "archived_path": "post-review/structured-value-v1/batch20-reversed.metadata.json",
+      "archived_sha256": "5aea3c19b2c1acfc6623e0125d0b5b05a3c6b0ab55542f22ab77723dd6055ba4",
+      "encoding": "identity",
+      "original_bytes": 1391,
+      "original_sha256": "5aea3c19b2c1acfc6623e0125d0b5b05a3c6b0ab55542f22ab77723dd6055ba4",
+      "source_birthtime": 1793758826.3931415,
+      "source_mtime_ns": 1793758826393373097,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-batch20-reversed.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 944,
+      "archived_path": "post-review/structured-value-v1/batch20-reversed.predictions.jsonl.gz",
+      "archived_sha256": "fa17063f8663ab38e79d90f2eb0d7502caa57af080bf3026c64c1628e77c039d",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 22815,
+      "original_sha256": "3382d50d20eba944908effb85b9831e6d6da040bdf7153e609216ae825774d04",
+      "source_birthtime": 1793758826.392956,
+      "source_mtime_ns": 1793758826569229017,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-batch20-reversed.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 4768,
+      "archived_path": "post-review/structured-value-v1/batch20-reversed.report.json.gz",
+      "archived_sha256": "21d9a2728b05e154a1f155d8f5460b64ef8b10d5c959ab98ea4da03eeb2f450b",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 78839,
+      "original_sha256": "f5bfac196eee09fdb5b4f1f519b32063ba80f0d6fae56ef62cf594a47d782963",
+      "source_birthtime": 1793758826.5778832,
+      "source_mtime_ns": 1793758826578217863,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-batch20-reversed.json"
+    },
+    {
+      "archived_bytes": 1783,
+      "archived_path": "post-review/structured-value-v1/batch20-reversed.report.md",
+      "archived_sha256": "0fa1c10a7720315d5f72fcd3027486d23225cde0d9f6da6c51e30fa7f5bbe0bf",
+      "encoding": "identity",
+      "original_bytes": 1783,
+      "original_sha256": "0fa1c10a7720315d5f72fcd3027486d23225cde0d9f6da6c51e30fa7f5bbe0bf",
+      "source_birthtime": 1793758826.5784397,
+      "source_mtime_ns": 1793758826578527863,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-batch20-reversed.md"
+    },
+    {
+      "archived_bytes": 1847,
+      "archived_path": "post-review/structured-value-v1/contract-diagnostic.metadata.json",
+      "archived_sha256": "fc0437b0064f97e6d6b0d491d765d1a8453a759b8fa9a7bebc98af1593ae3700",
+      "encoding": "identity",
+      "original_bytes": 1847,
+      "original_sha256": "fc0437b0064f97e6d6b0d491d765d1a8453a759b8fa9a7bebc98af1593ae3700",
+      "source_birthtime": 1793758825.2561305,
+      "source_mtime_ns": 1793758825256350503,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-contract-diagnostic.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 3507,
+      "archived_path": "post-review/structured-value-v1/contract-diagnostic.predictions.jsonl.gz",
+      "archived_sha256": "b950dfc2ab112174d37e1ea57f440ab0e3f320f60d1e8023ae4319721e1cf03f",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 37081,
+      "original_sha256": "25109aa63ac40ad64fb71555e87db0ddba6677c31767c0ba0d7fdd66b0d33009",
+      "source_birthtime": 1793758825.2558293,
+      "source_mtime_ns": 1793758827734913485,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-contract-diagnostic.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 10557,
+      "archived_path": "post-review/structured-value-v1/contract-diagnostic.report.json.gz",
+      "archived_sha256": "08bac84edac5618e050a5f6cc797a7241abb95f69cf534aba12c4ae9bcbcbe2e",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 125167,
+      "original_sha256": "932a77a4d1350986a6f98e516351238c8b50015a2fd518b598508b63414fe1d0",
+      "source_birthtime": 1793758827.7488682,
+      "source_mtime_ns": 1793758827749127338,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-contract-diagnostic.json"
+    },
+    {
+      "archived_bytes": 1772,
+      "archived_path": "post-review/structured-value-v1/contract-diagnostic.report.md",
+      "archived_sha256": "1ec2447d45e283cb3c38153feaa3a834283b6f03b2960dcc91c1560011dd03a5",
+      "encoding": "identity",
+      "original_bytes": 1772,
+      "original_sha256": "1ec2447d45e283cb3c38153feaa3a834283b6f03b2960dcc91c1560011dd03a5",
+      "source_birthtime": 1793758827.7493217,
+      "source_mtime_ns": 1793758827749583547,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-contract-diagnostic.md"
+    },
+    {
+      "archived_bytes": 7753,
+      "archived_path": "post-review/structured-value-v1/scifact-dev.metadata.json",
+      "archived_sha256": "f1b1ea45916a3099375c4f47c558d45da46e6c59f1f9cd291f8140dcac8d5e7c",
+      "encoding": "identity",
+      "original_bytes": 7753,
+      "original_sha256": "f1b1ea45916a3099375c4f47c558d45da46e6c59f1f9cd291f8140dcac8d5e7c",
+      "source_birthtime": 1793758808.9530554,
+      "source_mtime_ns": 1793758808953251769,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-scifact-dev.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 19586,
+      "archived_path": "post-review/structured-value-v1/scifact-dev.predictions.jsonl.gz",
+      "archived_sha256": "218adcba1f8e8cc846f9c4ae985d4183555fae72c07d77115ab42d4601dad9f2",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 233824,
+      "original_sha256": "7a63915d3ec18a1e6e2a60752dd63d60995fcdac0c784cb6be97277c707114ee",
+      "source_birthtime": 1793758808.952879,
+      "source_mtime_ns": 1793758825102907699,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-scifact-dev.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 63862,
+      "archived_path": "post-review/structured-value-v1/scifact-dev.report.json.gz",
+      "archived_sha256": "4d5864faee2e405c7a6186fb2a8fa4ad548146d85fc31a616da9a192110b1672",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 619987,
+      "original_sha256": "d116c16b4dfb6c45e2862a75aaa4436875517e90e9af771d9128ef4da19bad8e",
+      "source_birthtime": 1793758825.12151,
+      "source_mtime_ns": 1793758825121683726,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-scifact-dev.json"
+    },
+    {
+      "archived_bytes": 1770,
+      "archived_path": "post-review/structured-value-v1/scifact-dev.report.md",
+      "archived_sha256": "f8cb1035fb534b292f747a0c55fed79567dc20802709ab37538468c6706414f0",
+      "encoding": "identity",
+      "original_bytes": 1770,
+      "original_sha256": "f8cb1035fb534b292f747a0c55fed79567dc20802709ab37538468c6706414f0",
+      "source_birthtime": 1793758825.122122,
+      "source_mtime_ns": 1793758825122211977,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-scifact-dev.md"
+    },
+    {
+      "archived_bytes": 12216,
+      "archived_path": "post-review/structured-value-v1/vitaminc-combined-dev.metadata.json",
+      "archived_sha256": "f6e87bc3515615fc3a044d7ed461173747cadbae75930c5594c38d5f46435bee",
+      "encoding": "identity",
+      "original_bytes": 12216,
+      "original_sha256": "f6e87bc3515615fc3a044d7ed461173747cadbae75930c5594c38d5f46435bee",
+      "source_birthtime": 1793758808.9518867,
+      "source_mtime_ns": 1793758808952116934,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-vitaminc-combined-dev.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 18602,
+      "archived_path": "post-review/structured-value-v1/vitaminc-combined-dev.predictions.jsonl.gz",
+      "archived_sha256": "dd5e646e5b40081ca2339536c1ed2b2522ede85256df08546d378b3d97019aea",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 240905,
+      "original_sha256": "0f1e7439dcae8a72b9d065b8fb3f303e3b83d783a602a3a6da8391b6dc302896",
+      "source_birthtime": 1793758808.9517164,
+      "source_mtime_ns": 1793758825984297009,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-vitaminc-combined-dev.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 40058,
+      "archived_path": "post-review/structured-value-v1/vitaminc-combined-dev.report.json.gz",
+      "archived_sha256": "c3c9f40f51caf24e6e619fada870de480daa85da34961615cca810e2f933b200",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 636830,
+      "original_sha256": "828b3ad1c6989a5e7cb7d6f796de0add4ecdcd2de0d76c53d3e07efb3508bdf5",
+      "source_birthtime": 1793758826.0044165,
+      "source_mtime_ns": 1793758826004654205,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-vitaminc-combined-dev.json"
+    },
+    {
+      "archived_bytes": 1770,
+      "archived_path": "post-review/structured-value-v1/vitaminc-combined-dev.report.md",
+      "archived_sha256": "5c624611b8d73e2c3626b53335947cc73598b6ac16aa28107b252dde3cd5789f",
+      "encoding": "identity",
+      "original_bytes": 1770,
+      "original_sha256": "5c624611b8d73e2c3626b53335947cc73598b6ac16aa28107b252dde3cd5789f",
+      "source_birthtime": 1793758826.0051618,
+      "source_mtime_ns": 1793758826005415081,
+      "source_path": "eval/reports/decision-engineering-post-review-structured-value-v1-vitaminc-combined-dev.md"
+    },
+    {
+      "archived_bytes": 887,
+      "archived_path": "probe-protocol.json",
+      "archived_sha256": "3cae8a46882c5d19de029a9a3f6b0829d26c853adc60d5af5e0ab7d752fa0e63",
+      "encoding": "identity",
+      "original_bytes": 887,
+      "original_sha256": "3cae8a46882c5d19de029a9a3f6b0829d26c853adc60d5af5e0ab7d752fa0e63",
+      "source_path": "eval/results/decision-engineering-2026-11-03/probe-protocol.json"
+    },
+    {
+      "archived_bytes": 1511,
+      "archived_path": "protocol.json",
+      "archived_sha256": "9cef390ee97db9c6634db7d232fabf756907e093b8796b587523ed0840415899",
+      "encoding": "identity",
+      "original_bytes": 1511,
+      "original_sha256": "9cef390ee97db9c6634db7d232fabf756907e093b8796b587523ed0840415899",
+      "source_path": "eval/results/decision-engineering-2026-11-03/protocol.json"
+    },
+    {
+      "archived_bytes": 1449,
+      "archived_path": "provenance/final-payload-identity.json",
+      "archived_sha256": "b77cc7805092ee6d7a79631be5923f9f719ec9e0bfa8a527fe658d674d7c4414",
+      "encoding": "identity",
+      "original_bytes": 1449,
+      "original_sha256": "b77cc7805092ee6d7a79631be5923f9f719ec9e0bfa8a527fe658d674d7c4414",
+      "source_birthtime": 1793758921.1211395,
+      "source_mtime_ns": 1793758921121223021,
+      "source_path": "eval/results/decision-engineering-2026-11-03/provenance/final-payload-identity.json"
+    },
+    {
+      "archived_bytes": 2057,
+      "archived_path": "provenance/run-decision-engineering-post-review.mjs.txt",
+      "archived_sha256": "737244991abe758d419a23e8f9a80ad01c316517fe1d61a19f4d55ead419d3ff",
+      "encoding": "identity",
+      "original_bytes": 2057,
+      "original_sha256": "737244991abe758d419a23e8f9a80ad01c316517fe1d61a19f4d55ead419d3ff",
+      "source_birthtime": 1793758140.8617573,
+      "source_mtime_ns": 1793758140861853894,
+      "source_path": "eval/reports/run-decision-engineering-post-review.mjs"
+    },
+    {
+      "archived_bytes": 2058,
+      "archived_path": "provenance/run-decision-engineering.mjs.txt",
+      "archived_sha256": "07129def48b3ee37f0e142c0cb9fc6c1c10e7ee5d6ed1c9e5170ba5a059cb754",
+      "encoding": "identity",
+      "original_bytes": 2058,
+      "original_sha256": "07129def48b3ee37f0e142c0cb9fc6c1c10e7ee5d6ed1c9e5170ba5a059cb754",
+      "source_path": "eval/reports/run-decision-engineering.mjs"
+    },
+    {
+      "archived_bytes": 1588,
+      "archived_path": "provenance/run-engineering-workflow-live.mjs.txt",
+      "archived_sha256": "dc5c2dba1136a57391c6957dbe60957dc8a9cc18c6c3d2e4635ca9881af27b76",
+      "encoding": "identity",
+      "original_bytes": 1588,
+      "original_sha256": "dc5c2dba1136a57391c6957dbe60957dc8a9cc18c6c3d2e4635ca9881af27b76",
+      "source_birthtime": 1793758261.7752662,
+      "source_mtime_ns": 1793758261776722203,
+      "source_path": "eval/reports/run-engineering-workflow-live.mjs"
+    },
+    {
+      "archived_bytes": 2228,
+      "archived_path": "provenance/verify-final-payloads.mjs.txt",
+      "archived_sha256": "0242a1120abbaab251efd6ba2acf626f34c4efa6702423b1ec478b0a0808a209",
+      "encoding": "identity",
+      "original_bytes": 2228,
+      "original_sha256": "0242a1120abbaab251efd6ba2acf626f34c4efa6702423b1ec478b0a0808a209",
+      "source_birthtime": 1793758920.8445508,
+      "source_mtime_ns": 1793758920846607211,
+      "source_path": "eval/results/decision-engineering-2026-11-03/provenance/verify-final-payloads.mjs.txt"
+    },
+    {
+      "archived_bytes": 61774,
+      "archived_path": "references/earlier-jev-scifact-dev.report.json.gz",
+      "archived_sha256": "96779641a537a5e868e675f8cc7ebc8b5b66d24436ee294ac7e29bf24dbfa0f4",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 476607,
+      "original_sha256": "0fd410ddb6ad746e2cf517c0afe5144023e8c2a754afafc683baa119bcdb8fbe",
+      "source_path": "eval/results/jev-dev-2026-11-03/scifact-dev.report.json"
+    },
+    {
+      "archived_bytes": 39123,
+      "archived_path": "references/earlier-jev-vitaminc-combined-dev.report.json.gz",
+      "archived_sha256": "a370ff3437d5aa9d4dc48acc408427999a87fbfc3c58743f0670ec8e439bb245",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 491156,
+      "original_sha256": "b29239893de37d83beea5496610c3f8bf2033d73dfb8aa2fda5108dd28bef318",
+      "source_path": "eval/results/jev-dev-2026-11-03/vitaminc-combined-dev.report.json"
+    },
+    {
+      "archived_bytes": 1383,
+      "archived_path": "runs/balanced-v1/batch20-original.metadata.json",
+      "archived_sha256": "251e46778af524c54f49cefc0dc4c1fc220ba5c8fcbc1ce342fe6896c7c096b9",
+      "encoding": "identity",
+      "original_bytes": 1383,
+      "original_sha256": "251e46778af524c54f49cefc0dc4c1fc220ba5c8fcbc1ce342fe6896c7c096b9",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-batch20-original.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 680,
+      "archived_path": "runs/balanced-v1/batch20-original.predictions.jsonl.gz",
+      "archived_sha256": "086b9c7cf2f0c9ef1d6818bab36f01d2aab4336f792f48a71f7f046ce4aaa8b6",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 14401,
+      "original_sha256": "b196a1e43e6cc6cc0f99eafdda355ade87c6ba05d85d44f7309cda032ed5b627",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-batch20-original.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 4803,
+      "archived_path": "runs/balanced-v1/batch20-original.report.json.gz",
+      "archived_sha256": "78ac04131389991b707bf7ac4af98fad31e21bf6c7da05428d81281a3563e008",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 64026,
+      "original_sha256": "1a1b24e4638af6ed08d65e8c4bfe23636062e927a8235383ab69190a110b319d",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-batch20-original.json"
+    },
+    {
+      "archived_bytes": 1796,
+      "archived_path": "runs/balanced-v1/batch20-original.report.md",
+      "archived_sha256": "7629e94aed0dce7a6acd767cb8eecdfbf24bd256963913afa262b18f1118d77e",
+      "encoding": "identity",
+      "original_bytes": 1796,
+      "original_sha256": "7629e94aed0dce7a6acd767cb8eecdfbf24bd256963913afa262b18f1118d77e",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-batch20-original.md"
+    },
+    {
+      "archived_bytes": 1383,
+      "archived_path": "runs/balanced-v1/batch20-reversed.metadata.json",
+      "archived_sha256": "da562ccb4b919a90aaba149bd88eeb8e33d80fd188065ed83f907245b2dfdd0e",
+      "encoding": "identity",
+      "original_bytes": 1383,
+      "original_sha256": "da562ccb4b919a90aaba149bd88eeb8e33d80fd188065ed83f907245b2dfdd0e",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-batch20-reversed.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 630,
+      "archived_path": "runs/balanced-v1/batch20-reversed.predictions.jsonl.gz",
+      "archived_sha256": "0ec356019aa8c25a1e3f1764136b70493251f391ed0850f2575840273fd86ed2",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 14157,
+      "original_sha256": "b5b1d2baf0801706f993a9be3a38cd6b829ed46b36186fd4b1fba7d775444b72",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-batch20-reversed.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 4566,
+      "archived_path": "runs/balanced-v1/batch20-reversed.report.json.gz",
+      "archived_sha256": "8dd78c932adf705bce2926175c6f42ff463b56133c91134c072c37649f9b1ad4",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 63180,
+      "original_sha256": "10b9ed5912d146517cedd399c7861dd0f456bf347b24b0100b43b48334ad99cd",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-batch20-reversed.json"
+    },
+    {
+      "archived_bytes": 1796,
+      "archived_path": "runs/balanced-v1/batch20-reversed.report.md",
+      "archived_sha256": "50fccb7be291639d2927cdaffbf9d52ed391b0909bdcab358f5e2bab21819022",
+      "encoding": "identity",
+      "original_bytes": 1796,
+      "original_sha256": "50fccb7be291639d2927cdaffbf9d52ed391b0909bdcab358f5e2bab21819022",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-batch20-reversed.md"
+    },
+    {
+      "archived_bytes": 1839,
+      "archived_path": "runs/balanced-v1/contract-diagnostic.metadata.json",
+      "archived_sha256": "128b8e19d203ea652641c2a8b513d08fe659ee362014d5e993450db948b277b0",
+      "encoding": "identity",
+      "original_bytes": 1839,
+      "original_sha256": "128b8e19d203ea652641c2a8b513d08fe659ee362014d5e993450db948b277b0",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-contract-diagnostic.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 2942,
+      "archived_path": "runs/balanced-v1/contract-diagnostic.predictions.jsonl.gz",
+      "archived_sha256": "1d25b04831cdbf4125934c43145496c6b9979944c1a39d63376ae81fe0577dff",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 23648,
+      "original_sha256": "869198c1a25d1880aa219a407e1170218dec37e6b718473022a8a986acdc4d40",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-contract-diagnostic.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 10209,
+      "archived_path": "runs/balanced-v1/contract-diagnostic.report.json.gz",
+      "archived_sha256": "d8fc0a807094408874b0edca1364181b0f75c9c79b1b31299ef6b7717eb0e2fd",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 102348,
+      "original_sha256": "0d74778963fb3984684d0c95110d80f811f266d918fb4d90e14bdec4ad369a8c",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-contract-diagnostic.json"
+    },
+    {
+      "archived_bytes": 1785,
+      "archived_path": "runs/balanced-v1/contract-diagnostic.report.md",
+      "archived_sha256": "2460f6a0a96c8135326f01db1e0988507e1a7c5ace98ae05a1b42fec8330bd20",
+      "encoding": "identity",
+      "original_bytes": 1785,
+      "original_sha256": "2460f6a0a96c8135326f01db1e0988507e1a7c5ace98ae05a1b42fec8330bd20",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-contract-diagnostic.md"
+    },
+    {
+      "archived_bytes": 7745,
+      "archived_path": "runs/balanced-v1/scifact-dev.metadata.json",
+      "archived_sha256": "ad7257cc54edbe3ca8176d0c3be3071e73550af69108d7b3fece7369e2c3327b",
+      "encoding": "identity",
+      "original_bytes": 7745,
+      "original_sha256": "ad7257cc54edbe3ca8176d0c3be3071e73550af69108d7b3fece7369e2c3327b",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-scifact-dev.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 18006,
+      "archived_path": "runs/balanced-v1/scifact-dev.predictions.jsonl.gz",
+      "archived_sha256": "5c3568c8b2ea9aeeb27b8e5243d3825066a395f4a92f8d107361544c5ad201da",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 150659,
+      "original_sha256": "8dae19302c4e3f5868230fe16213192ebef621ff39d2d4df1d0fd5ba5cece3ce",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-scifact-dev.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 61894,
+      "archived_path": "runs/balanced-v1/scifact-dev.report.json.gz",
+      "archived_sha256": "7ad43ead17101d391eceb861b824c9ab3a32cd30dd58e6b89a158af90bf44823",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 476766,
+      "original_sha256": "7d9021dbdaf3fcb0f0aca6fbb2c3869bcfe99eef7bd808a38831d79b234d9d38",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-scifact-dev.json"
+    },
+    {
+      "archived_bytes": 1784,
+      "archived_path": "runs/balanced-v1/scifact-dev.report.md",
+      "archived_sha256": "95d2921b24e771cbdafb8bb903a6672354cf8a7fafeec9f102936491c3eb6722",
+      "encoding": "identity",
+      "original_bytes": 1784,
+      "original_sha256": "95d2921b24e771cbdafb8bb903a6672354cf8a7fafeec9f102936491c3eb6722",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-scifact-dev.md"
+    },
+    {
+      "archived_bytes": 12208,
+      "archived_path": "runs/balanced-v1/vitaminc-combined-dev.metadata.json",
+      "archived_sha256": "990f82036c3750c36bd8f9d2913527174fa67062da55c5fb1ceae2e4dce4e13c",
+      "encoding": "identity",
+      "original_bytes": 12208,
+      "original_sha256": "990f82036c3750c36bd8f9d2913527174fa67062da55c5fb1ceae2e4dce4e13c",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-vitaminc-combined-dev.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 17027,
+      "archived_path": "runs/balanced-v1/vitaminc-combined-dev.predictions.jsonl.gz",
+      "archived_sha256": "028b63a316619f77465fdd8894988eb8a492076c1ad168f73fabd7732a28c0f1",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 156021,
+      "original_sha256": "3bbd7bc82d12afb37cdde246b7222f0bd0d30238428332484f8146f71a787480",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-vitaminc-combined-dev.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 39056,
+      "archived_path": "runs/balanced-v1/vitaminc-combined-dev.report.json.gz",
+      "archived_sha256": "443f8fad2e7decd40cc36f0bff9cabf1060a63280a550c2fe816f775ab504823",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 491368,
+      "original_sha256": "e31d5d6dd8e35c00cb7cfcc4905f036e154c5303824ad7171add9d0ca5bd427a",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-vitaminc-combined-dev.json"
+    },
+    {
+      "archived_bytes": 1784,
+      "archived_path": "runs/balanced-v1/vitaminc-combined-dev.report.md",
+      "archived_sha256": "1e63a2c03533c2d586462fb2e430307660e16af54fa952393425cfc90ac36fbb",
+      "encoding": "identity",
+      "original_bytes": 1784,
+      "original_sha256": "1e63a2c03533c2d586462fb2e430307660e16af54fa952393425cfc90ac36fbb",
+      "source_path": "eval/reports/decision-engineering-balanced-v1-vitaminc-combined-dev.md"
+    },
+    {
+      "archived_bytes": 1383,
+      "archived_path": "runs/semantic-v2/batch20-original.metadata.json",
+      "archived_sha256": "ff6d650d0ff31b66413de1078ced708173f544e0b34af8333171b91cdf7a4b3e",
+      "encoding": "identity",
+      "original_bytes": 1383,
+      "original_sha256": "ff6d650d0ff31b66413de1078ced708173f544e0b34af8333171b91cdf7a4b3e",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-batch20-original.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 609,
+      "archived_path": "runs/semantic-v2/batch20-original.predictions.jsonl.gz",
+      "archived_sha256": "b52c69e10d99f61a82908a9b811b510f178dd59342ff5512e77abded4771e0cf",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 14771,
+      "original_sha256": "99443f5aeddef969d9fb1cd7c72b3910a76c2e088d67140e3b92547291c0384f",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-batch20-original.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 4556,
+      "archived_path": "runs/semantic-v2/batch20-original.report.json.gz",
+      "archived_sha256": "bcf7179e725e6068194bd37e228a4cfda01a7c3a5d9d213c8d1fc2d9c3a9601b",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 63858,
+      "original_sha256": "93344dc74368c921e21fdfb6a0a83c9131d119933c00618d00c7882afc30f2be",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-batch20-original.json"
+    },
+    {
+      "archived_bytes": 1796,
+      "archived_path": "runs/semantic-v2/batch20-original.report.md",
+      "archived_sha256": "bec2face75f1bf7150be754816bff00cdc4e29944cbbcf5a5af5da8a34b79da3",
+      "encoding": "identity",
+      "original_bytes": 1796,
+      "original_sha256": "bec2face75f1bf7150be754816bff00cdc4e29944cbbcf5a5af5da8a34b79da3",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-batch20-original.md"
+    },
+    {
+      "archived_bytes": 1383,
+      "archived_path": "runs/semantic-v2/batch20-reversed.metadata.json",
+      "archived_sha256": "591a880776840618049993382cb78a95777771f4846215380bd7aa91b6e3e478",
+      "encoding": "identity",
+      "original_bytes": 1383,
+      "original_sha256": "591a880776840618049993382cb78a95777771f4846215380bd7aa91b6e3e478",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-batch20-reversed.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 618,
+      "archived_path": "runs/semantic-v2/batch20-reversed.predictions.jsonl.gz",
+      "archived_sha256": "31d18d3adf15cb39d34720aed2fcc356a346d3b690bb51dae933bda1d52f6b72",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 14719,
+      "original_sha256": "d7d4b4f7c64f845a733a474dc25a9453429e4cba52c216758946e470da492234",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-batch20-reversed.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 4566,
+      "archived_path": "runs/semantic-v2/batch20-reversed.report.json.gz",
+      "archived_sha256": "605b6adb2242f314a49a92c45ccce02ba42f881f868cc466e0f14c446f077025",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 63766,
+      "original_sha256": "1459653fe2bb724e42c3eb3e9f3d6959e6f358bff99357f9e688123e4b6e2002",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-batch20-reversed.json"
+    },
+    {
+      "archived_bytes": 1796,
+      "archived_path": "runs/semantic-v2/batch20-reversed.report.md",
+      "archived_sha256": "bec2face75f1bf7150be754816bff00cdc4e29944cbbcf5a5af5da8a34b79da3",
+      "encoding": "identity",
+      "original_bytes": 1796,
+      "original_sha256": "bec2face75f1bf7150be754816bff00cdc4e29944cbbcf5a5af5da8a34b79da3",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-batch20-reversed.md"
+    },
+    {
+      "archived_bytes": 1839,
+      "archived_path": "runs/semantic-v2/contract-diagnostic.metadata.json",
+      "archived_sha256": "1f2157bb3e79a422cb9a394b8e56bcefdc0ff9e7d708cddbefcfb71288948eff",
+      "encoding": "identity",
+      "original_bytes": 1839,
+      "original_sha256": "1f2157bb3e79a422cb9a394b8e56bcefdc0ff9e7d708cddbefcfb71288948eff",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-contract-diagnostic.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 3024,
+      "archived_path": "runs/semantic-v2/contract-diagnostic.predictions.jsonl.gz",
+      "archived_sha256": "1bfa7980efe024e790cebb5e1bb712b6f1957e45425c4b432bbf115e97203008",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 24602,
+      "original_sha256": "2cc24107e7012c7fdce36de1a0201e69a78e5e27bc803fcd7d89e366ba12c94e",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-contract-diagnostic.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 10256,
+      "archived_path": "runs/semantic-v2/contract-diagnostic.report.json.gz",
+      "archived_sha256": "c945969af814f6a027555e3912618b84e1472afe0f682ff9db58ca20660d33d6",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 103172,
+      "original_sha256": "9cc8f56b9b9b6e7daefe7a8d01ada53cc1f057593d92d0de244c4d70188cb2c7",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-contract-diagnostic.json"
+    },
+    {
+      "archived_bytes": 1785,
+      "archived_path": "runs/semantic-v2/contract-diagnostic.report.md",
+      "archived_sha256": "0dc7389accf29ab9ade6ed53bb1698513a314e27cceaeeae46cac26a623c6155",
+      "encoding": "identity",
+      "original_bytes": 1785,
+      "original_sha256": "0dc7389accf29ab9ade6ed53bb1698513a314e27cceaeeae46cac26a623c6155",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-contract-diagnostic.md"
+    },
+    {
+      "archived_bytes": 7745,
+      "archived_path": "runs/semantic-v2/scifact-dev.metadata.json",
+      "archived_sha256": "cfacd2b3a033698efe93fb94a5037957de28fd1091d059d6e4695e8d43828bf9",
+      "encoding": "identity",
+      "original_bytes": 7745,
+      "original_sha256": "cfacd2b3a033698efe93fb94a5037957de28fd1091d059d6e4695e8d43828bf9",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-scifact-dev.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 18212,
+      "archived_path": "runs/semantic-v2/scifact-dev.predictions.jsonl.gz",
+      "archived_sha256": "427da9fcba59ef268a5422a2cd423efffc6b4289ea047c11c46c9774ae97e871",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 157021,
+      "original_sha256": "a95140455436930dec194ae84d98ca5bbef9a1a4553a7313e3052c31debfe1d7",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-scifact-dev.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 62148,
+      "archived_path": "runs/semantic-v2/scifact-dev.report.json.gz",
+      "archived_sha256": "3108d22774fa6ae71f51f0fd4d99f53b6f1ceb786b81e733aeb421d8cf9f75b7",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 483341,
+      "original_sha256": "3e434449ec12e02ba433bd6936b275ed892618325247d5dc7773885986f67c64",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-scifact-dev.json"
+    },
+    {
+      "archived_bytes": 1784,
+      "archived_path": "runs/semantic-v2/scifact-dev.report.md",
+      "archived_sha256": "581740da68fcdfe8643b7ccb3108a56ea84aa96c11eaee7b539ee1829141a32d",
+      "encoding": "identity",
+      "original_bytes": 1784,
+      "original_sha256": "581740da68fcdfe8643b7ccb3108a56ea84aa96c11eaee7b539ee1829141a32d",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-scifact-dev.md"
+    },
+    {
+      "archived_bytes": 12208,
+      "archived_path": "runs/semantic-v2/vitaminc-combined-dev.metadata.json",
+      "archived_sha256": "3aaf2c9ceffd9cfc496c71cac2546a590e878f1bf4a91d1a8233aed859dde0ee",
+      "encoding": "identity",
+      "original_bytes": 12208,
+      "original_sha256": "3aaf2c9ceffd9cfc496c71cac2546a590e878f1bf4a91d1a8233aed859dde0ee",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-vitaminc-combined-dev.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 17273,
+      "archived_path": "runs/semantic-v2/vitaminc-combined-dev.predictions.jsonl.gz",
+      "archived_sha256": "dffe059d700771940545ea114a2d7eefcf220b0bbd6430aa7155e98dbe7abd70",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 162561,
+      "original_sha256": "368fd01e6bf745634b0fab5c0488750c9bbe593d6426ce803fce47dbb4e7805e",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-vitaminc-combined-dev.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 39416,
+      "archived_path": "runs/semantic-v2/vitaminc-combined-dev.report.json.gz",
+      "archived_sha256": "5fc5ff7a2f3dfe32816e2673535ef64045cecbafa667035072f63347cb355f88",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 498342,
+      "original_sha256": "7e5e2129f8a73e6ee5bd7f21306b6a75226cac1ab889fb8f0a3aedc63ae0ee9c",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-vitaminc-combined-dev.json"
+    },
+    {
+      "archived_bytes": 1784,
+      "archived_path": "runs/semantic-v2/vitaminc-combined-dev.report.md",
+      "archived_sha256": "a2660bbb005b254a6addcec8a7c7223597e336302cf59fa0257c05b07aa6e364",
+      "encoding": "identity",
+      "original_bytes": 1784,
+      "original_sha256": "a2660bbb005b254a6addcec8a7c7223597e336302cf59fa0257c05b07aa6e364",
+      "source_path": "eval/reports/decision-engineering-semantic-v2-vitaminc-combined-dev.md"
+    },
+    {
+      "archived_bytes": 1391,
+      "archived_path": "runs/structured-value-v1/batch20-original.metadata.json",
+      "archived_sha256": "7734f1430ce3b244a8cb52ba253e592f39860ab5266a262d4dca142da38262bb",
+      "encoding": "identity",
+      "original_bytes": 1391,
+      "original_sha256": "7734f1430ce3b244a8cb52ba253e592f39860ab5266a262d4dca142da38262bb",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-batch20-original.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 946,
+      "archived_path": "runs/structured-value-v1/batch20-original.predictions.jsonl.gz",
+      "archived_sha256": "03661af11b1559d4a846331b694c218e1ddcd31280ed04d10c6ec7e344460197",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 22819,
+      "original_sha256": "08ed4f76e0f77905acafffaa6cfd6eee0cd56ae70dbb75cacd20c63707b00357",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-batch20-original.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 4677,
+      "archived_path": "runs/structured-value-v1/batch20-original.report.json.gz",
+      "archived_sha256": "3a13f013f670594c81757b8619a23eea80d5f44050d09b430e584759b3f4e1db",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 78579,
+      "original_sha256": "2751d746369fc6e826871eb65ab1f0d7e73f233ad63a9c44caa63eb626abfa8c",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-batch20-original.json"
+    },
+    {
+      "archived_bytes": 1783,
+      "archived_path": "runs/structured-value-v1/batch20-original.report.md",
+      "archived_sha256": "6b567b9d8c3743fedaa20349480c2ec8b6b47575736155dca8f86904f9001288",
+      "encoding": "identity",
+      "original_bytes": 1783,
+      "original_sha256": "6b567b9d8c3743fedaa20349480c2ec8b6b47575736155dca8f86904f9001288",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-batch20-original.md"
+    },
+    {
+      "archived_bytes": 1391,
+      "archived_path": "runs/structured-value-v1/batch20-reversed.metadata.json",
+      "archived_sha256": "5aea3c19b2c1acfc6623e0125d0b5b05a3c6b0ab55542f22ab77723dd6055ba4",
+      "encoding": "identity",
+      "original_bytes": 1391,
+      "original_sha256": "5aea3c19b2c1acfc6623e0125d0b5b05a3c6b0ab55542f22ab77723dd6055ba4",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-batch20-reversed.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 944,
+      "archived_path": "runs/structured-value-v1/batch20-reversed.predictions.jsonl.gz",
+      "archived_sha256": "19f512902acf3503df37d14ab1d4087552175b63d8183304e45a33e651056257",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 22829,
+      "original_sha256": "5cc8e5ba7cc2c81ffb7716d0da3952da90ec89783c4cf07b98ec90d28040bf9c",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-batch20-reversed.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 4777,
+      "archived_path": "runs/structured-value-v1/batch20-reversed.report.json.gz",
+      "archived_sha256": "3756487d50610c47d138304c44ac212ced46ba36f5382d9ca5af2a710606f680",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 78854,
+      "original_sha256": "4b3967e1b0d4e3afd01f6343764b4730d9db54cc7e6bccf9456f9ed5e6c09f50",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-batch20-reversed.json"
+    },
+    {
+      "archived_bytes": 1783,
+      "archived_path": "runs/structured-value-v1/batch20-reversed.report.md",
+      "archived_sha256": "6b011f15c427bb981b9e6c88531e7d7c03ec7318530e162c0a912bebafa7b3ae",
+      "encoding": "identity",
+      "original_bytes": 1783,
+      "original_sha256": "6b011f15c427bb981b9e6c88531e7d7c03ec7318530e162c0a912bebafa7b3ae",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-batch20-reversed.md"
+    },
+    {
+      "archived_bytes": 1847,
+      "archived_path": "runs/structured-value-v1/contract-diagnostic.metadata.json",
+      "archived_sha256": "fc0437b0064f97e6d6b0d491d765d1a8453a759b8fa9a7bebc98af1593ae3700",
+      "encoding": "identity",
+      "original_bytes": 1847,
+      "original_sha256": "fc0437b0064f97e6d6b0d491d765d1a8453a759b8fa9a7bebc98af1593ae3700",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-contract-diagnostic.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 3514,
+      "archived_path": "runs/structured-value-v1/contract-diagnostic.predictions.jsonl.gz",
+      "archived_sha256": "0944d535da1e3fb441b8be34bc243392c3173dacdba3ff8c989f4b41c495c0ae",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 37132,
+      "original_sha256": "b1e9164fee3387055df979bb84c2040787dcbd7fa195057c243b95891b86bad4",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-contract-diagnostic.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 10502,
+      "archived_path": "runs/structured-value-v1/contract-diagnostic.report.json.gz",
+      "archived_sha256": "2865b93e7e25f937d79de7a3eaf5df219efcd84efd6cf74fe5aa753b650c1760",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 125202,
+      "original_sha256": "e6b13d13dd1a75f176a70b4bc7cb0b328265b74cab2b6e2a6978c528f63acc3a",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-contract-diagnostic.json"
+    },
+    {
+      "archived_bytes": 1772,
+      "archived_path": "runs/structured-value-v1/contract-diagnostic.report.md",
+      "archived_sha256": "4e44ab9fcba75a50718d0930a9eb897b6d593bbab5211f5ac1a255a0734f8281",
+      "encoding": "identity",
+      "original_bytes": 1772,
+      "original_sha256": "4e44ab9fcba75a50718d0930a9eb897b6d593bbab5211f5ac1a255a0734f8281",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-contract-diagnostic.md"
+    },
+    {
+      "archived_bytes": 7753,
+      "archived_path": "runs/structured-value-v1/scifact-dev.metadata.json",
+      "archived_sha256": "f1b1ea45916a3099375c4f47c558d45da46e6c59f1f9cd291f8140dcac8d5e7c",
+      "encoding": "identity",
+      "original_bytes": 7753,
+      "original_sha256": "f1b1ea45916a3099375c4f47c558d45da46e6c59f1f9cd291f8140dcac8d5e7c",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-scifact-dev.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 19696,
+      "archived_path": "runs/structured-value-v1/scifact-dev.predictions.jsonl.gz",
+      "archived_sha256": "c65a41a7eff50db524199018bb6ef5554e4d709bcf605e0ab302f9bf01d6f2ac",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 232808,
+      "original_sha256": "6a6df9a6900fe7ef882d61a3caadc3449a46326259813692ff5f0c3c2ca1e20d",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-scifact-dev.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 63856,
+      "archived_path": "runs/structured-value-v1/scifact-dev.report.json.gz",
+      "archived_sha256": "27c2437ed5cd017e4df46f435de6acf1bd40dfe6233b7f58b3c9517aba92ac12",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 619046,
+      "original_sha256": "a68e7f63dc97c0837ef24daf10b52ddd916fa7559959ccf7b104f29dee8c21aa",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-scifact-dev.json"
+    },
+    {
+      "archived_bytes": 1770,
+      "archived_path": "runs/structured-value-v1/scifact-dev.report.md",
+      "archived_sha256": "3c08a972e6a8fe66db4f9e09683c2fb227db5b6e075aa968f9aaa5472b05801c",
+      "encoding": "identity",
+      "original_bytes": 1770,
+      "original_sha256": "3c08a972e6a8fe66db4f9e09683c2fb227db5b6e075aa968f9aaa5472b05801c",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-scifact-dev.md"
+    },
+    {
+      "archived_bytes": 12216,
+      "archived_path": "runs/structured-value-v1/vitaminc-combined-dev.metadata.json",
+      "archived_sha256": "f6e87bc3515615fc3a044d7ed461173747cadbae75930c5594c38d5f46435bee",
+      "encoding": "identity",
+      "original_bytes": 12216,
+      "original_sha256": "f6e87bc3515615fc3a044d7ed461173747cadbae75930c5594c38d5f46435bee",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-vitaminc-combined-dev.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 19152,
+      "archived_path": "runs/structured-value-v1/vitaminc-combined-dev.predictions.jsonl.gz",
+      "archived_sha256": "ddf18b592ebf0a26957f5872fae3f0660dc0fd9c3542623a800dbf0319bd6dc9",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 244770,
+      "original_sha256": "470052816e73c4e5e1b5e739014e45fed4d8704642e8075064d120bc252647b4",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-vitaminc-combined-dev.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 40938,
+      "archived_path": "runs/structured-value-v1/vitaminc-combined-dev.report.json.gz",
+      "archived_sha256": "94688779a528f7c7aea3e69c824a9ca8b05deb32a3a2929c5ba8fc54e5ba7849",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 645851,
+      "original_sha256": "b9bf45f2d8678fcd1b56626afcd5e6a7fb23eb330e95d2f850f30194a8f9b896",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-vitaminc-combined-dev.json"
+    },
+    {
+      "archived_bytes": 1770,
+      "archived_path": "runs/structured-value-v1/vitaminc-combined-dev.report.md",
+      "archived_sha256": "3c2279c482b9437692c095f557c21b6c47f68a1aefad82f6d30c433c1d0832e5",
+      "encoding": "identity",
+      "original_bytes": 1770,
+      "original_sha256": "3c2279c482b9437692c095f557c21b6c47f68a1aefad82f6d30c433c1d0832e5",
+      "source_path": "eval/reports/decision-engineering-structured-value-v1-vitaminc-combined-dev.md"
+    },
+    {
+      "archived_bytes": 4306,
+      "archived_path": "source-freeze-final-reviewed.json",
+      "archived_sha256": "5fee2f10e08b9a19220a54442ed179418cb22cd3be65d5a077bad48003fa9ee2",
+      "encoding": "identity",
+      "original_bytes": 4306,
+      "original_sha256": "5fee2f10e08b9a19220a54442ed179418cb22cd3be65d5a077bad48003fa9ee2",
+      "source_birthtime": 1793758805.7554028,
+      "source_mtime_ns": 1793758805755601004,
+      "source_path": "eval/results/decision-engineering-2026-11-03/source-freeze-final-reviewed.json"
+    },
+    {
+      "archived_bytes": 4178,
+      "archived_path": "source-freeze.json",
+      "archived_sha256": "4d340bd272d47bdfec60bf3c178c405f3d3a0f8a4b9faaa6fcaf6c956468f717",
+      "encoding": "identity",
+      "original_bytes": 4178,
+      "original_sha256": "4d340bd272d47bdfec60bf3c178c405f3d3a0f8a4b9faaa6fcaf6c956468f717",
+      "source_path": "eval/results/decision-engineering-2026-11-03/source-freeze.json"
+    },
+    {
+      "archived_bytes": 86341,
+      "archived_path": "source-snapshot-final-reviewed.json.gz",
+      "archived_sha256": "c75d412b8af34e0adf73c1cd1dea1c114c15cc96f5acfa6fa661eb3c916d7a61",
+      "encoding": "identity",
+      "original_bytes": 86341,
+      "original_sha256": "c75d412b8af34e0adf73c1cd1dea1c114c15cc96f5acfa6fa661eb3c916d7a61",
+      "source_birthtime": 1793758805.7608352,
+      "source_mtime_ns": 1793758805760920095,
+      "source_path": "eval/results/decision-engineering-2026-11-03/source-snapshot-final-reviewed.json.gz"
+    },
+    {
+      "archived_bytes": 85941,
+      "archived_path": "source-snapshot.json.gz",
+      "archived_sha256": "43f1f0bdacd3be88bc56f3a7f12131fd88055abfda67129e3d2672da3ed6397b",
+      "encoding": "identity",
+      "original_bytes": 85941,
+      "original_sha256": "43f1f0bdacd3be88bc56f3a7f12131fd88055abfda67129e3d2672da3ed6397b",
+      "source_path": "eval/results/decision-engineering-2026-11-03/source-snapshot.json.gz"
+    },
+    {
+      "archived_bytes": 3411,
+      "archived_path": "workflow/calibration.json",
+      "archived_sha256": "b4328159bb7cf2569102b255f32933c837c44384ec3e30ec58dc4259776c5ed4",
+      "encoding": "identity",
+      "original_bytes": 3411,
+      "original_sha256": "b4328159bb7cf2569102b255f32933c837c44384ec3e30ec58dc4259776c5ed4",
+      "source_birthtime": 1793758836.2346988,
+      "source_mtime_ns": 1793758836234927040,
+      "source_path": "eval/reports/decision-engineering-workflow-calibration.json"
+    },
+    {
+      "archived_bytes": 5497,
+      "archived_path": "workflow/dev.json",
+      "archived_sha256": "ed5f8428e25d8c978187c13399c5841ba02d4edbbbff604be2b65d468244db89",
+      "encoding": "identity",
+      "original_bytes": 5497,
+      "original_sha256": "ed5f8428e25d8c978187c13399c5841ba02d4edbbbff604be2b65d468244db89",
+      "source_birthtime": 1793757630.8054183,
+      "source_mtime_ns": 1793757630805531903,
+      "source_path": "eval/results/decision-engineering-2026-11-03/workflow/dev.json"
+    },
+    {
+      "archived_bytes": 4003,
+      "archived_path": "workflow/freeze-final-reviewed.json",
+      "archived_sha256": "24317b610a584a98fbb24453718c6839a9465492ad4ffb2efb3cda171ee7b959",
+      "encoding": "identity",
+      "original_bytes": 4003,
+      "original_sha256": "24317b610a584a98fbb24453718c6839a9465492ad4ffb2efb3cda171ee7b959",
+      "source_birthtime": 1793758807.4070582,
+      "source_mtime_ns": 1793758807407321212,
+      "source_path": "eval/results/decision-engineering-2026-11-03/workflow/freeze-final-reviewed.json"
+    },
+    {
+      "archived_bytes": 4003,
+      "archived_path": "workflow/freeze.json",
+      "archived_sha256": "3d3c9214ff66038b6b07ea24eeab908096291349a05097976fb2948499340d52",
+      "encoding": "identity",
+      "original_bytes": 4003,
+      "original_sha256": "3d3c9214ff66038b6b07ea24eeab908096291349a05097976fb2948499340d52",
+      "source_birthtime": 1793757632.2823672,
+      "source_mtime_ns": 1793757632282521098,
+      "source_path": "eval/results/decision-engineering-2026-11-03/workflow/freeze.json"
+    },
+    {
+      "archived_bytes": 2997,
+      "archived_path": "workflow/holdout.json",
+      "archived_sha256": "50efa8a1cf76f26f9536281c15d778fcff396cfc5487d5e8f85760bbc389023c",
+      "encoding": "identity",
+      "original_bytes": 2997,
+      "original_sha256": "50efa8a1cf76f26f9536281c15d778fcff396cfc5487d5e8f85760bbc389023c",
+      "source_birthtime": 1793757630.8056371,
+      "source_mtime_ns": 1793757630805701111,
+      "source_path": "eval/results/decision-engineering-2026-11-03/workflow/holdout.json"
+    },
+    {
+      "archived_bytes": 8944,
+      "archived_path": "workflow/input-synthetic-workflow.manifest",
+      "archived_sha256": "fb7c511712a4573d6508553cf38221b84bc04e21a31cd9c72265648c6b3de8e0",
+      "encoding": "identity",
+      "original_bytes": 8944,
+      "original_sha256": "fb7c511712a4573d6508553cf38221b84bc04e21a31cd9c72265648c6b3de8e0",
+      "source_birthtime": 1793757242.8707688,
+      "source_mtime_ns": 1793757242870972300,
+      "source_path": "eval/engineering/synthetic-workflow.json"
+    },
+    {
+      "archived_bytes": 869,
+      "archived_path": "workflow/runs/dev.metadata.json",
+      "archived_sha256": "cb95c2c70e3ed55ff2d3f4c47e580a4b3305404c7f5ba7cd83d56a65241fd14f",
+      "encoding": "identity",
+      "original_bytes": 869,
+      "original_sha256": "cb95c2c70e3ed55ff2d3f4c47e580a4b3305404c7f5ba7cd83d56a65241fd14f",
+      "source_birthtime": 1793758829.3189332,
+      "source_mtime_ns": 1793758829319092720,
+      "source_path": "eval/reports/decision-engineering-workflow-dev.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 9545,
+      "archived_path": "workflow/runs/dev.predictions.jsonl.gz",
+      "archived_sha256": "61287311dd35746780db284eaa5f0c8bf3eb0b3f7b01f8c1e27907acf66b795c",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 164446,
+      "original_sha256": "06ee384c7862d561ac6a6fb2c19519b6cb3274fdd2798d8914061dd50cb2ca26",
+      "source_birthtime": 1793758829.318798,
+      "source_mtime_ns": 1793758836114390242,
+      "source_path": "eval/reports/decision-engineering-workflow-dev.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 10904,
+      "archived_path": "workflow/runs/dev.report.json.gz",
+      "archived_sha256": "eabb25eab91dfb42bd3d80b707df14219f4fd26f3a9a67865a8edd4e683167b7",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 198529,
+      "original_sha256": "672e8b1b46b05ef587a249e7c1ec176df188ca64f1dded1dda905047a270c0a1",
+      "source_birthtime": 1793758836.127408,
+      "source_mtime_ns": 1793758836127619344,
+      "source_path": "eval/reports/decision-engineering-workflow-dev.json"
+    },
+    {
+      "archived_bytes": 486,
+      "archived_path": "workflow/runs/dev.report.md",
+      "archived_sha256": "855dd5dfea2d88b54c6fa76d2558645e8507751c186aefe1b80cf49d0f458efb",
+      "encoding": "identity",
+      "original_bytes": 486,
+      "original_sha256": "855dd5dfea2d88b54c6fa76d2558645e8507751c186aefe1b80cf49d0f458efb",
+      "source_birthtime": 1793758836.127781,
+      "source_mtime_ns": 1793758836127848344,
+      "source_path": "eval/reports/decision-engineering-workflow-dev.md"
+    },
+    {
+      "archived_bytes": 800,
+      "archived_path": "workflow/runs/holdout.metadata.json",
+      "archived_sha256": "c8a634c231863d4d2c3b308f7dec8a1d7026b943baa978d07cdcff119ae15bdb",
+      "encoding": "identity",
+      "original_bytes": 800,
+      "original_sha256": "c8a634c231863d4d2c3b308f7dec8a1d7026b943baa978d07cdcff119ae15bdb",
+      "source_birthtime": 1793758836.3336024,
+      "source_mtime_ns": 1793758836333746641,
+      "source_path": "eval/reports/decision-engineering-workflow-holdout.predictions.jsonl.metadata.json"
+    },
+    {
+      "archived_bytes": 1155,
+      "archived_path": "workflow/runs/holdout.predictions.jsonl.gz",
+      "archived_sha256": "6826cc7c91e23cd26469af8640803cad4043b1900fa514177b09ce1323f7e58c",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 5098,
+      "original_sha256": "3e74989c000affa2ebf5c9e98e48c6ee51489edab9e3b161480d2607b34e777d",
+      "source_birthtime": 1793758836.3334627,
+      "source_mtime_ns": 1793758836778627823,
+      "source_path": "eval/reports/decision-engineering-workflow-holdout.predictions.jsonl"
+    },
+    {
+      "archived_bytes": 3903,
+      "archived_path": "workflow/runs/holdout.report.json.gz",
+      "archived_sha256": "0c3675b6f5740ee6c0a74a47abfd09cfc4ea8c55ba22e1a91a00bdb286308b12",
+      "encoding": "gzip-mtime-0",
+      "original_bytes": 49726,
+      "original_sha256": "0484fad35a102c4a04b153fb87827f603d31b973d85c15b0f370ad6b7a2a74e0",
+      "source_birthtime": 1793758836.7905607,
+      "source_mtime_ns": 1793758836790681465,
+      "source_path": "eval/reports/decision-engineering-workflow-holdout.json"
+    },
+    {
+      "archived_bytes": 505,
+      "archived_path": "workflow/runs/holdout.report.md",
+      "archived_sha256": "ac560d333cb9329f7228656c356ab161fbc411df2acd21633e3f3ab3fab0d86e",
+      "encoding": "identity",
+      "original_bytes": 505,
+      "original_sha256": "ac560d333cb9329f7228656c356ab161fbc411df2acd21633e3f3ab3fab0d86e",
+      "source_birthtime": 1793758836.7908385,
+      "source_mtime_ns": 1793758836791444258,
+      "source_path": "eval/reports/decision-engineering-workflow-holdout.md"
+    },
+    {
+      "archived_bytes": 4348,
+      "archived_path": "workflow/split-lock.json",
+      "archived_sha256": "838e59bc5a5db2599525da44f50803d89175c77697fe657fd7991dfc7dba07be",
+      "encoding": "identity",
+      "original_bytes": 4348,
+      "original_sha256": "838e59bc5a5db2599525da44f50803d89175c77697fe657fd7991dfc7dba07be",
+      "source_birthtime": 1793757630.8076556,
+      "source_mtime_ns": 1793757630808862616,
+      "source_path": "eval/results/decision-engineering-2026-11-03/workflow/split-lock.json"
+    },
+    {
+      "archived_bytes": 506,
+      "archived_path": "workflow/split-lock.json.holdout-opened.json",
+      "archived_sha256": "45f9886a375c87069c5e421df44fd10476e0c237fe245c12032676ef7485b8d7",
+      "encoding": "identity",
+      "original_bytes": 506,
+      "original_sha256": "45f9886a375c87069c5e421df44fd10476e0c237fe245c12032676ef7485b8d7",
+      "source_birthtime": 1793758836.334433,
+      "source_mtime_ns": 1793758836334506475,
+      "source_path": "eval/results/decision-engineering-2026-11-03/workflow/split-lock.json.holdout-opened.json"
+    },
+    {
+      "archived_bytes": 7923,
+      "archived_path": "workflow/train.json",
+      "archived_sha256": "bde46f3635f68fb2f3caab39657446b288a29e382802180bd154bfe8be7d0ece",
+      "encoding": "identity",
+      "original_bytes": 7923,
+      "original_sha256": "bde46f3635f68fb2f3caab39657446b288a29e382802180bd154bfe8be7d0ece",
+      "source_birthtime": 1793757630.8049676,
+      "source_mtime_ns": 1793757630805204319,
+      "source_path": "eval/results/decision-engineering-2026-11-03/workflow/train.json"
+    }
+  ],
+  "schema_version": 1
+}

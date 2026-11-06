@@ -1,0 +1,11 @@
+{
+  "observed_at": "2026-11-06T17:42:27.696Z",
+  "predictions_sha256": "0abe2cd68a6845bad89096c3b904ccd608768a8de72ec57f67c104a950855c62",
+  "metadata_sha256": "79bb3b7b13b015cee4da9d72f49b289ee55487e6af77086467b718f015ec7760",
+  "http_status_sha256": "1e257028cff33374d2a2073b52a4213d44ad90c0c7eb39b3c24f4b254f0c4949",
+  "assessments": 688,
+  "successes": 688,
+  "max_calls": 688,
+  "reservation_usd": 1.38,
+  "actual_billed_cost": null
+}

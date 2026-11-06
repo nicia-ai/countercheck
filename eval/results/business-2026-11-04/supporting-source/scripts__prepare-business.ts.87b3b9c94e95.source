@@ -1,0 +1,140 @@
+import { readFile, writeFile, mkdir, access } from "node:fs/promises";
+import { resolve, dirname } from "node:path";
+import { pathToFileURL } from "node:url";
+import { parseArgs, positiveInteger } from "../eval/args.js";
+import { jsonLines } from "../eval/datasets.js";
+import { sha256File } from "../eval/files.js";
+import { sha256, type Source } from "../eval/types.js";
+import { businessManifest, type PreparedBusiness } from "../eval/business/common.js";
+import {
+  parseContractNli,
+  CONTRACT_NLI_SOURCE,
+  CONTRACT_NLI_MEMBER_SHA256,
+} from "../eval/business/contractnli.js";
+import { mnliPairs, MNLI_SOURCE, MNLI_SPLITS, type MnliSplit } from "../eval/business/mnli.js";
+
+export async function main(argv: string[]) {
+  const args = parseArgs(
+    argv,
+    ["help", "dataset", "input", "split", "variant", "out", "max-pairs", "seed"],
+    ["help"],
+  );
+  if (args.help) {
+    console.log(
+      "Usage: tsx scripts/prepare-business.ts --dataset contractnli|mnli --input PINNED_LOCAL_FILE --split train|dev --out NEW.json [--variant dev_matched|dev_mismatched] [--max-pairs 200 --seed business-v1]. Public original train/dev only; no model calls. Acquire official pinned bytes using eval/business/README.md. Complete evidence and source groups are preserved, with explicit coverage exclusions. Not an official full-document/genre leaderboard.",
+    );
+    return;
+  }
+  if (
+    !args.input ||
+    !args.out ||
+    !["contractnli", "mnli"].includes(args.dataset ?? "") ||
+    !["train", "dev"].includes(args.split ?? "")
+  )
+    throw new Error("Required valid dataset, original split, input and fresh output; use --help.");
+  const out = resolve(args.out);
+  if (
+    await access(out).then(
+      () => true,
+      () => false,
+    )
+  )
+    throw new Error("Business output already exists.");
+  const split = args.split as "train" | "dev";
+  let prepared: PreparedBusiness, sources: Source[], coverage: unknown;
+  if (args.dataset === "contractnli") {
+    const bytes = await readFile(args.input),
+      inputHash = sha256(bytes);
+    if (args.variant) throw new Error("ContractNLI has no genre variant.");
+    if (inputHash !== CONTRACT_NLI_MEMBER_SHA256[split])
+      throw new Error("ContractNLI bytes do not match the reviewed official split.");
+    const result = parseContractNli(JSON.parse(bytes.toString("utf8")), split);
+    prepared = result;
+    coverage = result.coverage;
+    sources = [
+      {
+        ...CONTRACT_NLI_SOURCE,
+        name: `ContractNLI ${split}.json official ZIP member`,
+        sha256: inputHash,
+      },
+    ];
+  } else {
+    const variant = args.variant ?? (split === "train" ? "train" : "dev_matched");
+    if (
+      !MNLI_SPLITS.includes(variant as MnliSplit) ||
+      (variant === "train") !== (split === "train")
+    )
+      throw new Error("MultiNLI variant must preserve the original split.");
+    const native = variant as MnliSplit;
+    const inputHash = await sha256File(args.input);
+    if (inputHash !== MNLI_SOURCE.files[native].sha256)
+      throw new Error("MultiNLI bytes do not match the reviewed official member.");
+    const rows: Record<string, unknown>[] = [];
+    for await (const row of jsonLines(args.input)) {
+      // Preserve original row positions without retaining unused syntactic parse trees.
+      const { pairID, promptID, genre, gold_label, sentence1, sentence2 } = row;
+      rows.push({ pairID, promptID, genre, gold_label, sentence1, sentence2 });
+    }
+    if ((await sha256File(args.input)) !== inputHash)
+      throw new Error("MultiNLI source changed during preparation.");
+    const result = mnliPairs(rows, native);
+    prepared = {
+      pairs: result.pairs,
+      exclusions: {
+        unlabeled: result.excluded_unlabeled,
+        genre: result.excluded_genre,
+        envelope_pairs: result.excluded_envelope_pairs,
+        envelope_groups: result.excluded_envelope_groups,
+      },
+      adaptation:
+        "Complete original premise–hypothesis NLI pairs; only telephone/government/slate nonfiction genres, a business-adjacent transfer diagnostic rather than workplace-native data",
+    };
+    coverage = { original_rows: rows.length, ...result, pairs: result.pairs.length };
+    sources = [
+      {
+        name: MNLI_SOURCE.files[native].name,
+        url: MNLI_SOURCE.url,
+        revision: MNLI_SOURCE.revision,
+        sha256: inputHash,
+        license: MNLI_SOURCE.license,
+        license_url: MNLI_SOURCE.license_url,
+      },
+      {
+        name: "MultiNLI official archive",
+        url: MNLI_SOURCE.url,
+        revision: MNLI_SOURCE.revision,
+        sha256: MNLI_SOURCE.sha256,
+        license: MNLI_SOURCE.license,
+        license_url: MNLI_SOURCE.license_url,
+      },
+    ];
+  }
+  const manifest = businessManifest({
+    prepared,
+    sources,
+    track: args.dataset === "contractnli" ? "contracts" : "business-adjacent",
+    split,
+    maxPairs: positiveInteger(args["max-pairs"], 200, "max-pairs"),
+    seed: args.seed ?? "business-v1",
+  });
+  const output = { ...manifest, business_coverage: coverage };
+  await mkdir(dirname(out), { recursive: true });
+  await writeFile(out, JSON.stringify(output, null, 2) + "\n", { flag: "wx", mode: 0o600 });
+  console.log(
+    JSON.stringify({
+      out,
+      pairs: manifest.pairs.length,
+      sha256: sha256(JSON.stringify(output, null, 2) + "\n"),
+      purpose: manifest.purpose,
+      track: args.dataset,
+      coverage,
+    }),
+  );
+}
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href)
+  main(process.argv.slice(2)).catch(() => {
+    console.error(
+      "Business preparation failed. Check pinned source bytes, complete groups, split and fresh output; use --help.",
+    );
+    process.exitCode = 1;
+  });

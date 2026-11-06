@@ -1,0 +1,156 @@
+{
+  "kind": "decision-engineering-calibration",
+  "freeze_sha256": "24317b610a584a98fbb24453718c6839a9465492ad4ffb2efb3cda171ee7b959",
+  "split_lock_sha256": "838e59bc5a5db2599525da44f50803d89175c77697fe657fd7991dfc7dba07be",
+  "dev_run_sha256": "672e8b1b46b05ef587a249e7c1ec176df188ca64f1dded1dda905047a270c0a1",
+  "profile": "structured-value-v1",
+  "semantic_profile": "semantic-v2",
+  "label_space": "native",
+  "selection_uses_validation": false,
+  "grid_size": 48,
+  "policy": {
+    "positive_threshold": 0.5,
+    "negative_threshold": 0.5,
+    "max_unknown": 0.2,
+    "numeric_override": false
+  },
+  "joint_empirical_calibration": {
+    "method": "three binary joint-feature cells; Laplace(1) dev-tune only; unseen cells use 0.5; not provider probabilities",
+    "cells": {
+      "100": {
+        "positive": 1,
+        "total": 1,
+        "laplace_probability": 0.6666666666666666
+      },
+      "000": {
+        "positive": 0,
+        "total": 1,
+        "laplace_probability": 0.3333333333333333
+      }
+    },
+    "tune": {
+      "scored_cases": 2,
+      "missing_signals": 0,
+      "unseen_cells": 0,
+      "brier": 0.11111111111111112
+    },
+    "validation": {
+      "scored_cases": 2,
+      "missing_signals": 0,
+      "unseen_cells": 0,
+      "brier": 0.11111111111111112
+    }
+  },
+  "gates": {
+    "human_500_and_locked_200": "unmet-unverified",
+    "production_qualification": "not_assessed",
+    "automatic_promotion": false
+  },
+  "selection_rule": "no-policy-met-precision; exploratory-best-tune-F1",
+  "tune": {
+    "labeled_cases": 2,
+    "binary_cases": 2,
+    "expected_uncertain": 0,
+    "positive": 1,
+    "negative": 1,
+    "tp": 0,
+    "fp": 0,
+    "tn": 0,
+    "definitive_fn": 0,
+    "positive_misses": 1,
+    "errors": 0,
+    "uncertain": 2,
+    "precision": {
+      "value": null,
+      "denominator": 0,
+      "ci95": null
+    },
+    "recall": {
+      "value": 0,
+      "denominator": 1,
+      "ci95": [
+        0,
+        0.7934506856227626
+      ]
+    },
+    "f1": 0,
+    "clear_negative_coverage": {
+      "value": 0,
+      "denominator": 1,
+      "ci95": [
+        0,
+        0.7934506856227626
+      ]
+    },
+    "false_positive_rate": {
+      "value": 0,
+      "denominator": 1,
+      "ci95": [
+        0,
+        0.7934506856227626
+      ]
+    },
+    "expected_verdict_accuracy": {
+      "value": 0,
+      "denominator": 2,
+      "ci95": [
+        0,
+        0.6576197724933469
+      ]
+    }
+  },
+  "validation": {
+    "labeled_cases": 2,
+    "binary_cases": 2,
+    "expected_uncertain": 0,
+    "positive": 1,
+    "negative": 1,
+    "tp": 0,
+    "fp": 0,
+    "tn": 0,
+    "definitive_fn": 0,
+    "positive_misses": 1,
+    "errors": 0,
+    "uncertain": 2,
+    "precision": {
+      "value": null,
+      "denominator": 0,
+      "ci95": null
+    },
+    "recall": {
+      "value": 0,
+      "denominator": 1,
+      "ci95": [
+        0,
+        0.7934506856227626
+      ]
+    },
+    "f1": 0,
+    "clear_negative_coverage": {
+      "value": 0,
+      "denominator": 1,
+      "ci95": [
+        0,
+        0.7934506856227626
+      ]
+    },
+    "false_positive_rate": {
+      "value": 0,
+      "denominator": 1,
+      "ci95": [
+        0,
+        0.7934506856227626
+      ]
+    },
+    "expected_verdict_accuracy": {
+      "value": 0,
+      "denominator": 2,
+      "ci95": [
+        0,
+        0.6576197724933469
+      ]
+    }
+  },
+  "tuning_groups": 1,
+  "validation_groups": 1
+}

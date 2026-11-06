@@ -1,0 +1,16 @@
+{
+  "started_at": "2026-11-03T20:51:36.535Z",
+  "finished_at": "2026-11-03T20:51:59.958Z",
+  "concurrency": 1,
+  "minimum_delay_ms": 120,
+  "request_limit": 140,
+  "statuses": {
+    "401": 121,
+    "429": 1
+  },
+  "pops": [
+    "PDX"
+  ],
+  "observed_ingress_rejection": true,
+  "provider_calls": 0
+}

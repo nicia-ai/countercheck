@@ -1,0 +1,33 @@
+{
+  "manifest_sha256": "ed5f8428e25d8c978187c13399c5841ba02d4edbbbff604be2b65d468244db89",
+  "freeze_sha256": "24317b610a584a98fbb24453718c6839a9465492ad4ffb2efb3cda171ee7b959",
+  "role": "dev",
+  "split_lock_sha256": "838e59bc5a5db2599525da44f50803d89175c77697fe657fd7991dfc7dba07be",
+  "calibration_sha256": null,
+  "protocol": {
+    "backend": "jev",
+    "requested_model": "jev-1.14.0",
+    "profiles": [
+      "balanced-v1",
+      "semantic-v2",
+      "structured-value-v1"
+    ],
+    "probes": [
+      "clean",
+      "repeat",
+      "distractor",
+      "order",
+      "hostile",
+      "criteria-order",
+      "field-order"
+    ],
+    "planned_calls": 84,
+    "reserved_max_usd": 0.084,
+    "sequential_concurrency": 1,
+    "deadline_ms": 3000,
+    "retries": 0,
+    "fallback": false,
+    "truncation": false,
+    "production_qualification": "not_assessed"
+  }
+}

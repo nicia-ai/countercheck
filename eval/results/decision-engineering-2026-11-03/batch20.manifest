@@ -1,0 +1,329 @@
+{
+  "schema_version": 1,
+  "adapter_version": "countercheck-public-pairs-v1",
+  "purpose": "synthetic-smoke",
+  "sources": [
+    {
+      "name": "AI-authored synthetic batch-attribution fixture",
+      "url": "local:eval/results/decision-engineering-2026-11-03/batch20.manifest",
+      "revision": "batch-attribution-v1",
+      "sha256": "affc9fa1603e13fc93a503a73c40008c36ec3f0a2fc5759ed521e7dac4eb9ed8",
+      "license": "CC0-1.0 (synthetic fixture text only)",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  ],
+  "sampling": {
+    "seed": "batch-attribution-v1",
+    "max_pairs": 20,
+    "available_pairs": 20,
+    "selected_pairs": 20,
+    "excluded_unlabeled": 0,
+    "method": "all20 AI-authored synthetic batch-attribution cases; sourceSHA hashes compact UTF8 JSON pairs",
+    "strata": {
+      "synthetic-smoke/batch-attribution-v1/contradiction": 19,
+      "synthetic-smoke/batch-attribution-v1/non_contradiction": 1
+    }
+  },
+  "pairs": [
+    {
+      "id": "batch20-01",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-01",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 1 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-02",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-02",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 2 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-03",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-03",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 3 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-04",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-04",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 4 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-05",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-05",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 5 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-06",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-06",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 6 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-07",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-07",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 7 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-08",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-08",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 8 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-09",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-09",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 9 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-10",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-10",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 10 kg.",
+      "gold": "non_contradiction",
+      "native_label": "non_contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-11",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-11",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 11 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-12",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-12",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 12 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-13",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-13",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 13 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-14",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-14",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 14 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-15",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-15",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 15 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-16",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-16",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 16 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-17",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-17",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 17 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-18",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-18",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 18 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-19",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-19",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 19 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    },
+    {
+      "id": "batch20-20",
+      "dataset": "synthetic-smoke",
+      "variant": "batch-attribution-v1",
+      "split": "synthetic",
+      "source_id": "batch20-20",
+      "group_id": "batch20",
+      "claim": "The parcel weighs exactly 10 kg.",
+      "evidence": "The parcel weighs exactly 20 kg.",
+      "gold": "contradiction",
+      "native_label": "contradiction",
+      "source_metadata": {
+        "authorship": "AI-authored batch-attribution diagnostic; not human release data"
+      }
+    }
+  ]
+}

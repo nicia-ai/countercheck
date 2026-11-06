@@ -1,0 +1,10 @@
+{
+  "chosen_before_validation": "noul-conflict scalar policy asprimary;fixedL2=1fusionaspreregisteredchallenger",
+  "reason": "highestglobalrecallamongscalarinnercheckswithprecision>=95%;bothbadcoverage/noqualityclaim",
+  "evaluation_family": "all9frozen scalarheads+onefrozenfusion recordedascomparisonfamily; no post-validationthresholdselection",
+  "input": "iteration-validation200source-separatedtraininggroups",
+  "frozen_scalar_model": "eval/reports/quality-r2-scalar-model.json",
+  "frozen_fusion_model": "eval/reports/quality-r2-fusion-model.json",
+  "planned_calls": 1800,
+  "locked_holdout": "remainsclosed; do notopenunlesscandidatepassesdevelopmentgates"
+}

@@ -1,0 +1,89 @@
+import { access, mkdir, writeFile } from "node:fs/promises";
+import { dirname, resolve } from "node:path";
+import { pathToFileURL } from "node:url";
+import { parseArgs, positiveInteger } from "../eval/args.js";
+import { sha256 } from "../eval/types.js";
+import { businessManifest } from "../eval/business/common.js";
+import { parseFindver, type FindverSubset } from "../eval/business/findver.js";
+import { fetchFindverTestmini } from "../eval/business/fetch-findver.js";
+
+export async function main(argv: string[]) {
+  const args = parseArgs(
+    argv,
+    ["help", "download", "cache", "subset", "out", "max-pairs", "seed", "envelope-policy"],
+    ["help", "download"],
+  );
+  if (args.help) {
+    console.log(
+      "Usage: tsx scripts/prepare-finance-business.ts --out NEW.json [--download --cache eval/data/business/findver --subset ie|numeric --max-pairs 200 --seed business-v1 --envelope-policy whole-source|individual-pairs]. No model calls. Fetches only pinned testmini and selected-subset reports; without --download requires valid local cache. IE is the finance core; numeric remains a separately reported research slice. Original public testmini maps to test, never training. Full issuer text stays in ignored cache; archive provenance/predictions only. Complete evidence is never truncated. Default whole-source excludes any report with an unsupported sibling; explicit individual-pairs keeps supported pairs and preserves remaining report groups.",
+    );
+    return;
+  }
+  if (!args.out || !["ie", "numeric"].includes(args.subset ?? "ie"))
+    throw new Error("Required fresh output and valid finance subset.");
+  const out = resolve(args.out);
+  if (
+    await access(out).then(
+      () => true,
+      () => false,
+    )
+  )
+    throw new Error("Finance output already exists.");
+  const subset = (args.subset ?? "ie") as FindverSubset;
+  const envelopePolicy = args["envelope-policy"] ?? "whole-source";
+  if (envelopePolicy !== "whole-source" && envelopePolicy !== "individual-pairs")
+    throw new Error("Invalid finance envelope policy.");
+  const fetched = await fetchFindverTestmini({
+    ...(args.cache !== undefined && { cacheDir: args.cache }),
+    subset,
+    ...(!args.download && {
+      fetch: async () => {
+        throw new Error("Explicit --download required for missing cache.");
+      },
+    }),
+  });
+  const prepared = parseFindver(fetched.value, fetched.reports, subset);
+  const manifest = businessManifest({
+    prepared,
+    sources: fetched.sources,
+    track: "finance",
+    split: "test",
+    maxPairs: positiveInteger(args["max-pairs"], 200, "max-pairs"),
+    seed: args.seed ?? "business-v1",
+    envelopePolicy,
+  });
+  const output = {
+    ...manifest,
+    business_coverage: prepared.coverage,
+    source_resources: {
+      subset: fetched.downloads.subset,
+      selected_reports: fetched.downloads.selected_reports,
+      total_report_bytes: fetched.downloads.total_report_bytes,
+      max_report_bytes: fetched.downloads.max_report_bytes,
+      max_total_report_bytes: fetched.downloads.max_total_report_bytes,
+    },
+    text_redistribution:
+      "Issuer report-text terms are not separately stated; keep this derived text manifest local and archive only hashes/IDs/labels/predictions plus reconstruction code.",
+  };
+  const bytes = JSON.stringify(output, null, 2) + "\n";
+  await mkdir(dirname(out), { recursive: true });
+  await writeFile(out, bytes, { flag: "wx", mode: 0o600 });
+  console.log(
+    JSON.stringify({
+      out,
+      pairs: manifest.pairs.length,
+      sha256: sha256(bytes),
+      purpose: manifest.purpose,
+      coverage: prepared.coverage,
+      downloads: fetched.downloads,
+      protocol: manifest.business_protocol,
+    }),
+  );
+}
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href)
+  main(process.argv.slice(2)).catch(() => {
+    console.error(
+      "Finance preparation failed. Verify pinned complete sources, envelope coverage, explicit download flag and fresh output; use --help.",
+    );
+    process.exitCode = 1;
+  });

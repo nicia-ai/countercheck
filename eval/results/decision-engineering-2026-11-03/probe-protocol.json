@@ -1,0 +1,30 @@
+{
+  "purpose": "additional synthetic batching/variation workflow checks, not release-quality evidence",
+  "batch20_manifest_sha256": "0ca87c2190f4ce8e45c1313b5e921153beaba64b70a025d776704c03dd4a0307",
+  "batch20_profiles": [
+    "balanced-v1",
+    "semantic-v2",
+    "structured-value-v1"
+  ],
+  "batch20_presentations": [
+    "original",
+    "reversed"
+  ],
+  "batch20_calls": 6,
+  "workflow_manifest_sha256": "fb7c511712a4573d6508553cf38221b84bc04e21a31cd9c72265648c6b3de8e0",
+  "workflow_seed": "engineering-2026-11-03",
+  "workflow_probes": [
+    "clean",
+    "repeat",
+    "distractor",
+    "order",
+    "hostile",
+    "criteria-order",
+    "field-order"
+  ],
+  "workflow_dev_calls": 84,
+  "workflow_holdout_max_calls": 4,
+  "total_additional_planned_max_calls": 94,
+  "heldout_qualification": false,
+  "labels": "AI-authored synthetic diagnostics only; human gates remain unmet"
+}

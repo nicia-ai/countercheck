@@ -1,0 +1,791 @@
+{
+  "retrospective_nonfinance_f1_grid": [
+    {
+      "model": "jev-1.14.0",
+      "dataset": "vitaminc",
+      "threshold": 0.11,
+      "tp": 57,
+      "fp": 25,
+      "f1": 0.7450980392156863
+    },
+    {
+      "model": "jev-1.14.0",
+      "dataset": "scifact",
+      "threshold": 0.08,
+      "tp": 64,
+      "fp": 6,
+      "f1": 0.9078014184397163
+    },
+    {
+      "model": "jev-1.14.0",
+      "dataset": "contractnli",
+      "threshold": 0.55,
+      "tp": 21,
+      "fp": 7,
+      "f1": 0.7777777777777778
+    },
+    {
+      "model": "jev-1.14.0",
+      "dataset": "mnli",
+      "threshold": 0.16,
+      "tp": 60,
+      "fp": 5,
+      "f1": 0.9090909090909091
+    },
+    {
+      "model": "clef",
+      "dataset": "vitaminc",
+      "threshold": 0.3,
+      "tp": 49,
+      "fp": 31,
+      "f1": 0.6490066225165563
+    },
+    {
+      "model": "clef",
+      "dataset": "scifact",
+      "threshold": 0.23,
+      "tp": 64,
+      "fp": 11,
+      "f1": 0.8767123287671232
+    },
+    {
+      "model": "clef",
+      "dataset": "contractnli",
+      "threshold": 0.52,
+      "tp": 19,
+      "fp": 4,
+      "f1": 0.7755102040816326
+    },
+    {
+      "model": "clef",
+      "dataset": "mnli",
+      "threshold": 0.27,
+      "tp": 59,
+      "fp": 8,
+      "f1": 0.8805970149253731
+    },
+    {
+      "model": "clef-flash",
+      "dataset": "vitaminc",
+      "threshold": 0.42,
+      "tp": 47,
+      "fp": 26,
+      "f1": 0.6527777777777778
+    },
+    {
+      "model": "clef-flash",
+      "dataset": "scifact",
+      "threshold": 0.23,
+      "tp": 63,
+      "fp": 9,
+      "f1": 0.8811188811188811
+    },
+    {
+      "model": "clef-flash",
+      "dataset": "contractnli",
+      "threshold": 0.64,
+      "tp": 19,
+      "fp": 5,
+      "f1": 0.76
+    },
+    {
+      "model": "clef-flash",
+      "dataset": "mnli",
+      "threshold": 0.31,
+      "tp": 63,
+      "fp": 8,
+      "f1": 0.9130434782608695
+    },
+    {
+      "model": "clef-omni",
+      "dataset": "vitaminc",
+      "threshold": 0.24,
+      "tp": 52,
+      "fp": 34,
+      "f1": 0.6624203821656051
+    },
+    {
+      "model": "clef-omni",
+      "dataset": "scifact",
+      "threshold": 0.31,
+      "tp": 66,
+      "fp": 5,
+      "f1": 0.9295774647887324
+    },
+    {
+      "model": "clef-omni",
+      "dataset": "contractnli",
+      "threshold": 0.56,
+      "tp": 22,
+      "fp": 5,
+      "f1": 0.8301886792452831
+    },
+    {
+      "model": "clef-omni",
+      "dataset": "mnli",
+      "threshold": 0.34,
+      "tp": 62,
+      "fp": 7,
+      "f1": 0.9117647058823529
+    },
+    {
+      "model": "gpt-6-luna",
+      "dataset": "vitaminc",
+      "threshold": 0.21,
+      "tp": 56,
+      "fp": 26,
+      "f1": 0.7320261437908496
+    },
+    {
+      "model": "gpt-6-luna",
+      "dataset": "scifact",
+      "threshold": 0.32,
+      "tp": 46,
+      "fp": 12,
+      "f1": 0.7131782945736435
+    },
+    {
+      "model": "gpt-6-luna",
+      "dataset": "contractnli",
+      "threshold": 0.66,
+      "tp": 15,
+      "fp": 10,
+      "f1": 0.5882352941176471
+    },
+    {
+      "model": "gpt-6-luna",
+      "dataset": "mnli",
+      "threshold": 0.46,
+      "tp": 44,
+      "fp": 3,
+      "f1": 0.7719298245614035
+    },
+    {
+      "model": "microsoft/microsoft-decision-1",
+      "dataset": "vitaminc",
+      "threshold": 0.12,
+      "tp": 63,
+      "fp": 32,
+      "f1": 0.7590361445783133
+    },
+    {
+      "model": "microsoft/microsoft-decision-1",
+      "dataset": "scifact",
+      "threshold": 0.14,
+      "tp": 58,
+      "fp": 13,
+      "f1": 0.8169014084507042
+    },
+    {
+      "model": "microsoft/microsoft-decision-1",
+      "dataset": "contractnli",
+      "threshold": 0.88,
+      "tp": 14,
+      "fp": 4,
+      "f1": 0.6363636363636364
+    },
+    {
+      "model": "microsoft/microsoft-decision-1",
+      "dataset": "mnli",
+      "threshold": 0.16,
+      "tp": 63,
+      "fp": 12,
+      "f1": 0.8873239436619719
+    },
+    {
+      "model": "perplexity/pplx-decider-v1.2",
+      "dataset": "vitaminc",
+      "threshold": 0.07,
+      "tp": 64,
+      "fp": 21,
+      "f1": 0.8205128205128205
+    },
+    {
+      "model": "perplexity/pplx-decider-v1.2",
+      "dataset": "scifact",
+      "threshold": 0.04,
+      "tp": 67,
+      "fp": 12,
+      "f1": 0.8933333333333333
+    },
+    {
+      "model": "perplexity/pplx-decider-v1.2",
+      "dataset": "contractnli",
+      "threshold": 0.3,
+      "tp": 22,
+      "fp": 8,
+      "f1": 0.7857142857142857
+    },
+    {
+      "model": "perplexity/pplx-decider-v1.2",
+      "dataset": "mnli",
+      "threshold": 0.18,
+      "tp": 63,
+      "fp": 7,
+      "f1": 0.9197080291970803
+    },
+    {
+      "model": "perplexity/pplx-decider-flash-v1.2",
+      "dataset": "vitaminc",
+      "threshold": 0.23,
+      "tp": 58,
+      "fp": 23,
+      "f1": 0.7631578947368421
+    },
+    {
+      "model": "perplexity/pplx-decider-flash-v1.2",
+      "dataset": "scifact",
+      "threshold": 0.18,
+      "tp": 58,
+      "fp": 11,
+      "f1": 0.8285714285714286
+    },
+    {
+      "model": "perplexity/pplx-decider-flash-v1.2",
+      "dataset": "contractnli",
+      "threshold": 0.42,
+      "tp": 18,
+      "fp": 8,
+      "f1": 0.6923076923076923
+    },
+    {
+      "model": "perplexity/pplx-decider-flash-v1.2",
+      "dataset": "mnli",
+      "threshold": 0.17,
+      "tp": 67,
+      "fp": 12,
+      "f1": 0.9178082191780822
+    },
+    {
+      "model": "fastino/GLiDE",
+      "dataset": "vitaminc",
+      "threshold": 0.1,
+      "tp": 63,
+      "fp": 20,
+      "f1": 0.8181818181818182
+    },
+    {
+      "model": "fastino/GLiDE",
+      "dataset": "scifact",
+      "threshold": 0.15,
+      "tp": 65,
+      "fp": 6,
+      "f1": 0.9154929577464789
+    },
+    {
+      "model": "fastino/GLiDE",
+      "dataset": "contractnli",
+      "threshold": 0.31,
+      "tp": 24,
+      "fp": 5,
+      "f1": 0.8727272727272727
+    },
+    {
+      "model": "fastino/GLiDE",
+      "dataset": "mnli",
+      "threshold": 0.12,
+      "tp": 64,
+      "fp": 11,
+      "f1": 0.9014084507042254
+    }
+  ],
+  "optimum_cutoffs_in_0_05_to_0_35": 26,
+  "retrospective_sweep_scope": "0.01-to-0.99 grid on archived raw contradiction scores; same-label sensitivity only, not fit inputs or operating policies. No new finance threshold search.",
+  "parsed_rows_sha256": "f21dd45c53aefced2db379946760356691ed133f5522821260153f2469d788f0",
+  "positive_observations": 2511,
+  "distinct_native_positives": 279,
+  "total_missed_outcomes": 1337,
+  "completed_misses": 1333,
+  "provider_errors": 4,
+  "top_raw_category_in_completed_misses": {
+    "contradiction": 677,
+    "consistent": 490,
+    "different_scope": 44,
+    "insufficient_context": 118,
+    "consistent+contradiction": 2,
+    "contradiction+insufficient_context": 1,
+    "consistent+insufficient_context": 1
+  },
+  "raw_contradiction_bins_in_completed_misses": {
+    "below_0_2": 428,
+    "from_0_2_to_0_5": 342,
+    "from_0_5_to_0_8": 563
+  },
+  "by_model": {
+    "jev-1.14.0": {
+      "missed": 128,
+      "uncertain": 110,
+      "false_clears": 18,
+      "errors": 0
+    },
+    "clef": {
+      "missed": 175,
+      "uncertain": 156,
+      "false_clears": 19,
+      "errors": 0
+    },
+    "clef-flash": {
+      "missed": 185,
+      "uncertain": 173,
+      "false_clears": 12,
+      "errors": 0
+    },
+    "clef-omni": {
+      "missed": 164,
+      "uncertain": 146,
+      "false_clears": 18,
+      "errors": 0
+    },
+    "gpt-6-luna": {
+      "missed": 180,
+      "uncertain": 155,
+      "false_clears": 25,
+      "errors": 0
+    },
+    "microsoft/microsoft-decision-1": {
+      "missed": 124,
+      "uncertain": 106,
+      "false_clears": 18,
+      "errors": 0
+    },
+    "perplexity/pplx-decider-v1.2": {
+      "missed": 116,
+      "uncertain": 106,
+      "false_clears": 8,
+      "errors": 2
+    },
+    "perplexity/pplx-decider-flash-v1.2": {
+      "missed": 144,
+      "uncertain": 134,
+      "false_clears": 8,
+      "errors": 2
+    },
+    "fastino/GLiDE": {
+      "missed": 121,
+      "uncertain": 105,
+      "false_clears": 16,
+      "errors": 0
+    }
+  },
+  "union_caught": 211,
+  "union_recall": 0.7562724014336918,
+  "never_caught_by_dataset": {
+    "vitaminc": 25,
+    "scifact": 24,
+    "contractnli": 4,
+    "mnli": 12,
+    "findver": 3
+  },
+  "never_caught": [
+    {
+      "id": "contractnli:dev:17:nda-7",
+      "dataset": "contractnli",
+      "group_id": "contractnli:document:17",
+      "native_label": "Contradiction"
+    },
+    {
+      "id": "contractnli:dev:575:nda-20",
+      "dataset": "contractnli",
+      "group_id": "contractnli:document:575",
+      "native_label": "Contradiction"
+    },
+    {
+      "id": "contractnli:dev:586:nda-2",
+      "dataset": "contractnli",
+      "group_id": "contractnli:document:586",
+      "native_label": "Contradiction"
+    },
+    {
+      "id": "contractnli:dev:586:nda-4",
+      "dataset": "contractnli",
+      "group_id": "contractnli:document:586",
+      "native_label": "Contradiction"
+    },
+    {
+      "id": "findver:testmini:ie:ie-val-120",
+      "dataset": "findver",
+      "group_id": "findver:report:BRAC-2024-03-14_10-K.json",
+      "native_label": "refuted"
+    },
+    {
+      "id": "findver:testmini:ie:ie-val-50",
+      "dataset": "findver",
+      "group_id": "findver:report:XPEL-2024-02-28_10-K.json",
+      "native_label": "refuted"
+    },
+    {
+      "id": "findver:testmini:ie:ie-val-89",
+      "dataset": "findver",
+      "group_id": "findver:report:BCC-2024-02-20_10-K.json",
+      "native_label": "refuted"
+    },
+    {
+      "id": "mnli:dev_matched:105746c:row-3868",
+      "dataset": "mnli",
+      "group_id": "mnli:government:prompt-105746",
+      "native_label": "contradiction"
+    },
+    {
+      "id": "mnli:dev_matched:122397c:row-8557",
+      "dataset": "mnli",
+      "group_id": "mnli:slate:prompt-122397",
+      "native_label": "contradiction"
+    },
+    {
+      "id": "mnli:dev_matched:123703c:row-9816",
+      "dataset": "mnli",
+      "group_id": "mnli:government:prompt-123703",
+      "native_label": "contradiction"
+    },
+    {
+      "id": "mnli:dev_matched:130629c:row-4875",
+      "dataset": "mnli",
+      "group_id": "mnli:government:prompt-130629",
+      "native_label": "contradiction"
+    },
+    {
+      "id": "mnli:dev_matched:144063c:row-423",
+      "dataset": "mnli",
+      "group_id": "mnli:telephone:prompt-144063",
+      "native_label": "contradiction"
+    },
+    {
+      "id": "mnli:dev_matched:145047c:row-8546",
+      "dataset": "mnli",
+      "group_id": "mnli:slate:prompt-145047",
+      "native_label": "contradiction"
+    },
+    {
+      "id": "mnli:dev_matched:36598c:row-7562",
+      "dataset": "mnli",
+      "group_id": "mnli:telephone:prompt-36598",
+      "native_label": "contradiction"
+    },
+    {
+      "id": "mnli:dev_matched:67632c:row-2993",
+      "dataset": "mnli",
+      "group_id": "mnli:telephone:prompt-67632",
+      "native_label": "contradiction"
+    },
+    {
+      "id": "mnli:dev_matched:68078c:row-1999",
+      "dataset": "mnli",
+      "group_id": "mnli:telephone:prompt-68078",
+      "native_label": "contradiction"
+    },
+    {
+      "id": "mnli:dev_matched:77152c:row-4751",
+      "dataset": "mnli",
+      "group_id": "mnli:government:prompt-77152",
+      "native_label": "contradiction"
+    },
+    {
+      "id": "mnli:dev_matched:9047c:row-7474",
+      "dataset": "mnli",
+      "group_id": "mnli:telephone:prompt-9047",
+      "native_label": "contradiction"
+    },
+    {
+      "id": "mnli:dev_matched:98367c:row-4894",
+      "dataset": "mnli",
+      "group_id": "mnli:telephone:prompt-98367",
+      "native_label": "contradiction"
+    },
+    {
+      "id": "scifact:dev:1021:9433958:0",
+      "dataset": "scifact",
+      "group_id": "scifact:1021",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:1041:25254425:0",
+      "dataset": "scifact",
+      "group_id": "scifact:1041",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:1049:12486491:0",
+      "dataset": "scifact",
+      "group_id": "scifact:1049",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:1137:33370:0",
+      "dataset": "scifact",
+      "group_id": "scifact:1137",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:115:33872649:0",
+      "dataset": "scifact",
+      "group_id": "scifact:115",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:1221:19736671:0",
+      "dataset": "scifact",
+      "group_id": "scifact:1221",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:1303:12631697:0",
+      "dataset": "scifact",
+      "group_id": "scifact:1303",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:1303:12631697:1",
+      "dataset": "scifact",
+      "group_id": "scifact:1303",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:183:12827098:0",
+      "dataset": "scifact",
+      "group_id": "scifact:183",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:219:21366394:1",
+      "dataset": "scifact",
+      "group_id": "scifact:219",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:42:18174210:0",
+      "dataset": "scifact",
+      "group_id": "scifact:42",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:48:13734012:0",
+      "dataset": "scifact",
+      "group_id": "scifact:48",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:598:25742130:0",
+      "dataset": "scifact",
+      "group_id": "scifact:598",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:598:25742130:1",
+      "dataset": "scifact",
+      "group_id": "scifact:598",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:619:20888849:0",
+      "dataset": "scifact",
+      "group_id": "scifact:619",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:718:17587795:0",
+      "dataset": "scifact",
+      "group_id": "scifact:718",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:728:36444198:0",
+      "dataset": "scifact",
+      "group_id": "scifact:728",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:728:36444198:1",
+      "dataset": "scifact",
+      "group_id": "scifact:728",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:811:19799455:0",
+      "dataset": "scifact",
+      "group_id": "scifact:811",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:811:19799455:1",
+      "dataset": "scifact",
+      "group_id": "scifact:811",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:847:16787954:0",
+      "dataset": "scifact",
+      "group_id": "scifact:847",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:852:13843341:0",
+      "dataset": "scifact",
+      "group_id": "scifact:852",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:852:13843341:1",
+      "dataset": "scifact",
+      "group_id": "scifact:852",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "scifact:dev:879:8426046:0",
+      "dataset": "scifact",
+      "group_id": "scifact:879",
+      "native_label": "CONTRADICT"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ea2d97dc9e77c0009cdb1f1_3",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-628157921",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebbf32bc9e77c0009295856_2",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-936508984",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebbf32bc9e77c0009295856_3",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-936508984",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebbf32bc9e77c00092958d1_2",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-940368491",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebbf32bc9e77c00092958d1_3",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-940368491",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebbf32bc9e77c00092958d6_3",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-941735150",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebe6f31c9e77c0008408e59_2",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-783390990",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebe6f31c9e77c0008408e59_3",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-783390990",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ebe6f31c9e77c0008408e5a_3",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-783390990",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ed7ad02c9e77c00084a6aef_1",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-690421630",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ed7ad03c9e77c00084a7882_2",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-710216015",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc9155_3",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-937005058",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee39329c9e77c0008cc92ea_3",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-937005058",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932ac9e77c0008cc99bd_3",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-946275371",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932ac9e77c0008cc9d14_2",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-947731797",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cc9eb4_2",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-943006991",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca220_3",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-949304814",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932bc9e77c0008cca488_3",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-941735150",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb735_3",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-937185589",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb749_2",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-937005058",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee3932dc9e77c0008ccb749_3",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-937005058",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccbff0_3",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-945013203",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b6c9e77c0008ccc0c2_3",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-941735150",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b7c9e77c0008ccc47c_2",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-951795735",
+      "native_label": "REFUTES"
+    },
+    {
+      "id": "vitaminc:combined:dev:5ee393b7c9e77c0008ccc47c_3",
+      "dataset": "vitaminc",
+      "group_id": "vitaminc:revision-951795735",
+      "native_label": "REFUTES"
+    }
+  ],
+  "compressed_archive_sha256": "f92bed91d12842c07a4798cb0bf4ba5b2c8e872feae3b24dd162787d158fcb63",
+  "correction_to_request": "1333 completed misses plus four error outcomes equals 1337 total misses. Top-category ties are kept separate."
+}

@@ -1,0 +1,38 @@
+{
+  "revision": "eced6528dd3c1d14d73f9a87df8f7bdbc03126f9",
+  "url": "https://raw.githubusercontent.com/stanfordnlp/contract-nli/eced6528dd3c1d14d73f9a87df8f7bdbc03126f9/resources/contract-nli.zip",
+  "archive_bytes": 65362913,
+  "download_method": "HTTP Range: only named train/dev, README, LICENSE, TERMS members; no test gold fetched",
+  "members": {
+    "train.json": {
+      "sha256": "dbceb356cd6203b35b27be94a5fa85e499a81c34c42c89ad53060b39f0257ba5",
+      "bytes": 7608211,
+      "compressed_bytes": 1667134,
+      "archive_offset": 776011
+    },
+    "dev.json": {
+      "sha256": "310af7d661d2ab50ee3700169cef524c75f39fb296bbf5a515c229eb0f42e68e",
+      "bytes": 1183107,
+      "compressed_bytes": 264329,
+      "archive_offset": 509146
+    },
+    "LICENSE": {
+      "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "bytes": 18656,
+      "compressed_bytes": 5914,
+      "archive_offset": 71
+    },
+    "TERMS": {
+      "sha256": "b86e5b9bd7d2c49fd0d60e1d0842b7f64746abc8b206451acbe9080027cc49c8",
+      "bytes": 3664,
+      "compressed_bytes": 1544,
+      "archive_offset": 6063
+    },
+    "README.md": {
+      "sha256": "cd2b3e8afafbfa95b1d3613e438b173ab3c3c089162d15b9e329cf9c6bf86206",
+      "bytes": 5561,
+      "compressed_bytes": 2377,
+      "archive_offset": 773554
+    }
+  }
+}

@@ -1,0 +1,30 @@
+import {spawn} from 'node:child_process';
+import {readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+const root=process.cwd();
+const frozen=JSON.parse(await readFile('eval/results/decision-engineering-2026-11-03/source-freeze-final-reviewed.json','utf8'));
+for(const [file,hash] of Object.entries(frozen.files))if(createHash('sha256').update(await readFile(file)).digest('hex')!==hash)throw new Error('Source changed before inference');
+const env={...process.env,TYPESAFE_API_KEY:process.env.TYPESAFE_API_KEY??process.env.TYPESAFE_AI_KEY};
+if(!env.TYPESAFE_API_KEY)throw new Error('Missing provider credential');
+const jobs=[];
+for(const profile of ['structured-value-v1']){
+ for(const [name,n] of [['vitaminc-combined-dev',200],['scifact-dev',199],['contract-diagnostic',32]]){
+  jobs.push({name:`${profile}-${name}`,n,manifest:`eval/results/prompt-ablation-2026-11-03/inputs/${name}.manifest`,profile});
+ }
+ for(const presentation of ['original','reversed'])jobs.push({name:`${profile}-batch20-${presentation}`,n:1,manifest:'eval/results/decision-engineering-2026-11-03/batch20.manifest',profile,presentation,batch:true});
+}
+let cursor=0;
+await Promise.all([0,1].map(async()=>{
+ while(cursor<jobs.length){
+  const job=jobs[cursor++];
+  const args=['--import=tsx','scripts/eval.ts','--manifest',job.manifest,'--backend','jev','--profile',job.profile,'--live','--max-calls',String(job.n),'--max-spend-usd',String(job.n*0.001+0.00001),'--cost-per-call-usd','0.001','--out',`eval/reports/decision-engineering-post-review-${job.name}`];
+  if(job.batch)args.push('--batch-size','20','--presentation',job.presentation);
+  await new Promise((resolve,reject)=>{
+   const child=spawn(process.execPath,args,{cwd:root,env,stdio:['ignore','pipe','pipe']});
+   child.stdout.on('data',()=>{});child.stderr.on('data',()=>{});
+   child.on('error',()=>reject(new Error('Evaluation child failed')));
+   child.on('exit',code=>code===0?resolve():reject(new Error(`Evaluation stopped: ${job.name}`)));
+  });
+  console.log('Completed',job.name);
+ }
+}));

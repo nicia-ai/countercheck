@@ -1,0 +1,106 @@
+{
+  "combined_configured_capacity_during_overlap": 4,
+  "decider_fit_overlap": false,
+  "disposition": "Execution-protocol deviation disclosed; no result erased; no production concurrency qualification.",
+  "evidence": {
+    "quality-r3-decider-fit": {
+      "configured_local_concurrency": 2,
+      "files": {
+        ".freeze.json": {
+          "filesystem_birth_utc": "2026-11-04T06:55:04.257846+00:00",
+          "filesystem_modified_utc": "2026-11-04T06:55:04.258064+00:00",
+          "sha256": "0c8469885fff665ac5668ed3d8cecc7f0b209bf82fcc23bd6d47f0cf0fa52e0e",
+          "source": "eval/reports/quality-r3-decider-fit.freeze.json"
+        },
+        ".json": {
+          "filesystem_birth_utc": "2026-11-04T06:56:12.856371+00:00",
+          "filesystem_modified_utc": "2026-11-04T06:56:12.856717+00:00",
+          "sha256": "78cf3d461518608180f969b63283085db4f67741a9a947b0f6042afca3840d74",
+          "source": "eval/reports/quality-r3-decider-fit.json"
+        },
+        ".predictions.jsonl": {
+          "filesystem_birth_utc": "2026-11-04T06:55:04.279115+00:00",
+          "filesystem_modified_utc": "2026-11-04T06:56:12.757054+00:00",
+          "sha256": "2777609b8451800e59cf46ab11fc2dff7f91e6d20d63b652cfe8b53084731d4a",
+          "source": "eval/reports/quality-r3-decider-fit.predictions.jsonl"
+        },
+        ".predictions.jsonl.metadata.json": {
+          "filesystem_birth_utc": "2026-11-04T06:55:04.279222+00:00",
+          "filesystem_modified_utc": "2026-11-04T06:55:04.279332+00:00",
+          "sha256": "7b4afee801f273fee1fa4e2c29c568cd16b340a96a11cb4c2fdfac959c4f0c60",
+          "source": "eval/reports/quality-r3-decider-fit.predictions.jsonl.metadata.json"
+        }
+      },
+      "freeze_created_at": "2026-11-04T06:55:04.254Z"
+    },
+    "quality-r3-decider-validation": {
+      "configured_local_concurrency": 2,
+      "files": {
+        ".freeze.json": {
+          "filesystem_birth_utc": "2026-11-04T06:56:14.383753+00:00",
+          "filesystem_modified_utc": "2026-11-04T06:56:14.383973+00:00",
+          "sha256": "fbcd9f4ed0e6c72e141419b01715d7a29a039d6eb0674dc27346f206569f59c0",
+          "source": "eval/reports/quality-r3-decider-validation.freeze.json"
+        },
+        ".json": {
+          "filesystem_birth_utc": "2026-11-04T06:56:49.402761+00:00",
+          "filesystem_modified_utc": "2026-11-04T06:56:49.402991+00:00",
+          "sha256": "81187311979376a9ea3cfa5698eae0cf15cb55821756e20d695f5ca955181a5c",
+          "source": "eval/reports/quality-r3-decider-validation.json"
+        },
+        ".predictions.jsonl": {
+          "filesystem_birth_utc": "2026-11-04T06:56:14.407898+00:00",
+          "filesystem_modified_utc": "2026-11-04T06:56:49.334970+00:00",
+          "sha256": "449a0d003b0dac1abfe645094448665474de954903df3161daaf02f57055e8d2",
+          "source": "eval/reports/quality-r3-decider-validation.predictions.jsonl"
+        },
+        ".predictions.jsonl.metadata.json": {
+          "filesystem_birth_utc": "2026-11-04T06:56:14.408015+00:00",
+          "filesystem_modified_utc": "2026-11-04T06:56:14.408114+00:00",
+          "sha256": "7dfa0c36f8d2ba96943ad7bf4ea6dc1647066d5e6242473b09ff240dfd632434",
+          "source": "eval/reports/quality-r3-decider-validation.predictions.jsonl.metadata.json"
+        }
+      },
+      "freeze_created_at": "2026-11-04T06:56:14.382Z"
+    },
+    "quality-r3-jev-contract": {
+      "configured_local_concurrency": 2,
+      "files": {
+        ".freeze.json": {
+          "filesystem_birth_utc": "2026-11-04T06:56:16.177912+00:00",
+          "filesystem_modified_utc": "2026-11-04T06:56:16.178605+00:00",
+          "sha256": "0f6ac2df7177f4c48e998473bdc23161087f0679c460416be422433306a5f241",
+          "source": "eval/reports/quality-r3-jev-contract.freeze.json"
+        },
+        ".json": {
+          "filesystem_birth_utc": "2026-11-04T06:56:17.655962+00:00",
+          "filesystem_modified_utc": "2026-11-04T06:56:17.656080+00:00",
+          "sha256": "7eb03c33be8a88dfcfa5f4b75f89151b13f4f3ff67d3dde3279d047bce2c917d",
+          "source": "eval/reports/quality-r3-jev-contract.json"
+        },
+        ".predictions.jsonl": {
+          "filesystem_birth_utc": "2026-11-04T06:56:16.199468+00:00",
+          "filesystem_modified_utc": "2026-11-04T06:56:17.615747+00:00",
+          "sha256": "814a26c6728d5e922a92a6869f2f93f6246134675d1946f8d2cc66e1021d61ff",
+          "source": "eval/reports/quality-r3-jev-contract.predictions.jsonl"
+        },
+        ".predictions.jsonl.metadata.json": {
+          "filesystem_birth_utc": "2026-11-04T06:56:16.199576+00:00",
+          "filesystem_modified_utc": "2026-11-04T06:56:16.199860+00:00",
+          "sha256": "bddc4d2b6bb4c6d1a44d96623f08e9b8dfe9b5c900ef6ccb7d8ad5c62549a941",
+          "source": "eval/reports/quality-r3-jev-contract.predictions.jsonl.metadata.json"
+        }
+      },
+      "freeze_created_at": "2026-11-04T06:56:16.177Z"
+    }
+  },
+  "exact_peak_simultaneous_network_requests": null,
+  "intended_global_concurrency": 2,
+  "kind": "iteration-concurrency-protocol-deviation",
+  "limitation": "Predictions preserve monotonic operation duration but no individual wall-clock dispatch/completion timestamps. Filesystem creation/modification timestamps are captured local evidence, not a pre-existing per-request tracing ledger. Maximum configured capacity is4; exact simultaneous network peak is not reconstructible.",
+  "overlap_checkpoint_envelopes_seconds": 1.416279,
+  "overlap_runs": [
+    "quality-r3-jev-contract",
+    "quality-r3-decider-validation"
+  ]
+}

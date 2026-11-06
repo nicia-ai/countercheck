@@ -1,0 +1,14 @@
+{
+  "created_at": "2026-11-03T20:49:01.716Z",
+  "origin": "https://countercheck.nicia.ai",
+  "request_limit": 140,
+  "concurrency": 4,
+  "requests": 140,
+  "statuses": {
+    "401": 140
+  },
+  "provider_calls": 0,
+  "readiness_status": 401,
+  "observed_ingress_rejection": false,
+  "known_key_never_used": true
+}

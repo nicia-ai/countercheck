@@ -1,0 +1,16 @@
+import {spawn} from 'node:child_process';
+const env={...process.env,TYPESAFE_API_KEY:process.env.TYPESAFE_API_KEY??process.env.TYPESAFE_AI_KEY};
+if(!env.TYPESAFE_API_KEY)throw new Error('Missing provider credential');
+const index='eval/results/decision-engineering-2026-11-03/workflow/split-lock.json';
+const freeze='eval/results/decision-engineering-2026-11-03/workflow/freeze-final-reviewed.json';
+const dev='eval/reports/decision-engineering-workflow-dev';
+const calibration='eval/reports/decision-engineering-workflow-calibration.json';
+const commands=[
+ ['run','--index',index,'--freeze',freeze,'--role','dev','--out',dev,'--live','--max-calls','84','--cost-per-call-usd','0.001','--max-spend-usd','0.085'],
+ ['calibrate','--index',index,'--freeze',freeze,'--run',dev+'.json','--profile','structured-value-v1','--semantic-profile','semantic-v2','--label-space','native','--out',calibration],
+ ['holdout','--index',index,'--freeze',freeze,'--calibration',calibration,'--out','eval/reports/decision-engineering-workflow-holdout','--live','--max-calls','4','--cost-per-call-usd','0.001','--max-spend-usd','0.005'],
+];
+for(const args of commands){
+ await new Promise((resolve,reject)=>{const child=spawn(process.execPath,['--import=tsx','scripts/engineering-eval.ts',...args],{env,stdio:['ignore','pipe','pipe']});child.stdout.on('data',()=>{});child.stderr.on('data',()=>{});child.on('error',()=>reject(new Error('Workflow child failed')));child.on('exit',code=>code===0?resolve():reject(new Error('Workflow stage stopped: '+args[0])));});
+ console.log('Completed workflow',args[0]);
+}
