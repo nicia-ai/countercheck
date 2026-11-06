@@ -1,0 +1,44 @@
+{
+  "completed": [
+    {
+      "model": "drex-max",
+      "role": "fit",
+      "pairs": 2512,
+      "errors": 3,
+      "started_at": "2026-11-06T20:15:10.782Z",
+      "completed_at": "2026-11-06T20:38:28.518Z",
+      "prefix_sha256": "0a9c9fc0753ce7c903530a65d04152ed20811037337a02b8eee36218a52c1a6f"
+    },
+    {
+      "model": "drex-max-finance",
+      "role": "fit",
+      "pairs": 2512,
+      "errors": 8,
+      "started_at": "2026-11-06T20:38:29.086Z",
+      "completed_at": "2026-11-06T21:01:56.975Z",
+      "prefix_sha256": "737ca09671295c60a7c8426715a0917e32d656b6a325d904fcab37969b829820"
+    },
+    {
+      "model": "drex-max",
+      "role": "validation",
+      "pairs": 688,
+      "errors": 3,
+      "started_at": "2026-11-06T21:01:57.671Z",
+      "completed_at": "2026-11-06T21:11:53.713Z",
+      "prefix_sha256": "60c9bf8c78e21fa39040e48964dcd52da4c99bdcc042a1f72041989d43ab8c34"
+    },
+    {
+      "model": "drex-max-finance",
+      "role": "validation",
+      "pairs": 688,
+      "errors": 1,
+      "started_at": "2026-11-06T21:11:54.324Z",
+      "completed_at": "2026-11-06T21:18:16.311Z",
+      "prefix_sha256": "4ddc5491e636723d68e6c3eff1d006e7e04220d9b43977240785137b97d14ade"
+    }
+  ],
+  "completed_at": "2026-11-06T21:18:17.890Z",
+  "total_assessments": 6400,
+  "publication_paths_redacted": true,
+  "original_execution_sha256": "b24d589efddbfe3306b637a0555b3af3f9e5ba410da8bffe7f88e5ab91075314"
+}

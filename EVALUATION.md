@@ -1,6 +1,6 @@
 # Evaluating contradiction detection with decision models
 
-Status: original comparison measured November 5, 2026; interpretation includes the November 6 calibration follow-up. This is a reproducible research benchmark, not a production qualification or an official dataset leaderboard submission.
+Status: original comparison measured November 5, 2026; interpretation includes the November 6 calibration follow-up, Nace benchmark extension and separately fitted Max/Finance results. This is a reproducible research benchmark, not a production qualification or an official dataset leaderboard submission.
 
 Countercheck evaluates a specific job: given a claim and a supplied comparison text, identify whether they make incompatible assertions under overlapping conditions. The repository contains the decision kernel, provider adapters, public-data preparation, bounded live runners, replay support, and redacted measured artifacts. You can inspect and verify the published results without a Countercheck account, model credentials, Cloudflare access, or the original finance documents.
 
@@ -14,6 +14,7 @@ Countercheck evaluates a specific job: given a claim and a supplied comparison t
 - [Datasets and adaptations](#datasets-and-adaptations)
 - [Execution and scoring](#execution-and-scoring)
 - [Nine-model results](#nine-model-results)
+- [Nace Drex extension](#nace-drex-extension-november-6)
 - [Run a new evaluation](#run-a-new-evaluation)
 - [Evaluate your own model](#evaluate-your-own-model)
 - [Evidence, limitations, and data terms](#evidence-limitations-and-data-terms)
@@ -54,7 +55,7 @@ Across the five public scorecards there are 279 distinct native positives and 2,
 
 Raw contradiction scores are below 0.2 for 428 completed misses (32.1%), 0.2–0.5 for 342 (25.7%), and 0.5–0.8 for 563 (42.2%). Uncertainty accounts for 110/128 Jev misses (85.9%), 105/121 GLiDE misses (86.8%) and 106/116 Decider misses (91.4%); these model-level denominators include provider errors. The shared gate therefore suppresses many leading contradiction answers, but this breakdown does not prove how much precision-preserving recall calibration can recover, nor causally separate every harness effect from model capability.
 
-No model caught 68 native positives: VitaminC 25, SciFact 24, MultiNLI 12, ContractNLI four, finance three. The union catches 211/279 (75.6%); that is positive-only coverage, not an implemented ensemble or a precision result. A retrospective non-finance 0.01-grid F1 check places 26/36 model/domain optima in 0.05–0.35, with exceptions up to 0.88. Those are sensitivity diagnostics, not fitted operating policies. The existing optimistic ≥95%-precision frontier’s best model per dataset reaches 54.9% recall on VitaminC, 67.6% on SciFact and 50.0% on ContractNLI; that range does not describe every model.
+In the original nine-model archive, no model caught 68 native positives: VitaminC 25, SciFact 24, MultiNLI 12, ContractNLI four, finance three. The union catches 211/279 (75.6%); that is positive-only coverage, not an implemented ensemble or a precision result. A retrospective non-finance 0.01-grid F1 check places 26/36 model/domain optima in 0.05–0.35, with exceptions up to 0.88. Those are sensitivity diagnostics, not fitted operating policies. The existing optimistic ≥95%-precision frontier’s best model per dataset reaches 54.9% recall on VitaminC, 67.6% on SciFact and 50.0% on ContractNLI; that range does not describe every model.
 
 The approved [separate-group calibration study](eval/results/separate-calibration-2026-11-05/README.md) is complete: **28,800 new assessment attempts**, with a **$57.60 operator reservation**, not measured billing. Each model used 2,512 non-finance fit pairs and 688 source-group-disjoint validation pairs. All policies were frozen before validation; no new inference was performed on the archived 880 pairs. Finance is transfer only. The original archives, original verifier summary, service, profiles, thresholds and default model are unchanged.
 
@@ -112,12 +113,13 @@ The [human packet registry](eval/results/calibration-preparation-2026-11-05/pack
 
 Benchmark coverage and the public API catalog are separate:
 
-| Models                                        | Evaluation coverage                                 | API and dashboard availability                                          |
-| --------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------------------------- |
-| [Eight exposed hosted models](docs/models.md) | November 5 comparison: 920 scored observations each | Selectable in the invitation-only preview; Jev 1.14 is the default      |
-| Hosted Fastino GLiDE 27B (`fastino/GLiDE`)    | Same comparison and inputs: 920 scored observations | Evaluation-runner adapter only; API/dashboard route not yet implemented |
-| DeBERTa NLI                                   | Earlier, separate baseline cohort                   | Offline evaluation comparator                                           |
-| GLiDE 0.4B, 0.8B, 2B and 9B                   | Pending; no measured results in this repository     | No service integration                                                  |
+| Models                                        | Evaluation coverage                                                                     | API and dashboard availability                                          |
+| --------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| [Eight exposed hosted models](docs/models.md) | November 5 comparison: 920 scored observations each                                     | Selectable in the invitation-only preview; Jev 1.14 is the default      |
+| Hosted Fastino GLiDE 27B (`fastino/GLiDE`)    | Same comparison and inputs: 920 scored observations                                     | Evaluation-runner adapter only; API/dashboard route not yet implemented |
+| Five active Nace Drex IDs                     | November 6 extension: same 920 cases each; Max/Finance add 3,200 calibration calls each | Evaluation-runner adapters only; no API/dashboard route                 |
+| DeBERTa NLI                                   | Earlier, separate baseline cohort                                                       | Offline evaluation comparator                                           |
+| GLiDE 0.4B, 0.8B, 2B and 9B                   | Pending; no measured results in this repository                                         | No service integration                                                  |
 
 “Evaluation-only” describes integration scope, not a model-quality tier or a failed qualification decision specific to GLiDE. Every exposed model is also an unqualified evaluation preview. No model met all three proposed quality targets together on the public scorecards.
 
@@ -133,9 +135,11 @@ cd countercheck
 python3 -B scripts/verify-eval-release.py
 ```
 
+The separate [Nace extension](#nace-drex-extension-november-6) has an additional offline verifier.
+
 The command verifies artifact hashes and execution-source snapshots, checks identical input identities, labels and text hashes across models, and independently recomputes confusion counts, precision, recall, F1, coverage, AUROC, average precision, Brier scores, latency percentiles, and reported input-token totals. It reads **redacted scoring rows**, not original claims or evidence. It makes no network or model calls.
 
-Expected summary for this release:
+Expected summary for the original November 5 release:
 
 ```json
 {
@@ -342,6 +346,55 @@ GLiDE and Jev each clear 43/61 MNLI-neutral pairs. Of Decider’s 44 uncertain n
 
 The next prospective comparison should allocate comparable model-adaptation budgets, fit thresholds only on development groups, freeze choices, and evaluate disjoint untouched groups with paired repeats and order perturbations. It must track precision, recall, false clears, negative coverage, errors and operational limits together. The existing retrospective threshold frontier is not that validation.
 
+## Nace Drex extension (November 6)
+
+We added five active Nace serving IDs after reading the [Drex technical report](https://arxiv.org/abs/2611.07854) and checking the [key-specific API catalog](https://console.nace.ai/docs/drex/reference/models): `drex-v1.5`, `drex-v2.0`, `drex-max`, `drex-max-v1.1`, and `drex-max-finance`. Aliases, retired forwards, and the unserved DLM weights are not scored as additional models.
+
+The [new archive and fourteen-model comparison](eval/results/nace-2026-11-06/README.md) append **4,600 observations**: the same 880 public pairs and 40 synthetic diagnostics for each Nace model. The November 5 nine-model archive is unchanged. This later phase was specified after earlier results were visible; it is not a contemporaneous fourteen-model run. Prompts, shipped thresholds, input bytes, shared kernel, three-second deadline and no-retry policy remain fixed. Max and Max Finance now have a [separate calibration follow-up](#calibration-follow-up-max-and-max-finance); the other three Nace serving IDs remain fixed-policy comparisons here.
+
+Business results below are **precision / recall / clear-negative coverage**, in percent. Errors and abstentions remain in recall and coverage denominators; public native labels do not establish human-adjudicated contract quality.
+
+| Model            |         ContractNLI | MultiNLI business-adjacent |     FinDVer finance |
+| ---------------- | ------------------: | -------------------------: | ------------------: |
+| drex-max-v1.1    | 100.0 / 38.5 / 35.3 |        100.0 / 58.2 / 59.4 | 100.0 / 86.4 / 71.1 |
+| drex-max-finance | 100.0 / 46.2 / 61.8 |         94.5 / 77.6 / 65.4 | 100.0 / 88.6 / 84.2 |
+| drex-v2.0        |  88.9 / 30.8 / 37.0 |        100.0 / 52.2 / 49.6 | 100.0 / 38.6 / 60.5 |
+| drex-max         |  87.5 / 53.8 / 54.3 |         97.7 / 64.2 / 75.9 | 100.0 / 84.1 / 89.5 |
+| drex-v1.5        |  81.8 / 34.6 / 71.7 |         97.3 / 53.7 / 84.2 | 100.0 / 68.2 / 89.5 |
+
+**No Nace model/domain scorecard meets all three point targets.** Max Finance's 82-pair finance result is 100.0% precision, 88.6% recall and 84.2% negative coverage, with three deadline failures retained. Original Max clears 89.5% of finance negatives but recalls 84.1% of contradictions. Max v1.1's low science/contract clearance often reflects an uncertain answer leaning consistent; the archive distinguishes these cases from insufficient-context judgments. These are operating-policy results, not an intrinsic model ranking or validation of a new cutoff.
+
+The extension completed 4391/4,400 public observations; its separate synthetic diagnostics remain outside public quality. The archive includes AUROC/AP, retrospective recall at ≥95% observed precision, source-group paired F1/recall/negative-coverage intervals against full Decider, native-label slices, numeric HTTP-status diagnostics, token-price estimates and frozen execution sources. Paired comparisons are post-hoc, unadjusted for multiple comparisons, and not evidence of population equivalence. One original-order pass does not establish repeatability. The inherited public-data and length-selection limitations still apply.
+
+These five models are **evaluation-only** through `NACE_API_KEY`; they are not exposed by the hosted API or dashboard. Run the additional verifier offline:
+
+```sh
+python3 -B scripts/compare-nace.py --verify eval/results/nace-2026-11-06
+```
+
+### Calibration follow-up: Max and Max Finance
+
+The [separate Nace calibration extension](eval/results/nace-calibration-2026-11-06/README.md) adds **6,400 calls**: 2,512 fit and 688 source/group/content-disjoint validation cases per model, using the same public train cohorts as the earlier study. Both fit runs completed before policies and fit artifacts were hash-frozen; only then did validation begin. The inherited shipped-relative negative-budget definition and fixed sensitivity grid were specified before Nace fit and validation outputs. The cohorts have been studied previously; this is not a newly untouched test.
+
+Drex Max's primary allows at most its 25 shipped fit false clears, and Max Finance allows 16, each over the same 771 fit positives. Positive cutoffs are approximately 0.687 and 0.708. These fit decision cutoffs; the raw model probabilities are unchanged. Primary pooled validation results:
+
+| Model            | Precision % | Recall, shipped → fitted % | Negative coverage, shipped → fitted % | False clears, shipped → fitted / 212 |
+| ---------------- | ----------: | -------------------------: | ------------------------------------: | -----------------------------------: |
+| drex-max         |        97.1 |                57.1 → 62.3 |                           66.8 → 71.8 |                                8 → 7 |
+| drex-max-finance |        96.7 |                65.1 → 69.8 |                           66.0 → 70.6 |                                5 → 5 |
+
+The previous Decider primary is 96.0% precision, 67.5% recall and 74.2% negative coverage on the same validation cases. Max Finance's recall difference is **+2.4 points [−1.9, +5.8]**, and its F1 difference is **+1.9 [−1.1, +4.5]**, using exploratory paired source-group 95% intervals. These do not establish an improvement over Decider. Its negative coverage is lower by 3.6 points [−7.9, +0.6]. The original Max's recall difference is −5.2 points [−9.8, −0.9]. Intervals are metric-specific, post-hoc and unadjusted for multiple comparisons; different model-selection histories and call dates limit comparative claims.
+
+**No Nace primary validation or archive-transfer scorecard meets all three point targets.** Finance transfer remains below 90% recall: Max is 100.0 / 86.4 / 86.8 and Max Finance is 100.0 / 88.6 / 86.8 for precision / recall / negative coverage. The fixed 0 / 0.5 / 1 / 2 / 5% grid is published without validation-driven selection. Both policies preserve all four expected-uncertain synthetic contract cases. Max changes from 30 to 29 correct of 32, and Max Finance from 24 to 25; each adds one abstention on a previously cleared control. Controls are diagnostics, not independent human gold.
+
+Fit had 10 deadline failures and one transport failure; validation had four deadline failures (Max three, Finance one). All remain misses in recall and coverage; no retry or new scoring call was made. Frozen prompts, production defaults, public API model selection and historical archives stay unchanged. Native public labels and the remaining human-adjudication gap still prevent production qualification.
+
+Verify the study without provider keys, original text, Node or network calls:
+
+```sh
+python3 -B scripts/analyze-nace-calibration.py --archive eval/results/nace-calibration-2026-11-06
+```
+
 ## Run a new evaluation
 
 ### 1. Prepare and pin the inputs
@@ -361,14 +414,15 @@ The frozen full-matrix runner expects the filenames listed in its protocol, incl
 
 ### 2. Supply your own provider credential
 
-| Runner selection                                          | Credential/configuration                                                   |
-| --------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `--backend hosted --model jev-1.14.0`                     | `TYPESAFE_API_KEY`                                                         |
-| `--backend hosted --model gpt-6-luna`                     | `OPENAI_API_KEY`                                                           |
-| `--backend hosted --model microsoft/microsoft-decision-1` | `OPENROUTER_API_KEY`                                                       |
-| Either Pplx ID with `--backend hosted --model …`          | `OPENROUTER_API_KEY`                                                       |
-| Any Clef ID with `--backend hosted --model …`             | Your Cloudflare account, named Wrangler auth profile, and the `AI` binding |
-| `--backend fastino`                                       | `FASTINO_API_KEY`; pins `fastino/GLiDE`                                    |
+| Runner selection                                                   | Credential/configuration                                                   |
+| ------------------------------------------------------------------ | -------------------------------------------------------------------------- |
+| `--backend hosted --model jev-1.14.0`                              | `TYPESAFE_API_KEY`                                                         |
+| `--backend hosted --model gpt-6-luna`                              | `OPENAI_API_KEY`                                                           |
+| `--backend hosted --model microsoft/microsoft-decision-1`          | `OPENROUTER_API_KEY`                                                       |
+| Either Pplx ID with `--backend hosted --model …`                   | `OPENROUTER_API_KEY`                                                       |
+| Any Clef ID with `--backend hosted --model …`                      | Your Cloudflare account, named Wrangler auth profile, and the `AI` binding |
+| `--backend fastino`                                                | `FASTINO_API_KEY`; pins `fastino/GLiDE`                                    |
+| `--backend nace --model drex-max-v1.1` (or another active Drex ID) | `NACE_API_KEY`; explicit model required                                    |
 
 HTTPS-provider evaluation does not require the Countercheck dashboard, invitation, D1 database, email service, or a Nicia account. Keep credentials in your environment or secret manager, not command arguments, source, predictions or reports. A provider credential is different from a Countercheck API key.
 

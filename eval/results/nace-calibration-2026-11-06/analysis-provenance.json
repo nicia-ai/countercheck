@@ -1,0 +1,11 @@
+{
+  "created_at": "2026-11-06T21:18:50.760263+00:00",
+  "python": "3.15.2 (main, Oct 25 2026, 16:57:51) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "phase": "Post-validation analysis; no policy reselection",
+  "original_execution_sha256": "b24d589efddbfe3306b637a0555b3af3f9e5ba410da8bffe7f88e5ab91075314",
+  "source_files": {
+    "scripts/analyze-nace-calibration.py": "766bc88f01f320aeb4b8748b07a961acedfd161e150dad43b6dacb6276827328",
+    "scripts/analyze-calibration-study.py": "316cce07ed0c0f248728310d908b27d76c89d503d50f0097cb250d4fb0436bd2",
+    "scripts/analyze-calibration-followup.py": "7f29b7606f31f64eb0f1916d5eee8b89cda3afdd0ddac5f2907fb3491eb031e9"
+  }
+}

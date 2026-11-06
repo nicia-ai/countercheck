@@ -1,0 +1,52 @@
+[
+  {
+    "model": "drex-v1.5",
+    "status": "ok",
+    "reported_model": "drex-v1.5",
+    "input_tokens": 304,
+    "http_status": [
+      200
+    ],
+    "latency_ms": 525
+  },
+  {
+    "model": "drex-v2.0",
+    "status": "ok",
+    "reported_model": "drex-v2.0",
+    "input_tokens": 304,
+    "http_status": [
+      200
+    ],
+    "latency_ms": 1112
+  },
+  {
+    "model": "drex-max",
+    "status": "ok",
+    "reported_model": "drex-max",
+    "input_tokens": 374,
+    "http_status": [
+      200
+    ],
+    "latency_ms": 136
+  },
+  {
+    "model": "drex-max-v1.1",
+    "status": "ok",
+    "reported_model": "drex-max-v1.1",
+    "input_tokens": 371,
+    "http_status": [
+      200
+    ],
+    "latency_ms": 163
+  },
+  {
+    "model": "drex-max-finance",
+    "status": "ok",
+    "reported_model": "drex-max-finance",
+    "input_tokens": 371,
+    "http_status": [
+      200
+    ],
+    "latency_ms": 250
+  }
+]

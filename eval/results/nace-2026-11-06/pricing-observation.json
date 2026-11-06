@@ -1,0 +1,12 @@
+{
+  "observed_date": "2026-11-06",
+  "source": "https://console.nace.ai/docs/drex/reference/pricing",
+  "input_usd_per_million": {
+    "drex-v1.5": 0.05,
+    "drex-v2.0": 0.06,
+    "drex-max": 0.03,
+    "drex-max-v1.1": 0.03,
+    "drex-max-finance": 0.03
+  },
+  "actual_invoice_available": false
+}

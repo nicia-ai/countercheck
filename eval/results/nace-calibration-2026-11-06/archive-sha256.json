@@ -1,0 +1,16 @@
+{
+  "README.md": "b3a53bb1989bafbd9a351dbc6b470a7dd98cd3a0df58d2cb3249ec38d754ef3b",
+  "analysis-provenance.json": "2b133e002551d94cabd6048aab63f27800f624e0c4c139f696e66fd176077c7c",
+  "analysis-sources.json.gz": "4ccdb9aa361fdb4f85fb209541d1bf3e83d9a43ca0d697470e3259820b29336d",
+  "analysis.json": "f95bd36f263c5269b2b9926a3fcc32f6a0de22457e27ff44a5b23481fdb72248",
+  "execution-sources.json.gz": "331e249d4fd392c38cb42240739df32911e670e2d18ace3b149123650afdcc65",
+  "execution.json": "f2726c6bc4be55ae2963d5f3f8cdafe3f9a11e658300c23f5873c34547d20875",
+  "fit-checkpoints.json.gz": "8800e4126fac740877e007af53e4e9d04239dd4bcaa3d1f7a36e100e88fda86d",
+  "fit-observations.redacted.jsonl.gz": "e906821938b14bbb320123f415aab309f0c31588766f9695d70283f58725ede1",
+  "metric-crosscheck.json": "a0241c390e1954cfc2aed383d3842204138e2461fd4160e7da6a362212cae389",
+  "policies.json": "307e8857932d557dde15b69ffe36fba2e7c5f7cbed3dd01db18ef59081300ca7",
+  "policy-freeze.json": "c4c4e3cea6bf99b17c7f890f697df752a0dcff74d24982fba12a39c274099807",
+  "protocol.json": "55b681b76cfa83589a482bcb888e5c2bc6478788e1b1b2cfd90bd8da1513784e",
+  "validation-checkpoints.json.gz": "85af67eff59e8dbbe7b8e7ee13092fb9fb50fc5c164bce189365abef70264501",
+  "validation-observations.redacted.jsonl.gz": "6d93288250516567f38e1b2cd2ab9add1cc2721cfd46344175e071c066be4622"
+}

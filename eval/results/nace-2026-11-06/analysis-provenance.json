@@ -1,0 +1,10 @@
+{
+  "created_at": "2026-11-06T19:54:49.501242+00:00",
+  "python": "3.15.2 (main, Oct 25 2026, 16:57:51) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "stage": "Post-inference analysis; no tuning",
+  "sources": {
+    "scripts/compare-nace.py": "c64067e328950eaee4ee3988b57a5264d5ef5382bd609656e767caa2e79124b9",
+    "eval/results/business-2026-11-04/metrics.py": "ebd741940080f46125213a88cbff4f73e377c20fbee107bde6289f1da4d7841c",
+    "scripts/analyze-eval-release.py": "dc7ac76cf1477a9f5a4c5c35fc1bfab5abd89c62ad497722f707993c75e3fc20"
+  }
+}

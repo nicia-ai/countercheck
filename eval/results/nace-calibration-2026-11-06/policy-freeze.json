@@ -1,0 +1,8 @@
+{
+  "frozen_at": "2026-11-06T21:01:57.665Z",
+  "policies_sha256": "307e8857932d557dde15b69ffe36fba2e7c5f7cbed3dd01db18ef59081300ca7",
+  "protocol_sha256": "55b681b76cfa83589a482bcb888e5c2bc6478788e1b1b2cfd90bd8da1513784e",
+  "fit_observations_sha256": "e906821938b14bbb320123f415aab309f0c31588766f9695d70283f58725ede1",
+  "fit_checkpoints_sha256": "8800e4126fac740877e007af53e4e9d04239dd4bcaa3d1f7a36e100e88fda86d",
+  "validation_inference_started": false
+}

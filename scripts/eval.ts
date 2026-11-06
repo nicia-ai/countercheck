@@ -1,5 +1,6 @@
 import { readFile, writeFile, mkdir, access } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
+import { setTimeout as delay } from "node:timers/promises";
 import { parseArgs, positiveInteger } from "../eval/args.js";
 import { sampleGroups, groupStatistics, SAMPLING_BIAS } from "../eval/datasets.js";
 import { runPairs, type RunOptions } from "../eval/backends.js";
@@ -19,6 +20,7 @@ import {
 } from "../eval/types.js";
 import { profileSchema, modelSchema, type CheckRequest } from "../src/contracts/index.js";
 import { evaluationProvider } from "../eval/providers.js";
+import { naceModelSchema } from "../eval/nace-provider.js";
 
 const HELP = `Countercheck supplied-evidence benchmark runner (sequential calls; no retries).
 Usage: pnpm eval:run --manifest FILE --backend fake --out PREFIX
@@ -26,8 +28,8 @@ Usage: pnpm eval:run --manifest FILE --backend fake --out PREFIX
        pnpm eval:run --manifest FILE --backend service --url https://... --live --limit 10 --max-calls 10 --max-spend-usd 1 --cost-per-call-usd 0.01 --out PREFIX
        pnpm eval:run --manifest FILE --backend replay --predictions FILE --out PREFIX
 Options:
-  --backend fake|service|hosted|fastino|jev|jev-direct|clef|decider|replay
-  --model ID                     Required with hosted; closed catalog of deployed models, native Workers AI binding
+  --backend fake|service|hosted|fastino|nace|jev|jev-direct|clef|decider|replay
+  --model ID                     Required with hosted or nace; explicit catalog ID, no Nace aliases
   --profile balanced-v1|semantic-v2|structured-value-v1 (default balanced-v1; candidates experimental)
   --manifest FILE --out PREFIX   Required; emits PREFIX.json and PREFIX.md; refuses overwrite
   --live                         Mandatory for all network/model calls (never inferred from credentials)
@@ -36,6 +38,7 @@ Options:
   --presentation original|reversed|shuffled (default original; provider permutation for kernel routes)
   --batch-size N                 Default 1; 2–20 fixed same-claim batches test atomic envelope stress, never repacked
   --timeout-ms N                 Default 6000 service / 3000 kernel; total route deadline, no retries
+  --interval-ms N                Optional minimum between batch starts, outside measured latency/deadline
   --max-calls N                  Required live hard cap; rejects planned over-budget run
   --max-spend-usd USD            Required live reservation cap
   --cost-per-call-usd USD        Required live conservative per-call reservation, not a measured price
@@ -44,7 +47,7 @@ Options:
   --prediction-metadata FILE    Required for public replay (default FILE.metadata.json); binds manifest SHA-256
   --help
 Credentials: TYPESAFE_API_KEY (Jev), CLOUDFLARE_ACCOUNT_ID + CLOUDFLARE_API_TOKEN (Clef),
-OPENROUTER_API_KEY (Decider), FASTINO_API_KEY (Fastino GLiDE). No provider keys or error bodies enter reports.
+OPENROUTER_API_KEY (Decider), FASTINO_API_KEY (Fastino GLiDE), NACE_API_KEY (Drex). No provider keys or error bodies enter reports.
 Fake is transport/metrics smoke only, restricted to explicitly synthetic fixtures, no semantic performance claim.
 jev-direct uses the same single-pair compiler/policy and response validator, bypassing evaluateCheck.
 Cost reservation is operator supplied, not a guaranteed vendor spending limit. Usage unknown remains unknown.
@@ -91,6 +94,7 @@ async function main(): Promise<void> {
       "presentation",
       "batch-size",
       "timeout-ms",
+      "interval-ms",
       "max-calls",
       "max-spend-usd",
       "cost-per-call-usd",
@@ -112,6 +116,7 @@ async function main(): Promise<void> {
       "service",
       "hosted",
       "fastino",
+      "nace",
       "jev",
       "jev-direct",
       "clef",
@@ -120,9 +125,14 @@ async function main(): Promise<void> {
     ].includes(args.backend ?? "")
   )
     throw new Error("Required --manifest --backend --out; use --help");
-  const model = args.backend === "hosted" ? modelSchema.parse(args.model) : undefined;
-  if (args.model !== undefined && args.backend !== "hosted")
-    throw new Error("Use --model only with --backend hosted");
+  const model =
+    args.backend === "hosted"
+      ? modelSchema.parse(args.model)
+      : args.backend === "nace"
+        ? naceModelSchema.parse(args.model)
+        : undefined;
+  if (args.model !== undefined && !["hosted", "nace"].includes(args.backend ?? ""))
+    throw new Error("Use --model only with --backend hosted or nace");
   const profile: CheckRequest["profile"] = profileSchema.parse(args.profile ?? "balanced-v1");
   if (args.backend === "replay" && args.profile !== undefined)
     throw new Error("Replay profile comes from archived provenance; do not supply --profile");
@@ -163,6 +173,9 @@ async function main(): Promise<void> {
   if (args.backend === "service" && presentation === "shuffled")
     throw new Error("Service route cannot perturb provider presentation; use a kernel backend");
   const timing = evaluationTiming(args.backend ?? "", args["timeout-ms"]);
+  const intervalMs = args["interval-ms"]
+    ? positiveInteger(args["interval-ms"], 1, "interval-ms")
+    : 0;
   const batches = groupBatches(pairs, batchSize);
   const calls = batches.length * passes;
   let reservationPerCall: number | undefined;
@@ -242,6 +255,7 @@ async function main(): Promise<void> {
         presentation,
         batch_size: batchSize,
         concurrency: 1,
+        interval_ms: intervalMs,
         ...timing,
         packing: packingProtocol(args.backend ?? "", batchSize),
       },
@@ -250,8 +264,12 @@ async function main(): Promise<void> {
     };
     try {
       await withPredictionCheckpoint(checkpointPath, predictionMetadata, async (append) => {
+        let previousStart = -Infinity;
         for (let pass = 1; pass <= passes; pass++) {
           for (const batch of batches) {
+            if (intervalMs > 0)
+              await delay(Math.max(0, intervalMs - (performance.now() - previousStart)));
+            previousStart = performance.now();
             const options: RunOptions = {
               pass,
               profile,
@@ -336,6 +354,7 @@ async function main(): Promise<void> {
       presentation: args.backend === "replay" ? null : presentation,
       batch_size: args.backend === "replay" ? null : batchSize,
       concurrency: args.backend === "replay" ? null : 1,
+      interval_ms: args.backend === "replay" ? null : intervalMs,
       planned_calls: args.backend === "replay" ? 0 : calls,
       ...timing,
       packing: packingProtocol(args.backend ?? "", batchSize),

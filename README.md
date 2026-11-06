@@ -1,13 +1,17 @@
 # Countercheck
 
+<a href="https://countercheck.nicia.ai"><img src="docs/assets/countercheck-logo.png" alt="Countercheck — opposing logic brackets around a red square" width="540" /></a>
+
 Countercheck combines a contradiction-detection API with a reproducible evaluation harness for decision models. The stateless API compares one caller-supplied claim with up to twenty
 caller-supplied texts. It reports pair-level contradictions, uncertainty, and the exact submitted
 text IDs it evaluated. It does not retain a customer corpus, retrieve evidence, choose which text is
 right, or decide whether a write should be admitted.
 
-Start with the **[evaluation approach and nine-model results](EVALUATION.md)** if you build or evaluate decision models. You can recompute the published aggregate metrics and analysis offline without provider keys, Cloudflare, or a Countercheck account.
+**[Try Countercheck online →](https://countercheck.nicia.ai)** — compare statements in your browser, choose a model, and create an API key. The hosted preview is invitation-only; request access on the site if you haven't been invited.
 
-The hosted API is an invitation-only preview: [OpenAPI](https://countercheck.nicia.ai/openapi.json) and [health](https://countercheck.nicia.ai/health). Hosting and authentication are separate from the evaluation toolkit.
+Start with the **[evaluation approach and results](EVALUATION.md)** if you build or evaluate decision models. You can recompute the published aggregate metrics and analysis offline without provider keys, Cloudflare, or a Countercheck account.
+
+Hosted API: [OpenAPI](https://countercheck.nicia.ai/openapi.json) · [health](https://countercheck.nicia.ai/health). Hosting and authentication are separate from the evaluation toolkit.
 
 The service is not yet qualified for production. The approved beta targets are evaluation gates,
 not measured results: contradiction precision of at least 0.95, recall of at least 0.90, and a
@@ -16,6 +20,10 @@ intervals and category-level reporting. See [the design](docs/design.md) for the
 and release protocol.
 
 ## Evaluation
+
+**Latest: [separately fitted Nace Max/Finance results](EVALUATION.md#calibration-follow-up-max-and-max-finance)** — 6,400 new calls with policies frozen before validation. Max validates at **97.1% precision / 62.3% recall / 71.8% negative coverage**; Finance at **96.7 / 69.8 / 70.6**. Finance is competitive with calibrated Decider, but its paired intervals do not establish a win. Neither meets all three targets. The [eleven-model calibrated comparison](eval/results/nace-calibration-2026-11-06/README.md) includes the fixed negative-budget sensitivity grid and contract controls.
+
+**New: [five-model Nace Drex extension](EVALUATION.md#nace-drex-extension-november-6)** — 4,600 additional assessments using the same frozen inputs and shipped policy. The [fourteen-model comparison](eval/results/nace-2026-11-06/README.md) keeps domains separate and adds ranking diagnostics and paired intervals. No Nace model/domain scorecard meets all three point targets; these routes remain evaluation-only.
 
 **Disclosure (November 5, 2026):** Nicia has no commercial relationship with any evaluated model provider.
 
@@ -31,7 +39,7 @@ Four scorecards reuse development samples. FinDVer is a previously scored, untun
 
 Read **[the evaluation approach, complete tables, limitations and reproduction guide](EVALUATION.md)** for dataset adaptations, label semantics, error/abstention handling, calibration diagnostics, confidence intervals and instructions for bringing your own model. The [measured archive](eval/results/hosted-models-with-glide-2026-11-05/README.md) preserves redacted scoring rows and provenance.
 
-The [initial calibration study](eval/results/separate-calibration-2026-11-05/README.md) adds 28,800 assessment attempts, then remaps the original probabilities offline. Its strict zero-false-clear budget caused a large negative-coverage loss. The [follow-up](eval/results/calibration-followup-2026-11-06/README.md) restores Jev validation with 688 successful calls and publishes a post-hoc per-model budget capped at each model's shipped-fit false clears, plus a fixed sensitivity grid. Pooled validation negative coverage recovers to 36.1–79.4%; positive recall remains 24.1–67.5%. No primary model/domain meets all three point targets. Both versions and the original failed Jev run remain intact. The 204-item human packet is prepared, not yet labelled; shipped behavior is unchanged.
+The [initial calibration study](eval/results/separate-calibration-2026-11-05/README.md) adds 28,800 assessment attempts, then remaps the original probabilities offline. Its strict zero-false-clear budget caused a large negative-coverage loss. The [follow-up](eval/results/calibration-followup-2026-11-06/README.md) restores Jev validation with 688 successful calls and publishes a post-hoc per-model budget capped at each model's shipped-fit false clears, plus a fixed sensitivity grid. For those nine models, pooled validation negative coverage recovers to 36.1–79.4%; positive recall remains 24.1–67.5%. No primary model/domain meets all three point targets. Both versions and the original failed Jev run remain intact. The 204-item human packet is prepared, not yet labelled; shipped behavior is unchanged.
 
 Hosted GLiDE 27B has an evaluation-runner adapter: 920 observations in the original comparison, plus 3,200 attempts in the separate calibration study. Its API/dashboard route has not been implemented. “Evaluation-only” describes that integration scope; it is not a separate model-quality tier. All eight exposed models are also unqualified previews. See [benchmark coverage versus API availability](EVALUATION.md#benchmark-coverage-and-api-availability); smaller GLiDE sizes remain unrun.
 
@@ -45,6 +53,13 @@ Verify both calibration versions as well, including independent fitting, status-
 
 ```sh
 python3 -B scripts/verify-calibration-followup.py
+```
+
+Verify the Nace shipped-policy extension and Max/Finance calibration study separately:
+
+```sh
+python3 -B scripts/compare-nace.py --verify eval/results/nace-2026-11-06
+python3 -B scripts/analyze-nace-calibration.py --archive eval/results/nace-calibration-2026-11-06
 ```
 
 To exercise the runner without credentials or model calls:

@@ -10,6 +10,8 @@ No model met all three proposed quality targets together on any of the five publ
 
 We ran **8,280 scored evaluations**: nine models, each on 880 existing frozen public pairs and 40 synthetic diagnostic cases. The original eight-model phase completed first; GLiDE was appended with the same input hashes, kernel, prompt, threshold policy and metrics. Three Fastino integration probes are recorded separately. There were ten execution errors in the scored runs, zero envelope exclusions, no retries and no truncated evidence.
 
+Later evidence: the [five-model Nace extension](../../eval/results/nace-2026-11-06/README.md) and [Max/Finance calibration follow-up](../../eval/results/nace-calibration-2026-11-06/README.md) append separate measurements. This dated report retains the original nine-model scope; see [the current evaluation guide](../../EVALUATION.md) for the combined findings.
+
 ## Results under the shipped policy
 
 All models use `balanced-v1`: flag contradiction at a contradiction probability of at least 0.8; clear a comparison only when contradiction probability is at most 0.2 and one negative-relation label has at least 0.8 probability; otherwise abstain. This measures the policy shipped in the API; GLiDE uses that policy through its evaluation-only adapter. It is not the best achievable prompt or calibration for each model.

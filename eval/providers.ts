@@ -1,5 +1,6 @@
 import type { Model } from "../src/contracts/models.js";
 import type { DecisionProvider } from "../src/providers/types.js";
+import type { NaceModel } from "./nace-provider.js";
 
 type Credentials = Readonly<Record<string, string | undefined>>;
 function required(env: Credentials, name: string): string {
@@ -12,17 +13,26 @@ function required(env: Credentials, name: string): string {
 export async function evaluationProvider(
   backend: string,
   env: Credentials = process.env,
-  model?: Model,
+  model?: Model | NaceModel,
 ): Promise<(DecisionProvider & { dispose?: () => Promise<void> }) | undefined> {
+  if (backend === "nace") {
+    const { createNaceProvider, naceModelSchema } = await import("./nace-provider.js");
+    return createNaceProvider({
+      apiKey: required(env, "NACE_API_KEY"),
+      model: naceModelSchema.parse(model),
+    });
+  }
   if (backend === "fastino") {
     const { createFastinoProvider } = await import("./fastino-provider.js");
     return createFastinoProvider({ apiKey: required(env, "FASTINO_API_KEY") });
   }
   if (backend === "hosted") {
     if (!model) throw new Error("Hosted evaluation requires an explicit model");
+    const { modelSchema } = await import("../src/contracts/index.js");
+    const hostedModel = modelSchema.parse(model);
     const { MODEL_ROUTES } = await import("../src/contracts/models.js");
     const { providerFor } = await import("../src/providers/catalog.js");
-    if (MODEL_ROUTES[model] === "clef") {
+    if (MODEL_ROUTES[hostedModel] === "clef") {
       const { getPlatformProxy } = await import("wrangler");
       const proxy = await getPlatformProxy<{ AI: NonNullable<import("../src/env.js").Env["AI"]> }>({
         configPath: "wrangler.jsonc",
@@ -31,7 +41,7 @@ export async function evaluationProvider(
         remoteBindings: true,
       });
       try {
-        return { ...providerFor({ AI: proxy.env.AI }, model), dispose: proxy.dispose };
+        return { ...providerFor({ AI: proxy.env.AI }, hostedModel), dispose: proxy.dispose };
       } catch (error) {
         await proxy.dispose();
         throw error;
@@ -43,7 +53,7 @@ export async function evaluationProvider(
         ...(env.OPENAI_API_KEY && { OPENAI_API_KEY: env.OPENAI_API_KEY }),
         ...(env.OPENROUTER_API_KEY && { OPENROUTER_API_KEY: env.OPENROUTER_API_KEY }),
       },
-      model,
+      hostedModel,
     );
   }
   if (backend === "jev" || backend === "jev-direct") {

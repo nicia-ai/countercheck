@@ -1,0 +1,184 @@
+{
+  "recorded_before_benchmark_inference": true,
+  "created_at": "2026-11-06T19:11:41.023Z",
+  "node": "v24.22.2",
+  "models": [
+    {
+      "id": "drex-max-v1.1",
+      "provider": "nace",
+      "name": "drex-max-v1.1"
+    },
+    {
+      "id": "drex-max-finance",
+      "provider": "nace",
+      "name": "drex-max-finance"
+    },
+    {
+      "id": "drex-v2.0",
+      "provider": "nace",
+      "name": "drex-v2.0"
+    },
+    {
+      "id": "drex-max",
+      "provider": "nace",
+      "name": "drex-max"
+    },
+    {
+      "id": "drex-v1.5",
+      "provider": "nace",
+      "name": "drex-v1.5"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "vitaminc",
+      "path": "eval/data/vitaminc-combined-dev-200.json",
+      "sha256": "982a5dc43919853176d372c53bf90bc98d4bc49e56d8703165feb14345aff0ff",
+      "pairs": 200,
+      "purpose": "development"
+    },
+    {
+      "id": "scifact",
+      "path": "eval/data/scifact-dev-200.json",
+      "sha256": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+      "pairs": 199,
+      "purpose": "development"
+    },
+    {
+      "id": "contractnli",
+      "path": "eval/data/business/contractnli-dev-200.json",
+      "sha256": "4906005f4843b97a1cc6f256f62467cced5183965a0bafa9d713ee0099326311",
+      "pairs": 199,
+      "purpose": "development"
+    },
+    {
+      "id": "mnli",
+      "path": "eval/data/business/mnli-nonfiction-dev-200.json",
+      "sha256": "114ee3ca8ff9960fc2146bf7bca19f38284281812c9cec27e25e9815746337b6",
+      "pairs": 200,
+      "purpose": "development"
+    },
+    {
+      "id": "findver",
+      "path": "eval/data/business/findver-testmini-ie-individual-82.json",
+      "sha256": "3e3f6515bdf307c218dbdac18c280188d9c36a9cf21a843e349fc4d4b368ae12",
+      "pairs": 82,
+      "purpose": "locked-test"
+    },
+    {
+      "id": "synthetic-smoke",
+      "path": "eval/fixtures/synthetic-smoke.json",
+      "sha256": "b1a96134ba41cb728cf12e7af0c30cc6a754ef2b734ebaff8b3397196bfbad79",
+      "pairs": 8,
+      "purpose": "synthetic-smoke"
+    },
+    {
+      "id": "synthetic-contract",
+      "path": "eval/fixtures/prompt-ablation-contract.json",
+      "sha256": "3abd761205be0fe9113b4be89fbdb71313f12a96e3331a8c9b746b9698bf3ecb",
+      "pairs": 32,
+      "purpose": "synthetic-smoke"
+    }
+  ],
+  "sources": {
+    "scripts/run-hosted-matrix.ts": "86cc07858f0892df821021881dd4e8c39918351bd440db19610c8b62b284dbba",
+    "scripts/eval.ts": "42ddb42e6bb1db531be3a140926eb3e83bf63fa404ade01a478f6a1dc3c5ce5d",
+    "eval/providers.ts": "99e9c1febf7fff89891056500c96f06fc1d25d42e1ed232fee15624304d77e8d",
+    "eval/backends.ts": "b6df75fd9c0229c28c453ab6ac103b8cef13c384938c1e4699a25acc7934107e",
+    "eval/metrics.ts": "fd9a1fdde154e24c48e056943a719550bd0d552c7bac42e85e2667fbbec144b5",
+    "eval/types.ts": "8e22eeac37d00c1087334d3197f4f78e966020db0730c1f3bee392cc020f034b",
+    "eval/protocol.ts": "6b29f8ef053150459cb4b977f857ae2f30f95b8c72f3dc4e08890ec50c838296",
+    "eval/checkpoint.ts": "bbecf6675bcf112582331f7bb816a2ebb171bc98c5d7a9691ae0e36e937c31e4",
+    "src/contracts/models.ts": "96dfd1a29f9812615ba069048e1945d1d962b25f297e4067e56e77cd31d0513d",
+    "src/contracts/index.ts": "d5c75ad16aea3e041ebae38a5853750bd465ed1426aa8df610219cebefd7128f",
+    "src/contracts/limits.ts": "a3f0d87dded41a587a6d6d78aaafcca761615e0fda5aa77a4d7b96f6b59f856c",
+    "src/kernel/index.ts": "5f648ef004b17341692f32a1f83b50b5b14883382262336187a9a381a103ccab",
+    "src/kernel/experimental.ts": "8366bd36e422201ad92fb72a6a9b34ed0a1a96266d880c886199fc3ad677d863",
+    "src/providers/catalog.ts": "2986d9d67e23978303e9640ea847fb3dfb05b61ef75a9091d4c9d45111ac0f8e",
+    "src/providers/jev.ts": "661dde8836042768b02c79d9310468206fd2635145ff38d2e196ae6375cf4b35",
+    "src/providers/clef.ts": "686dfde0a380eb825ff41ff5b8b2105f3e3df1bf918902867643d163b3ae6991",
+    "src/providers/decider.ts": "d2f6b103ea45f711d4bfa52f1986c5c0e43076510cf595254bc74789ebed2588",
+    "src/providers/openai-decisions.ts": "25de813283f9bab080a1292c1d953a008fd095e002abaac99ecc5c707f59d652",
+    "src/providers/transport.ts": "cb00796c870ec19b18c038ea6fc21fc68a011a4c710b386c812727a0d9510c5d",
+    "src/providers/response.ts": "84e8ac017f3abeed8c3102e5543103e3ecfaccda9492b9a5c742d24880bde60c",
+    "src/http/deadline.ts": "498633081b578faafc9df35ef3f488c7d2fefb75b58f58ba845cb08ceb9d7d88",
+    "pnpm-lock.yaml": "139262ec9a93c55291db4541098980d44aac175e5bcebce960f4796cd1f8945f",
+    "eval/nace-provider.ts": "c95719e13951813f2e7b5f959ad32104c1d0d9a1317af45eb6bc3aa815439838",
+    "eval/http-status-observer.ts": "be30d83b348c17dff84d707318a05209196c0b764575cab221dbb5ba28c3b0c5",
+    "eval/register-http-status.ts": "90dae0a176be77d16c12cb18ed454a38a24f900ad509261ba69b2fc1951d00e7",
+    "scripts/run-nace-benchmark.ts": "95a5882f3eddc8c4aeab4471a5599726d5d6631158534bc737927b97e31d0b5e"
+  },
+  "planned_calls": 4600,
+  "prior_integration_probes": 5,
+  "max_calls_including_probes": 4605,
+  "reservation_per_call_usd": 0.002,
+  "reservation_cap_usd": 10,
+  "actual_billed_cost": null,
+  "profile": "balanced-v1",
+  "passes": 1,
+  "presentation": "original",
+  "batch_size": 1,
+  "concurrency": 1,
+  "interval_ms": 550,
+  "pacing_outside_latency_and_deadline": true,
+  "timeout_ms": 3000,
+  "retries": 0,
+  "fallbacks": false,
+  "input_conversion": "none; same structured instructions/state/criteria; model field replaced",
+  "model_catalog": [
+    {
+      "name": "drex-v1.5",
+      "description": "Drex 1.5 decision model. Typed questions in, calibrated probabilities out; states up to 131,072 tokens.",
+      "release_date": "2026-09-28",
+      "alias_for": null
+    },
+    {
+      "name": "drex-v2.0",
+      "description": "Drex 2.0 decision model, a mixture of experts with 3B active parameters. Typed questions in, calibrated probabilities out; states up to 131,072 tokens.",
+      "release_date": "2026-10-06",
+      "alias_for": null
+    },
+    {
+      "name": "drex-max",
+      "description": "Drex Max multimodal decision model, the most accurate Drex. Typed questions in, calibrated probabilities out; up to 262,144 input tokens per question.",
+      "release_date": "2026-10-13",
+      "alias_for": null
+    },
+    {
+      "name": "drex-max-v1.1",
+      "description": "Drex Max v1.1 multimodal decision model. Typed questions in, calibrated probabilities out; up to 262,144 input tokens across the whole request.",
+      "release_date": "2026-10-28",
+      "alias_for": null
+    },
+    {
+      "name": "drex-max-finance",
+      "description": "Drex Max Finance multimodal decision model for finance. Up to 262,144 input tokens across the whole request.",
+      "release_date": "2026-11-01",
+      "alias_for": null
+    },
+    {
+      "name": "drex-latest",
+      "description": "Points to drex-v2.0 (Drex 2.0). Moves to a newer version only on an announced date.",
+      "release_date": "2026-10-06",
+      "alias_for": "drex-v2.0"
+    },
+    {
+      "name": "drex-v1.0",
+      "description": "Retired on 2026-10-21. Requests that name it are served by drex-max (Drex Max) at its price.",
+      "release_date": "2026-09-24",
+      "alias_for": "drex-max"
+    },
+    {
+      "name": "drex-v1.1",
+      "description": "Retired on 2026-09-28. Requests that name it are served by drex-v1.5 (Drex 1.5) at its price.",
+      "release_date": "2026-09-25",
+      "alias_for": "drex-v1.5"
+    }
+  ],
+  "checkpoint_revision": null,
+  "unused_adapter_change": "src/providers/decider.ts differs from the baseline: a later defensive fix strips extra router billing fields. This adapter is not loaded by the Nace route; kernel/compiler/metrics/transport/response validator are byte-identical.",
+  "retention": "Not established by inference response; public benchmark inputs only",
+  "baseline_archive": "eval/results/hosted-models-2026-11-05",
+  "baseline_protocol_sha256": "5746b97195b1af948abb8a626dab316dd44ba311d6658ba803079421117097b0",
+  "qualification": "Evaluation only; native labels, no new human adjudication, no prompt tuning or calibration. Non-contemporaneous comparison with November 5 baseline."
+}

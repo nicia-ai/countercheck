@@ -10,7 +10,8 @@ const observed = observeHttpStatus(original, (value) => {
 });
 globalThis.fetch = (input, init) => {
   const url = new URL(input instanceof Request ? input.url : input);
-  return url.origin === "https://api.typesafe.ai" && url.pathname === "/v1/systemone"
+  return ["https://api.typesafe.ai", "https://console.nace.ai"].includes(url.origin) &&
+    url.pathname === "/v1/systemone"
     ? observed(input, init)
     : original(input, init);
 };

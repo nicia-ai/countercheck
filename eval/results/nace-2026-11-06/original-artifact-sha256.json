@@ -1,0 +1,212 @@
+{
+  "drex-max-v1.1/vitaminc": {
+    "report": "edd47aaff0a4958fd46843f65e95ea73a3884acc719462162fb15b3abc449a28",
+    "checkpoint": "3519cde11606e3dc4eb422426fe0ee4bdf4ae5976d5e5a6008cebabd9e0be2b1",
+    "metadata": "6e026a43c6cd8cc979375fea1935bfe4b990bd5b06288fe676147e612c1a4b0f",
+    "http_status": "d90396d0acfb6b00b864729a616728216042f8a1481927ec21703c885e5cd74d"
+  },
+  "drex-max-v1.1/scifact": {
+    "report": "fd302c64b0e93e501e55bba81413ce431290f20c26d7e414611d8f028230d038",
+    "checkpoint": "5f09e98a7be899178fdbb9cd4044cc566b06a8137b9605af2da44d41f360490a",
+    "metadata": "cc1f6bd58d395dab2fefa19930b2de4acd5ff8e6f72cea5fbe5275405756e51c",
+    "http_status": "546f1392a5fb142cee1342a2ffcda594a16d6b4d528f744587559ed4d00748e4"
+  },
+  "drex-max-v1.1/contractnli": {
+    "report": "e18c9d60663e0a64834b11fe8157cb0ce604ba6186d32633a007dc945a2aabc5",
+    "checkpoint": "ba804c6eac5919e6b83d14d185c9cea9b7a61f5b70f77c694daa54b3dd03cdd5",
+    "metadata": "88c991c1ebfbe2b62a1d09394ab7b39aace03fb4f6ba8e0605442974e5f752e8",
+    "http_status": "2e2b9906a7861c81a3af08f8da68e90660ba123f2af0f720141d3e211e314cb2"
+  },
+  "drex-max-v1.1/mnli": {
+    "report": "115a9c81a5d03bfff42d17cf51f43656b4ef80f0349c7cd607a30fb36554584f",
+    "checkpoint": "384bd912dfe692e0dcdfe66cc8250afc46f17ee1e06a92828b2b2fb86daad474",
+    "metadata": "4ea7e2843674b2910b0e6ba7ae6a88563eda27f054a5374d87747a15329b2890",
+    "http_status": "d90396d0acfb6b00b864729a616728216042f8a1481927ec21703c885e5cd74d"
+  },
+  "drex-max-v1.1/findver": {
+    "report": "0b015c297fa2fdf8d6d256f43b81ced6383ae80f56900192d95fb34031384cf8",
+    "checkpoint": "4f1a2743a6b36c75a53e5d7816154e99a72b7c713653258b24edbd3d36ddf886",
+    "metadata": "43ce6b91b54264c155c215a3f9516c4ef18d10bf1126acde56610a65faad05d8",
+    "http_status": "b16a734719c7a7b1b40d886cec0ccab5a47424236b1287f5c10ae1bec8efaf35"
+  },
+  "drex-max-v1.1/synthetic-smoke": {
+    "report": "182037bd961b92eda00c65fb53f3a1d47cd0163739240ab46f7395dc82d90ce7",
+    "checkpoint": "5688dd66b2ab3f762046066352d6ef10d726ca8e99f59702aac361a5e8a4cf68",
+    "metadata": "4db89e5f0f56739cf97723ed0d3d59e7931aa865fb9f2ad483c5c9bcdb7810fb",
+    "http_status": "0c5f776f8762d2d8b812436cc7ab0f03206559d26d71d5ecfcd95c4ff9a9ada8"
+  },
+  "drex-max-v1.1/synthetic-contract": {
+    "report": "720d87a71c545bef211735e8a9903b7af27c40269e97aff8c20d01900ab56614",
+    "checkpoint": "eef32f8a68dfd4c65881c02af71179b735f2d96e769159e5e5f9da42628759e3",
+    "metadata": "19f6093def3453113065a4967830117be154561873b303eb562d02a9c33429a5",
+    "http_status": "6c2b422525afcf6d183427cab9e0bbafcc4a7a055717cb1d0998c8ac06a41db5"
+  },
+  "drex-max-finance/vitaminc": {
+    "report": "23913fe513c8a56a38e4fdf4e36b86617d7c8345c7fea98e90ac68a0c489a3e8",
+    "checkpoint": "c63a6d10f83a79a1b8c37989fa4b15c8e382c9071d70336258f3b0e2571210b1",
+    "metadata": "16cf158b2df171bd5816d0f93472bb6d0cd12201cd51a5610f6f41fbad42d5db",
+    "http_status": "d90396d0acfb6b00b864729a616728216042f8a1481927ec21703c885e5cd74d"
+  },
+  "drex-max-finance/scifact": {
+    "report": "8c429702e570ddeb8ff7e96f9b346098fbd2d809628b2cd7087502210e3bdd9b",
+    "checkpoint": "f09549d2fa7f0fb01c88b1643ef7d9a3944d6aa05d09b690d7cb9e0c95f0a5b1",
+    "metadata": "3ef6899d6cb36262105682bfb92ca20ab668b62a120e9e6667a5c7bd811a41cb",
+    "http_status": "2e2b9906a7861c81a3af08f8da68e90660ba123f2af0f720141d3e211e314cb2"
+  },
+  "drex-max-finance/contractnli": {
+    "report": "d121e4cf9308341698b598c815fc7d19946014cad3f14724bca090074653c2ae",
+    "checkpoint": "7a733b947e9962d7638a7ecb1030dfe530eb4205caf1a84911727b841bdd2b2e",
+    "metadata": "e4539b089f00cd1c9502b009d3aaa7668de38d66dd92a011469a6f6f553f63da",
+    "http_status": "2e2b9906a7861c81a3af08f8da68e90660ba123f2af0f720141d3e211e314cb2"
+  },
+  "drex-max-finance/mnli": {
+    "report": "62e4e90fc92b65f74815662fa95d2f14cdeedf63bda79055ac8363f2ebdbaaa9",
+    "checkpoint": "36070645a0a34e816e744abf6b72da33c85568bb501286a4a51a467fc9a968ad",
+    "metadata": "bdd3aaa7d29cccb0b49b2e0779e9f58cd30d5514b1e7c2cc82618c38f330fccd",
+    "http_status": "9438462e4cc1c1315d704b8e1b8e9d0cbc98ee7c7eefc003ccbd36cc5a355ce6"
+  },
+  "drex-max-finance/findver": {
+    "report": "113eda3aadc1a8505cebbc7f881244965405b36f1107dd3f811a1f8665831886",
+    "checkpoint": "58b4d52c7c2a7ef2561f87f7d6798d6f0530b843466b7134e59f18d0a54c3874",
+    "metadata": "134c73164a697366b1c84ce6a126f2ff1a9c42765e992c648fd88fc05b2c8aab",
+    "http_status": "34a1f30d0dfc1ffa7a52c86c2adc90fb0a6312ce842d9df45928a23cf9afb059"
+  },
+  "drex-max-finance/synthetic-smoke": {
+    "report": "77a46af9b196eba5413a1e04b421c683258c616f5a46293e189063ce7ce55ab8",
+    "checkpoint": "54c37a6fe19830e0e039be6d93f09add6e4eb53c2122b236144e5640bcdd9c2a",
+    "metadata": "8e40c8e50f6c281eca6893265bbb1369f5dd6b1c89590125669daa44f7d406b2",
+    "http_status": "0c5f776f8762d2d8b812436cc7ab0f03206559d26d71d5ecfcd95c4ff9a9ada8"
+  },
+  "drex-max-finance/synthetic-contract": {
+    "report": "6f9e3b7e50a92f3a312348bc961e30f9b5f243f07cf9be0437c299e85b4df108",
+    "checkpoint": "9ef978e0c0da8662b277660fb099cc59e9e7e8c42f64cb9f3d50e08ee765f15b",
+    "metadata": "341c87f5a81c51da3c5706947301288f503f54ccb59c3b63ff7c11759e79136a",
+    "http_status": "b8b606e84a21516dbd5d34be7c07e088bf4d41ab6aa8177ed27fee96cffb933d"
+  },
+  "drex-v2.0/vitaminc": {
+    "report": "a76420d19688817c764ab67ded3285a511cdd8565af63b6bc3769570be76d91d",
+    "checkpoint": "abdeadfb0932177dd95aa85168009aa31e6dad7d1ad01c7d37c6e4ff088eea1b",
+    "metadata": "636dbfa783aefc7eed98e42ebae0ff4a608229d1f7bbc54800dac8137187d24f",
+    "http_status": "dbd5cf0024a60422d3a39cfc0ec9d81d481fe1af7386fd538131c5ed67aa6894"
+  },
+  "drex-v2.0/scifact": {
+    "report": "5693c1b140ceda4408990042a1fe72cdf708132056659c7cd5b271713cdcc6e0",
+    "checkpoint": "ae458a118f921249b368056178247a05f57e6f313c956f3f56be7b1a70451609",
+    "metadata": "38e76dbe05065d54fc318e005c8e0c384e955f22a26f8a2497b15066e9cf357a",
+    "http_status": "cf19341b16873030620a9f5ae792367200ed7db7b6a05c847e6c7c7b77311426"
+  },
+  "drex-v2.0/contractnli": {
+    "report": "5506545d249b08711a0a6c136768c8b369b8dd2e79ece2557128aeea5727d2e9",
+    "checkpoint": "a2262b5ff2d2048e36cce648d0a3508db4a93a1e1ae3af8979c6a1ed21c1eecb",
+    "metadata": "236061d72599b9b9006b8095f5a3baf8ff40d176eb349f31c51c086e78f7a4d0",
+    "http_status": "2e2b9906a7861c81a3af08f8da68e90660ba123f2af0f720141d3e211e314cb2"
+  },
+  "drex-v2.0/mnli": {
+    "report": "824d10b892759d53865fe30d4176566f0b8ca62a3a26d37ce6a5a8b87dba6e53",
+    "checkpoint": "2d7e0cb3ec346846a71bd99c999aa4dc9e49b8d0b54e20648437a7264f7a326e",
+    "metadata": "9059754fe3382f05fa245906e1aa50be984be0824327673a955eb317d978113b",
+    "http_status": "d90396d0acfb6b00b864729a616728216042f8a1481927ec21703c885e5cd74d"
+  },
+  "drex-v2.0/findver": {
+    "report": "b77aa0d66e97510a31c38f4b7fa034bf8459872a4d6e0cefdd6bb86f8661216d",
+    "checkpoint": "f2af655cd9d3f5ad7829b54a63f350224d6ba483a0f3797e565e470468061a76",
+    "metadata": "b78cf52f458aa11a266b205badc45559a43184165850e6d039133c7e6c23ca04",
+    "http_status": "b16a734719c7a7b1b40d886cec0ccab5a47424236b1287f5c10ae1bec8efaf35"
+  },
+  "drex-v2.0/synthetic-smoke": {
+    "report": "cfd57d089df2e2a21c62a0aa5fd63c5c6f850c05b1949c49cdcaecf9cc532f25",
+    "checkpoint": "2a7e7498a9797731a2feabad7f4f157a2f13f5d6317b4180d84c3ef2d9b42d2f",
+    "metadata": "7702cb267965091eff89856a2d117f35b9d308d5b94e260c4ebd4c80e66368d7",
+    "http_status": "0c5f776f8762d2d8b812436cc7ab0f03206559d26d71d5ecfcd95c4ff9a9ada8"
+  },
+  "drex-v2.0/synthetic-contract": {
+    "report": "601e5a7b7981816296b4ef18c14bbbddebd7b2cae6e85818d0ac22442c81a342",
+    "checkpoint": "3fffed0ecce6214bcb7f11e197f90d28a8696060c5c7ad0de65e4be4fb91f613",
+    "metadata": "d51ef00b45888c52fab0c17b4602bb04d23c694318815cefe5bae478375c2abd",
+    "http_status": "6c2b422525afcf6d183427cab9e0bbafcc4a7a055717cb1d0998c8ac06a41db5"
+  },
+  "drex-max/vitaminc": {
+    "report": "8c2267187d56a28566c32fa1ce847a9ebbdda548151fac10bc7031423f1f0619",
+    "checkpoint": "23fb5db9c05f1a32030c65ae6d465ea61dd614d3034a1542da3583b69c4c7d9a",
+    "metadata": "6fdd8fbc998c6a3adc9b7d04818f03d1695afc25f89d210a881ffaa563b529a5",
+    "http_status": "d90396d0acfb6b00b864729a616728216042f8a1481927ec21703c885e5cd74d"
+  },
+  "drex-max/scifact": {
+    "report": "7dae5f53e90d5846bebe1c9ec295ab809e4d5a46853a57832616890896bfff2f",
+    "checkpoint": "57cee58d4f9067c94ad4695632a800fbe7694205fb4c2583bb5fcece803ec183",
+    "metadata": "0dd80165a3ad7aed9738ca5efac6caeaa249d29774276769ebdfa1284122c952",
+    "http_status": "2e2b9906a7861c81a3af08f8da68e90660ba123f2af0f720141d3e211e314cb2"
+  },
+  "drex-max/contractnli": {
+    "report": "f423b5d06e59fd8076ab83aa0296268882cb092a320a72d10566a60b50c8e223",
+    "checkpoint": "20194f95d6bede6a535796cd1b52faed0281545063a7c83cc3ab19eb9244dd4e",
+    "metadata": "2ec505ebd830153085355c3dde774b1d1e4875a3714b5fe62f30bd1d01c8d463",
+    "http_status": "501548e02ce13c41bcac20226b555b3f9701e12bcd41497968fa46c74bf45c68"
+  },
+  "drex-max/mnli": {
+    "report": "577ee4eb11ebf967b48a4bbc6f73dc2c12e59a436dcaf76333793292c2d5e903",
+    "checkpoint": "ef3aa463d34662c55e062c9c3c731e0d643e74f6ed6ac598711799bd6a81f4fc",
+    "metadata": "14d22d22d8190043446f49bf030b0a7fda91d4df52b5f15e3eb2ff6b03eb43bf",
+    "http_status": "d90396d0acfb6b00b864729a616728216042f8a1481927ec21703c885e5cd74d"
+  },
+  "drex-max/findver": {
+    "report": "43b2f3a4599d27eb1e331556d94049bd2477d254d0788fd41585b2ff35e5041c",
+    "checkpoint": "4fdfef6721e2175da06e6f2d9e8a9d211048135100fcab5c55db36cc5e77239a",
+    "metadata": "1c61aaeb0290b2b613619beaec9f707de411fdc93a6c8768786e69688b8387a1",
+    "http_status": "b16a734719c7a7b1b40d886cec0ccab5a47424236b1287f5c10ae1bec8efaf35"
+  },
+  "drex-max/synthetic-smoke": {
+    "report": "a247b407d0560076c20d15aa458d628dd32ba47a4bbfbc36670bcf1c2213ab80",
+    "checkpoint": "e943023be183cd7936cf6dbb43e34637f788bb7b3f5c61fddf6a63717f45753b",
+    "metadata": "60e7f040ba8aea02ee55948031f66c44e7a265a9788556318921a4d0d22bceb8",
+    "http_status": "0c5f776f8762d2d8b812436cc7ab0f03206559d26d71d5ecfcd95c4ff9a9ada8"
+  },
+  "drex-max/synthetic-contract": {
+    "report": "340775b698eba6a2d7000052ea23e07d8d133e85f76d5b899026f6a527b17d76",
+    "checkpoint": "3ea0abb76c67301c8134b0af18d70c25cf090a6c83677a061fa8e9492535e3e0",
+    "metadata": "05ec48e939b38569e2655cf9bddbe0e38dd70109b4c7c990f5e22d28bce324df",
+    "http_status": "6c2b422525afcf6d183427cab9e0bbafcc4a7a055717cb1d0998c8ac06a41db5"
+  },
+  "drex-v1.5/vitaminc": {
+    "report": "34335b90452f70e88ff444c3c2b57e4994ea86bdefa09effe54fe4ad562c6828",
+    "checkpoint": "14758a60d12d41e4bef08aac8307d1df107e3a644735d9a94bb3860e32580e04",
+    "metadata": "d2b2c4b912b06702d623a217f3f69aab7250e427fe46f1b0c57aacf0a20903c4",
+    "http_status": "d90396d0acfb6b00b864729a616728216042f8a1481927ec21703c885e5cd74d"
+  },
+  "drex-v1.5/scifact": {
+    "report": "fedd3c7a77bd430042df982ddc0f9bee23069b58271d3c80ada56e0f39e4ac98",
+    "checkpoint": "91ce698e0f45aa5008aed059171025e0a99908a0d295a93879f0df5f655e0783",
+    "metadata": "e0ec677e010caec8354d4ce1c27fb592d7c773aa581d16fea4fa35b78bbf8d83",
+    "http_status": "2e2b9906a7861c81a3af08f8da68e90660ba123f2af0f720141d3e211e314cb2"
+  },
+  "drex-v1.5/contractnli": {
+    "report": "c36e4f3ce2518d36aa76472dea931fbe594909cced7ac9458a39141a7c9c8ee3",
+    "checkpoint": "93012f0d0e6fb9ad03b4263d05901a10d54c78fed28db3df34d5583f32c5b549",
+    "metadata": "fef4ccaf5f3fce40291fbf202513306782acdd717ede5a326eed426e2c1d3599",
+    "http_status": "2e2b9906a7861c81a3af08f8da68e90660ba123f2af0f720141d3e211e314cb2"
+  },
+  "drex-v1.5/mnli": {
+    "report": "a8a80b9046668b674d02ede8ad83f3dd138612a16a0a7313a58fc59be6bf5159",
+    "checkpoint": "0deae1b34e097973557c8c26e945873876bcc6761aea6655e973fc75174c2612",
+    "metadata": "2aa248557fb1a609488695e8fd400e40ceddaabe9bee7b58411e3abb52e1d281",
+    "http_status": "d90396d0acfb6b00b864729a616728216042f8a1481927ec21703c885e5cd74d"
+  },
+  "drex-v1.5/findver": {
+    "report": "ce0c9342dbdcbb557773d125dfa64aa27a306fd1eee55290dd09276965300d36",
+    "checkpoint": "5cb88ad94d3476714fc4ac9d9866d923131d60f0a99db4bab0976e5258da0a80",
+    "metadata": "c27c05ca873b7055e2e5b29008204d095854eb7c619cc32bac34899e92c6909f",
+    "http_status": "b16a734719c7a7b1b40d886cec0ccab5a47424236b1287f5c10ae1bec8efaf35"
+  },
+  "drex-v1.5/synthetic-smoke": {
+    "report": "ff5bb68baa9c0d0b812308c2a2d1cc34dd20fe672406e65ef87e477aa3a949ee",
+    "checkpoint": "a36d4e0f1f6f2d4026e9f0e9115b148c5c0e21f85eb92f0d95b66f6d91689af0",
+    "metadata": "5e6667b63aeecb801613814cbcbc8df461e60d90a8c72790c1a2e1aad2a6a2a6",
+    "http_status": "0c5f776f8762d2d8b812436cc7ab0f03206559d26d71d5ecfcd95c4ff9a9ada8"
+  },
+  "drex-v1.5/synthetic-contract": {
+    "report": "3527cc9e40ba4ce3e342fcd0c69d4b47c8d9c0017f666add7039d6abc8cf24a8",
+    "checkpoint": "525f2418098b868bb64ce81fd3563362532b96be8250452df6ec014a021a6639",
+    "metadata": "9c6238af864dc67219d38cf81ce5b4d87775301dee13fc2b14c26c48c478d340",
+    "http_status": "6c2b422525afcf6d183427cab9e0bbafcc4a7a055717cb1d0998c8ac06a41db5"
+  }
+}

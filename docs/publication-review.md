@@ -27,7 +27,7 @@ Opaque Cloudflare account/database IDs, model IDs, public service URLs and deplo
 
 ## Public Git history
 
-The public source is republished as a single root commit, with no parent link to the earlier development commits. The maintained `main` ref contains this cleaned tree; obsolete development branch refs are removed. The prior repository is preserved only in an ignored private local recovery bundle, not in a backup branch or public tag. Do not upload that bundle or the private backup directory.
+The initial public source was republished as a single root commit, with no parent link to the earlier development commits. Subsequent public updates use ordinary commits that preserve that published history. The maintained `main` ref contains this cleaned tree; obsolete development branch refs are removed. The prior repository is preserved only in an ignored private local recovery bundle, not in a backup branch or public tag. Do not upload that bundle or the private backup directory.
 
 Rewriting Git refs does not erase third-party clones, forks, previously downloaded archives, or hosting-provider caches of old commit objects. This review found no known credential values in the scanned history; the rewrite removes internal development records from the advertised history rather than asserting physical erasure from every system.
 

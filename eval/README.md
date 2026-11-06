@@ -1,6 +1,6 @@
 # Public supplied-evidence evaluation
 
-For a standalone overview, start with **[evaluation approach and results](../EVALUATION.md)**. It explains the task, datasets, fixed policy, all nine models, and how to bring a scorer. To independently verify the published nine-model metrics from committed redacted files only, run `python3 -B scripts/verify-eval-release.py` (no credentials, raw dataset text, Node or network required). The rest of this file is the detailed runner and preparation reference.
+For a standalone overview, start with **[evaluation approach and results](../EVALUATION.md)**. It explains the task, datasets, fixed policy, the original nine models, the five-model Nace extension, and how to bring a scorer. To independently verify the published nine-model metrics from committed redacted files only, run `python3 -B scripts/verify-eval-release.py` (no credentials, raw dataset text, Node or network required). The rest of this file is the detailed runner and preparation reference.
 
 The [post-hoc supplement](results/hosted-models-analysis-2026-11-05/README.md) adds source-group paired intervals, coverage by native label, AUROC/AP and retrospective recall at ≥95% observed precision. Four scorecards reuse development data; finance is previously scored and untuned. The [main findings and limitations](../EVALUATION.md#what-we-see) explain what these diagnostics support.
 
@@ -187,9 +187,31 @@ parent archive and produces the combined nine-model report without additional mo
 
 For a fresh Fastino phase, `--prior-probes` defaults to zero; set it only to the number of integration probes actually performed. The published run explicitly records its three earlier probes. After code changes, use `compare-fastino.py --executed-sources` with the archived source snapshot to reproduce the original metrics without requiring live inference code to remain frozen forever.
 
+## Nace Drex evaluations
+
+Max and Max Finance also have a [6,400-call separate calibration study](results/nace-calibration-2026-11-06/README.md), with the same fit/validation cohorts as the earlier nine-model study, all fit-derived policies frozen before Nace validation, shipped-relative false-clear allowances, and a fixed sensitivity grid. Verify offline with `python3 -B scripts/analyze-nace-calibration.py --archive eval/results/nace-calibration-2026-11-06`.
+
+Measured November 6: [five-model Nace archive and fourteen-model comparison](results/nace-2026-11-06/README.md). Recompute its metrics offline with `python3 -B scripts/compare-nace.py --verify eval/results/nace-2026-11-06`.
+
+The evaluation-only `nace` backend reads `NACE_API_KEY` from the calling environment. It requires an explicit active ID: `drex-v1.5`, `drex-v2.0`, `drex-max`, `drex-max-v1.1`, or `drex-max-finance`. Aliases and retired IDs are rejected; the reported model must match the request. The adapter sends the same structured state, instructions and criteria through Nace's native System One endpoint, with no prompt conversion, retries or fallback. This does not add a production route or require a production secret.
+
+```sh
+# Keep the key in ignored .env; Node loads it without printing it.
+pnpm exec node --env-file=.env --import tsx scripts/eval.ts \
+  --backend nace --model drex-max-v1.1 \
+  --manifest eval/data/scifact-dev-200.json --live \
+  --interval-ms 550 --max-calls 199 \
+  --cost-per-call-usd 0.002 --max-spend-usd 1 \
+  --out eval/reports/scifact-nace-FRESH
+```
+
+`--interval-ms` sets the minimum between batch starts within a runner process, outside measured latency and the operation deadline. At 550 ms, sequential starts stay below the documented free-tier 120 requests/minute limit; other account traffic can still consume that allowance. Each new process resets pacing. Consult [Nace's current limits](https://console.nace.ai/docs/drex/reference/limits) before running concurrent jobs.
+
+`scripts/run-nace-benchmark.ts` runs all five active IDs on the frozen November 5 inputs. It checks input and shared-kernel hashes, snapshots execution sources before inference, records HTTP statuses separately, and stops between cohorts on account or rate rejections. It preserves partial checkpoints and never automatically retries. `scripts/compare-nace.py` creates a separate redacted archive and independently recomputes metrics; it requires the private probe-receipt file via `--probes FILE` if the protocol declares a nonzero prior-probe count. Fresh runs normally use `--prior-probes 0`.
+
 ## Upstream HTTP status diagnostics
 
-For new Jev investigations, instrument the evaluation process so a billing rejection cannot be confused with an invalid successful response after the fact. The observer writes only request ordinal and numeric HTTP status (`null` if no HTTP response exists). It leaves the request, response body and provider validator untouched. It runs only in this evaluation process; it does not add production request logging.
+For new Jev or Nace investigations, instrument the evaluation process so a billing rejection cannot be confused with an invalid successful response after the fact. The observer writes only request ordinal and numeric HTTP status (`null` if no HTTP response exists). It leaves the request, response body and provider validator untouched. It runs only in this evaluation process; it does not add production request logging.
 
 Build the preload module, then run the existing bounded runner with a fresh output prefix and status-log path:
 
@@ -210,4 +232,4 @@ COUNTERCHECK_EVAL_HTTP_STATUS_PATH=eval/reports/example.http-status.jsonl \
   --out eval/reports/example
 ```
 
-Set your provider credential privately as described above. Adjust the call cap for your complete selected groups before dispatch. The log refuses overwrite, and the observer records only the TypeSafe inference endpoint, excluding unrelated fetches. Do not retain bodies, headers, keys or customer text as a diagnostic workaround. Preserve failed runs; any deliberate rerun needs a new prefix and explicit call/spend authorization.
+Set your provider credential privately as described above. Adjust the call cap for your complete selected groups before dispatch. The log refuses overwrite, and the observer records only the TypeSafe and Nace inference endpoints, excluding unrelated fetches. Do not retain bodies, headers, keys or customer text as a diagnostic workaround. Preserve failed runs; any deliberate rerun needs a new prefix and explicit call/spend authorization.
