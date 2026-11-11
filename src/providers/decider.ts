@@ -17,11 +17,31 @@ export const DECIDER_MODEL = DECIDER_MODEL_ID;
 export const DECIDER_URL = "https://openrouter.ai/api/alpha/decisions";
 export type OpenRouterDecisionModel =
   typeof DECISION_ONE_MODEL_ID | typeof DECIDER_MODEL | typeof DECIDER_FLASH_MODEL_ID;
-// Reviewed snapshots published by each model's official OpenRouter /endpoints catalog.
-const reportedModelAliases: Record<OpenRouterDecisionModel, string> = {
-  [DECISION_ONE_MODEL_ID]: "microsoft/microsoft-decision-1-20261009",
-  [DECIDER_MODEL_ID]: "perplexity/pplx-decider-v1.2-20261016",
-  [DECIDER_FLASH_MODEL_ID]: "perplexity/pplx-decider-flash-v1.2-20261016",
+export interface OpenRouterRoute {
+  model: string;
+  /** Reviewed snapshot published by the model's official OpenRouter /endpoints catalog. */
+  reportedSnapshot: string;
+  providerId: string;
+  only?: readonly string[];
+}
+const catalogRoutes: Record<OpenRouterDecisionModel, OpenRouterRoute> = {
+  [DECISION_ONE_MODEL_ID]: {
+    model: DECISION_ONE_MODEL_ID,
+    reportedSnapshot: "microsoft/microsoft-decision-1-20261009",
+    providerId: "openrouter-microsoft",
+  },
+  [DECIDER_MODEL_ID]: {
+    model: DECIDER_MODEL_ID,
+    reportedSnapshot: "perplexity/pplx-decider-v1.2-20261016",
+    providerId: "openrouter-perplexity",
+    only: ["Perplexity"],
+  },
+  [DECIDER_FLASH_MODEL_ID]: {
+    model: DECIDER_FLASH_MODEL_ID,
+    reportedSnapshot: "perplexity/pplx-decider-flash-v1.2-20261016",
+    providerId: "openrouter-perplexity",
+    only: ["Perplexity"],
+  },
 };
 const routerResponseSchema = payloadResponseSchema.extend({
   id: z.string().optional(),
@@ -42,15 +62,23 @@ export function createOpenRouterProvider(config: {
   model: OpenRouterDecisionModel;
   fetch?: typeof fetch;
 }): DecisionProvider {
-  const perplexity = config.model.startsWith("perplexity/");
+  return createOpenRouterRouteProvider({ ...config, route: catalogRoutes[config.model] });
+}
+
+export function createOpenRouterRouteProvider(config: {
+  apiKey: string;
+  route: OpenRouterRoute;
+  fetch?: typeof fetch;
+}): DecisionProvider {
+  const { route } = config;
   const requestBody = (payload: DecisionPayload) => ({
     ...payload,
-    model: config.model,
-    provider: { ...(perplexity && { only: ["Perplexity"] }), allow_fallbacks: false },
+    model: route.model,
+    provider: { ...(route.only && { only: [...route.only] }), allow_fallbacks: false },
   });
   return {
-    id: perplexity ? "openrouter-perplexity" : "openrouter-microsoft",
-    model: config.model,
+    id: route.providerId,
+    model: route.model,
     validateInput(payload) {
       assertDecisionBodyFits(requestBody(payload));
     },
@@ -64,8 +92,8 @@ export function createOpenRouterProvider(config: {
       );
       const parsed = routerResponseSchema.safeParse(raw);
       if (!parsed.success) throw malformedProvider();
-      if (parsed.data.model !== reportedModelAliases[config.model])
-        assertReportedModel(parsed.data, config.model);
+      if (parsed.data.model !== route.reportedSnapshot)
+        assertReportedModel(parsed.data, route.model);
       // Discard router IDs and provider extras rather than returning/logging them.
       return validatePayloadResponse(
         {

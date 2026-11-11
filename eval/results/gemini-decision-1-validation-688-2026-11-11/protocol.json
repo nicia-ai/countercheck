@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "recorded_before_inference": true,
+  "created_at": "2026-11-11T21:18:06.379Z",
+  "node": "v24.22.2",
+  "backend": "openrouter-candidate",
+  "requested_model": "google/gemini-decision-1",
+  "cohort": {
+    "id": "validation-688",
+    "description": "Source-group-disjoint calibration validation pairs, same prompt, one pass",
+    "datasets": [
+      "vitaminc",
+      "scifact",
+      "contractnli",
+      "mnli"
+    ],
+    "inputs": [
+      {
+        "id": "validation",
+        "path": "eval/data/calibration-study-2026-11-05/validation.json",
+        "sha256": "ab7b301d14797d366804831fd7b0e1a8987d2a560af9b5fb584eaf89949828f3",
+        "pairs": 688
+      }
+    ],
+    "sources": [
+      "eval/results/separate-calibration-2026-11-05/validation-observations.redacted.jsonl.gz",
+      "eval/results/calibration-followup-2026-11-06/jev-validation.redacted.jsonl.gz",
+      "eval/results/nace-calibration-2026-11-06/validation-observations.redacted.jsonl.gz"
+    ]
+  },
+  "frozen_sources": {
+    "src/kernel/index.ts": "5f648ef004b17341692f32a1f83b50b5b14883382262336187a9a381a103ccab",
+    "src/kernel/experimental.ts": "8366bd36e422201ad92fb72a6a9b34ed0a1a96266d880c886199fc3ad677d863",
+    "src/contracts/limits.ts": "a3f0d87dded41a587a6d6d78aaafcca761615e0fda5aa77a4d7b96f6b59f856c",
+    "src/http/deadline.ts": "498633081b578faafc9df35ef3f488c7d2fefb75b58f58ba845cb08ceb9d7d88",
+    "src/providers/transport.ts": "cb00796c870ec19b18c038ea6fc21fc68a011a4c710b386c812727a0d9510c5d",
+    "src/providers/response.ts": "84e8ac017f3abeed8c3102e5543103e3ecfaccda9492b9a5c742d24880bde60c",
+    "eval/backends.ts": "b6df75fd9c0229c28c453ab6ac103b8cef13c384938c1e4699a25acc7934107e"
+  },
+  "screen_config_sha256": "89deb17f4a4adb24b097a2dcdbfdd337fa99c310fe4f0e7767a5f34b8b653f76",
+  "probe": {
+    "id": "integration-probe",
+    "path": "eval/fixtures/synthetic-smoke.json",
+    "sha256": "b1a96134ba41cb728cf12e7af0c30cc6a754ef2b734ebaff8b3397196bfbad79",
+    "pairs": 8
+  },
+  "planned_calls": 696,
+  "max_calls": 696,
+  "reservation_per_call_usd": 0.002,
+  "reservation_cap_usd": 1.5,
+  "actual_billed_cost": null,
+  "profile": "balanced-v1",
+  "passes": 1,
+  "presentation": "original",
+  "batch_size": 1,
+  "concurrency": 1,
+  "interval_ms": 0,
+  "retries": 0,
+  "fallbacks": false,
+  "qualification": "Evaluation only; native labels, no prompt tuning, calibration or production qualification. Not contemporaneous with the cohort's earlier sources."
+}

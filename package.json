@@ -27,6 +27,7 @@
     "smoke": "vitest run --project smoke",
     "eval:smoke": "tsx scripts/eval-smoke.ts",
     "eval:run": "tsx scripts/eval.ts",
+    "eval:measure": "tsx scripts/measure-model.ts",
     "eval:prepare": "tsx scripts/prepare-eval.ts",
     "keys": "tsx scripts/keys.ts",
     "eval:engineering": "tsx scripts/engineering-eval.ts",

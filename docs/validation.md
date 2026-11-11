@@ -14,6 +14,9 @@ python3 -B -m unittest discover -s tests -p 'test_*.py'
 python3 -B scripts/verify-calibration-followup.py
 python3 -B scripts/compare-nace.py --verify eval/results/nace-2026-11-06
 python3 -B scripts/analyze-nace-calibration.py --archive eval/results/nace-calibration-2026-11-06
+python3 -B scripts/archive-measurement.py --verify eval/results/gemini-decision-1-archive-880-2026-11-11
+python3 -B scripts/archive-measurement.py --verify eval/results/gemini-decision-1-validation-688-2026-11-11
+python3 -B scripts/screen-models.py --verify eval/results/model-screen-2026-11-11
 ```
 
 Coverage includes HTTP contracts and attribution, strict probability validation, provider transport and redirects, input/body budgets, single-call execution, error and uncertainty handling, native model selection, real workerd/D1 behavior, atomic shared admission limits, hash-only API keys, invitation-only mailbox verification, cookie isolation, access requests, usage accounting and retention. The synthetic provider exercises the actual kernel; it is not a production fallback or a semantic-quality test.
@@ -24,8 +27,9 @@ The calibration-follow-up verifier also runs the original release verification a
 
 ## Measured model work
 
-- [Current methodology and results](../EVALUATION.md): the original nine-model comparison, five-model Nace extension, and separately fitted operating policies.
+- [Current methodology and results](../EVALUATION.md): the current fifteen-model field, results by domain, separately fitted operating policies, and the history of the study.
 - [Nace shipped-policy extension](../eval/results/nace-2026-11-06/README.md): five additional evaluation-only models, frozen original inputs and a fourteen-model comparison.
+- [Model viability screen](../eval/results/model-screen-2026-11-11/README.md): a post-hoc paired screen of all fifteen measured models, including Gemini Decision 1 ([880-pair](../eval/results/gemini-decision-1-archive-880-2026-11-11/README.md) and [validation](../eval/results/gemini-decision-1-validation-688-2026-11-11/README.md) archives), on ranking quality and latency across the 880-pair archive and the 688-pair validation cohort. It directs evaluation effort only; the API catalog is unchanged.
 - [Nace calibration follow-up](../eval/results/nace-calibration-2026-11-06/README.md): Max and Max Finance policies frozen before validation, an eleven-model calibrated comparison, sensitivity analysis and synthetic contract controls. Finance validates at 96.7% precision, 69.8% recall and 70.6% negative coverage; its paired intervals do not establish an improvement over calibrated Decider.
 - [Original eight-model archive](../eval/results/hosted-models-2026-11-05/README.md): pre-inference protocol, source snapshots, input hashes and detailed metrics.
 - [Fastino extension](../eval/results/hosted-models-with-glide-2026-11-05/README.md): identical shared inputs and kernel, a separate execution protocol, and combined redacted scoring rows.

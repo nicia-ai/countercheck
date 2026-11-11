@@ -28,3 +28,6 @@ jobs:
       - run: python3 -B scripts/verify-calibration-followup.py
       - run: python3 -B scripts/compare-nace.py --verify eval/results/nace-2026-11-06
       - run: python3 -B scripts/analyze-nace-calibration.py --archive eval/results/nace-calibration-2026-11-06
+      - run: python3 -B scripts/archive-measurement.py --verify eval/results/gemini-decision-1-archive-880-2026-11-11
+      - run: python3 -B scripts/archive-measurement.py --verify eval/results/gemini-decision-1-validation-688-2026-11-11
+      - run: python3 -B scripts/screen-models.py --verify eval/results/model-screen-2026-11-11

@@ -1,6 +1,7 @@
 import type { Model } from "../src/contracts/models.js";
 import type { DecisionProvider } from "../src/providers/types.js";
 import type { NaceModel } from "./nace-provider.js";
+import type { OpenRouterCandidate } from "./openrouter-candidates.js";
 
 type Credentials = Readonly<Record<string, string | undefined>>;
 function required(env: Credentials, name: string): string {
@@ -13,13 +14,21 @@ function required(env: Credentials, name: string): string {
 export async function evaluationProvider(
   backend: string,
   env: Credentials = process.env,
-  model?: Model | NaceModel,
+  model?: Model | NaceModel | OpenRouterCandidate,
 ): Promise<(DecisionProvider & { dispose?: () => Promise<void> }) | undefined> {
   if (backend === "nace") {
     const { createNaceProvider, naceModelSchema } = await import("./nace-provider.js");
     return createNaceProvider({
       apiKey: required(env, "NACE_API_KEY"),
       model: naceModelSchema.parse(model),
+    });
+  }
+  if (backend === "openrouter-candidate") {
+    const { createOpenRouterCandidateProvider, openRouterCandidateSchema } =
+      await import("./openrouter-candidates.js");
+    return createOpenRouterCandidateProvider({
+      apiKey: required(env, "OPENROUTER_API_KEY"),
+      model: openRouterCandidateSchema.parse(model),
     });
   }
   if (backend === "fastino") {

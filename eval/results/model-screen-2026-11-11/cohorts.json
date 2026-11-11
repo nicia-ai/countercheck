@@ -1,0 +1,36 @@
+{
+  "cohorts": [
+    {
+      "id": "archive-880",
+      "description": "Frozen 880 public pairs, shipped balanced-v1 prompt, one pass",
+      "datasets": [
+        "vitaminc",
+        "scifact",
+        "contractnli",
+        "mnli",
+        "findver"
+      ],
+      "sources": [
+        "eval/results/hosted-models-with-glide-2026-11-05/observations.redacted.jsonl.gz",
+        "eval/results/nace-2026-11-06/observations.redacted.jsonl.gz",
+        "eval/results/gemini-decision-1-archive-880-2026-11-11/observations.redacted.jsonl.gz"
+      ]
+    },
+    {
+      "id": "validation-688",
+      "description": "Source-group-disjoint calibration validation pairs, same prompt, one pass",
+      "datasets": [
+        "vitaminc",
+        "scifact",
+        "contractnli",
+        "mnli"
+      ],
+      "sources": [
+        "eval/results/separate-calibration-2026-11-05/validation-observations.redacted.jsonl.gz",
+        "eval/results/calibration-followup-2026-11-06/jev-validation.redacted.jsonl.gz",
+        "eval/results/nace-calibration-2026-11-06/validation-observations.redacted.jsonl.gz",
+        "eval/results/gemini-decision-1-validation-688-2026-11-11/observations.redacted.jsonl.gz"
+      ]
+    }
+  ]
+}
