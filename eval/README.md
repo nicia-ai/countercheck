@@ -1,8 +1,8 @@
 # Public supplied-evidence evaluation
 
-For a standalone overview, start with **[evaluation approach and results](../EVALUATION.md)**. It explains the task, datasets, fixed policy, the original nine models, the five-model Nace extension, and how to bring a scorer. To independently verify the published nine-model metrics from committed redacted files only, run `python3 -B scripts/verify-eval-release.py` (no credentials, raw dataset text, Node or network required). The rest of this file is the detailed runner and preparation reference.
+For a standalone overview, start with **[evaluation approach and results](../EVALUATION.md)**. It leads with the current fifteen-model field, then explains the task, datasets, fixed policy, how to add a model or bring a scorer, and how the study evolved. To independently verify the published nine-model metrics from committed redacted files only, run `python3 -B scripts/verify-eval-release.py` (no credentials, raw dataset text, Node or network required). The rest of this file is the detailed runner and preparation reference.
 
-The [post-hoc supplement](results/hosted-models-analysis-2026-11-05/README.md) adds source-group paired intervals, coverage by native label, AUROC/AP and retrospective recall at ≥95% observed precision. Four scorecards reuse development data; finance is previously scored and untuned. The [main findings and limitations](../EVALUATION.md#what-we-see) explain what these diagnostics support.
+The [post-hoc supplement](results/hosted-models-analysis-2026-11-05/README.md) adds source-group paired intervals, coverage by native label, AUROC/AP and retrospective recall at ≥95% observed precision. Four scorecards reuse development data; finance is previously scored and untuned. The [main findings and limitations](../EVALUATION.md#november-5-nine-model-comparison) explain what these diagnostics support.
 
 This directory contains executable VitaminC/SciFact benchmarks, a separate [business track](business/README.md), an offline DeBERTa baseline and an explicitly synthetic transport smoke test. Measured public baselines are saved under `results/`; they do not certify the production release gates. No older Jev version is evaluated. All model/network evaluation calls require explicit selection and budget reservations.
 
@@ -186,6 +186,10 @@ and budget bounds. `scripts/compare-fastino.py` independently checks the extensi
 parent archive and produces the combined nine-model report without additional model calls.
 
 For a fresh Fastino phase, `--prior-probes` defaults to zero; set it only to the number of integration probes actually performed. The published run explicitly records its three earlier probes. After code changes, use `compare-fastino.py --executed-sources` with the archived source snapshot to reproduce the original metrics without requiring live inference code to remain frozen forever.
+
+## Measure a new or updated model
+
+`pnpm eval:measure` runs one model over a screen cohort from [`model-screen.json`](model-screen.json): frozen inputs, shipped `balanced-v1` prompt, one sequential pass, no retries or fallback, with a synthetic integration probe first. It works with the `hosted`, `nace`, `fastino` and `openrouter-candidate` backends. `scripts/archive-measurement.py` turns the finished run into a redacted archive and verifies it offline; [`EVALUATION.md`](../EVALUATION.md#add-or-re-measure-a-model) has the full command sequence. The `openrouter-candidate` backend reads `OPENROUTER_API_KEY` and accepts only the evaluation-only IDs in [`openrouter-candidates.ts`](openrouter-candidates.ts), each pinned to a reviewed endpoint and dated snapshot.
 
 ## Nace Drex evaluations
 

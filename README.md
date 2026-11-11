@@ -21,45 +21,35 @@ and release protocol.
 
 ## Evaluation
 
-**Latest: [separately fitted Nace Max/Finance results](EVALUATION.md#calibration-follow-up-max-and-max-finance)** — 6,400 new calls with policies frozen before validation. Max validates at **97.1% precision / 62.3% recall / 71.8% negative coverage**; Finance at **96.7 / 69.8 / 70.6**. Finance is competitive with calibrated Decider, but its paired intervals do not establish a win. Neither meets all three targets. The [eleven-model calibrated comparison](eval/results/nace-calibration-2026-11-06/README.md) includes the fixed negative-budget sensitivity grid and contract controls.
+**Fifteen hosted decision models measured as of November 11, 2026**, each on the same 880 public pairs across Wikipedia, science, commercial contracts, business-adjacent language and finance, with one prompt and fixed thresholds. Twelve are also measured on a disjoint 688-pair validation cohort. Failed and uncertain results stay in the denominators. Nicia has no commercial relationship with any evaluated model provider.
 
-**New: [five-model Nace Drex extension](EVALUATION.md#nace-drex-extension-november-6)** — 4,600 additional assessments using the same frozen inputs and shipped policy. The [fourteen-model comparison](eval/results/nace-2026-11-06/README.md) keeps domains separate and adds ranking diagnostics and paired intervals. No Nace model/domain scorecard meets all three point targets; these routes remain evaluation-only.
+| Status        | Models                                                                         |
+| ------------- | ------------------------------------------------------------------------------ |
+| Viable        | GLiDE 27B, drex-max-finance, Pplx Decider v1.2, drex-max-v1.1, Jev 1.14        |
+| Deprioritized | drex-max, Pplx Decider Flash v1.2, Clef Omni, drex-v1.5, drex-v2.0, Clef Flash |
+| Screened out  | Gemini Decision 1, Clef, Decision-1, GPT-6 Luna Decisions                      |
 
-**Disclosure (November 5, 2026):** Nicia has no commercial relationship with any evaluated model provider.
+- **No model meets all three quality targets together** on any scorecard, with the shared thresholds or with thresholds fitted per model.
+- **Four models lead on ranking quality and are not separable:** GLiDE 27B, drex-max-finance, Pplx Decider v1.2 and drex-max-v1.1.
+- **Jev 1.14 is the fastest route** (107 ms p95 on the 880 pairs) and completed every call; it ranks below the leaders.
+- **Gemini Decision 1 was measured on its release day and lands mid-field:** sixth of fifteen on ranking, best on science, and set aside because drex-max-finance ranks better in both cohorts at lower latency.
+- **Fitted thresholds help but do not close the gap.** The best validated results are 96.7% precision / 69.8% recall / 70.6% negative coverage (drex-max-finance) and 96.0 / 67.5 / 74.2 (Pplx Decider v1.2); their difference is within its paired interval.
+- **The API catalog trails the measurements.** Only two of the eight selectable models are viable; GLiDE, Nace Drex and Gemini Decision 1 are evaluation-only.
 
-Our November 5, 2026 comparison covers **nine models and 8,280 scored observations**: the eight exposed models plus evaluation-only Fastino GLiDE 27B, each on the same 880 public pairs and 40 synthetic diagnostics. The public scorecards cover Wikipedia, science, commercial contracts, business-adjacent language and finance. Prompts and thresholds stayed fixed; failed and uncertain results remain in the denominators.
+A status comes from the [viability screen](eval/results/model-screen-2026-11-11/README.md): a paired comparison of ranking quality and latency across both cohorts. It directs evaluation effort and changes nothing in the API. These are native public labels, development data and one pass per model, not human-adjudicated service-contract results.
 
-- **GLiDE’s negative-coverage lead is largely operating-policy dependent.** Under the shared shipped thresholds, it clears 22.6 points more MultiNLI negatives and 16.2 points more ContractNLI negatives than full Decider. With the separately fitted, post-hoc primary, the archived gaps shrink to 3.8 and 6.4 points, and validation point differences favor Decider. See [the shared-versus-model-specific comparison](EVALUATION.md#glide-and-decider-under-shared-and-model-specific-policies).
-- **Its finance lead over Decider is inconclusive:** two additional detected contradictions yield a paired F1 interval that touches zero. GLiDE versus Jev on finance and Decider versus Jev on VitaminC have exploratory F1 intervals above zero on these samples.
-- **Ranking and the shipped cutoff tell different stories.** Jev and Luna have nearly equal VitaminC AUROC (0.863 and 0.861), despite shipped F1 of 54.9% and 34.1%. The [analysis supplement](eval/results/hosted-models-analysis-2026-11-05/README.md) puts AUROC/AP and retrospective recall at ≥95% observed precision beside shipped behavior; the [GLiDE/Decider follow-up](EVALUATION.md#glide-and-decider-under-shared-and-model-specific-policies) is a concrete example of how model-specific operating points change a comparison.
-- **Jev 1.14** was the fastest measured route (107 ms successful-call p95) and completed all 880 public pairs. Provider/kernel timing is not full deployed API latency.
-- **No model met all three proposed quality targets together** on any public scorecard under the shipped policy. Retrospective threshold selection does not establish a validated operating point.
+Read **[the evaluation page](EVALUATION.md)** for the full field table, results by domain, fitted-threshold results, method, limitations, and how the study evolved. It also covers [adding or re-measuring a model](EVALUATION.md#add-or-re-measure-a-model), which takes one runner, one archiver and one screen. The 204-item human labelling packet is prepared, not yet labelled.
 
-Four scorecards reuse development samples. FinDVer is a previously scored, untuned evaluation cohort. Fastino was added after the eight-model results were available. This was one pass, without an input-order test; upstream training exposure to these public corpora is unknown. The initial prompt-ablation study used Jev only; later quality iterations also explored Decider. These are development findings, not fresh held-out or unseen-to-model estimates.
-
-Read **[the evaluation approach, complete tables, limitations and reproduction guide](EVALUATION.md)** for dataset adaptations, label semantics, error/abstention handling, calibration diagnostics, confidence intervals and instructions for bringing your own model. The [measured archive](eval/results/hosted-models-with-glide-2026-11-05/README.md) preserves redacted scoring rows and provenance.
-
-The [initial calibration study](eval/results/separate-calibration-2026-11-05/README.md) adds 28,800 assessment attempts, then remaps the original probabilities offline. Its strict zero-false-clear budget caused a large negative-coverage loss. The [follow-up](eval/results/calibration-followup-2026-11-06/README.md) restores Jev validation with 688 successful calls and publishes a post-hoc per-model budget capped at each model's shipped-fit false clears, plus a fixed sensitivity grid. For those nine models, pooled validation negative coverage recovers to 36.1–79.4%; positive recall remains 24.1–67.5%. No primary model/domain meets all three point targets. Both versions and the original failed Jev run remain intact. The 204-item human packet is prepared, not yet labelled; shipped behavior is unchanged.
-
-Hosted GLiDE 27B has an evaluation-runner adapter: 920 observations in the original comparison, plus 3,200 attempts in the separate calibration study. Its API/dashboard route has not been implemented. “Evaluation-only” describes that integration scope; it is not a separate model-quality tier. All eight exposed models are also unqualified previews. See [benchmark coverage versus API availability](EVALUATION.md#benchmark-coverage-and-api-availability); smaller GLiDE sizes remain unrun.
-
-Verify all nine models' aggregate metrics and the post-hoc analysis using only Python and committed artifacts:
+Verify the published numbers using only Python and committed artifacts:
 
 ```sh
 python3 -B scripts/verify-eval-release.py
-```
-
-Verify both calibration versions as well, including independent fitting, status-only diagnostics and point-metric checks:
-
-```sh
 python3 -B scripts/verify-calibration-followup.py
-```
-
-Verify the Nace shipped-policy extension and Max/Finance calibration study separately:
-
-```sh
 python3 -B scripts/compare-nace.py --verify eval/results/nace-2026-11-06
 python3 -B scripts/analyze-nace-calibration.py --archive eval/results/nace-calibration-2026-11-06
+python3 -B scripts/archive-measurement.py --verify eval/results/gemini-decision-1-archive-880-2026-11-11
+python3 -B scripts/archive-measurement.py --verify eval/results/gemini-decision-1-validation-688-2026-11-11
+python3 -B scripts/screen-models.py --verify eval/results/model-screen-2026-11-11
 ```
 
 To exercise the runner without credentials or model calls:

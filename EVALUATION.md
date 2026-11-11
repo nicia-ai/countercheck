@@ -1,48 +1,137 @@
 # Evaluating contradiction detection with decision models
 
-Status: original comparison measured November 5, 2026; interpretation includes the November 6 calibration follow-up, Nace benchmark extension and separately fitted Max/Finance results. This is a reproducible research benchmark, not a production qualification or an official dataset leaderboard submission.
+Status: fifteen hosted decision models measured as of November 11, 2026. This is a reproducible research benchmark, not a production qualification or an official dataset leaderboard submission.
 
-Countercheck evaluates a specific job: given a claim and a supplied comparison text, identify whether they make incompatible assertions under overlapping conditions. The repository contains the decision kernel, provider adapters, public-data preparation, bounded live runners, replay support, and redacted measured artifacts. You can inspect and verify the published results without a Countercheck account, model credentials, Cloudflare access, or the original finance documents.
+Countercheck evaluates a specific job: given a claim and a supplied comparison text, identify whether they make incompatible assertions under overlapping conditions. Every model receives the same prompt, the same 880 public pairs across five domains, and the same fixed decision thresholds; twelve of the fifteen are also measured on a disjoint 688-pair validation cohort. You can inspect and verify every number here without a Countercheck account, model credentials, Cloudflare access, or the original finance documents.
 
-**Disclosure (November 5, 2026):** Nicia has no commercial relationship with any evaluated model provider.
+**Disclosure:** Nicia has no commercial relationship with any evaluated model provider.
 
-- [What we see](#what-we-see)
-- [Why recall is low](#why-recall-is-low-measured-misses-and-separate-calibration)
+- [The field today](#the-field-today)
+- [Results by domain](#results-by-domain)
+- [With model-specific thresholds](#with-model-specific-thresholds)
+- [Why every model falls short of the targets](#why-every-model-falls-short-of-the-targets)
 - [Benchmark coverage and API availability](#benchmark-coverage-and-api-availability)
-- [Verify the published numbers offline](#verify-the-published-numbers-offline)
 - [Task and decision policy](#task-and-decision-policy)
 - [Datasets and adaptations](#datasets-and-adaptations)
 - [Execution and scoring](#execution-and-scoring)
-- [Nine-model results](#nine-model-results)
-- [Nace Drex extension](#nace-drex-extension-november-6)
+- [Study limitations and dataset reuse](#study-limitations-and-dataset-reuse)
+- [Verify the published numbers offline](#verify-the-published-numbers-offline)
+- [Add or re-measure a model](#add-or-re-measure-a-model)
 - [Run a new evaluation](#run-a-new-evaluation)
 - [Evaluate your own model](#evaluate-your-own-model)
+- [How this evaluation evolved](#how-this-evaluation-evolved)
 - [Evidence, limitations, and data terms](#evidence-limitations-and-data-terms)
 
-## What we see
+## The field today
 
-1. **GLiDE’s large negative-coverage lead over full Decider holds under the shared shipped thresholds and largely closes with model-specific policies.** The shipped-policy gaps are +22.6 percentage points on MultiNLI (paired source-group 95% interval +15.8 to +29.5) and +16.2 on ContractNLI (+10.5 to +22.1). Under the separately fitted, post-hoc primary, the archived gaps shrink to +3.8 and +6.4 points; validation point differences favor Decider by 2.2 and 2.4 points. This is an example of the operating-point distinction in [finding #2](#finding-2-operating-points), not a threshold-independent model advantage.
-2. <a id="finding-2-operating-points"></a>**Ranking and shipped behavior differ.** Jev and Luna have almost equal VitaminC AUROC (0.863 and 0.861), while their shipped F1 is 54.9% and 34.1%. The shared conservative cutoff measures a product operating point, not each model’s best achievable decision system. The [GLiDE/Decider coverage comparison](#glide-and-decider-under-shared-and-model-specific-policies) demonstrates the same effect using separately fitted policies.
-3. **Close rankings need metric-specific paired intervals.** GLiDE’s finance F1 advantage over Decider is +2.6 points with an interval of 0.0 to +6.4, leaving the difference inconclusive. GLiDE versus Jev on finance (+5.2, +1.1 to +11.6) and Decider versus Jev on VitaminC (+9.9, +2.4 to +20.5) have exploratory F1 intervals above zero on these selected samples.
-4. **Jev was the fastest observed route.** It completed all 880 public pairs with a 107 ms successful-call p95. These are provider/kernel measurements across differing routes, not deployed API latency or a capacity test.
-5. **No shipped model meets all three application targets together on any public scorecard.** Retrospective recall at ≥95% observed precision is a useful sensitivity view, but the cutoff is selected on these same labels and does not establish validated precision, negative coverage, or a production recommendation.
+The application targets are contradiction precision of at least 95%, recall of at least 90%, and clear-negative coverage of at least 85%, all on the same scorecard. **No model meets all three on any scorecard**, with the shared thresholds or with thresholds fitted per model.
 
-The original comparison uses native labels and one fixed inference pass. Model-specific policies use separate fit/validation groups; the later negative-budget primary is post hoc. The original between-model intervals are exploratory and pointwise, without multiplicity correction. See [study limitations and dataset reuse](#study-limitations-and-dataset-reuse), the [paired and native-label tables](#paired-intervals-and-native-negative-coverage), and the [recomputable analysis supplement](eval/results/hosted-models-analysis-2026-11-05/README.md).
+The table ranks models by how well their raw contradiction score separates native contradictions from everything else: average precision, macro-averaged over the scorecards of each cohort. This does not depend on where the decision threshold sits. Latency is the p95 of completed calls in one sequential pass.
 
-### GLiDE and Decider under shared and model-specific policies
+| Model                   | Vendor     | Status        | Macro AP, 880 pairs | Macro AP, 688 validation | p95 ms, 880 / 688 | Errors, 880 / 688 | In the API |
+| ----------------------- | ---------- | ------------- | ------------------: | -----------------------: | ----------------: | ----------------: | ---------- |
+| GLiDE 27B               | Fastino    | Viable        |               0.934 |                    0.947 |        242 / 2129 |            1 / 75 | No         |
+| drex-max-finance        | Nace       | Viable        |               0.926 |                    0.958 |         305 / 314 |             5 / 1 | No         |
+| Pplx Decider v1.2       | Perplexity | Viable        |               0.925 |                    0.950 |         865 / 688 |             3 / 0 | Yes        |
+| drex-max-v1.1           | Nace       | Viable        |               0.918 |                        — |           332 / — |             1 / — | No         |
+| Jev 1.14                | TypeSafe   | Viable        |               0.883 |                    0.918 |         107 / 180 |             0 / 0 | Yes        |
+| drex-max                | Nace       | Deprioritized |               0.908 |                    0.940 |        199 / 1515 |             1 / 3 | No         |
+| Pplx Decider Flash v1.2 | Perplexity | Deprioritized |               0.886 |                    0.909 |         258 / 240 |             2 / 0 | Yes        |
+| Clef Omni               | Cloudflare | Deprioritized |               0.885 |                    0.911 |         694 / 146 |             1 / 0 | Yes        |
+| drex-v1.5               | Nace       | Deprioritized |               0.871 |                        — |           249 / — |             0 / — | No         |
+| drex-v2.0               | Nace       | Deprioritized |               0.869 |                        — |           288 / — |             2 / — | No         |
+| Clef Flash              | Cloudflare | Deprioritized |               0.848 |                    0.880 |         261 / 520 |             0 / 0 | Yes        |
+| Gemini Decision 1       | Google     | Screened out  |               0.894 |                    0.918 |         541 / 509 |             1 / 1 | No         |
+| Clef                    | Cloudflare | Screened out  |               0.866 |                    0.896 |         787 / 579 |             1 / 0 | Yes        |
+| Decision-1              | Microsoft  | Screened out  |               0.852 |                    0.842 |         403 / 334 |             0 / 0 | Yes        |
+| GPT-6 Luna Decisions    | OpenAI     | Screened out  |               0.795 |                    0.797 |         534 / 412 |             2 / 0 | Yes        |
 
-Each cell is **GLiDE / full Decider**, in percent of native negatives cleared. “Model-specific” means the [follow-up primary](eval/results/calibration-followup-2026-11-06/README.md): frozen per-model positive cutoffs plus negative rules fitted with each model’s shipped-fit false-clear count as its budget.
+**Status** comes from the [viability screen](eval/results/model-screen-2026-11-11/README.md), which decides where further evaluation effort goes. A model is _screened out_ when another model ranks contradictions better in both cohorts (paired source-group 95% interval on macro average precision above zero, and never significantly worse on a single scorecard) at no higher p95 latency in either. It is _deprioritized_ when that quality gap holds but is measured in one cohort only, or the latency ordering flips between cohorts. Everything else is _viable_. A status describes one measured model version under the current prompt; it is not a verdict on a vendor, and it changes nothing in the API.
 
-| Cohort                  | Shared shipped thresholds | Model-specific primary |
-| ----------------------- | ------------------------: | ---------------------: |
-| MultiNLI, archive       |               82.7 / 60.2 |            83.5 / 79.7 |
-| ContractNLI, archive    |               71.1 / 54.9 |            71.1 / 64.7 |
-| MultiNLI, validation    |               66.9 / 60.3 |            68.4 / 70.6 |
-| ContractNLI, validation |               70.1 / 62.2 |            68.5 / 70.9 |
+What the field looks like:
 
-The large shipped-policy gap is therefore substantially operating-policy dependent. This agrees with Decider’s leading `consistent` scores below the shipped confidence gate. The primary criterion was chosen after the zero-budget validation was seen; it is exploratory and uses different per-model false-clear budgets, not matched risk. The original between-model intervals above describe **only the shipped policy**. These calibrated point differences establish neither equivalence nor a statistically demonstrated reversal.
+1. **Four models lead on ranking and the screen cannot separate them.** GLiDE 27B, drex-max-finance, Pplx Decider v1.2 and drex-max-v1.1 sit within 0.016 macro average precision of each other on the 880 pairs, and none dominates another. drex-max-v1.1 has no validation run yet.
+2. **Jev 1.14 is the fastest route by a wide margin** (107 and 180 ms p95) and completed every call in both cohorts. It ranks below the leaders, most visibly on contracts and Wikipedia, and stays in focus for speed rather than quality.
+3. **Gemini Decision 1, released November 11 and measured the same day, lands mid-field.** It is sixth of fifteen on the 880 pairs and has the best science F1 of any model (69.6%), but trails the leaders on Wikipedia and contracts. drex-max-finance ranks better in both cohorts (+0.032 [0.012, 0.055] and +0.040 [0.009, 0.072] macro average precision) at a lower p95, so the screen sets it aside. Its latency was measured five days after the Nace runs, so that ordering is the weaker half of the evidence.
+4. **Reliability separates otherwise close models.** GLiDE lost 75 of 688 validation calls to the three-second deadline after losing one of 880 in the first run. No other model lost more than five calls in a cohort.
+5. **The API catalog trails the measurements.** Of the eight models callers can select, only Jev and Pplx Decider v1.2 are viable and three are screened out. GLiDE and the Nace models are measured through evaluation adapters only.
+6. **Thresholds move results as much as model choice does.** Two models with nearly equal ranking quality can differ by twenty points of F1 at the shared cutoff, and a large coverage gap between two leaders mostly closes once each gets its own thresholds. Read the domain tables below as "this model at this operating point".
 
-## Why recall is low: measured misses and separate calibration
+These rankings use each dataset's native labels, public development data, and a single pass per model. The screening rule was written after the first fourteen results were visible. [Study limitations](#study-limitations-and-dataset-reuse) lists what that does and does not support.
+
+## Results by domain
+
+Each cell is **precision / recall / clear-negative coverage**, in percent, on the 880 pairs under the shipped policy: contradiction at P ≥ 0.8, clear at P(contradiction) ≤ 0.2 with at least 0.8 support, otherwise uncertain. Errors and uncertain answers count against recall and coverage. Rows follow the order of the field table.
+
+| Model                   | Wikipedia (VitaminC) |  Science (SciFact) | Contracts (ContractNLI) | Business-adjacent (MultiNLI) |   Finance (FinDVer) |
+| ----------------------- | -------------------: | -----------------: | ----------------------: | ---------------------------: | ------------------: |
+| GLiDE 27B               |   97.1 / 47.9 / 85.3 | 93.3 / 39.4 / 78.9 |      93.3 / 53.8 / 71.1 |           97.7 / 62.7 / 82.7 | 100.0 / 90.9 / 81.6 |
+| drex-max-finance        |   90.2 / 52.1 / 79.1 | 93.5 / 40.8 / 48.4 |     100.0 / 46.2 / 61.8 |           94.5 / 77.6 / 65.4 | 100.0 / 88.6 / 84.2 |
+| Pplx Decider v1.2       |   94.6 / 49.3 / 79.8 | 93.9 / 43.7 / 53.9 |      93.3 / 53.8 / 54.9 |           97.8 / 67.2 / 60.2 | 100.0 / 86.4 / 81.6 |
+| drex-max-v1.1           |  100.0 / 40.8 / 77.5 | 92.0 / 32.4 / 27.3 |     100.0 / 38.5 / 35.3 |          100.0 / 58.2 / 59.4 | 100.0 / 86.4 / 71.1 |
+| Jev 1.14                |   90.3 / 39.4 / 79.1 | 94.6 / 49.3 / 82.0 |      86.7 / 50.0 / 64.2 |          100.0 / 58.2 / 81.2 | 100.0 / 81.8 / 71.1 |
+| drex-max                |   97.4 / 53.5 / 82.2 | 93.1 / 38.0 / 57.0 |      87.5 / 53.8 / 54.3 |           97.7 / 64.2 / 75.9 | 100.0 / 84.1 / 89.5 |
+| Pplx Decider Flash v1.2 |   85.4 / 49.3 / 64.3 | 93.1 / 38.0 / 21.1 |     100.0 / 26.9 / 26.6 |           97.6 / 61.2 / 50.4 | 100.0 / 56.8 / 76.3 |
+| Clef Omni               |   65.6 / 29.6 / 58.1 | 94.7 / 50.7 / 59.4 |      92.9 / 50.0 / 47.4 |           97.4 / 55.2 / 52.6 | 100.0 / 18.2 / 76.3 |
+| drex-v1.5               |   80.9 / 53.5 / 78.3 | 90.0 / 50.7 / 87.5 |      81.8 / 34.6 / 71.7 |           97.3 / 53.7 / 84.2 | 100.0 / 68.2 / 89.5 |
+| drex-v2.0               |   83.3 / 42.3 / 51.2 | 92.9 / 36.6 / 34.4 |      88.9 / 30.8 / 37.0 |          100.0 / 52.2 / 49.6 | 100.0 / 38.6 / 60.5 |
+| Clef Flash              |   66.7 / 16.9 / 29.5 | 93.9 / 43.7 / 22.7 |     100.0 / 34.6 / 15.0 |          100.0 / 46.3 / 41.4 | 100.0 / 25.0 / 36.8 |
+| Gemini Decision 1       |   80.6 / 40.8 / 61.2 | 95.1 / 54.9 / 64.8 |      82.4 / 53.8 / 56.6 |           95.3 / 61.2 / 60.9 |  97.4 / 86.4 / 81.6 |
+| Clef                    |   73.8 / 43.7 / 59.7 | 92.9 / 36.6 / 55.5 |     100.0 / 30.8 / 34.1 |          100.0 / 40.3 / 56.4 | 100.0 / 27.3 / 55.3 |
+| Decision-1              |   81.8 / 50.7 / 75.2 | 91.9 / 47.9 / 66.4 |      58.6 / 65.4 / 48.0 |           95.7 / 65.7 / 75.9 |  96.0 / 54.5 / 65.8 |
+| GPT-6 Luna Decisions    |   88.2 / 21.1 / 72.9 | 86.4 / 26.8 / 63.3 |      76.9 / 38.5 / 38.7 |          100.0 / 32.8 / 66.9 | 100.0 / 75.0 / 78.9 |
+
+- **Precision is usually achievable; recall is not.** Most cells clear 90% precision, and finance precision is 96% or better for every model. No model exceeds 55% recall on Wikipedia or science. On contracts only Decision-1 does (65.4%), at 58.6% precision.
+- **Finance is the easiest scorecard and the least representative.** Only 82 of 250 source pairs fit the 2 KiB evidence limit, so it measures short finance evidence.
+- **Contracts has 26 positives.** One pair moves recall by almost four points; treat close contract rankings as ties.
+
+Average precision per domain, which ignores the threshold:
+
+| Model                   | Wikipedia | Science | Contracts | Business-adjacent | Finance |
+| ----------------------- | --------: | ------: | --------: | ----------------: | ------: |
+| GLiDE 27B               |     0.885 |   0.931 |     0.910 |             0.964 |   0.981 |
+| drex-max-finance        |     0.880 |   0.912 |     0.893 |             0.970 |   0.978 |
+| Pplx Decider v1.2       |     0.895 |   0.913 |     0.861 |             0.975 |   0.981 |
+| drex-max-v1.1           |     0.890 |   0.893 |     0.839 |             0.980 |   0.986 |
+| Jev 1.14                |     0.806 |   0.926 |     0.739 |             0.966 |   0.977 |
+| drex-max                |     0.886 |   0.906 |     0.807 |             0.958 |   0.980 |
+| Pplx Decider Flash v1.2 |     0.823 |   0.874 |     0.786 |             0.966 |   0.982 |
+| Clef Omni               |     0.688 |   0.936 |     0.886 |             0.966 |   0.949 |
+| drex-v1.5               |     0.792 |   0.884 |     0.757 |             0.946 |   0.977 |
+| drex-v2.0               |     0.763 |   0.873 |     0.770 |             0.963 |   0.979 |
+| Clef Flash              |     0.605 |   0.920 |     0.834 |             0.969 |   0.914 |
+| Gemini Decision 1       |     0.798 |   0.929 |     0.821 |             0.944 |   0.979 |
+| Clef                    |     0.691 |   0.900 |     0.841 |             0.940 |   0.957 |
+| Decision-1              |     0.823 |   0.872 |     0.699 |             0.944 |   0.922 |
+| GPT-6 Luna Decisions    |     0.779 |   0.751 |     0.624 |             0.851 |   0.970 |
+
+Contracts and Wikipedia spread the field (0.62 to 0.91 and 0.61 to 0.90); business-adjacent text and finance barely do. Per-model archives hold AUROC, F1, Brier scores, false clears and paired intervals: [first nine models](eval/results/hosted-models-with-glide-2026-11-05/README.md), [five Nace models](eval/results/nace-2026-11-06/README.md), Gemini Decision 1 on the [880 pairs](eval/results/gemini-decision-1-archive-880-2026-11-11/README.md) and the [validation cohort](eval/results/gemini-decision-1-validation-688-2026-11-11/README.md).
+
+## With model-specific thresholds
+
+A shared cutoff measures the shipped product, not each model's best operating point. Eleven models have thresholds fitted separately on 2,512 public pairs and validated on the 688 source-group-disjoint pairs, with every policy frozen before validation. Each model's negative rule may make no more false clears on the fit set than the shipped policy did.
+
+| Model                   | Precision % | Recall % | Clear-negative coverage % | False clears / 212 positives |
+| ----------------------- | ----------: | -------: | ------------------------: | ---------------------------: |
+| drex-max-finance        |        96.7 |     69.8 |                      70.6 |                            5 |
+| Pplx Decider v1.2       |        96.0 |     67.5 |                      74.2 |                            8 |
+| drex-max                |        97.1 |     62.3 |                      71.8 |                            7 |
+| GLiDE 27B               |        97.0 |     61.8 |                      71.0 |                           10 |
+| Pplx Decider Flash v1.2 |        96.9 |     59.9 |                      59.2 |                            8 |
+| Jev 1.14                |        96.6 |     54.2 |                      79.4 |                           18 |
+| Decision-1              |        97.8 |     42.5 |                      64.9 |                           13 |
+| Clef Omni               |        97.5 |     36.3 |                      59.7 |                           14 |
+| Clef Flash              |        92.1 |     33.0 |                      36.1 |                           10 |
+| GPT-6 Luna Decisions    |        94.5 |     32.5 |                      58.0 |                           27 |
+| Clef                    |        98.1 |     24.1 |                      49.6 |                           10 |
+
+Fitted thresholds hold precision near 96 to 98% for most models and lift the leaders to 62 to 70% recall, still twenty points short of the target. The best pooled result, drex-max-finance, is not distinguishable from Pplx Decider v1.2: its recall difference is +2.4 points with a paired interval of −1.9 to +5.8. GLiDE's figures include 75 deadline failures counted as misses. Gemini Decision 1, drex-max-v1.1, drex-v1.5 and drex-v2.0 have no fitted policy. None of these policies is in the service.
+
+The budget definition was chosen after an earlier, stricter study was seen, so this table is exploratory; the [history](#how-this-evaluation-evolved) explains why. Full tables and policies: [nine-model follow-up](eval/results/calibration-followup-2026-11-06/README.md) and [Nace calibration](eval/results/nace-calibration-2026-11-06/README.md).
+
+## Why every model falls short of the targets
+
+The figures in this section cover the first nine models; the six added since have not been through the same miss analysis.
 
 Across the five public scorecards there are 279 distinct native positives and 2,511 positive/model observations. Recomputing the archive gives **1,337 missed-positive outcomes: 1,333 completed semantic misses plus four provider errors**. The completed misses comprise 1,191 uncertain answers and 142 false clears. Percentages below use the 1,333 completed misses, not all outcomes.
 
@@ -57,57 +146,7 @@ Raw contradiction scores are below 0.2 for 428 completed misses (32.1%), 0.2–0
 
 In the original nine-model archive, no model caught 68 native positives: VitaminC 25, SciFact 24, MultiNLI 12, ContractNLI four, finance three. The union catches 211/279 (75.6%); that is positive-only coverage, not an implemented ensemble or a precision result. A retrospective non-finance 0.01-grid F1 check places 26/36 model/domain optima in 0.05–0.35, with exceptions up to 0.88. Those are sensitivity diagnostics, not fitted operating policies. The existing optimistic ≥95%-precision frontier’s best model per dataset reaches 54.9% recall on VitaminC, 67.6% on SciFact and 50.0% on ContractNLI; that range does not describe every model.
 
-The approved [separate-group calibration study](eval/results/separate-calibration-2026-11-05/README.md) is complete: **28,800 new assessment attempts**, with a **$57.60 operator reservation**, not measured billing. Each model used 2,512 non-finance fit pairs and 688 source-group-disjoint validation pairs. All policies were frozen before validation; no new inference was performed on the archived 880 pairs. Finance is transfer only. The original archives, original verifier summary, service, profiles, thresholds and default model are unchanged.
-
-On archived probabilities, the fitted policies recover **66/1,337 (4.9%) missed native-positive model–pair outcomes**, while losing **105 existing detections**. Recall improves for four models, declines for four and ties for one. The positive-only oracle union moves from 211/279 to 212/279; it recovers eight previously never-caught pairs but loses seven previously caught pairs. This establishes neither ensemble precision nor a model ceiling. This experiment isolates operating-policy effects; it does not test better prompts, examples or provider-specific formulations.
-
-The following pooled validation results are descriptive and depend on this four-domain mixture. Delta compares the calibrated and shipped rules on the **same new validation outputs**. Errors and uncertainty stay in selected-case denominators. Full domain tables, precision/recall/negative-coverage/false-clear paired intervals and exact policies are in the [versioned archive](eval/results/separate-calibration-2026-11-05/README.md).
-
-| Model         | Precision % |   Recall % | Recall Δ, pp | Negative coverage % | False clears | Completed |
-| ------------- | ----------: | ---------: | -----------: | ------------------: | -----------: | --------: |
-| Jev 1.14      |  unmeasured | unmeasured |   unmeasured |          unmeasured |   unmeasured |     0/688 |
-| Clef          |        98.1 |       24.1 |        -14.6 |                 4.4 |            0 |   688/688 |
-| Clef Flash    |        92.1 |       33.0 |         +0.0 |                 1.3 |            0 |   688/688 |
-| Clef Omni     |        97.5 |       36.3 |        -11.3 |                 4.0 |            1 |   688/688 |
-| Luna          |        94.5 |       32.5 |         -0.9 |                 0.0 |            0 |   688/688 |
-| Decision-1    |        97.8 |       42.5 |        -19.3 |                 4.8 |            1 |   688/688 |
-| Decider       |        96.0 |       67.5 |         +9.9 |                30.0 |            0 |   688/688 |
-| Decider Flash |        96.9 |       59.9 |         +6.6 |                14.9 |            2 |   688/688 |
-| GLiDE 27B     |        97.0 |       61.8 |        +15.1 |                15.8 |            2 |   613/688 |
-
-**In the original study, Jev validation was operationally inconclusive:** all 688 attempts returned `provider_invalid_response`, so semantic quality was unmeasured in that run. The raw execution-inclusive recall is zero in the artifact; zero false clears on an all-failed run is not evidence of safety. The [incident report](docs/evaluations/separate-calibration-validation-incident-2026-11-06.md) separates known facts from the unconfirmed credit-exhaustion hypothesis. No retry occurred within that study. GLiDE had 166 fit and 75 validation deadline failures; Clef and Luna each had one fit deadline failure, and full Decider had two. Total failures were 933/28,800.
-
-**No validation or archived model/domain scorecard meets all three point targets.** The zero-fit-false-clear budget disables negative verdicts for Jev and Luna, and pooled validation negative coverage is at most 30% for the other models. Six native-positive false clears still occur in validation despite zero on fit. Calibration therefore does not solve the joint quality problem under this protocol. Native public labels and observed fit precision cannot establish the service-contract release gates. The [proposal](docs/evaluations/separate-calibration-proposal-2026-11-05.md) records the preregistered rules; prompt/exit experiments remain separate and unrun.
-
-Verify the original release and this study offline with `python3 -B scripts/verify-calibration-study.py`. It independently refits policies and checks point metrics against the existing TypeScript metric engine, plus recomputing 81 paired comparisons with 20,000 source-group resamples each. No credentials, raw dataset text or network access are required.
-
-### Follow-up: restored Jev validation and shipped-relative negative budgets
-
-The owner added Jev credits and authorized a separate **688-call / $1.38** validation rerun. It produced **688 successes and 688 HTTP 200 statuses** using the original cohort, prompts, deadline and frozen thresholds. Its [new archive](eval/results/calibration-followup-2026-11-06/README.md) restores Jev's validation evidence without overwriting the failed run or original zero-budget study. Billing is unknown. HTTP-status-only diagnostics retain no request text, credentials or upstream response bodies; the historical failure status remains unknown.
-
-For the replacement primary, each model maximizes fit clear-negative coverage with no more false clears than its shipped balanced-v1 policy made on the same 771 fit positives: Jev 56, Luna 90, Decision-1 41, GLiDE 31, Clef 27, Clef Flash 25, Clef Omni 21, Decider 18 and Decider Flash 11. Counts were independently confirmed. **The primary was chosen after the zero-budget validation was seen.** Parameters use fit outputs only; no later validation-driven grid search or reselection occurs. All positive cutoffs remain frozen. The fixed 0%, 0.5%, 1%, 2% and 5% sensitivity grid is published alongside the primary. No other model was rerun, and finance remains transfer only.
-
-Pooled validation results below use the fresh Jev outputs and the unchanged eight other validation cohorts. This is **post-hoc exploratory sensitivity**, not new confirmatory evidence. Positive precision and recall are invariant across negative budgets. False-clear counts are over 212 selected native-positive validation pairs; negative coverage is over 476 native negatives. Failures remain in denominators.
-
-| Model         | Precision % | Recall % | Negative coverage %, zero → primary | False clears, primary / shipped |
-| ------------- | ----------: | -------: | ----------------------------------: | ------------------------------: |
-| Jev 1.14      |        96.6 |     54.2 |                          0.0 → 79.4 |                         18 / 17 |
-| Clef          |        98.1 |     24.1 |                          4.4 → 49.6 |                          10 / 8 |
-| Clef Flash    |        92.1 |     33.0 |                          1.3 → 36.1 |                          10 / 8 |
-| Clef Omni     |        97.5 |     36.3 |                          4.0 → 59.7 |                         14 / 13 |
-| Luna          |        94.5 |     32.5 |                          0.0 → 58.0 |                         27 / 27 |
-| Decision-1    |        97.8 |     42.5 |                          4.8 → 64.9 |                         13 / 13 |
-| Decider       |        96.0 |     67.5 |                         30.0 → 74.2 |                           8 / 6 |
-| Decider Flash |        96.9 |     59.9 |                         14.9 → 59.2 |                           8 / 5 |
-| GLiDE 27B     |        97.0 |     61.8 |                         15.8 → 71.0 |                         10 / 15 |
-
-The replacement restores pooled negative coverage to 36.1–79.4%, showing that the zero constraint drove the earlier collapse. It does not prove that label noise caused those fit false clears, nor guarantee shipped-level errors on validation or each subgroup. **No primary model/domain scorecard meets all three point targets.** The [review response](docs/evaluations/calibration-review-response-2026-11-06.md) narrows the causal claims and supplies thread wording.
-
-GLiDE's 75 validation timeouts include 19 native-positive cases. Its frozen-gate recall is 61.8% including failures, 67.9% conditional on successful positives, and at most 70.8% if all 19 missing positive answers had detected contradiction. Missing answers were not imputed. Different cohorts and serial timing prevent attributing the change from one timeout in 920 original calls to provider slowdown alone.
-
-Verify all three versions offline with `python3 -B scripts/verify-calibration-followup.py`: independent negative refits, 864 metric tables and 162 primary paired comparisons with 20,000 source-group resamples each, plus both preceding studies. No provider credentials, network or raw dataset text are needed.
-
-The [human packet registry](eval/results/calibration-preparation-2026-11-05/packet-registry.json) records 204 blinded items with matched controls. Status: **packet prepared, not yet labelled**. Two independent human annotations and third-human adjudication are required; no AI judgments or new service-contract scores exist. FinDVer text and all annotation views/notes remain in ignored local files. The [recomputable miss breakdown](eval/results/calibration-preparation-2026-11-05/miss-breakdown.json) preserves exact counts and the distinction between completed misses and errors.
+Three consequences follow. Thresholding alone cannot reach 90% recall, because a third of misses have a contradiction score below 0.2. Combining the nine models would not reach it either. And some of the gap is in the labels: a native `REFUTES` or NLI contradiction is not always a contradiction under the service's definition, and the reverse. A [204-item blinded packet](eval/results/calibration-preparation-2026-11-05/packet-registry.json) is prepared for two human annotators and an adjudicator to measure that. Status: **prepared, not yet labelled**.
 
 ## Benchmark coverage and API availability
 
@@ -118,54 +157,13 @@ Benchmark coverage and the public API catalog are separate:
 | [Eight exposed hosted models](docs/models.md) | November 5 comparison: 920 scored observations each                                     | Selectable in the invitation-only preview; Jev 1.14 is the default      |
 | Hosted Fastino GLiDE 27B (`fastino/GLiDE`)    | Same comparison and inputs: 920 scored observations                                     | Evaluation-runner adapter only; API/dashboard route not yet implemented |
 | Five active Nace Drex IDs                     | November 6 extension: same 920 cases each; Max/Finance add 3,200 calibration calls each | Evaluation-runner adapters only; no API/dashboard route                 |
+| Google Gemini Decision 1                      | November 11: the 880 public pairs and the 688 validation pairs                          | Evaluation-runner adapter only; no API/dashboard route                  |
 | DeBERTa NLI                                   | Earlier, separate baseline cohort                                                       | Offline evaluation comparator                                           |
 | GLiDE 0.4B, 0.8B, 2B and 9B                   | Pending; no measured results in this repository                                         | No service integration                                                  |
 
 “Evaluation-only” describes integration scope, not a model-quality tier or a failed qualification decision specific to GLiDE. Every exposed model is also an unqualified evaluation preview. No model met all three proposed quality targets together on the public scorecards.
 
 The Fastino runner uses `FASTINO_API_KEY`. Provisioning that credential on a Worker does not add a model to the service: a runtime adapter, catalog/request-schema entry, dashboard support, documentation and deployed-route verification are also required. Use the [supported-model reference](docs/models.md) and live [`/v1/models`](https://countercheck.nicia.ai/v1/models) catalog to determine what API callers can select. The hosted 27B results do not establish performance for the four smaller sizes.
-
-## Verify the published numbers offline
-
-Python 3.9 or newer and the committed files are sufficient:
-
-```sh
-git clone https://github.com/nicia-ai/countercheck.git
-cd countercheck
-python3 -B scripts/verify-eval-release.py
-```
-
-The separate [Nace extension](#nace-drex-extension-november-6) has an additional offline verifier.
-
-The command verifies artifact hashes and execution-source snapshots, checks identical input identities, labels and text hashes across models, and independently recomputes confusion counts, precision, recall, F1, coverage, AUROC, average precision, Brier scores, latency percentiles, and reported input-token totals. It reads **redacted scoring rows**, not original claims or evidence. It makes no network or model calls.
-
-Expected summary for the original November 5 release:
-
-```json
-{
-  "verified_models": 9,
-  "verified_observations": 8280,
-  "verified_scorecards": 72,
-  "identical_inputs_across_models": true,
-  "execution_errors": 10,
-  "verified_analysis_scorecards": 45,
-  "verified_paired_comparisons": 6,
-  "bootstrap_replicates_per_comparison": 20000,
-  "network_calls": 0,
-  "raw_dataset_text_required": false
-}
-```
-
-There are 63 scored model/dataset runs, plus nine derived finance-subset scorecards. The subset does not add inference calls or independent examples. The separate [post-hoc supplement](eval/results/hosted-models-analysis-2026-11-05/README.md) adds 45 ranking/operating-point rows, 63 native-negative-label slices and six metric-specific paired comparisons. Its declared analysis implementation is replayed deterministically and covered by analytic regression fixtures; this is not an independent second statistical implementation. The original aggregate checks do not independently recompute every older bootstrap interval or diagnostic curve. Verification checks the archived calculations and provenance; it does not reproduce model inference, independently establish vendor hardware or weights, or authenticate the provider's claims about its model.
-
-For a no-credential execution smoke test, install Node.js 24.22.2 and pnpm 11.20.0, then run:
-
-```sh
-pnpm install --frozen-lockfile
-pnpm eval:smoke
-```
-
-This uses a deterministic fake transport and an invented eight-pair fixture. It tests the pipeline, not a model's semantic ability. The smoke runner cleans up its temporary output.
 
 ## Task and decision policy
 
@@ -228,21 +226,23 @@ Exact input bytes, adapter versions, seeds, source URLs, original labels, group 
 
 ## Execution and scoring
 
-The November 5 run used Node.js 24.22.2, the same kernel and fixed `balanced-v1` policy, one pass, original presentation, one pair per call, and sequential client attempts. Each operation had a 3,000 ms kernel deadline. There were no retries, fallbacks, automatic repacking, or silent truncation.
+Every comparison run uses the same kernel and fixed `balanced-v1` policy, one pass, original presentation, one pair per call, and sequential client attempts (Node.js 24.22.2 for the November 5 run). Each operation had a 3,000 ms kernel deadline. There were no retries, fallbacks, automatic repacking, or silent truncation.
 
 The original eight-model phase contained 7,360 observations. The appended Fastino phase added 920 on identical input hashes and unchanged shared compiler/kernel/metrics. Three Fastino integration probes are recorded separately and excluded from quality denominators. Together this gives **8,280 scored observations**, including 7,920 public pair observations and 360 synthetic observations.
 
-| Evaluated model         | Requested ID                         | Route                                     |
-| ----------------------- | ------------------------------------ | ----------------------------------------- |
-| Jev 1.14                | `jev-1.14.0`                         | TypeSafe System One HTTPS                 |
-| Clef                    | `clef`                               | Native Cloudflare Workers AI binding      |
-| Clef Flash              | `clef-flash`                         | Native Cloudflare Workers AI binding      |
-| Clef Omni               | `clef-omni`                          | Native Cloudflare Workers AI binding      |
-| GPT-6 Luna Decisions    | `gpt-6-luna`                         | Native OpenAI Decisions API               |
-| Decision-1              | `microsoft/microsoft-decision-1`     | OpenRouter Decisions                      |
-| Pplx Decider v1.2       | `perplexity/pplx-decider-v1.2`       | OpenRouter Decisions                      |
-| Pplx Decider Flash v1.2 | `perplexity/pplx-decider-flash-v1.2` | OpenRouter Decisions                      |
-| GLiDE 27B               | `fastino/GLiDE`                      | Fastino System One HTTPS; evaluation-only |
+| Evaluated model         | Requested ID                                                              | Route                                                             |
+| ----------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| Jev 1.14                | `jev-1.14.0`                                                              | TypeSafe System One HTTPS                                         |
+| Clef                    | `clef`                                                                    | Native Cloudflare Workers AI binding                              |
+| Clef Flash              | `clef-flash`                                                              | Native Cloudflare Workers AI binding                              |
+| Clef Omni               | `clef-omni`                                                               | Native Cloudflare Workers AI binding                              |
+| GPT-6 Luna Decisions    | `gpt-6-luna`                                                              | Native OpenAI Decisions API                                       |
+| Decision-1              | `microsoft/microsoft-decision-1`                                          | OpenRouter Decisions                                              |
+| Pplx Decider v1.2       | `perplexity/pplx-decider-v1.2`                                            | OpenRouter Decisions                                              |
+| Pplx Decider Flash v1.2 | `perplexity/pplx-decider-flash-v1.2`                                      | OpenRouter Decisions                                              |
+| GLiDE 27B               | `fastino/GLiDE`                                                           | Fastino System One HTTPS; evaluation-only                         |
+| Five Nace Drex IDs      | `drex-v1.5`, `drex-v2.0`, `drex-max`, `drex-max-v1.1`, `drex-max-finance` | Nace System One HTTPS; evaluation-only                            |
+| Gemini Decision 1       | `google/gemini-decision-1`                                                | OpenRouter Decisions, pinned to Google AI Studio; evaluation-only |
 
 The Clef binding was reached through Wrangler's remote proxy. Other routes used native provider HTTPS interfaces. These are provider/kernel measurements, not authenticated production API latency or a capacity test. The deployed API's nested provider budget is 2,500 ms, distinct from this comparison's 3,000 ms kernel budget. Fixed model order, network variation, mutable upstream aliases and one pass limit conclusions about repeat stability and timing. Timed-out native Cloudflare work can continue upstream.
 
@@ -268,74 +268,7 @@ Wilson intervals assume independent Bernoulli observations. Deterministic source
 
 Usage reports keep known token subtotals and unknown observations separate. Actual billed cost is unknown. Operator per-call reservations and caps are execution safeguards, not measured prices or vendor-enforced charge limits.
 
-## Nine-model results
-
-F1 values are percentages under the fixed abstaining policy. Successful-call p95 is in milliseconds; errors are shown separately and remain quality misses.
-
-| Model                   | Wikipedia | Science | Contracts | Business-adjacent | Finance | p95 ms | Errors / 880 public pairs |
-| ----------------------- | --------: | ------: | --------: | ----------------: | ------: | -----: | ------------------------: |
-| Jev 1.14                |      54.9 |    64.8 |      63.4 |              73.6 |    90.0 |    107 |                         0 |
-| Clef                    |      54.9 |    52.5 |      47.1 |              57.4 |    42.9 |    787 |                         1 |
-| Clef Flash              |      27.0 |    59.6 |      51.4 |              63.3 |    40.0 |    261 |                         0 |
-| Clef Omni               |      40.8 |    66.1 |      65.0 |              70.5 |    30.8 |    694 |                         1 |
-| GPT-6 Luna Decisions    |      34.1 |    40.9 |      51.3 |              49.4 |    85.7 |    534 |                         2 |
-| Decision-1              |      62.6 |    63.0 |      61.8 |              77.9 |    69.6 |    403 |                         0 |
-| Pplx Decider v1.2       |      64.8 |    59.6 |      68.3 |              79.6 |    92.7 |    865 |                         3 |
-| Pplx Decider Flash v1.2 |      62.5 |    54.0 |      42.4 |              75.2 |    72.5 |    258 |                         2 |
-| GLiDE 27B               |      64.2 |    55.4 |      68.3 |              76.4 |    95.2 |    242 |                         1 |
-
-All selected inputs fit the evaluated envelope. There were ten execution errors, retained without retry, and zero envelope exclusions in the scored run. Dataset preparation exclusions, particularly the finance length funnel, are separate from that zero.
-
-### Ranking and threshold sensitivity
-
-Each cell is **AUROC / average precision / retrospective recall at ≥95% observed precision (%)**. AUC/AP use successful rows with probabilities, including uncertain verdicts; the complete per-cell probability denominators and errors are in the [supplement](eval/results/hosted-models-analysis-2026-11-05/README.md#ranking-and-shipped-behavior). Errors remain misses in recall’s full native-positive denominator. The third number is an optimistic same-sample threshold sweep with tied scores grouped, not held-out performance or a deployment cutoff.
-
-| Model                   |            Wikipedia |              Science |            Contracts |    Business-adjacent |              Finance |
-| ----------------------- | -------------------: | -------------------: | -------------------: | -------------------: | -------------------: |
-| Jev 1.14                | 0.863 / 0.806 / 28.2 | 0.968 / 0.926 / 67.6 |  0.927 / 0.739 / 7.7 | 0.977 / 0.966 / 83.6 | 0.963 / 0.977 / 90.9 |
-| Clef                    | 0.761 / 0.691 / 11.3 | 0.950 / 0.900 / 28.2 | 0.952 / 0.841 / 50.0 | 0.957 / 0.940 / 65.7 | 0.939 / 0.957 / 77.3 |
-| Clef Flash              |  0.746 / 0.605 / 0.0 | 0.959 / 0.920 / 35.2 | 0.949 / 0.834 / 42.3 | 0.982 / 0.969 / 85.1 | 0.861 / 0.914 / 70.5 |
-| Clef Omni               | 0.774 / 0.688 / 22.5 | 0.965 / 0.936 / 56.3 | 0.980 / 0.886 / 26.9 | 0.983 / 0.966 / 79.1 | 0.927 / 0.949 / 72.7 |
-| GPT-6 Luna              |  0.861 / 0.779 / 8.5 |  0.819 / 0.751 / 2.8 | 0.854 / 0.624 / 11.5 | 0.876 / 0.851 / 58.2 | 0.956 / 0.970 / 88.6 |
-| Decision-1              | 0.870 / 0.823 / 38.0 | 0.933 / 0.872 / 14.1 | 0.885 / 0.699 / 30.8 | 0.970 / 0.944 / 65.7 | 0.903 / 0.922 / 63.6 |
-| Pplx Decider v1.2       | 0.931 / 0.895 / 54.9 | 0.952 / 0.913 / 33.8 | 0.964 / 0.861 / 46.2 | 0.987 / 0.975 / 86.6 | 0.965 / 0.981 / 93.2 |
-| Pplx Decider Flash v1.2 | 0.859 / 0.823 / 36.6 | 0.925 / 0.874 / 31.0 | 0.955 / 0.786 / 30.8 | 0.984 / 0.966 / 67.2 | 0.968 / 0.982 / 95.5 |
-| GLiDE 27B               | 0.918 / 0.885 / 47.9 | 0.964 / 0.931 / 53.5 | 0.977 / 0.910 / 50.0 | 0.980 / 0.964 / 79.1 | 0.964 / 0.981 / 95.5 |
-
-The scalar sweep selects the largest recall with at least 95% **observed** precision among nonempty threshold selections on the same labels. It can overfit, and it does not select the negative gate or jointly satisfy all three application targets. The sweep uses raw contradiction scores, matching the shipped positive gate; AUROC/AP use archived normalized binary probabilities. A zero denotes no recovered positives at a qualifying observed operating point; full threshold/TP/FP records distinguish an absent qualifying threshold. AUC/AP evaluate native binary ranking, not the correctness of the service’s four-way semantics. The archive’s existing risk–coverage diagnostic uses forced binary decisions at 0.5; it must not be presented as the shipped four-way abstention policy’s risk curve.
-
-### Paired intervals and native-negative coverage
-
-These are the original **shared shipped-policy** comparisons; their intervals do not describe the [model-specific primary](#glide-and-decider-under-shared-and-model-specific-policies). First minus second; differences and intervals are in percentage points. Each bootstrap resamples complete recorded source groups, including all pairs and both models together. There are 20,000 resamples per comparison, with the seed and valid-replicate counts in the supplement. Intervals are pointwise, conditional on these selected groups and one fixed inference pass, with no correction for the post-hoc selection of contrasts or multiple comparisons.
-
-| Dataset     | First − second                | Groups | F1 difference [95% interval] | Recall difference [95% interval] | Negative coverage difference [95% interval] |
-| ----------- | ----------------------------- | -----: | ---------------------------: | -------------------------------: | ------------------------------------------: |
-| findver     | GLiDE 27B − Pplx Decider v1.2 |     59 |               2.6 [0.0, 6.4] |                  4.5 [0.0, 10.9] |                           0.0 [-10.3, 10.3] |
-| findver     | GLiDE 27B − Jev 1.14          |     59 |              5.2 [1.1, 11.6] |                  9.1 [2.0, 18.9] |                           10.5 [-3.0, 24.3] |
-| contractnli | GLiDE 27B − Pplx Decider v1.2 |     20 |               0.0 [0.0, 0.0] |                   0.0 [0.0, 0.0] |                           16.2 [10.5, 22.1] |
-| mnli        | GLiDE 27B − Pplx Decider v1.2 |     69 |             -3.3 [-8.7, 1.7] |                -4.5 [-11.3, 1.5] |                           22.6 [15.8, 29.5] |
-| vitaminc    | Pplx Decider v1.2 − Jev 1.14  |     25 |              9.9 [2.4, 20.5] |                  9.9 [1.6, 19.7] |                             0.8 [-5.0, 6.6] |
-| mnli        | Pplx Decider v1.2 − Jev 1.14  |     69 |             6.1 [-0.7, 13.4] |                  9.0 [0.0, 17.9] |                        -21.1 [-28.5, -13.5] |
-
-Equal contract F1/recall on this sample does not establish equivalence. Zero observed false positives in a small finance cohort cannot establish population precision, even when a bootstrap interval degenerates. Positive-only paired tests address recall, not F1; intervals must match the metric being discussed.
-
-Native-negative coverage below is **cleared / selected (%)**. A native neutral/NEI annotation is not an independently adjudicated service `insufficient_context` label.
-
-| Model                   | VitaminC SUPPORTS | VitaminC NEI | MNLI entailment | MNLI neutral | ContractNLI Entailment |
-| ----------------------- | ----------------: | -----------: | --------------: | -----------: | ---------------------: |
-| Jev 1.14                |     90/100 (90.0) | 12/29 (41.4) |    65/72 (90.3) | 43/61 (70.5) |         111/173 (64.2) |
-| Clef                    |     69/100 (69.0) |  8/29 (27.6) |    62/72 (86.1) | 13/61 (21.3) |          59/173 (34.1) |
-| Clef Flash              |     34/100 (34.0) |  4/29 (13.8) |    44/72 (61.1) | 11/61 (18.0) |          26/173 (15.0) |
-| Clef Omni               |     64/100 (64.0) | 11/29 (37.9) |    60/72 (83.3) | 10/61 (16.4) |          82/173 (47.4) |
-| GPT-6 Luna              |     80/100 (80.0) | 14/29 (48.3) |    58/72 (80.6) | 31/61 (50.8) |          67/173 (38.7) |
-| Decision-1              |     87/100 (87.0) | 10/29 (34.5) |    69/72 (95.8) | 32/61 (52.5) |          83/173 (48.0) |
-| Pplx Decider v1.2       |     95/100 (95.0) |  8/29 (27.6) |    64/72 (88.9) | 16/61 (26.2) |          95/173 (54.9) |
-| Pplx Decider Flash v1.2 |     79/100 (79.0) |  4/29 (13.8) |    58/72 (80.6) |  9/61 (14.8) |          46/173 (26.6) |
-| GLiDE 27B               |     96/100 (96.0) | 14/29 (48.3) |    67/72 (93.1) | 43/61 (70.5) |         123/173 (71.1) |
-
-GLiDE and Jev each clear 43/61 MNLI-neutral pairs. Of Decider’s 44 uncertain neutral responses, 33 favor `consistent`, eight favor `insufficient_context`, and three favor `contradiction`. Most of those abstentions therefore reflect inadequate confidence in the leading consistent answer, rather than a different leading category. ContractNLI’s selected negatives are all entailments: GLiDE clears 123 versus Decider’s 95. The [full native-label table](eval/results/hosted-models-analysis-2026-11-05/README.md#negative-coverage-by-native-label) includes science, finance, errors and false positives.
-
-### Study limitations and dataset reuse
+## Study limitations and dataset reuse
 
 - **Repeatedly examined data:** VitaminC, SciFact, ContractNLI and MultiNLI are development samples. Prior prompt/quality experiments inspected development data; they are not fresh test evidence. FinDVer’s public testmini cohort was already scored with Jev, Clef, Decider and DeBERTa on November 4 and remained untuned. Its original protocol value `purpose: locked-test` is preserved as historical metadata, not a fresh-holdout claim.
 - **Staged model addition:** the eight-model protocol was recorded at 19:33 UTC and its analysis provenance at 20:11 UTC on November 5. The Fastino protocol followed at 20:15 UTC, before its scored inference but after the eight-model results were available. This is a disclosed extension, not one prospectively specified nine-model study.
@@ -346,54 +279,74 @@ GLiDE and Jev each clear 43/61 MNLI-neutral pairs. Of Decider’s 44 uncertain n
 
 The next prospective comparison should allocate comparable model-adaptation budgets, fit thresholds only on development groups, freeze choices, and evaluate disjoint untouched groups with paired repeats and order perturbations. It must track precision, recall, false clears, negative coverage, errors and operational limits together. The existing retrospective threshold frontier is not that validation.
 
-## Nace Drex extension (November 6)
+## Verify the published numbers offline
 
-We added five active Nace serving IDs after reading the [Drex technical report](https://arxiv.org/abs/2611.07854) and checking the [key-specific API catalog](https://console.nace.ai/docs/drex/reference/models): `drex-v1.5`, `drex-v2.0`, `drex-max`, `drex-max-v1.1`, and `drex-max-finance`. Aliases, retired forwards, and the unserved DLM weights are not scored as additional models.
-
-The [new archive and fourteen-model comparison](eval/results/nace-2026-11-06/README.md) append **4,600 observations**: the same 880 public pairs and 40 synthetic diagnostics for each Nace model. The November 5 nine-model archive is unchanged. This later phase was specified after earlier results were visible; it is not a contemporaneous fourteen-model run. Prompts, shipped thresholds, input bytes, shared kernel, three-second deadline and no-retry policy remain fixed. Max and Max Finance now have a [separate calibration follow-up](#calibration-follow-up-max-and-max-finance); the other three Nace serving IDs remain fixed-policy comparisons here.
-
-Business results below are **precision / recall / clear-negative coverage**, in percent. Errors and abstentions remain in recall and coverage denominators; public native labels do not establish human-adjudicated contract quality.
-
-| Model            |         ContractNLI | MultiNLI business-adjacent |     FinDVer finance |
-| ---------------- | ------------------: | -------------------------: | ------------------: |
-| drex-max-v1.1    | 100.0 / 38.5 / 35.3 |        100.0 / 58.2 / 59.4 | 100.0 / 86.4 / 71.1 |
-| drex-max-finance | 100.0 / 46.2 / 61.8 |         94.5 / 77.6 / 65.4 | 100.0 / 88.6 / 84.2 |
-| drex-v2.0        |  88.9 / 30.8 / 37.0 |        100.0 / 52.2 / 49.6 | 100.0 / 38.6 / 60.5 |
-| drex-max         |  87.5 / 53.8 / 54.3 |         97.7 / 64.2 / 75.9 | 100.0 / 84.1 / 89.5 |
-| drex-v1.5        |  81.8 / 34.6 / 71.7 |         97.3 / 53.7 / 84.2 | 100.0 / 68.2 / 89.5 |
-
-**No Nace model/domain scorecard meets all three point targets.** Max Finance's 82-pair finance result is 100.0% precision, 88.6% recall and 84.2% negative coverage, with three deadline failures retained. Original Max clears 89.5% of finance negatives but recalls 84.1% of contradictions. Max v1.1's low science/contract clearance often reflects an uncertain answer leaning consistent; the archive distinguishes these cases from insufficient-context judgments. These are operating-policy results, not an intrinsic model ranking or validation of a new cutoff.
-
-The extension completed 4391/4,400 public observations; its separate synthetic diagnostics remain outside public quality. The archive includes AUROC/AP, retrospective recall at ≥95% observed precision, source-group paired F1/recall/negative-coverage intervals against full Decider, native-label slices, numeric HTTP-status diagnostics, token-price estimates and frozen execution sources. Paired comparisons are post-hoc, unadjusted for multiple comparisons, and not evidence of population equivalence. One original-order pass does not establish repeatability. The inherited public-data and length-selection limitations still apply.
-
-These five models are **evaluation-only** through `NACE_API_KEY`; they are not exposed by the hosted API or dashboard. Run the additional verifier offline:
+Python 3.9 or newer and the committed files are sufficient:
 
 ```sh
+git clone https://github.com/nicia-ai/countercheck.git
+cd countercheck
+python3 -B scripts/verify-eval-release.py
+```
+
+The later archives have their own offline verifiers:
+
+```sh
+python3 -B scripts/verify-calibration-followup.py
 python3 -B scripts/compare-nace.py --verify eval/results/nace-2026-11-06
+python3 -B scripts/analyze-nace-calibration.py --archive eval/results/nace-calibration-2026-11-06
+python3 -B scripts/archive-measurement.py --verify eval/results/gemini-decision-1-archive-880-2026-11-11
+python3 -B scripts/archive-measurement.py --verify eval/results/gemini-decision-1-validation-688-2026-11-11
+python3 -B scripts/screen-models.py --verify eval/results/model-screen-2026-11-11
 ```
 
-### Calibration follow-up: Max and Max Finance
+The first command verifies artifact hashes and execution-source snapshots, checks identical input identities, labels and text hashes across models, and independently recomputes confusion counts, precision, recall, F1, coverage, AUROC, average precision, Brier scores, latency percentiles, and reported input-token totals. It reads **redacted scoring rows**, not original claims or evidence. It makes no network or model calls.
 
-The [separate Nace calibration extension](eval/results/nace-calibration-2026-11-06/README.md) adds **6,400 calls**: 2,512 fit and 688 source/group/content-disjoint validation cases per model, using the same public train cohorts as the earlier study. Both fit runs completed before policies and fit artifacts were hash-frozen; only then did validation begin. The inherited shipped-relative negative-budget definition and fixed sensitivity grid were specified before Nace fit and validation outputs. The cohorts have been studied previously; this is not a newly untouched test.
+Expected summary for the original November 5 release:
 
-Drex Max's primary allows at most its 25 shipped fit false clears, and Max Finance allows 16, each over the same 771 fit positives. Positive cutoffs are approximately 0.687 and 0.708. These fit decision cutoffs; the raw model probabilities are unchanged. Primary pooled validation results:
+```json
+{
+  "verified_models": 9,
+  "verified_observations": 8280,
+  "verified_scorecards": 72,
+  "identical_inputs_across_models": true,
+  "execution_errors": 10,
+  "verified_analysis_scorecards": 45,
+  "verified_paired_comparisons": 6,
+  "bootstrap_replicates_per_comparison": 20000,
+  "network_calls": 0,
+  "raw_dataset_text_required": false
+}
+```
 
-| Model            | Precision % | Recall, shipped → fitted % | Negative coverage, shipped → fitted % | False clears, shipped → fitted / 212 |
-| ---------------- | ----------: | -------------------------: | ------------------------------------: | -----------------------------------: |
-| drex-max         |        97.1 |                57.1 → 62.3 |                           66.8 → 71.8 |                                8 → 7 |
-| drex-max-finance |        96.7 |                65.1 → 69.8 |                           66.0 → 70.6 |                                5 → 5 |
+There are 63 scored model/dataset runs, plus nine derived finance-subset scorecards. The subset does not add inference calls or independent examples. The separate [post-hoc supplement](eval/results/hosted-models-analysis-2026-11-05/README.md) adds 45 ranking/operating-point rows, 63 native-negative-label slices and six metric-specific paired comparisons. Its declared analysis implementation is replayed deterministically and covered by analytic regression fixtures; this is not an independent second statistical implementation. The original aggregate checks do not independently recompute every older bootstrap interval or diagnostic curve. Verification checks the archived calculations and provenance; it does not reproduce model inference, independently establish vendor hardware or weights, or authenticate the provider's claims about its model.
 
-The previous Decider primary is 96.0% precision, 67.5% recall and 74.2% negative coverage on the same validation cases. Max Finance's recall difference is **+2.4 points [−1.9, +5.8]**, and its F1 difference is **+1.9 [−1.1, +4.5]**, using exploratory paired source-group 95% intervals. These do not establish an improvement over Decider. Its negative coverage is lower by 3.6 points [−7.9, +0.6]. The original Max's recall difference is −5.2 points [−9.8, −0.9]. Intervals are metric-specific, post-hoc and unadjusted for multiple comparisons; different model-selection histories and call dates limit comparative claims.
-
-**No Nace primary validation or archive-transfer scorecard meets all three point targets.** Finance transfer remains below 90% recall: Max is 100.0 / 86.4 / 86.8 and Max Finance is 100.0 / 88.6 / 86.8 for precision / recall / negative coverage. The fixed 0 / 0.5 / 1 / 2 / 5% grid is published without validation-driven selection. Both policies preserve all four expected-uncertain synthetic contract cases. Max changes from 30 to 29 correct of 32, and Max Finance from 24 to 25; each adds one abstention on a previously cleared control. Controls are diagnostics, not independent human gold.
-
-Fit had 10 deadline failures and one transport failure; validation had four deadline failures (Max three, Finance one). All remain misses in recall and coverage; no retry or new scoring call was made. Frozen prompts, production defaults, public API model selection and historical archives stay unchanged. Native public labels and the remaining human-adjudication gap still prevent production qualification.
-
-Verify the study without provider keys, original text, Node or network calls:
+For a no-credential execution smoke test, install Node.js 24.22.2 and pnpm 11.20.0, then run:
 
 ```sh
-python3 -B scripts/analyze-nace-calibration.py --archive eval/results/nace-calibration-2026-11-06
+pnpm install --frozen-lockfile
+pnpm eval:smoke
 ```
+
+This uses a deterministic fake transport and an invented eight-pair fixture. It tests the pipeline, not a model's semantic ability. The smoke runner cleans up its temporary output.
+
+## Add or re-measure a model
+
+Decision models are released often, so adding one is a routine: measure it on each cohort's frozen inputs, archive the redacted rows, append the archive to the cohort in [`eval/model-screen.json`](eval/model-screen.json), and write a new dated screen. Gemini Decision 1 was added this way on its release day with 1,584 calls.
+
+```sh
+pnpm exec node --env-file=.env --import tsx scripts/measure-model.ts \
+  --cohort archive-880 --backend openrouter-candidate --model google/gemini-decision-1 \
+  --live --max-calls 888 --cost-per-call-usd 0.002 --max-spend-usd 2 \
+  --out eval/reports/gemini-decision-1-archive-880
+python3 -B scripts/archive-measurement.py --input eval/reports/gemini-decision-1-archive-880 \
+  --out eval/results/gemini-decision-1-archive-880-YYYY-MM-DD
+python3 -B scripts/screen-models.py --out eval/results/model-screen-YYYY-MM-DD
+```
+
+The runner refuses to start if a cohort input or any shared kernel, prompt, transport or scoring file differs from the hashes recorded for the cohort. It runs an eight-pair synthetic integration probe before spending on the cohort and stops on an account or rate rejection. The archiver reuses the redacted pairs already committed for the cohort after checking the measured text hashes, so no pair text enters a new archive. A re-run under the same model ID replaces that model's earlier rows in the next screen; a new version under a new ID is screened beside the old one. Each screen keeps its own snapshot of the cohort list, so earlier screens stay verifiable.
+
+A new OpenRouter model is registered in [`eval/openrouter-candidates.ts`](eval/openrouter-candidates.ts) with its reviewed dated snapshot and endpoint. That makes it measurable, not selectable: joining the API catalog is a separate decision.
 
 ## Run a new evaluation
 
@@ -525,6 +478,219 @@ Implement [the small `DecisionProvider` interface](src/providers/types.ts), then
 The kernel is independent of Cloudflare, database and account code. The evaluation-only adapter path does not require adding a model to the public API's closed request enum. GLiDE and offline DeBERTa are examples of evaluation comparators, not public service models.
 
 To make a model or prompt result useful to others, report the exact source and model revisions, input selection and exclusions, training exposure, prompt and threshold policy, errors, abstention, probability-metric denominators, and latency scope. Freeze choices before inference. If tuning, split by shared source/template groups, tune only on development groups, and keep validation and locked test use distinct. Retain failed experiments alongside successful ones.
+
+## How this evaluation evolved
+
+The sections above describe the current state. This one records how the study got there, in order, including the results that changed the approach. The dated archives are unchanged; later work appends to them.
+
+What changed along the way:
+
+- **A shared cutoff is a product measurement, not a model ranking.** The first comparison ranked models by F1 at the shipped thresholds. Separately fitted thresholds then reversed or erased several of those gaps, so the field table now ranks by average precision and reports operating points separately.
+- **A zero-false-clear budget is too strict to be useful.** The first calibration study allowed no false clears on the fit set. That disabled negative verdicts for two models and capped the rest at 30% negative coverage. The replacement budget, each model's own shipped false-clear count, was chosen after seeing that result and is labelled exploratory for that reason.
+- **Failed runs are kept and re-measured, never patched.** Jev's first validation run returned 688 invalid responses. It stays in its archive; a separately authorized rerun supplies the measured result.
+- **Evaluation coverage and API availability drifted apart.** The catalog was fixed before the strongest models were measured. The two are now reported separately, and the screen exists so that effort follows measurements.
+- **One-off runners do not scale to a fast-moving field.** The first three phases each had a bespoke runner and archiver. Since November 11 a single runner, archiver and screen take a new model from release to a placed result in one sitting.
+
+### November 3–4: prompt, profiles and business scorecards
+
+The shipped `balanced-v1` prompt came out of a [five-arm prompt ablation](eval/results/prompt-ablation-2026-11-03/README.md) on Jev. Two experimental profiles, `semantic-v2` and `structured-value-v1`, [regressed on development data](docs/evaluations/profile-regression-diagnosis.md) and remain opt-in experiments. The [business benchmark](eval/business/README.md) added the contract, business-adjacent and finance scorecards on November 4.
+
+### November 5: nine-model comparison
+
+The first full comparison covered the eight exposed models plus evaluation-only GLiDE 27B: 8,280 scored observations. Its findings as written then:
+
+1. **GLiDE’s large negative-coverage lead over full Decider holds under the shared shipped thresholds and largely closes with model-specific policies.** The shipped-policy gaps are +22.6 percentage points on MultiNLI (paired source-group 95% interval +15.8 to +29.5) and +16.2 on ContractNLI (+10.5 to +22.1). Under the separately fitted, post-hoc primary, the archived gaps shrink to +3.8 and +6.4 points; validation point differences favor Decider by 2.2 and 2.4 points. This is an example of the operating-point distinction in [finding #2](#finding-2-operating-points), not a threshold-independent model advantage.
+2. <a id="finding-2-operating-points"></a>**Ranking and shipped behavior differ.** Jev and Luna have almost equal VitaminC AUROC (0.863 and 0.861), while their shipped F1 is 54.9% and 34.1%. The shared conservative cutoff measures a product operating point, not each model’s best achievable decision system. The [GLiDE/Decider coverage comparison](#glide-and-decider-under-shared-and-model-specific-policies) demonstrates the same effect using separately fitted policies.
+3. **Close rankings need metric-specific paired intervals.** GLiDE’s finance F1 advantage over Decider is +2.6 points with an interval of 0.0 to +6.4, leaving the difference inconclusive. GLiDE versus Jev on finance (+5.2, +1.1 to +11.6) and Decider versus Jev on VitaminC (+9.9, +2.4 to +20.5) have exploratory F1 intervals above zero on these selected samples.
+4. **Jev was the fastest observed route.** It completed all 880 public pairs with a 107 ms successful-call p95. These are provider/kernel measurements across differing routes, not deployed API latency or a capacity test.
+5. **No shipped model meets all three application targets together on any public scorecard.** Retrospective recall at ≥95% observed precision is a useful sensitivity view, but the cutoff is selected on these same labels and does not establish validated precision, negative coverage, or a production recommendation.
+
+The original comparison uses native labels and one fixed inference pass. Model-specific policies use separate fit/validation groups; the later negative-budget primary is post hoc. The original between-model intervals are exploratory and pointwise, without multiplicity correction. See [study limitations and dataset reuse](#study-limitations-and-dataset-reuse), the [paired and native-label tables](#paired-intervals-and-native-negative-coverage), and the [recomputable analysis supplement](eval/results/hosted-models-analysis-2026-11-05/README.md).
+
+#### GLiDE and Decider under shared and model-specific policies
+
+Each cell is **GLiDE / full Decider**, in percent of native negatives cleared. “Model-specific” means the [follow-up primary](eval/results/calibration-followup-2026-11-06/README.md): frozen per-model positive cutoffs plus negative rules fitted with each model’s shipped-fit false-clear count as its budget.
+
+| Cohort                  | Shared shipped thresholds | Model-specific primary |
+| ----------------------- | ------------------------: | ---------------------: |
+| MultiNLI, archive       |               82.7 / 60.2 |            83.5 / 79.7 |
+| ContractNLI, archive    |               71.1 / 54.9 |            71.1 / 64.7 |
+| MultiNLI, validation    |               66.9 / 60.3 |            68.4 / 70.6 |
+| ContractNLI, validation |               70.1 / 62.2 |            68.5 / 70.9 |
+
+The large shipped-policy gap is therefore substantially operating-policy dependent. This agrees with Decider’s leading `consistent` scores below the shipped confidence gate. The primary criterion was chosen after the zero-budget validation was seen; it is exploratory and uses different per-model false-clear budgets, not matched risk. The original between-model intervals above describe **only the shipped policy**. These calibrated point differences establish neither equivalence nor a statistically demonstrated reversal.
+
+F1 under the fixed abstaining policy, successful-call p95 and errors for those nine models:
+
+| Model                   | Wikipedia | Science | Contracts | Business-adjacent | Finance | p95 ms | Errors / 880 public pairs |
+| ----------------------- | --------: | ------: | --------: | ----------------: | ------: | -----: | ------------------------: |
+| Jev 1.14                |      54.9 |    64.8 |      63.4 |              73.6 |    90.0 |    107 |                         0 |
+| Clef                    |      54.9 |    52.5 |      47.1 |              57.4 |    42.9 |    787 |                         1 |
+| Clef Flash              |      27.0 |    59.6 |      51.4 |              63.3 |    40.0 |    261 |                         0 |
+| Clef Omni               |      40.8 |    66.1 |      65.0 |              70.5 |    30.8 |    694 |                         1 |
+| GPT-6 Luna Decisions    |      34.1 |    40.9 |      51.3 |              49.4 |    85.7 |    534 |                         2 |
+| Decision-1              |      62.6 |    63.0 |      61.8 |              77.9 |    69.6 |    403 |                         0 |
+| Pplx Decider v1.2       |      64.8 |    59.6 |      68.3 |              79.6 |    92.7 |    865 |                         3 |
+| Pplx Decider Flash v1.2 |      62.5 |    54.0 |      42.4 |              75.2 |    72.5 |    258 |                         2 |
+| GLiDE 27B               |      64.2 |    55.4 |      68.3 |              76.4 |    95.2 |    242 |                         1 |
+
+All selected inputs fit the evaluated envelope. There were ten execution errors, retained without retry, and zero envelope exclusions in the scored run. Dataset preparation exclusions, particularly the finance length funnel, are separate from that zero.
+
+#### Ranking and threshold sensitivity
+
+Each cell is **AUROC / average precision / retrospective recall at ≥95% observed precision (%)**. AUC/AP use successful rows with probabilities, including uncertain verdicts; the complete per-cell probability denominators and errors are in the [supplement](eval/results/hosted-models-analysis-2026-11-05/README.md#ranking-and-shipped-behavior). Errors remain misses in recall’s full native-positive denominator. The third number is an optimistic same-sample threshold sweep with tied scores grouped, not held-out performance or a deployment cutoff.
+
+| Model                   |            Wikipedia |              Science |            Contracts |    Business-adjacent |              Finance |
+| ----------------------- | -------------------: | -------------------: | -------------------: | -------------------: | -------------------: |
+| Jev 1.14                | 0.863 / 0.806 / 28.2 | 0.968 / 0.926 / 67.6 |  0.927 / 0.739 / 7.7 | 0.977 / 0.966 / 83.6 | 0.963 / 0.977 / 90.9 |
+| Clef                    | 0.761 / 0.691 / 11.3 | 0.950 / 0.900 / 28.2 | 0.952 / 0.841 / 50.0 | 0.957 / 0.940 / 65.7 | 0.939 / 0.957 / 77.3 |
+| Clef Flash              |  0.746 / 0.605 / 0.0 | 0.959 / 0.920 / 35.2 | 0.949 / 0.834 / 42.3 | 0.982 / 0.969 / 85.1 | 0.861 / 0.914 / 70.5 |
+| Clef Omni               | 0.774 / 0.688 / 22.5 | 0.965 / 0.936 / 56.3 | 0.980 / 0.886 / 26.9 | 0.983 / 0.966 / 79.1 | 0.927 / 0.949 / 72.7 |
+| GPT-6 Luna              |  0.861 / 0.779 / 8.5 |  0.819 / 0.751 / 2.8 | 0.854 / 0.624 / 11.5 | 0.876 / 0.851 / 58.2 | 0.956 / 0.970 / 88.6 |
+| Decision-1              | 0.870 / 0.823 / 38.0 | 0.933 / 0.872 / 14.1 | 0.885 / 0.699 / 30.8 | 0.970 / 0.944 / 65.7 | 0.903 / 0.922 / 63.6 |
+| Pplx Decider v1.2       | 0.931 / 0.895 / 54.9 | 0.952 / 0.913 / 33.8 | 0.964 / 0.861 / 46.2 | 0.987 / 0.975 / 86.6 | 0.965 / 0.981 / 93.2 |
+| Pplx Decider Flash v1.2 | 0.859 / 0.823 / 36.6 | 0.925 / 0.874 / 31.0 | 0.955 / 0.786 / 30.8 | 0.984 / 0.966 / 67.2 | 0.968 / 0.982 / 95.5 |
+| GLiDE 27B               | 0.918 / 0.885 / 47.9 | 0.964 / 0.931 / 53.5 | 0.977 / 0.910 / 50.0 | 0.980 / 0.964 / 79.1 | 0.964 / 0.981 / 95.5 |
+
+The scalar sweep selects the largest recall with at least 95% **observed** precision among nonempty threshold selections on the same labels. It can overfit, and it does not select the negative gate or jointly satisfy all three application targets. The sweep uses raw contradiction scores, matching the shipped positive gate; AUROC/AP use archived normalized binary probabilities. A zero denotes no recovered positives at a qualifying observed operating point; full threshold/TP/FP records distinguish an absent qualifying threshold. AUC/AP evaluate native binary ranking, not the correctness of the service’s four-way semantics. The archive’s existing risk–coverage diagnostic uses forced binary decisions at 0.5; it must not be presented as the shipped four-way abstention policy’s risk curve.
+
+#### Paired intervals and native-negative coverage
+
+These are the original **shared shipped-policy** comparisons; their intervals do not describe the [model-specific primary](#glide-and-decider-under-shared-and-model-specific-policies). First minus second; differences and intervals are in percentage points. Each bootstrap resamples complete recorded source groups, including all pairs and both models together. There are 20,000 resamples per comparison, with the seed and valid-replicate counts in the supplement. Intervals are pointwise, conditional on these selected groups and one fixed inference pass, with no correction for the post-hoc selection of contrasts or multiple comparisons.
+
+| Dataset     | First − second                | Groups | F1 difference [95% interval] | Recall difference [95% interval] | Negative coverage difference [95% interval] |
+| ----------- | ----------------------------- | -----: | ---------------------------: | -------------------------------: | ------------------------------------------: |
+| findver     | GLiDE 27B − Pplx Decider v1.2 |     59 |               2.6 [0.0, 6.4] |                  4.5 [0.0, 10.9] |                           0.0 [-10.3, 10.3] |
+| findver     | GLiDE 27B − Jev 1.14          |     59 |              5.2 [1.1, 11.6] |                  9.1 [2.0, 18.9] |                           10.5 [-3.0, 24.3] |
+| contractnli | GLiDE 27B − Pplx Decider v1.2 |     20 |               0.0 [0.0, 0.0] |                   0.0 [0.0, 0.0] |                           16.2 [10.5, 22.1] |
+| mnli        | GLiDE 27B − Pplx Decider v1.2 |     69 |             -3.3 [-8.7, 1.7] |                -4.5 [-11.3, 1.5] |                           22.6 [15.8, 29.5] |
+| vitaminc    | Pplx Decider v1.2 − Jev 1.14  |     25 |              9.9 [2.4, 20.5] |                  9.9 [1.6, 19.7] |                             0.8 [-5.0, 6.6] |
+| mnli        | Pplx Decider v1.2 − Jev 1.14  |     69 |             6.1 [-0.7, 13.4] |                  9.0 [0.0, 17.9] |                        -21.1 [-28.5, -13.5] |
+
+Equal contract F1/recall on this sample does not establish equivalence. Zero observed false positives in a small finance cohort cannot establish population precision, even when a bootstrap interval degenerates. Positive-only paired tests address recall, not F1; intervals must match the metric being discussed.
+
+Native-negative coverage below is **cleared / selected (%)**. A native neutral/NEI annotation is not an independently adjudicated service `insufficient_context` label.
+
+| Model                   | VitaminC SUPPORTS | VitaminC NEI | MNLI entailment | MNLI neutral | ContractNLI Entailment |
+| ----------------------- | ----------------: | -----------: | --------------: | -----------: | ---------------------: |
+| Jev 1.14                |     90/100 (90.0) | 12/29 (41.4) |    65/72 (90.3) | 43/61 (70.5) |         111/173 (64.2) |
+| Clef                    |     69/100 (69.0) |  8/29 (27.6) |    62/72 (86.1) | 13/61 (21.3) |          59/173 (34.1) |
+| Clef Flash              |     34/100 (34.0) |  4/29 (13.8) |    44/72 (61.1) | 11/61 (18.0) |          26/173 (15.0) |
+| Clef Omni               |     64/100 (64.0) | 11/29 (37.9) |    60/72 (83.3) | 10/61 (16.4) |          82/173 (47.4) |
+| GPT-6 Luna              |     80/100 (80.0) | 14/29 (48.3) |    58/72 (80.6) | 31/61 (50.8) |          67/173 (38.7) |
+| Decision-1              |     87/100 (87.0) | 10/29 (34.5) |    69/72 (95.8) | 32/61 (52.5) |          83/173 (48.0) |
+| Pplx Decider v1.2       |     95/100 (95.0) |  8/29 (27.6) |    64/72 (88.9) | 16/61 (26.2) |          95/173 (54.9) |
+| Pplx Decider Flash v1.2 |     79/100 (79.0) |  4/29 (13.8) |    58/72 (80.6) |  9/61 (14.8) |          46/173 (26.6) |
+| GLiDE 27B               |     96/100 (96.0) | 14/29 (48.3) |    67/72 (93.1) | 43/61 (70.5) |         123/173 (71.1) |
+
+GLiDE and Jev each clear 43/61 MNLI-neutral pairs. Of Decider’s 44 uncertain neutral responses, 33 favor `consistent`, eight favor `insufficient_context`, and three favor `contradiction`. Most of those abstentions therefore reflect inadequate confidence in the leading consistent answer, rather than a different leading category. ContractNLI’s selected negatives are all entailments: GLiDE clears 123 versus Decider’s 95. The [full native-label table](eval/results/hosted-models-analysis-2026-11-05/README.md#negative-coverage-by-native-label) includes science, finance, errors and false positives.
+
+### November 5–6: separate calibration
+
+The approved [separate-group calibration study](eval/results/separate-calibration-2026-11-05/README.md) is complete: **28,800 new assessment attempts**, with a **$57.60 operator reservation**, not measured billing. Each model used 2,512 non-finance fit pairs and 688 source-group-disjoint validation pairs. All policies were frozen before validation; no new inference was performed on the archived 880 pairs. Finance is transfer only. The original archives, original verifier summary, service, profiles, thresholds and default model are unchanged.
+
+On archived probabilities, the fitted policies recover **66/1,337 (4.9%) missed native-positive model–pair outcomes**, while losing **105 existing detections**. Recall improves for four models, declines for four and ties for one. The positive-only oracle union moves from 211/279 to 212/279; it recovers eight previously never-caught pairs but loses seven previously caught pairs. This establishes neither ensemble precision nor a model ceiling. This experiment isolates operating-policy effects; it does not test better prompts, examples or provider-specific formulations.
+
+The following pooled validation results are descriptive and depend on this four-domain mixture. Delta compares the calibrated and shipped rules on the **same new validation outputs**. Errors and uncertainty stay in selected-case denominators. Full domain tables, precision/recall/negative-coverage/false-clear paired intervals and exact policies are in the [versioned archive](eval/results/separate-calibration-2026-11-05/README.md).
+
+| Model         | Precision % |   Recall % | Recall Δ, pp | Negative coverage % | False clears | Completed |
+| ------------- | ----------: | ---------: | -----------: | ------------------: | -----------: | --------: |
+| Jev 1.14      |  unmeasured | unmeasured |   unmeasured |          unmeasured |   unmeasured |     0/688 |
+| Clef          |        98.1 |       24.1 |        -14.6 |                 4.4 |            0 |   688/688 |
+| Clef Flash    |        92.1 |       33.0 |         +0.0 |                 1.3 |            0 |   688/688 |
+| Clef Omni     |        97.5 |       36.3 |        -11.3 |                 4.0 |            1 |   688/688 |
+| Luna          |        94.5 |       32.5 |         -0.9 |                 0.0 |            0 |   688/688 |
+| Decision-1    |        97.8 |       42.5 |        -19.3 |                 4.8 |            1 |   688/688 |
+| Decider       |        96.0 |       67.5 |         +9.9 |                30.0 |            0 |   688/688 |
+| Decider Flash |        96.9 |       59.9 |         +6.6 |                14.9 |            2 |   688/688 |
+| GLiDE 27B     |        97.0 |       61.8 |        +15.1 |                15.8 |            2 |   613/688 |
+
+**In the original study, Jev validation was operationally inconclusive:** all 688 attempts returned `provider_invalid_response`, so semantic quality was unmeasured in that run. The raw execution-inclusive recall is zero in the artifact; zero false clears on an all-failed run is not evidence of safety. The [incident report](docs/evaluations/separate-calibration-validation-incident-2026-11-06.md) separates known facts from the unconfirmed credit-exhaustion hypothesis. No retry occurred within that study. GLiDE had 166 fit and 75 validation deadline failures; Clef and Luna each had one fit deadline failure, and full Decider had two. Total failures were 933/28,800.
+
+**No validation or archived model/domain scorecard meets all three point targets.** The zero-fit-false-clear budget disables negative verdicts for Jev and Luna, and pooled validation negative coverage is at most 30% for the other models. Six native-positive false clears still occur in validation despite zero on fit. Calibration therefore does not solve the joint quality problem under this protocol. Native public labels and observed fit precision cannot establish the service-contract release gates. The [proposal](docs/evaluations/separate-calibration-proposal-2026-11-05.md) records the preregistered rules; prompt/exit experiments remain separate and unrun.
+
+Verify the original release and this study offline with `python3 -B scripts/verify-calibration-study.py`. It independently refits policies and checks point metrics against the existing TypeScript metric engine, plus recomputing 81 paired comparisons with 20,000 source-group resamples each. No credentials, raw dataset text or network access are required.
+
+#### Follow-up: restored Jev validation and shipped-relative negative budgets
+
+The owner added Jev credits and authorized a separate **688-call / $1.38** validation rerun. It produced **688 successes and 688 HTTP 200 statuses** using the original cohort, prompts, deadline and frozen thresholds. Its [new archive](eval/results/calibration-followup-2026-11-06/README.md) restores Jev's validation evidence without overwriting the failed run or original zero-budget study. Billing is unknown. HTTP-status-only diagnostics retain no request text, credentials or upstream response bodies; the historical failure status remains unknown.
+
+For the replacement primary, each model maximizes fit clear-negative coverage with no more false clears than its shipped balanced-v1 policy made on the same 771 fit positives: Jev 56, Luna 90, Decision-1 41, GLiDE 31, Clef 27, Clef Flash 25, Clef Omni 21, Decider 18 and Decider Flash 11. Counts were independently confirmed. **The primary was chosen after the zero-budget validation was seen.** Parameters use fit outputs only; no later validation-driven grid search or reselection occurs. All positive cutoffs remain frozen. The fixed 0%, 0.5%, 1%, 2% and 5% sensitivity grid is published alongside the primary. No other model was rerun, and finance remains transfer only.
+
+Pooled validation results below use the fresh Jev outputs and the unchanged eight other validation cohorts. This is **post-hoc exploratory sensitivity**, not new confirmatory evidence. Positive precision and recall are invariant across negative budgets. False-clear counts are over 212 selected native-positive validation pairs; negative coverage is over 476 native negatives. Failures remain in denominators.
+
+| Model         | Precision % | Recall % | Negative coverage %, zero → primary | False clears, primary / shipped |
+| ------------- | ----------: | -------: | ----------------------------------: | ------------------------------: |
+| Jev 1.14      |        96.6 |     54.2 |                          0.0 → 79.4 |                         18 / 17 |
+| Clef          |        98.1 |     24.1 |                          4.4 → 49.6 |                          10 / 8 |
+| Clef Flash    |        92.1 |     33.0 |                          1.3 → 36.1 |                          10 / 8 |
+| Clef Omni     |        97.5 |     36.3 |                          4.0 → 59.7 |                         14 / 13 |
+| Luna          |        94.5 |     32.5 |                          0.0 → 58.0 |                         27 / 27 |
+| Decision-1    |        97.8 |     42.5 |                          4.8 → 64.9 |                         13 / 13 |
+| Decider       |        96.0 |     67.5 |                         30.0 → 74.2 |                           8 / 6 |
+| Decider Flash |        96.9 |     59.9 |                         14.9 → 59.2 |                           8 / 5 |
+| GLiDE 27B     |        97.0 |     61.8 |                         15.8 → 71.0 |                         10 / 15 |
+
+The replacement restores pooled negative coverage to 36.1–79.4%, showing that the zero constraint drove the earlier collapse. It does not prove that label noise caused those fit false clears, nor guarantee shipped-level errors on validation or each subgroup. **No primary model/domain scorecard meets all three point targets.** The [review response](docs/evaluations/calibration-review-response-2026-11-06.md) narrows the causal claims and supplies thread wording.
+
+GLiDE's 75 validation timeouts include 19 native-positive cases. Its frozen-gate recall is 61.8% including failures, 67.9% conditional on successful positives, and at most 70.8% if all 19 missing positive answers had detected contradiction. Missing answers were not imputed. Different cohorts and serial timing prevent attributing the change from one timeout in 920 original calls to provider slowdown alone.
+
+Verify all three versions offline with `python3 -B scripts/verify-calibration-followup.py`: independent negative refits, 864 metric tables and 162 primary paired comparisons with 20,000 source-group resamples each, plus both preceding studies. No provider credentials, network or raw dataset text are needed.
+
+The [human packet registry](eval/results/calibration-preparation-2026-11-05/packet-registry.json) records 204 blinded items with matched controls. Status: **packet prepared, not yet labelled**. Two independent human annotations and third-human adjudication are required; no AI judgments or new service-contract scores exist. FinDVer text and all annotation views/notes remain in ignored local files. The [recomputable miss breakdown](eval/results/calibration-preparation-2026-11-05/miss-breakdown.json) preserves exact counts and the distinction between completed misses and errors.
+
+### Nace Drex extension (November 6)
+
+We added five active Nace serving IDs after reading the [Drex technical report](https://arxiv.org/abs/2611.07854) and checking the [key-specific API catalog](https://console.nace.ai/docs/drex/reference/models): `drex-v1.5`, `drex-v2.0`, `drex-max`, `drex-max-v1.1`, and `drex-max-finance`. Aliases, retired forwards, and the unserved DLM weights are not scored as additional models.
+
+The [new archive and fourteen-model comparison](eval/results/nace-2026-11-06/README.md) append **4,600 observations**: the same 880 public pairs and 40 synthetic diagnostics for each Nace model. The November 5 nine-model archive is unchanged. This later phase was specified after earlier results were visible; it is not a contemporaneous fourteen-model run. Prompts, shipped thresholds, input bytes, shared kernel, three-second deadline and no-retry policy remain fixed. Max and Max Finance now have a [separate calibration follow-up](#calibration-follow-up-max-and-max-finance); the other three Nace serving IDs remain fixed-policy comparisons here.
+
+Business results below are **precision / recall / clear-negative coverage**, in percent. Errors and abstentions remain in recall and coverage denominators; public native labels do not establish human-adjudicated contract quality.
+
+| Model            |         ContractNLI | MultiNLI business-adjacent |     FinDVer finance |
+| ---------------- | ------------------: | -------------------------: | ------------------: |
+| drex-max-v1.1    | 100.0 / 38.5 / 35.3 |        100.0 / 58.2 / 59.4 | 100.0 / 86.4 / 71.1 |
+| drex-max-finance | 100.0 / 46.2 / 61.8 |         94.5 / 77.6 / 65.4 | 100.0 / 88.6 / 84.2 |
+| drex-v2.0        |  88.9 / 30.8 / 37.0 |        100.0 / 52.2 / 49.6 | 100.0 / 38.6 / 60.5 |
+| drex-max         |  87.5 / 53.8 / 54.3 |         97.7 / 64.2 / 75.9 | 100.0 / 84.1 / 89.5 |
+| drex-v1.5        |  81.8 / 34.6 / 71.7 |         97.3 / 53.7 / 84.2 | 100.0 / 68.2 / 89.5 |
+
+**No Nace model/domain scorecard meets all three point targets.** Max Finance's 82-pair finance result is 100.0% precision, 88.6% recall and 84.2% negative coverage, with three deadline failures retained. Original Max clears 89.5% of finance negatives but recalls 84.1% of contradictions. Max v1.1's low science/contract clearance often reflects an uncertain answer leaning consistent; the archive distinguishes these cases from insufficient-context judgments. These are operating-policy results, not an intrinsic model ranking or validation of a new cutoff.
+
+The extension completed 4391/4,400 public observations; its separate synthetic diagnostics remain outside public quality. The archive includes AUROC/AP, retrospective recall at ≥95% observed precision, source-group paired F1/recall/negative-coverage intervals against full Decider, native-label slices, numeric HTTP-status diagnostics, token-price estimates and frozen execution sources. Paired comparisons are post-hoc, unadjusted for multiple comparisons, and not evidence of population equivalence. One original-order pass does not establish repeatability. The inherited public-data and length-selection limitations still apply.
+
+These five models are **evaluation-only** through `NACE_API_KEY`; they are not exposed by the hosted API or dashboard. Run the additional verifier offline:
+
+```sh
+python3 -B scripts/compare-nace.py --verify eval/results/nace-2026-11-06
+```
+
+#### Calibration follow-up: Max and Max Finance
+
+The [separate Nace calibration extension](eval/results/nace-calibration-2026-11-06/README.md) adds **6,400 calls**: 2,512 fit and 688 source/group/content-disjoint validation cases per model, using the same public train cohorts as the earlier study. Both fit runs completed before policies and fit artifacts were hash-frozen; only then did validation begin. The inherited shipped-relative negative-budget definition and fixed sensitivity grid were specified before Nace fit and validation outputs. The cohorts have been studied previously; this is not a newly untouched test.
+
+Drex Max's primary allows at most its 25 shipped fit false clears, and Max Finance allows 16, each over the same 771 fit positives. Positive cutoffs are approximately 0.687 and 0.708. These fit decision cutoffs; the raw model probabilities are unchanged. Primary pooled validation results:
+
+| Model            | Precision % | Recall, shipped → fitted % | Negative coverage, shipped → fitted % | False clears, shipped → fitted / 212 |
+| ---------------- | ----------: | -------------------------: | ------------------------------------: | -----------------------------------: |
+| drex-max         |        97.1 |                57.1 → 62.3 |                           66.8 → 71.8 |                                8 → 7 |
+| drex-max-finance |        96.7 |                65.1 → 69.8 |                           66.0 → 70.6 |                                5 → 5 |
+
+The previous Decider primary is 96.0% precision, 67.5% recall and 74.2% negative coverage on the same validation cases. Max Finance's recall difference is **+2.4 points [−1.9, +5.8]**, and its F1 difference is **+1.9 [−1.1, +4.5]**, using exploratory paired source-group 95% intervals. These do not establish an improvement over Decider. Its negative coverage is lower by 3.6 points [−7.9, +0.6]. The original Max's recall difference is −5.2 points [−9.8, −0.9]. Intervals are metric-specific, post-hoc and unadjusted for multiple comparisons; different model-selection histories and call dates limit comparative claims.
+
+**No Nace primary validation or archive-transfer scorecard meets all three point targets.** Finance transfer remains below 90% recall: Max is 100.0 / 86.4 / 86.8 and Max Finance is 100.0 / 88.6 / 86.8 for precision / recall / negative coverage. The fixed 0 / 0.5 / 1 / 2 / 5% grid is published without validation-driven selection. Both policies preserve all four expected-uncertain synthetic contract cases. Max changes from 30 to 29 correct of 32, and Max Finance from 24 to 25; each adds one abstention on a previously cleared control. Controls are diagnostics, not independent human gold.
+
+Fit had 10 deadline failures and one transport failure; validation had four deadline failures (Max three, Finance one). All remain misses in recall and coverage; no retry or new scoring call was made. Frozen prompts, production defaults, public API model selection and historical archives stay unchanged. Native public labels and the remaining human-adjudication gap still prevent production qualification.
+
+Verify the study without provider keys, original text, Node or network calls:
+
+```sh
+python3 -B scripts/analyze-nace-calibration.py --archive eval/results/nace-calibration-2026-11-06
+```
+
+### November 11: viability screen and Gemini Decision 1
+
+With fourteen models measured, the [viability screen](eval/results/model-screen-2026-11-11/README.md) was written to narrow the working set from committed observations. Google released Gemini Decision 1 the same day. It was measured on both cohorts through the new runner (1,568 scored calls plus 16 synthetic probe calls, two errors), reported the reviewed snapshot `google/gemini-decision-1-20261111` on every completed call, and was screened with the other fourteen. It has no fitted thresholds and no API route.
 
 ## Evidence, limitations, and data terms
 

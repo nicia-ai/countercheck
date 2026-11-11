@@ -87,3 +87,5 @@ Hosted GLiDE 27B is measured through the separate evaluation adapter. Provisioni
 Nace Drex also has a separate [evaluation backend](../eval/README.md#nace-drex-evaluations), using `NACE_API_KEY` with the active IDs `drex-v1.5`, `drex-v2.0`, `drex-max`, `drex-max-v1.1`, and `drex-max-finance`. These IDs are not accepted by `/v1/check` or shown in the dashboard; adding an evaluation credential does not enable a hosted route.
 
 Drex Max and Max Finance have [separately fitted calibration results](../eval/results/nace-calibration-2026-11-06/README.md). These remain offline operating-policy experiments; neither has met all three native-label point targets or been promoted into the API catalog.
+
+Google Gemini Decision 1 (`google/gemini-decision-1`) is measured through the evaluation-only `openrouter-candidate` backend, pinned to the reviewed snapshot `google/gemini-decision-1-20261111`. It is not accepted by `/v1/check` or shown in the dashboard. The [current field table](../EVALUATION.md#the-field-today) shows where every measured model stands, including which of the eight selectable models the viability screen has set aside.

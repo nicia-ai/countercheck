@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "recorded_before_inference": true,
+  "created_at": "2026-11-11T21:10:13.166Z",
+  "node": "v24.22.2",
+  "backend": "openrouter-candidate",
+  "requested_model": "google/gemini-decision-1",
+  "cohort": {
+    "id": "archive-880",
+    "description": "Frozen 880 public pairs, shipped balanced-v1 prompt, one pass",
+    "datasets": [
+      "vitaminc",
+      "scifact",
+      "contractnli",
+      "mnli",
+      "findver"
+    ],
+    "inputs": [
+      {
+        "id": "vitaminc",
+        "path": "eval/data/vitaminc-combined-dev-200.json",
+        "sha256": "982a5dc43919853176d372c53bf90bc98d4bc49e56d8703165feb14345aff0ff",
+        "pairs": 200
+      },
+      {
+        "id": "scifact",
+        "path": "eval/data/scifact-dev-200.json",
+        "sha256": "d598943442b541f93f0eeaeeea7889470ebebb8715b213608c2f86e1fb90892c",
+        "pairs": 199
+      },
+      {
+        "id": "contractnli",
+        "path": "eval/data/business/contractnli-dev-200.json",
+        "sha256": "4906005f4843b97a1cc6f256f62467cced5183965a0bafa9d713ee0099326311",
+        "pairs": 199
+      },
+      {
+        "id": "mnli",
+        "path": "eval/data/business/mnli-nonfiction-dev-200.json",
+        "sha256": "114ee3ca8ff9960fc2146bf7bca19f38284281812c9cec27e25e9815746337b6",
+        "pairs": 200
+      },
+      {
+        "id": "findver",
+        "path": "eval/data/business/findver-testmini-ie-individual-82.json",
+        "sha256": "3e3f6515bdf307c218dbdac18c280188d9c36a9cf21a843e349fc4d4b368ae12",
+        "pairs": 82
+      }
+    ],
+    "sources": [
+      "eval/results/hosted-models-with-glide-2026-11-05/observations.redacted.jsonl.gz",
+      "eval/results/nace-2026-11-06/observations.redacted.jsonl.gz"
+    ]
+  },
+  "frozen_sources": {
+    "src/kernel/index.ts": "5f648ef004b17341692f32a1f83b50b5b14883382262336187a9a381a103ccab",
+    "src/kernel/experimental.ts": "8366bd36e422201ad92fb72a6a9b34ed0a1a96266d880c886199fc3ad677d863",
+    "src/contracts/limits.ts": "a3f0d87dded41a587a6d6d78aaafcca761615e0fda5aa77a4d7b96f6b59f856c",
+    "src/http/deadline.ts": "498633081b578faafc9df35ef3f488c7d2fefb75b58f58ba845cb08ceb9d7d88",
+    "src/providers/transport.ts": "cb00796c870ec19b18c038ea6fc21fc68a011a4c710b386c812727a0d9510c5d",
+    "src/providers/response.ts": "84e8ac017f3abeed8c3102e5543103e3ecfaccda9492b9a5c742d24880bde60c",
+    "eval/backends.ts": "b6df75fd9c0229c28c453ab6ac103b8cef13c384938c1e4699a25acc7934107e"
+  },
+  "screen_config_sha256": "89deb17f4a4adb24b097a2dcdbfdd337fa99c310fe4f0e7767a5f34b8b653f76",
+  "probe": {
+    "id": "integration-probe",
+    "path": "eval/fixtures/synthetic-smoke.json",
+    "sha256": "b1a96134ba41cb728cf12e7af0c30cc6a754ef2b734ebaff8b3397196bfbad79",
+    "pairs": 8
+  },
+  "planned_calls": 888,
+  "max_calls": 888,
+  "reservation_per_call_usd": 0.002,
+  "reservation_cap_usd": 2,
+  "actual_billed_cost": null,
+  "profile": "balanced-v1",
+  "passes": 1,
+  "presentation": "original",
+  "batch_size": 1,
+  "concurrency": 1,
+  "interval_ms": 0,
+  "retries": 0,
+  "fallbacks": false,
+  "qualification": "Evaluation only; native labels, no prompt tuning, calibration or production qualification. Not contemporaneous with the cohort's earlier sources."
+}

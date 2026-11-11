@@ -21,6 +21,26 @@ import {
 import { profileSchema, modelSchema, type CheckRequest } from "../src/contracts/index.js";
 import { evaluationProvider } from "../eval/providers.js";
 import { naceModelSchema } from "../eval/nace-provider.js";
+import { openRouterCandidateSchema } from "../eval/openrouter-candidates.js";
+
+const BACKENDS = [
+  "fake",
+  "service",
+  "hosted",
+  "fastino",
+  "nace",
+  "openrouter-candidate",
+  "jev",
+  "jev-direct",
+  "clef",
+  "decider",
+  "replay",
+] as const;
+const MODEL_SCHEMAS = {
+  hosted: modelSchema,
+  nace: naceModelSchema,
+  "openrouter-candidate": openRouterCandidateSchema,
+} as const;
 
 const HELP = `Countercheck supplied-evidence benchmark runner (sequential calls; no retries).
 Usage: pnpm eval:run --manifest FILE --backend fake --out PREFIX
@@ -28,8 +48,8 @@ Usage: pnpm eval:run --manifest FILE --backend fake --out PREFIX
        pnpm eval:run --manifest FILE --backend service --url https://... --live --limit 10 --max-calls 10 --max-spend-usd 1 --cost-per-call-usd 0.01 --out PREFIX
        pnpm eval:run --manifest FILE --backend replay --predictions FILE --out PREFIX
 Options:
-  --backend fake|service|hosted|fastino|nace|jev|jev-direct|clef|decider|replay
-  --model ID                     Required with hosted or nace; explicit catalog ID, no Nace aliases
+  --backend fake|service|hosted|fastino|nace|openrouter-candidate|jev|jev-direct|clef|decider|replay
+  --model ID                     Required with hosted, nace or openrouter-candidate; explicit ID, no aliases
   --profile balanced-v1|semantic-v2|structured-value-v1 (default balanced-v1; candidates experimental)
   --manifest FILE --out PREFIX   Required; emits PREFIX.json and PREFIX.md; refuses overwrite
   --live                         Mandatory for all network/model calls (never inferred from credentials)
@@ -108,31 +128,12 @@ async function main(): Promise<void> {
     process.stdout.write(`${HELP}\n`);
     return;
   }
-  if (
-    !args.manifest ||
-    !args.out ||
-    ![
-      "fake",
-      "service",
-      "hosted",
-      "fastino",
-      "nace",
-      "jev",
-      "jev-direct",
-      "clef",
-      "decider",
-      "replay",
-    ].includes(args.backend ?? "")
-  )
+  if (!args.manifest || !args.out || !(BACKENDS as readonly string[]).includes(args.backend ?? ""))
     throw new Error("Required --manifest --backend --out; use --help");
-  const model =
-    args.backend === "hosted"
-      ? modelSchema.parse(args.model)
-      : args.backend === "nace"
-        ? naceModelSchema.parse(args.model)
-        : undefined;
-  if (args.model !== undefined && !["hosted", "nace"].includes(args.backend ?? ""))
-    throw new Error("Use --model only with --backend hosted or nace");
+  const modelSchemaForBackend = MODEL_SCHEMAS[args.backend as keyof typeof MODEL_SCHEMAS];
+  if (args.model !== undefined && !modelSchemaForBackend)
+    throw new Error("Use --model only with --backend hosted, nace or openrouter-candidate");
+  const model = modelSchemaForBackend?.parse(args.model);
   const profile: CheckRequest["profile"] = profileSchema.parse(args.profile ?? "balanced-v1");
   if (args.backend === "replay" && args.profile !== undefined)
     throw new Error("Replay profile comes from archived provenance; do not supply --profile");

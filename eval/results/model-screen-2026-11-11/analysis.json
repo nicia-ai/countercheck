@@ -1,0 +1,1109 @@
+{
+  "sources_sha256": {
+    "eval/results/hosted-models-with-glide-2026-11-05/observations.redacted.jsonl.gz": "f92bed91d12842c07a4798cb0bf4ba5b2c8e872feae3b24dd162787d158fcb63",
+    "eval/results/nace-2026-11-06/observations.redacted.jsonl.gz": "918048bacfa3101968b6a1b5b5bc494a22d1b34788e1473c7642816cedea9cad",
+    "eval/results/gemini-decision-1-archive-880-2026-11-11/observations.redacted.jsonl.gz": "d0aa07461f2ee27fb97f82c6afaebb2ce3aff65349f642d24d3377d2633420e5",
+    "eval/results/separate-calibration-2026-11-05/validation-observations.redacted.jsonl.gz": "78d9f396c23562011b75112ad03ec95d654d005097085a81b12dd9514e0b58df",
+    "eval/results/calibration-followup-2026-11-06/jev-validation.redacted.jsonl.gz": "209c0a57d1aee20dc532b9e1c4d52a36722c5dae095c3b47e38eac2964314e53",
+    "eval/results/nace-calibration-2026-11-06/validation-observations.redacted.jsonl.gz": "6d93288250516567f38e1b2cd2ab9add1cc2721cfd46344175e071c066be4622",
+    "eval/results/gemini-decision-1-validation-688-2026-11-11/observations.redacted.jsonl.gz": "9e38bc59d12521a9a798601efe243029b4af0f29a1b29b63edec50d5331c6613"
+  },
+  "analysis_kind": "post-hoc viability screen; no new inference, tuning or production qualification",
+  "analysis_version": 1,
+  "rule": {
+    "quality": "paired source-group bootstrap of macro average precision across the cohort scorecards; the challenger interval must exclude zero and the candidate may not be significantly better on any scorecard",
+    "screened_out": "quality-dominated in every shared cohort (at least 2) by a challenger whose successful p95 latency is no higher in each",
+    "deprioritized": "quality-dominated in every shared cohort without a consistent latency advantage, but unreplicated or with inconsistent latency ordering",
+    "viable": "not dominated, or consistently faster than every model that dominates it on quality",
+    "replicates": 2000,
+    "seed": 20261111,
+    "interval": "pointwise percentile 95%; no multiplicity correction",
+    "reliability_flag_error_rate": 0.02
+  },
+  "cohorts": [
+    {
+      "id": "archive-880",
+      "description": "Frozen 880 public pairs, shipped balanced-v1 prompt, one pass",
+      "datasets": [
+        "vitaminc",
+        "scifact",
+        "contractnli",
+        "mnli",
+        "findver"
+      ],
+      "models": {
+        "jev-1.14.0": {
+          "average_precision": {
+            "vitaminc": 0.8064500874254201,
+            "scifact": 0.9261924662338297,
+            "contractnli": 0.7390449183833994,
+            "mnli": 0.9657397278209564,
+            "findver": 0.9774887573874087
+          },
+          "macro_average_precision": 0.8829831914502029,
+          "successful_p95_ms": 106.59891599999901,
+          "selected": 880,
+          "errors": 0,
+          "error_rate": 0.0,
+          "reliability_flag": false
+        },
+        "clef": {
+          "average_precision": {
+            "vitaminc": 0.6906010588005399,
+            "scifact": 0.9004328121714131,
+            "contractnli": 0.8413720828249507,
+            "mnli": 0.9399876789534353,
+            "findver": 0.9567823359524465
+          },
+          "macro_average_precision": 0.8658351937405571,
+          "successful_p95_ms": 786.5827080000017,
+          "selected": 880,
+          "errors": 1,
+          "error_rate": 0.0011363636363636363,
+          "reliability_flag": false
+        },
+        "clef-flash": {
+          "average_precision": {
+            "vitaminc": 0.6049436135270826,
+            "scifact": 0.919538625979643,
+            "contractnli": 0.8335463459753257,
+            "mnli": 0.9691602993200953,
+            "findver": 0.9136451915129518
+          },
+          "macro_average_precision": 0.8481668152630196,
+          "successful_p95_ms": 260.5749590000014,
+          "selected": 880,
+          "errors": 0,
+          "error_rate": 0.0,
+          "reliability_flag": false
+        },
+        "clef-omni": {
+          "average_precision": {
+            "vitaminc": 0.6876639686254247,
+            "scifact": 0.9362677307243946,
+            "contractnli": 0.8862859061671989,
+            "mnli": 0.9658319796114924,
+            "findver": 0.9492249501014536
+          },
+          "macro_average_precision": 0.8850549070459929,
+          "successful_p95_ms": 694.4495000000024,
+          "selected": 880,
+          "errors": 1,
+          "error_rate": 0.0011363636363636363,
+          "reliability_flag": false
+        },
+        "gpt-6-luna": {
+          "average_precision": {
+            "vitaminc": 0.7786947968590646,
+            "scifact": 0.7507148008237049,
+            "contractnli": 0.6241447021286826,
+            "mnli": 0.8506562232576204,
+            "findver": 0.970351231435975
+          },
+          "macro_average_precision": 0.7949123509010095,
+          "successful_p95_ms": 534.0636670000004,
+          "selected": 880,
+          "errors": 2,
+          "error_rate": 0.0022727272727272726,
+          "reliability_flag": false
+        },
+        "microsoft/microsoft-decision-1": {
+          "average_precision": {
+            "vitaminc": 0.8230369946903116,
+            "scifact": 0.8716536046506859,
+            "contractnli": 0.698842883117253,
+            "mnli": 0.9440321215373476,
+            "findver": 0.9220778362083976
+          },
+          "macro_average_precision": 0.8519286880407991,
+          "successful_p95_ms": 402.6889999999985,
+          "selected": 880,
+          "errors": 0,
+          "error_rate": 0.0,
+          "reliability_flag": false
+        },
+        "perplexity/pplx-decider-v1.2": {
+          "average_precision": {
+            "vitaminc": 0.8950720656045621,
+            "scifact": 0.9133922878731319,
+            "contractnli": 0.8607769089632398,
+            "mnli": 0.975155883860123,
+            "findver": 0.9811855905152764
+          },
+          "macro_average_precision": 0.9251165473632667,
+          "successful_p95_ms": 864.8778750000056,
+          "selected": 880,
+          "errors": 3,
+          "error_rate": 0.003409090909090909,
+          "reliability_flag": false
+        },
+        "perplexity/pplx-decider-flash-v1.2": {
+          "average_precision": {
+            "vitaminc": 0.8232868024220277,
+            "scifact": 0.8740236663963998,
+            "contractnli": 0.7863277482358292,
+            "mnli": 0.9659343149246287,
+            "findver": 0.9818629407297776
+          },
+          "macro_average_precision": 0.8862870945417326,
+          "successful_p95_ms": 258.4225830000005,
+          "selected": 880,
+          "errors": 2,
+          "error_rate": 0.0022727272727272726,
+          "reliability_flag": false
+        },
+        "fastino/GLiDE": {
+          "average_precision": {
+            "vitaminc": 0.8850337743518393,
+            "scifact": 0.9311291878702855,
+            "contractnli": 0.910020384196943,
+            "mnli": 0.964106789609279,
+            "findver": 0.9812090838937619
+          },
+          "macro_average_precision": 0.9342998439844218,
+          "successful_p95_ms": 241.55025000000023,
+          "selected": 880,
+          "errors": 1,
+          "error_rate": 0.0011363636363636363,
+          "reliability_flag": false
+        },
+        "drex-max-v1.1": {
+          "average_precision": {
+            "vitaminc": 0.8895418393388373,
+            "scifact": 0.8930530930546493,
+            "contractnli": 0.8390556258632043,
+            "mnli": 0.979660949161463,
+            "findver": 0.9863261738261733
+          },
+          "macro_average_precision": 0.9175275362488654,
+          "successful_p95_ms": 332.2969580000008,
+          "selected": 880,
+          "errors": 1,
+          "error_rate": 0.0011363636363636363,
+          "reliability_flag": false
+        },
+        "drex-max-finance": {
+          "average_precision": {
+            "vitaminc": 0.8798383847325585,
+            "scifact": 0.9117404780106916,
+            "contractnli": 0.8927008261305697,
+            "mnli": 0.9695580138865604,
+            "findver": 0.9782173382173388
+          },
+          "macro_average_precision": 0.9264110081955438,
+          "successful_p95_ms": 305.19724999999744,
+          "selected": 880,
+          "errors": 5,
+          "error_rate": 0.005681818181818182,
+          "reliability_flag": false
+        },
+        "drex-v2.0": {
+          "average_precision": {
+            "vitaminc": 0.763049097181907,
+            "scifact": 0.8727209144445928,
+            "contractnli": 0.7703157224446607,
+            "mnli": 0.962681696706925,
+            "findver": 0.9785389610389607
+          },
+          "macro_average_precision": 0.8694612783634093,
+          "successful_p95_ms": 287.5810829999973,
+          "selected": 880,
+          "errors": 2,
+          "error_rate": 0.0022727272727272726,
+          "reliability_flag": false
+        },
+        "drex-max": {
+          "average_precision": {
+            "vitaminc": 0.8858143983989872,
+            "scifact": 0.9064492069921234,
+            "contractnli": 0.8069363218022962,
+            "mnli": 0.9581300722617911,
+            "findver": 0.9803173172377944
+          },
+          "macro_average_precision": 0.9075294633385985,
+          "successful_p95_ms": 198.74791599999298,
+          "selected": 880,
+          "errors": 1,
+          "error_rate": 0.0011363636363636363,
+          "reliability_flag": false
+        },
+        "drex-v1.5": {
+          "average_precision": {
+            "vitaminc": 0.7915330216989134,
+            "scifact": 0.8842752965071288,
+            "contractnli": 0.7567207584619322,
+            "mnli": 0.9458715009581147,
+            "findver": 0.9769400822754478
+          },
+          "macro_average_precision": 0.8710681319803074,
+          "successful_p95_ms": 249.27379099999962,
+          "selected": 880,
+          "errors": 0,
+          "error_rate": 0.0,
+          "reliability_flag": false
+        },
+        "google/gemini-decision-1": {
+          "average_precision": {
+            "vitaminc": 0.7981409587135236,
+            "scifact": 0.9291365371094858,
+            "contractnli": 0.8213060217749287,
+            "mnli": 0.9436814366789507,
+            "findver": 0.9786768229935703
+          },
+          "macro_average_precision": 0.8941883554540918,
+          "successful_p95_ms": 540.9984160000022,
+          "selected": 880,
+          "errors": 1,
+          "error_rate": 0.0011363636363636363,
+          "reliability_flag": false
+        }
+      }
+    },
+    {
+      "id": "validation-688",
+      "description": "Source-group-disjoint calibration validation pairs, same prompt, one pass",
+      "datasets": [
+        "vitaminc",
+        "scifact",
+        "contractnli",
+        "mnli"
+      ],
+      "models": {
+        "jev-1.14.0": {
+          "average_precision": {
+            "vitaminc": 0.8297838764427238,
+            "scifact": 0.9692196725711216,
+            "contractnli": 0.93219931552984,
+            "mnli": 0.9421069216022963
+          },
+          "macro_average_precision": 0.9183274465364955,
+          "successful_p95_ms": 179.63424999999552,
+          "selected": 688,
+          "errors": 0,
+          "error_rate": 0.0,
+          "reliability_flag": false
+        },
+        "clef": {
+          "average_precision": {
+            "vitaminc": 0.8262102470514694,
+            "scifact": 0.9362729608770649,
+            "contractnli": 0.9262565602324683,
+            "mnli": 0.8959534544689488
+          },
+          "macro_average_precision": 0.8961733056574879,
+          "successful_p95_ms": 579.0434580000001,
+          "selected": 688,
+          "errors": 0,
+          "error_rate": 0.0,
+          "reliability_flag": false
+        },
+        "clef-flash": {
+          "average_precision": {
+            "vitaminc": 0.7225427516340118,
+            "scifact": 0.9148629601648947,
+            "contractnli": 0.9400360430910715,
+            "mnli": 0.9417242536394606
+          },
+          "macro_average_precision": 0.8797915021323597,
+          "successful_p95_ms": 519.9140830000106,
+          "selected": 688,
+          "errors": 0,
+          "error_rate": 0.0,
+          "reliability_flag": false
+        },
+        "clef-omni": {
+          "average_precision": {
+            "vitaminc": 0.793562601643753,
+            "scifact": 0.9893691001027954,
+            "contractnli": 0.9329226552702371,
+            "mnli": 0.9295640802994077
+          },
+          "macro_average_precision": 0.9113546093290483,
+          "successful_p95_ms": 145.89141599999857,
+          "selected": 688,
+          "errors": 0,
+          "error_rate": 0.0,
+          "reliability_flag": false
+        },
+        "gpt-6-luna": {
+          "average_precision": {
+            "vitaminc": 0.7892453362340405,
+            "scifact": 0.8332719829745192,
+            "contractnli": 0.7089262603162628,
+            "mnli": 0.8575120599387116
+          },
+          "macro_average_precision": 0.7972389098658835,
+          "successful_p95_ms": 412.07658300000185,
+          "selected": 688,
+          "errors": 0,
+          "error_rate": 0.0,
+          "reliability_flag": false
+        },
+        "microsoft/microsoft-decision-1": {
+          "average_precision": {
+            "vitaminc": 0.8725272909796684,
+            "scifact": 0.7773428081524415,
+            "contractnli": 0.7731500580539394,
+            "mnli": 0.9469788029740284
+          },
+          "macro_average_precision": 0.8424997400400194,
+          "successful_p95_ms": 333.8769590000011,
+          "selected": 688,
+          "errors": 0,
+          "error_rate": 0.0,
+          "reliability_flag": false
+        },
+        "perplexity/pplx-decider-v1.2": {
+          "average_precision": {
+            "vitaminc": 0.9478965644782947,
+            "scifact": 0.9420603326963114,
+            "contractnli": 0.9648672639089305,
+            "mnli": 0.9440834297984596
+          },
+          "macro_average_precision": 0.9497268977204991,
+          "successful_p95_ms": 688.0650000000023,
+          "selected": 688,
+          "errors": 0,
+          "error_rate": 0.0,
+          "reliability_flag": false
+        },
+        "perplexity/pplx-decider-flash-v1.2": {
+          "average_precision": {
+            "vitaminc": 0.9132712110191087,
+            "scifact": 0.8480314160220028,
+            "contractnli": 0.9321586717359346,
+            "mnli": 0.9444790947561271
+          },
+          "macro_average_precision": 0.9094850983832933,
+          "successful_p95_ms": 239.56124999999884,
+          "selected": 688,
+          "errors": 0,
+          "error_rate": 0.0,
+          "reliability_flag": false
+        },
+        "fastino/GLiDE": {
+          "average_precision": {
+            "vitaminc": 0.9298100054245392,
+            "scifact": 0.9385248907417518,
+            "contractnli": 0.9804547346254268,
+            "mnli": 0.9410258212481191
+          },
+          "macro_average_precision": 0.9474538630099592,
+          "successful_p95_ms": 2129.302708000003,
+          "selected": 688,
+          "errors": 75,
+          "error_rate": 0.10901162790697674,
+          "reliability_flag": true
+        },
+        "drex-max": {
+          "average_precision": {
+            "vitaminc": 0.944223462719084,
+            "scifact": 0.9157262726261047,
+            "contractnli": 0.9487384122730432,
+            "mnli": 0.9519359559831821
+          },
+          "macro_average_precision": 0.9401560259003535,
+          "successful_p95_ms": 1515.408374999999,
+          "selected": 688,
+          "errors": 3,
+          "error_rate": 0.00436046511627907,
+          "reliability_flag": false
+        },
+        "drex-max-finance": {
+          "average_precision": {
+            "vitaminc": 0.9562429122823627,
+            "scifact": 0.9606091520923177,
+            "contractnli": 0.9644901291055409,
+            "mnli": 0.9507629849921702
+          },
+          "macro_average_precision": 0.9580262946180979,
+          "successful_p95_ms": 314.0437089999905,
+          "selected": 688,
+          "errors": 1,
+          "error_rate": 0.0014534883720930232,
+          "reliability_flag": false
+        },
+        "google/gemini-decision-1": {
+          "average_precision": {
+            "vitaminc": 0.8659193025039165,
+            "scifact": 0.9784334169414811,
+            "contractnli": 0.8767831762730808,
+            "mnli": 0.9501852164155766
+          },
+          "macro_average_precision": 0.9178302780335137,
+          "successful_p95_ms": 508.57695899999817,
+          "selected": 688,
+          "errors": 1,
+          "error_rate": 0.0014534883720930232,
+          "reliability_flag": false
+        }
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "model": "clef",
+      "status": "screened_out",
+      "measured_cohorts": [
+        "archive-880",
+        "validation-688"
+      ],
+      "reliability_flags": [],
+      "dominated_by": [
+        {
+          "model": "drex-max-finance",
+          "status": "screened_out",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.06057581445498672,
+              "percentile_95": [
+                0.03298295539674578,
+                0.08921424798438449
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            },
+            "validation-688": {
+              "macro_average_precision_difference": 0.06185298896060998,
+              "percentile_95": [
+                0.03140324237566794,
+                0.09388923227694423
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "model": "clef-flash",
+      "status": "deprioritized",
+      "measured_cohorts": [
+        "archive-880",
+        "validation-688"
+      ],
+      "reliability_flags": [],
+      "dominated_by": [
+        {
+          "model": "drex-max",
+          "status": "deprioritized",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.059362648075578894,
+              "percentile_95": [
+                0.017840657621857603,
+                0.0932890814120314
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            },
+            "validation-688": {
+              "macro_average_precision_difference": 0.06036452376799384,
+              "percentile_95": [
+                0.011536685546680414,
+                0.10089692371096137
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": false,
+              "candidate_faster": true
+            }
+          }
+        },
+        {
+          "model": "drex-max-finance",
+          "status": "deprioritized",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.07824419293252416,
+              "percentile_95": [
+                0.042211918712191654,
+                0.11010379760347555
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": false,
+              "candidate_faster": true
+            },
+            "validation-688": {
+              "macro_average_precision_difference": 0.07823479248573817,
+              "percentile_95": [
+                0.034076050272256464,
+                0.11079352094143136
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            }
+          }
+        },
+        {
+          "model": "fastino/GLiDE",
+          "status": "deprioritized",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.08613302872140216,
+              "percentile_95": [
+                0.05036702563914852,
+                0.11343472915111075
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            },
+            "validation-688": {
+              "macro_average_precision_difference": 0.06766236087759947,
+              "percentile_95": [
+                0.014563642910042085,
+                0.11045320514941048
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": false,
+              "candidate_faster": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "model": "clef-omni",
+      "status": "deprioritized",
+      "measured_cohorts": [
+        "archive-880",
+        "validation-688"
+      ],
+      "reliability_flags": [],
+      "dominated_by": [
+        {
+          "model": "drex-max-finance",
+          "status": "deprioritized",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.041356101149550906,
+              "percentile_95": [
+                0.017336651790372803,
+                0.06754475079501931
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            },
+            "validation-688": {
+              "macro_average_precision_difference": 0.046671685289049525,
+              "percentile_95": [
+                0.01933843337275798,
+                0.0778154076886246
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": false,
+              "candidate_faster": true
+            }
+          }
+        },
+        {
+          "model": "drex-max-v1.1",
+          "status": "deprioritized",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.03247262920287253,
+              "percentile_95": [
+                0.004149986719456655,
+                0.05541324803070724
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            }
+          }
+        },
+        {
+          "model": "fastino/GLiDE",
+          "status": "deprioritized",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.04924493693842891,
+              "percentile_95": [
+                0.02894436227898578,
+                0.0686011310234883
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            },
+            "validation-688": {
+              "macro_average_precision_difference": 0.036099253680910826,
+              "percentile_95": [
+                0.005716234409708143,
+                0.06806960646295124
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": false,
+              "candidate_faster": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "model": "drex-max",
+      "status": "deprioritized",
+      "measured_cohorts": [
+        "archive-880",
+        "validation-688"
+      ],
+      "reliability_flags": [],
+      "dominated_by": [
+        {
+          "model": "drex-max-finance",
+          "status": "deprioritized",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.018881544856945265,
+              "percentile_95": [
+                0.0022436455435629332,
+                0.04051843748957984
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": false,
+              "candidate_faster": true
+            },
+            "validation-688": {
+              "macro_average_precision_difference": 0.01787026871774433,
+              "percentile_95": [
+                0.003525896486279878,
+                0.0335780160578838
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "model": "drex-max-finance",
+      "status": "viable",
+      "measured_cohorts": [
+        "archive-880",
+        "validation-688"
+      ],
+      "reliability_flags": [],
+      "dominated_by": []
+    },
+    {
+      "model": "drex-max-v1.1",
+      "status": "viable",
+      "measured_cohorts": [
+        "archive-880"
+      ],
+      "reliability_flags": [],
+      "dominated_by": []
+    },
+    {
+      "model": "drex-v1.5",
+      "status": "deprioritized",
+      "measured_cohorts": [
+        "archive-880"
+      ],
+      "reliability_flags": [],
+      "dominated_by": [
+        {
+          "model": "drex-max",
+          "status": "deprioritized",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.036461331358291105,
+              "percentile_95": [
+                0.008687501235107642,
+                0.06661914750845721
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            }
+          }
+        },
+        {
+          "model": "fastino/GLiDE",
+          "status": "deprioritized",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.06323171200411437,
+              "percentile_95": [
+                0.03839544608690404,
+                0.08730540253486962
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "model": "drex-v2.0",
+      "status": "deprioritized",
+      "measured_cohorts": [
+        "archive-880"
+      ],
+      "reliability_flags": [],
+      "dominated_by": [
+        {
+          "model": "drex-max",
+          "status": "deprioritized",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.03806818497518927,
+              "percentile_95": [
+                0.011513680169607299,
+                0.06982587539629381
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            }
+          }
+        },
+        {
+          "model": "fastino/GLiDE",
+          "status": "deprioritized",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.06483856562101253,
+              "percentile_95": [
+                0.04273744969089399,
+                0.09158993189214037
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "model": "fastino/GLiDE",
+      "status": "viable",
+      "measured_cohorts": [
+        "archive-880",
+        "validation-688"
+      ],
+      "reliability_flags": [
+        "validation-688"
+      ],
+      "dominated_by": []
+    },
+    {
+      "model": "google/gemini-decision-1",
+      "status": "screened_out",
+      "measured_cohorts": [
+        "archive-880",
+        "validation-688"
+      ],
+      "reliability_flags": [],
+      "dominated_by": [
+        {
+          "model": "drex-max-finance",
+          "status": "screened_out",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.032222652741451974,
+              "percentile_95": [
+                0.011808368587717721,
+                0.05483707060110843
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            },
+            "validation-688": {
+              "macro_average_precision_difference": 0.04019601658458416,
+              "percentile_95": [
+                0.00883831658970935,
+                0.07162439005721599
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "model": "gpt-6-luna",
+      "status": "screened_out",
+      "measured_cohorts": [
+        "archive-880",
+        "validation-688"
+      ],
+      "reliability_flags": [],
+      "dominated_by": [
+        {
+          "model": "drex-max-finance",
+          "status": "screened_out",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.13149865729453425,
+              "percentile_95": [
+                0.09506733753571606,
+                0.16633469227923958
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            },
+            "validation-688": {
+              "macro_average_precision_difference": 0.16078738475221432,
+              "percentile_95": [
+                0.10913116465529027,
+                0.22647834523032617
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            }
+          }
+        },
+        {
+          "model": "jev-1.14.0",
+          "status": "screened_out",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.08807084054919334,
+              "percentile_95": [
+                0.05318770538780826,
+                0.12494654928214244
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            },
+            "validation-688": {
+              "macro_average_precision_difference": 0.12108853667061192,
+              "percentile_95": [
+                0.07550982674280027,
+                0.1762617991624389
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            }
+          }
+        },
+        {
+          "model": "perplexity/pplx-decider-flash-v1.2",
+          "status": "screened_out",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.09137474364072307,
+              "percentile_95": [
+                0.05208153635143953,
+                0.12196792029164394
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            },
+            "validation-688": {
+              "macro_average_precision_difference": 0.11224618851740975,
+              "percentile_95": [
+                0.06509737669660898,
+                0.16804092655708924
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "model": "jev-1.14.0",
+      "status": "viable",
+      "measured_cohorts": [
+        "archive-880",
+        "validation-688"
+      ],
+      "reliability_flags": [],
+      "dominated_by": []
+    },
+    {
+      "model": "microsoft/microsoft-decision-1",
+      "status": "screened_out",
+      "measured_cohorts": [
+        "archive-880",
+        "validation-688"
+      ],
+      "reliability_flags": [],
+      "dominated_by": [
+        {
+          "model": "drex-max-finance",
+          "status": "screened_out",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.07448232015474465,
+              "percentile_95": [
+                0.044592136511712344,
+                0.10479837653391488
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            },
+            "validation-688": {
+              "macro_average_precision_difference": 0.11552655457807848,
+              "percentile_95": [
+                0.06793020906026015,
+                0.16761181259775515
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            }
+          }
+        },
+        {
+          "model": "perplexity/pplx-decider-flash-v1.2",
+          "status": "screened_out",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.03435840650093347,
+              "percentile_95": [
+                0.0022258785134403603,
+                0.06175870808198636
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            },
+            "validation-688": {
+              "macro_average_precision_difference": 0.0669853583432739,
+              "percentile_95": [
+                0.026383538295150832,
+                0.11121241256696879
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "model": "perplexity/pplx-decider-flash-v1.2",
+      "status": "deprioritized",
+      "measured_cohorts": [
+        "archive-880",
+        "validation-688"
+      ],
+      "reliability_flags": [],
+      "dominated_by": [
+        {
+          "model": "drex-max",
+          "status": "deprioritized",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.021242368796865918,
+              "percentile_95": [
+                0.0007994772448388643,
+                0.04601012818759842
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            },
+            "validation-688": {
+              "macro_average_precision_difference": 0.030670927517060242,
+              "percentile_95": [
+                0.00012626022679251836,
+                0.06571056329577685
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": false,
+              "candidate_faster": true
+            }
+          }
+        },
+        {
+          "model": "fastino/GLiDE",
+          "status": "deprioritized",
+          "evidence": {
+            "archive-880": {
+              "macro_average_precision_difference": 0.048012749442689184,
+              "percentile_95": [
+                0.026584631335206943,
+                0.07431589036391317
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": true,
+              "candidate_faster": false
+            },
+            "validation-688": {
+              "macro_average_precision_difference": 0.037968764626665874,
+              "percentile_95": [
+                0.0065488463547440645,
+                0.07405936210254982
+              ],
+              "candidate_significantly_better_on": [],
+              "quality_dominates": true,
+              "challenger_not_slower": false,
+              "candidate_faster": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "model": "perplexity/pplx-decider-v1.2",
+      "status": "viable",
+      "measured_cohorts": [
+        "archive-880",
+        "validation-688"
+      ],
+      "reliability_flags": [],
+      "dominated_by": []
+    }
+  ]
+}
