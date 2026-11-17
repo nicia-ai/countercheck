@@ -1,8 +1,8 @@
 # Evaluating contradiction detection with decision models
 
-Status: seventeen hosted decision models measured as of November 17, 2026. This is a reproducible research benchmark, not a production qualification or an official dataset leaderboard submission.
+Status: nineteen hosted decision models measured as of November 17, 2026. This is a reproducible research benchmark, not a production qualification or an official dataset leaderboard submission.
 
-Countercheck evaluates a specific job: given a claim and a supplied comparison text, identify whether they make incompatible assertions under overlapping conditions. Every model receives the same prompt, the same 880 public pairs across five domains, and the same fixed decision thresholds; fourteen of the seventeen are also measured on a disjoint 688-pair validation cohort. You can inspect and verify every number here without a Countercheck account, model credentials, Cloudflare access, or the original finance documents.
+Countercheck evaluates a specific job: given a claim and a supplied comparison text, identify whether they make incompatible assertions under overlapping conditions. Every model receives the same prompt, the same 880 public pairs across five domains, and the same fixed decision thresholds; sixteen of the nineteen are also measured on a disjoint 688-pair validation cohort. You can inspect and verify every number here without a Countercheck account, model credentials, Cloudflare access, or the original finance documents.
 
 **Disclosure:** Nicia has no commercial relationship with any evaluated model provider.
 
@@ -44,21 +44,24 @@ The table ranks models by how well their raw contradiction score separates nativ
 | drex-v2.0               | Nace       | Deprioritized |               0.869 |                        — |           288 / — |             2 / — | No         |
 | Clef Flash              | Cloudflare | Deprioritized |               0.848 |                    0.880 |         261 / 520 |             0 / 0 | Yes        |
 | Gemini Decision 1       | Google     | Screened out  |               0.894 |                    0.918 |         541 / 509 |             1 / 1 | No         |
+| d1.2-ultra              | Liquid     | Screened out  |               0.891 |                    0.913 |        384 / 1153 |             0 / 0 | No         |
+| d1.2                    | Liquid     | Screened out  |               0.887 |                    0.919 |         467 / 392 |             0 / 0 | No         |
 | Clef                    | Cloudflare | Screened out  |               0.866 |                    0.896 |         787 / 579 |             1 / 0 | Yes        |
 | Decision-1              | Microsoft  | Screened out  |               0.852 |                    0.842 |         403 / 334 |             0 / 0 | Yes        |
 | GPT-6 Luna Decisions    | OpenAI     | Screened out  |               0.795 |                    0.797 |         534 / 412 |             2 / 0 | Yes        |
 
-**Status** comes from the [viability screen](eval/results/model-screen-2026-11-17/README.md), which decides where further evaluation effort goes. A model is _screened out_ when another model ranks contradictions better in both cohorts (paired source-group 95% interval on macro average precision above zero, and never significantly worse on a single scorecard) at no higher p95 latency in either. It is _deprioritized_ when that quality gap holds but is measured in one cohort only, or the latency ordering flips between cohorts. Everything else is _viable_. A status describes one measured model version under the current prompt; it is not a verdict on a vendor, and it changes nothing in the API. The two v1.3 rows were measured through OpenRouter's zero-priced `:free` variants (`perplexity/pplx-decider-v1.3:free`, `perplexity/pplx-decider-flash-v1.3:free`), the only v1.3 endpoints listed through November 17; every completed call reported the dated `-20261112` snapshot.
+**Status** comes from the [viability screen](eval/results/model-screen-2026-11-17b/README.md), which decides where further evaluation effort goes. A model is _screened out_ when another model ranks contradictions better in both cohorts (paired source-group 95% interval on macro average precision above zero, and never significantly worse on a single scorecard) at no higher p95 latency in either. It is _deprioritized_ when that quality gap holds but is measured in one cohort only, or the latency ordering flips between cohorts. Everything else is _viable_. A status describes one measured model version under the current prompt; it is not a verdict on a vendor, and it changes nothing in the API. The two v1.3 rows were measured through OpenRouter's zero-priced `:free` variants (`perplexity/pplx-decider-v1.3:free`, `perplexity/pplx-decider-flash-v1.3:free`), the only v1.3 endpoints listed through November 17; every completed call reported the dated `-20261112` snapshot.
 
 What the field looks like:
 
 1. **Five models lead on ranking and the screen cannot separate them.** GLiDE 27B, drex-max-finance, Pplx Decider v1.2, Pplx Decider v1.3 and drex-max-v1.1 sit within 0.016 macro average precision of each other on the 880 pairs, and none dominates another. drex-max-v1.1 has no validation run yet.
 2. **Pplx Decider v1.3, released November 12, ties v1.2 rather than improving on it.** v1.2 is ahead by +0.003 [−0.008, 0.015] macro average precision on the 880 pairs and +0.011 [−0.002, 0.023] on validation; neither interval excludes zero. v1.3 is more conservative at the shared cutoff (12.5% validation science recall at 100% precision). Flash v1.3 is likewise indistinguishable from Flash v1.2 (+0.012 [−0.002, 0.030] and −0.004 [−0.018, 0.011]) and ranks below full v1.3 in both cohorts.
 3. **Jev 1.14 is the fastest route by a wide margin** (107 and 180 ms p95) and completed every call in both cohorts. It ranks below the leaders, most visibly on contracts and Wikipedia, and stays in focus for speed rather than quality.
-4. **Gemini Decision 1, released November 11 and measured the same day, lands mid-field.** It is eighth of seventeen on the 880 pairs and has the best science F1 of any model (69.6%), but trails the leaders on Wikipedia and contracts. drex-max-finance ranks better in both cohorts (+0.032 [0.012, 0.055] and +0.040 [0.009, 0.072] macro average precision) at a lower p95, so the screen sets it aside. Its latency was measured five days after the Nace runs, so that ordering is the weaker half of the evidence.
-5. **Reliability separates otherwise close models.** GLiDE lost 75 of 688 validation calls to the three-second deadline after losing one of 880 in the first run. No other model lost more than five calls in a cohort.
-6. **The API catalog trails the measurements.** Of the eight models callers can select, only Jev and Pplx Decider v1.2 are viable and three are screened out. GLiDE, the Nace models, Gemini Decision 1 and the v1.3 Deciders are measured through evaluation adapters only.
-7. **Thresholds move results as much as model choice does.** Two models with nearly equal ranking quality can differ by twenty points of F1 at the shared cutoff, and a large coverage gap between two leaders mostly closes once each gets its own thresholds. Read the domain tables below as "this model at this operating point".
+4. **Gemini Decision 1, released November 11 and measured the same day, lands mid-field.** It is eighth of nineteen on the 880 pairs and has the best science F1 of any model (69.6%), but trails the leaders on Wikipedia and contracts. drex-max-finance ranks better in both cohorts (+0.032 [0.012, 0.055] and +0.040 [0.009, 0.072] macro average precision) at a lower p95, so the screen sets it aside. Its latency was measured five days after the Nace runs, so that ordering is the weaker half of the evidence.
+5. **Liquid d1.2 and d1.2-ultra, released November 16, rank with Jev 1.14 and are screened out.** Neither is distinguishable from Jev in either cohort, and drex-max-finance ranks better than each in both (+0.035 to +0.045 macro average precision, every interval above zero) at a lower p95. Ultra does not rank better than d1.2: base d1.2 is significantly better on business-adjacent text in the 880 pairs and on Wikipedia in validation. Both are the most conservative models at the shared cutoff (18.3% Wikipedia recall on the 880 pairs) and completed all 3,136 calls.
+6. **Reliability separates otherwise close models.** GLiDE lost 75 of 688 validation calls to the three-second deadline after losing one of 880 in the first run. No other model lost more than five calls in a cohort.
+7. **The API catalog trails the measurements.** Of the eight models callers can select, only Jev and Pplx Decider v1.2 are viable and three are screened out. GLiDE, the Nace models, Gemini Decision 1, the v1.3 Deciders and Liquid d1.2 are measured through evaluation adapters only.
+8. **Thresholds move results as much as model choice does.** Two models with nearly equal ranking quality can differ by twenty points of F1 at the shared cutoff, and a large coverage gap between two leaders mostly closes once each gets its own thresholds. Read the domain tables below as "this model at this operating point".
 
 These rankings use each dataset's native labels, public development data, and a single pass per model. The screening rule was written after the first fourteen results were visible. Each new model's latency comes from a later pass than the models it is ranked against. [Study limitations](#study-limitations-and-dataset-reuse) lists what that does and does not support.
 
@@ -82,6 +85,8 @@ Each cell is **precision / recall / clear-negative coverage**, in percent, on th
 | drex-v2.0               |   83.3 / 42.3 / 51.2 | 92.9 / 36.6 / 34.4 |      88.9 / 30.8 / 37.0 |          100.0 / 52.2 / 49.6 | 100.0 / 38.6 / 60.5 |
 | Clef Flash              |   66.7 / 16.9 / 29.5 | 93.9 / 43.7 / 22.7 |     100.0 / 34.6 / 15.0 |          100.0 / 46.3 / 41.4 | 100.0 / 25.0 / 36.8 |
 | Gemini Decision 1       |   80.6 / 40.8 / 61.2 | 95.1 / 54.9 / 64.8 |      82.4 / 53.8 / 56.6 |           95.3 / 61.2 / 60.9 |  97.4 / 86.4 / 81.6 |
+| d1.2-ultra              |  100.0 / 18.3 / 56.6 | 94.4 / 23.9 / 44.5 |     100.0 / 34.6 / 26.6 |          100.0 / 32.8 / 53.4 | 100.0 / 79.5 / 71.1 |
+| d1.2                    |   86.7 / 18.3 / 52.7 | 91.7 / 31.0 / 28.1 |      88.9 / 30.8 / 14.5 |          100.0 / 37.3 / 41.4 | 100.0 / 61.4 / 36.8 |
 | Clef                    |   73.8 / 43.7 / 59.7 | 92.9 / 36.6 / 55.5 |     100.0 / 30.8 / 34.1 |          100.0 / 40.3 / 56.4 | 100.0 / 27.3 / 55.3 |
 | Decision-1              |   81.8 / 50.7 / 75.2 | 91.9 / 47.9 / 66.4 |      58.6 / 65.4 / 48.0 |           95.7 / 65.7 / 75.9 |  96.0 / 54.5 / 65.8 |
 | GPT-6 Luna Decisions    |   88.2 / 21.1 / 72.9 | 86.4 / 26.8 / 63.3 |      76.9 / 38.5 / 38.7 |          100.0 / 32.8 / 66.9 | 100.0 / 75.0 / 78.9 |
@@ -108,11 +113,13 @@ Average precision per domain, which ignores the threshold:
 | drex-v2.0               |     0.763 |   0.873 |     0.770 |             0.963 |   0.979 |
 | Clef Flash              |     0.605 |   0.920 |     0.834 |             0.969 |   0.914 |
 | Gemini Decision 1       |     0.798 |   0.929 |     0.821 |             0.944 |   0.979 |
+| d1.2-ultra              |     0.839 |   0.902 |     0.818 |             0.910 |   0.988 |
+| d1.2                    |     0.786 |   0.901 |     0.806 |             0.958 |   0.981 |
 | Clef                    |     0.691 |   0.900 |     0.841 |             0.940 |   0.957 |
 | Decision-1              |     0.823 |   0.872 |     0.699 |             0.944 |   0.922 |
 | GPT-6 Luna Decisions    |     0.779 |   0.751 |     0.624 |             0.851 |   0.970 |
 
-Contracts and Wikipedia spread the field (0.62 to 0.91 and 0.61 to 0.90); business-adjacent text and finance barely do. Per-model archives hold AUROC, F1, Brier scores, false clears and paired intervals: [first nine models](eval/results/hosted-models-with-glide-2026-11-05/README.md), [five Nace models](eval/results/nace-2026-11-06/README.md), Gemini Decision 1 on the [880 pairs](eval/results/gemini-decision-1-archive-880-2026-11-11/README.md) and the [validation cohort](eval/results/gemini-decision-1-validation-688-2026-11-11/README.md), Pplx Decider v1.3 on the [880 pairs](eval/results/pplx-decider-v1.3-free-archive-880-2026-11-14/README.md) and the [validation cohort](eval/results/pplx-decider-v1.3-free-validation-688-2026-11-16/README.md), and Flash v1.3 on the [880 pairs](eval/results/pplx-decider-flash-v1.3-free-archive-880-2026-11-15/README.md) and the [validation cohort](eval/results/pplx-decider-flash-v1.3-free-validation-688-2026-11-17/README.md).
+Contracts and Wikipedia spread the field (0.62 to 0.91 and 0.61 to 0.90); business-adjacent text and finance barely do. Per-model archives hold AUROC, F1, Brier scores, false clears and paired intervals: [first nine models](eval/results/hosted-models-with-glide-2026-11-05/README.md), [five Nace models](eval/results/nace-2026-11-06/README.md), Gemini Decision 1 on the [880 pairs](eval/results/gemini-decision-1-archive-880-2026-11-11/README.md) and the [validation cohort](eval/results/gemini-decision-1-validation-688-2026-11-11/README.md), Pplx Decider v1.3 on the [880 pairs](eval/results/pplx-decider-v1.3-free-archive-880-2026-11-14/README.md) and the [validation cohort](eval/results/pplx-decider-v1.3-free-validation-688-2026-11-16/README.md), Flash v1.3 on the [880 pairs](eval/results/pplx-decider-flash-v1.3-free-archive-880-2026-11-15/README.md) and the [validation cohort](eval/results/pplx-decider-flash-v1.3-free-validation-688-2026-11-17/README.md), d1.2 on the [880 pairs](eval/results/liquid-d1.2-archive-880-2026-11-17/README.md) and the [validation cohort](eval/results/liquid-d1.2-validation-688-2026-11-17/README.md), and d1.2-ultra on the [880 pairs](eval/results/liquid-d1.2-ultra-archive-880-2026-11-17/README.md) and the [validation cohort](eval/results/liquid-d1.2-ultra-validation-688-2026-11-17/README.md).
 
 ## With model-specific thresholds
 
@@ -132,13 +139,13 @@ A shared cutoff measures the shipped product, not each model's best operating po
 | GPT-6 Luna Decisions    |        94.5 |     32.5 |                      58.0 |                           27 |
 | Clef                    |        98.1 |     24.1 |                      49.6 |                           10 |
 
-Fitted thresholds hold precision near 96 to 98% for most models and lift the leaders to 62 to 70% recall, still twenty points short of the target. The best pooled result, drex-max-finance, is not distinguishable from Pplx Decider v1.2: its recall difference is +2.4 points with a paired interval of −1.9 to +5.8. GLiDE's figures include 75 deadline failures counted as misses. Gemini Decision 1, both v1.3 Deciders, drex-max-v1.1, drex-v1.5 and drex-v2.0 have no fitted policy. None of these policies is in the service.
+Fitted thresholds hold precision near 96 to 98% for most models and lift the leaders to 62 to 70% recall, still twenty points short of the target. The best pooled result, drex-max-finance, is not distinguishable from Pplx Decider v1.2: its recall difference is +2.4 points with a paired interval of −1.9 to +5.8. GLiDE's figures include 75 deadline failures counted as misses. Gemini Decision 1, both v1.3 Deciders, both Liquid models, drex-max-v1.1, drex-v1.5 and drex-v2.0 have no fitted policy. None of these policies is in the service.
 
 The budget definition was chosen after an earlier, stricter study was seen, so this table is exploratory; the [history](#how-this-evaluation-evolved) explains why. Full tables and policies: [nine-model follow-up](eval/results/calibration-followup-2026-11-06/README.md) and [Nace calibration](eval/results/nace-calibration-2026-11-06/README.md).
 
 ## Why every model falls short of the targets
 
-The figures in this section cover the first nine models; the eight added since have not been through the same miss analysis.
+The figures in this section cover the first nine models; the ten added since have not been through the same miss analysis.
 
 Across the five public scorecards there are 279 distinct native positives and 2,511 positive/model observations. Recomputing the archive gives **1,337 missed-positive outcomes: 1,333 completed semantic misses plus four provider errors**. The completed misses comprise 1,191 uncertain answers and 142 false clears. Percentages below use the 1,333 completed misses, not all outcomes.
 
@@ -166,6 +173,7 @@ Benchmark coverage and the public API catalog are separate:
 | Five active Nace Drex IDs                     | November 6 extension: same 920 cases each; Max/Finance add 3,200 calibration calls each | Evaluation-runner adapters only; no API/dashboard route                 |
 | Google Gemini Decision 1                      | November 11: the 880 public pairs and the 688 validation pairs                          | Evaluation-runner adapter only; no API/dashboard route                  |
 | Pplx Decider v1.3 and Flash v1.3 (`:free`)    | November 14–17: the 880 public pairs and the 688 validation pairs                       | Evaluation-runner adapters only; no API/dashboard route                 |
+| Liquid d1.2 and d1.2-ultra                    | November 17: the 880 public pairs and the 688 validation pairs                          | Evaluation-runner adapters only; no API/dashboard route                 |
 | DeBERTa NLI                                   | Earlier, separate baseline cohort                                                       | Offline evaluation comparator                                           |
 | GLiDE 0.4B, 0.8B, 2B and 9B                   | Pending; no measured results in this repository                                         | No service integration                                                  |
 
@@ -253,6 +261,8 @@ The original eight-model phase contained 7,360 observations. The appended Fastin
 | Gemini Decision 1       | `google/gemini-decision-1`                                                | OpenRouter Decisions, pinned to Google AI Studio; evaluation-only |
 | Pplx Decider v1.3       | `perplexity/pplx-decider-v1.3:free`                                       | OpenRouter Decisions `:free` variant; evaluation-only             |
 | Pplx Decider Flash v1.3 | `perplexity/pplx-decider-flash-v1.3:free`                                 | OpenRouter Decisions `:free` variant; evaluation-only             |
+| d1.2                    | `liquid/d1.2`                                                             | OpenRouter Decisions, pinned to Liquid; evaluation-only           |
+| d1.2-ultra              | `liquid/d1.2-ultra`                                                       | OpenRouter Decisions, pinned to Liquid; evaluation-only           |
 
 The Clef binding was reached through Wrangler's remote proxy. Other routes used native provider HTTPS interfaces. These are provider/kernel measurements, not authenticated production API latency or a capacity test. The deployed API's nested provider budget is 2,500 ms, distinct from this comparison's 3,000 ms kernel budget. Fixed model order, network variation, mutable upstream aliases and one pass limit conclusions about repeat stability and timing. Timed-out native Cloudflare work can continue upstream.
 
@@ -311,7 +321,11 @@ python3 -B scripts/archive-measurement.py --verify eval/results/pplx-decider-v1.
 python3 -B scripts/archive-measurement.py --verify eval/results/pplx-decider-flash-v1.3-free-archive-880-2026-11-15
 python3 -B scripts/archive-measurement.py --verify eval/results/pplx-decider-v1.3-free-validation-688-2026-11-16
 python3 -B scripts/archive-measurement.py --verify eval/results/pplx-decider-flash-v1.3-free-validation-688-2026-11-17
-python3 -B scripts/screen-models.py --verify eval/results/model-screen-2026-11-17
+python3 -B scripts/archive-measurement.py --verify eval/results/liquid-d1.2-archive-880-2026-11-17
+python3 -B scripts/archive-measurement.py --verify eval/results/liquid-d1.2-ultra-archive-880-2026-11-17
+python3 -B scripts/archive-measurement.py --verify eval/results/liquid-d1.2-validation-688-2026-11-17
+python3 -B scripts/archive-measurement.py --verify eval/results/liquid-d1.2-ultra-validation-688-2026-11-17
+python3 -B scripts/screen-models.py --verify eval/results/model-screen-2026-11-17b
 ```
 
 The first command verifies artifact hashes and execution-source snapshots, checks identical input identities, labels and text hashes across models, and independently recomputes confusion counts, precision, recall, F1, coverage, AUROC, average precision, Brier scores, latency percentiles, and reported input-token totals. It reads **redacted scoring rows**, not original claims or evidence. It makes no network or model calls.
@@ -713,6 +727,10 @@ With fourteen models measured, the [viability screen](eval/results/model-screen-
 Perplexity released Decider v1.3 and Decider Flash v1.3 on November 12. OpenRouter listed them only as zero-priced `:free` variants, so both were registered as evaluation-only candidates on those IDs, pinned to the Perplexity provider and the dated `-20261112` snapshots. The free-model limit of 1,000 requests per UTC day allowed one model/cohort run per day, measured November 14 to 17 (3,136 scored calls plus 32 synthetic probe calls, two deadline errors). Every completed call reported the reviewed snapshot. One launch on November 16 was refused by the runner's spend-reservation check before any call; it is not a measurement.
 
 Neither v1.3 model is distinguishable from the v1.2 model it succeeds on macro average precision in either cohort; full v1.3 ranks better than Flash v1.3 in both. The [November 17 screen](eval/results/model-screen-2026-11-17/README.md) marks v1.3 viable and Flash v1.3 deprioritized behind drex-max-finance and GLiDE. Neither has fitted thresholds or an API route, and v1.2 remains in the catalog.
+
+### November 17: Liquid d1.2 and d1.2-ultra
+
+Liquid AI's d1.2 and d1.2-ultra were listed on OpenRouter as paid endpoints served by Liquid, with dated `-20261116` snapshots. Both were registered as evaluation-only candidates pinned to the Liquid provider and measured on both cohorts the same day (3,136 scored calls plus 32 synthetic probe calls, no errors); every call reported the reviewed snapshot. A second screen written that day, [November 17b](eval/results/model-screen-2026-11-17b/README.md), screens both out behind drex-max-finance. Neither ranks differently from Jev 1.14 or from the other. They have no fitted thresholds and no API route. Liquid's earlier d1, d1-ultra and d1.1 remain unmeasured.
 
 ## Evidence, limitations, and data terms
 

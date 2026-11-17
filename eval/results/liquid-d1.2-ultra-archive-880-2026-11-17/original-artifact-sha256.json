@@ -1,0 +1,27 @@
+{
+  "vitaminc": {
+    "report": "be16f7c31435c2c864b509b46226df1d013c4a369c549fe40e5a8af79f099066",
+    "checkpoint": "b27f55c9b0aa312b296a62ed6865f8f34e77c16f723bf23bbad9a15ab83303f4",
+    "http_status": "d90396d0acfb6b00b864729a616728216042f8a1481927ec21703c885e5cd74d"
+  },
+  "scifact": {
+    "report": "61772a1276be567cb00c0013bf74724d4e236966fb2fd2a79b89b9f64953eef5",
+    "checkpoint": "3ae962d2455292a14ea2262d2435c71d70ed006049a573fb899c77ba607beec7",
+    "http_status": "2e2b9906a7861c81a3af08f8da68e90660ba123f2af0f720141d3e211e314cb2"
+  },
+  "contractnli": {
+    "report": "e3d5c49a57f4f9c1200b8b9c4511f2aae9132b0c40964623616e2f5285421849",
+    "checkpoint": "155582baffb563a8fac2f79c72590da92e68fd8f31b752a4749b2a3e75a228b5",
+    "http_status": "2e2b9906a7861c81a3af08f8da68e90660ba123f2af0f720141d3e211e314cb2"
+  },
+  "mnli": {
+    "report": "4be0645bf4cf70899744b93c430f538cb8e044405865b6c3785878f9c29edc16",
+    "checkpoint": "240c58eddfce3ff0480f15124736c30f91bb442ee515c6a7354ea069d64b8aac",
+    "http_status": "d90396d0acfb6b00b864729a616728216042f8a1481927ec21703c885e5cd74d"
+  },
+  "findver": {
+    "report": "eedbd23fa831b3b89c1e1f08ddc0e6e08e1d7987699ad2eab1f3d9cf1b6db331",
+    "checkpoint": "7f5cae581a23300ce2d07df078bb52bd86267a393166c8aad785b05b44f34cf7",
+    "http_status": "b16a734719c7a7b1b40d886cec0ccab5a47424236b1287f5c10ae1bec8efaf35"
+  }
+}
