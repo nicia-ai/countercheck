@@ -58,6 +58,7 @@ describe("evaluation-only OpenRouter candidates", () => {
         `${model}-latest`,
         "perplexity/pplx-decider-v1.2",
         "perplexity/pplx-decider-v1.2-20261016",
+        "liquid/d1.1-20261027",
       ]) {
         send.mockResolvedValueOnce(Response.json(output(identity)));
         await expect(provider.classify(payload(), signal())).rejects.toMatchObject({

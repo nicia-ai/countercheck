@@ -53,7 +53,9 @@
         "eval/results/nace-2026-11-06/observations.redacted.jsonl.gz",
         "eval/results/gemini-decision-1-archive-880-2026-11-11/observations.redacted.jsonl.gz",
         "eval/results/pplx-decider-v1.3-free-archive-880-2026-11-14/observations.redacted.jsonl.gz",
-        "eval/results/pplx-decider-flash-v1.3-free-archive-880-2026-11-15/observations.redacted.jsonl.gz"
+        "eval/results/pplx-decider-flash-v1.3-free-archive-880-2026-11-15/observations.redacted.jsonl.gz",
+        "eval/results/liquid-d1.2-archive-880-2026-11-17/observations.redacted.jsonl.gz",
+        "eval/results/liquid-d1.2-ultra-archive-880-2026-11-17/observations.redacted.jsonl.gz"
       ]
     },
     {
@@ -74,7 +76,9 @@
         "eval/results/nace-calibration-2026-11-06/validation-observations.redacted.jsonl.gz",
         "eval/results/gemini-decision-1-validation-688-2026-11-11/observations.redacted.jsonl.gz",
         "eval/results/pplx-decider-v1.3-free-validation-688-2026-11-16/observations.redacted.jsonl.gz",
-        "eval/results/pplx-decider-flash-v1.3-free-validation-688-2026-11-17/observations.redacted.jsonl.gz"
+        "eval/results/pplx-decider-flash-v1.3-free-validation-688-2026-11-17/observations.redacted.jsonl.gz",
+        "eval/results/liquid-d1.2-validation-688-2026-11-17/observations.redacted.jsonl.gz",
+        "eval/results/liquid-d1.2-ultra-validation-688-2026-11-17/observations.redacted.jsonl.gz"
       ]
     }
   ]
