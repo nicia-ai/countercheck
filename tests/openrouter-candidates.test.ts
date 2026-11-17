@@ -57,6 +57,7 @@ describe("evaluation-only OpenRouter candidates", () => {
         route.reportedSnapshot.replace(/\d{8}$/, "20270101"),
         `${model}-latest`,
         "perplexity/pplx-decider-v1.2",
+        "perplexity/pplx-decider-v1.2-20261016",
       ]) {
         send.mockResolvedValueOnce(Response.json(output(identity)));
         await expect(provider.classify(payload(), signal())).rejects.toMatchObject({

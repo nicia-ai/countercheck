@@ -21,22 +21,23 @@ and release protocol.
 
 ## Evaluation
 
-**Fifteen hosted decision models measured as of November 11, 2026**, each on the same 880 public pairs across Wikipedia, science, commercial contracts, business-adjacent language and finance, with one prompt and fixed thresholds. Twelve are also measured on a disjoint 688-pair validation cohort. Failed and uncertain results stay in the denominators. Nicia has no commercial relationship with any evaluated model provider.
+**Seventeen hosted decision models measured as of November 17, 2026**, each on the same 880 public pairs across Wikipedia, science, commercial contracts, business-adjacent language and finance, with one prompt and fixed thresholds. Fourteen are also measured on a disjoint 688-pair validation cohort. Failed and uncertain results stay in the denominators. Nicia has no commercial relationship with any evaluated model provider.
 
-| Status        | Models                                                                         |
-| ------------- | ------------------------------------------------------------------------------ |
-| Viable        | GLiDE 27B, drex-max-finance, Pplx Decider v1.2, drex-max-v1.1, Jev 1.14        |
-| Deprioritized | drex-max, Pplx Decider Flash v1.2, Clef Omni, drex-v1.5, drex-v2.0, Clef Flash |
-| Screened out  | Gemini Decision 1, Clef, Decision-1, GPT-6 Luna Decisions                      |
+| Status        | Models                                                                                                  |
+| ------------- | ------------------------------------------------------------------------------------------------------- |
+| Viable        | GLiDE 27B, drex-max-finance, Pplx Decider v1.2, Pplx Decider v1.3, drex-max-v1.1, Jev 1.14              |
+| Deprioritized | drex-max, Pplx Decider Flash v1.3, Pplx Decider Flash v1.2, Clef Omni, drex-v1.5, drex-v2.0, Clef Flash |
+| Screened out  | Gemini Decision 1, Clef, Decision-1, GPT-6 Luna Decisions                                               |
 
 - **No model meets all three quality targets together** on any scorecard, with the shared thresholds or with thresholds fitted per model.
-- **Four models lead on ranking quality and are not separable:** GLiDE 27B, drex-max-finance, Pplx Decider v1.2 and drex-max-v1.1.
+- **Five models lead on ranking quality and are not separable:** GLiDE 27B, drex-max-finance, Pplx Decider v1.2, Pplx Decider v1.3 and drex-max-v1.1.
+- **Pplx Decider v1.3 and Flash v1.3 tie their v1.2 predecessors** in both cohorts. They were measured through OpenRouter's `:free` variants, the only v1.3 endpoints listed so far, and are evaluation-only.
 - **Jev 1.14 is the fastest route** (107 ms p95 on the 880 pairs) and completed every call; it ranks below the leaders.
-- **Gemini Decision 1 was measured on its release day and lands mid-field:** sixth of fifteen on ranking, best on science, and set aside because drex-max-finance ranks better in both cohorts at lower latency.
+- **Gemini Decision 1 was measured on its release day and lands mid-field:** eighth of seventeen on ranking, best on science, and set aside because drex-max-finance ranks better in both cohorts at lower latency.
 - **Fitted thresholds help but do not close the gap.** The best validated results are 96.7% precision / 69.8% recall / 70.6% negative coverage (drex-max-finance) and 96.0 / 67.5 / 74.2 (Pplx Decider v1.2); their difference is within its paired interval.
-- **The API catalog trails the measurements.** Only two of the eight selectable models are viable; GLiDE, Nace Drex and Gemini Decision 1 are evaluation-only.
+- **The API catalog trails the measurements.** Only two of the eight selectable models are viable; GLiDE, Nace Drex, Gemini Decision 1 and the v1.3 Deciders are evaluation-only.
 
-A status comes from the [viability screen](eval/results/model-screen-2026-11-11/README.md): a paired comparison of ranking quality and latency across both cohorts. It directs evaluation effort and changes nothing in the API. These are native public labels, development data and one pass per model, not human-adjudicated service-contract results.
+A status comes from the [viability screen](eval/results/model-screen-2026-11-17/README.md): a paired comparison of ranking quality and latency across both cohorts. It directs evaluation effort and changes nothing in the API. These are native public labels, development data and one pass per model, not human-adjudicated service-contract results.
 
 Read **[the evaluation page](EVALUATION.md)** for the full field table, results by domain, fitted-threshold results, method, limitations, and how the study evolved. It also covers [adding or re-measuring a model](EVALUATION.md#add-or-re-measure-a-model), which takes one runner, one archiver and one screen. The 204-item human labelling packet is prepared, not yet labelled.
 
@@ -49,7 +50,11 @@ python3 -B scripts/compare-nace.py --verify eval/results/nace-2026-11-06
 python3 -B scripts/analyze-nace-calibration.py --archive eval/results/nace-calibration-2026-11-06
 python3 -B scripts/archive-measurement.py --verify eval/results/gemini-decision-1-archive-880-2026-11-11
 python3 -B scripts/archive-measurement.py --verify eval/results/gemini-decision-1-validation-688-2026-11-11
-python3 -B scripts/screen-models.py --verify eval/results/model-screen-2026-11-11
+python3 -B scripts/archive-measurement.py --verify eval/results/pplx-decider-v1.3-free-archive-880-2026-11-14
+python3 -B scripts/archive-measurement.py --verify eval/results/pplx-decider-flash-v1.3-free-archive-880-2026-11-15
+python3 -B scripts/archive-measurement.py --verify eval/results/pplx-decider-v1.3-free-validation-688-2026-11-16
+python3 -B scripts/archive-measurement.py --verify eval/results/pplx-decider-flash-v1.3-free-validation-688-2026-11-17
+python3 -B scripts/screen-models.py --verify eval/results/model-screen-2026-11-17
 ```
 
 To exercise the runner without credentials or model calls:

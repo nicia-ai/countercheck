@@ -16,7 +16,11 @@ python3 -B scripts/compare-nace.py --verify eval/results/nace-2026-11-06
 python3 -B scripts/analyze-nace-calibration.py --archive eval/results/nace-calibration-2026-11-06
 python3 -B scripts/archive-measurement.py --verify eval/results/gemini-decision-1-archive-880-2026-11-11
 python3 -B scripts/archive-measurement.py --verify eval/results/gemini-decision-1-validation-688-2026-11-11
-python3 -B scripts/screen-models.py --verify eval/results/model-screen-2026-11-11
+python3 -B scripts/archive-measurement.py --verify eval/results/pplx-decider-v1.3-free-archive-880-2026-11-14
+python3 -B scripts/archive-measurement.py --verify eval/results/pplx-decider-flash-v1.3-free-archive-880-2026-11-15
+python3 -B scripts/archive-measurement.py --verify eval/results/pplx-decider-v1.3-free-validation-688-2026-11-16
+python3 -B scripts/archive-measurement.py --verify eval/results/pplx-decider-flash-v1.3-free-validation-688-2026-11-17
+python3 -B scripts/screen-models.py --verify eval/results/model-screen-2026-11-17
 ```
 
 Coverage includes HTTP contracts and attribution, strict probability validation, provider transport and redirects, input/body budgets, single-call execution, error and uncertainty handling, native model selection, real workerd/D1 behavior, atomic shared admission limits, hash-only API keys, invitation-only mailbox verification, cookie isolation, access requests, usage accounting and retention. The synthetic provider exercises the actual kernel; it is not a production fallback or a semantic-quality test.
@@ -27,9 +31,9 @@ The calibration-follow-up verifier also runs the original release verification a
 
 ## Measured model work
 
-- [Current methodology and results](../EVALUATION.md): the current fifteen-model field, results by domain, separately fitted operating policies, and the history of the study.
+- [Current methodology and results](../EVALUATION.md): the current seventeen-model field, results by domain, separately fitted operating policies, and the history of the study.
 - [Nace shipped-policy extension](../eval/results/nace-2026-11-06/README.md): five additional evaluation-only models, frozen original inputs and a fourteen-model comparison.
-- [Model viability screen](../eval/results/model-screen-2026-11-11/README.md): a post-hoc paired screen of all fifteen measured models, including Gemini Decision 1 ([880-pair](../eval/results/gemini-decision-1-archive-880-2026-11-11/README.md) and [validation](../eval/results/gemini-decision-1-validation-688-2026-11-11/README.md) archives), on ranking quality and latency across the 880-pair archive and the 688-pair validation cohort. It directs evaluation effort only; the API catalog is unchanged.
+- [Model viability screen](../eval/results/model-screen-2026-11-17/README.md): a post-hoc paired screen of all seventeen measured models, including Gemini Decision 1 ([880-pair](../eval/results/gemini-decision-1-archive-880-2026-11-11/README.md) and [validation](../eval/results/gemini-decision-1-validation-688-2026-11-11/README.md) archives) and Pplx Decider v1.3 and Flash v1.3 (880-pair [v1.3](../eval/results/pplx-decider-v1.3-free-archive-880-2026-11-14/README.md) and [Flash](../eval/results/pplx-decider-flash-v1.3-free-archive-880-2026-11-15/README.md); validation [v1.3](../eval/results/pplx-decider-v1.3-free-validation-688-2026-11-16/README.md) and [Flash](../eval/results/pplx-decider-flash-v1.3-free-validation-688-2026-11-17/README.md)), on ranking quality and latency across the 880-pair archive and the 688-pair validation cohort. It directs evaluation effort only; the API catalog is unchanged.
 - [Nace calibration follow-up](../eval/results/nace-calibration-2026-11-06/README.md): Max and Max Finance policies frozen before validation, an eleven-model calibrated comparison, sensitivity analysis and synthetic contract controls. Finance validates at 96.7% precision, 69.8% recall and 70.6% negative coverage; its paired intervals do not establish an improvement over calibrated Decider.
 - [Original eight-model archive](../eval/results/hosted-models-2026-11-05/README.md): pre-inference protocol, source snapshots, input hashes and detailed metrics.
 - [Fastino extension](../eval/results/hosted-models-with-glide-2026-11-05/README.md): identical shared inputs and kernel, a separate execution protocol, and combined redacted scoring rows.
