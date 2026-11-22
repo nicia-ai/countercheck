@@ -42,6 +42,21 @@ Automated coverage additionally checks all eight routes, unavailable configurati
 fallback, native response normalization and malformed outputs, shared quota across model switches,
 and a converted OpenAI request that exceeds the wire limit before admission is charged.
 
+## Decision-1.1 replacement, 2026-11-22
+
+`microsoft/microsoft-decision-1.1` replaced `microsoft/microsoft-decision-1` in the catalog. Its
+official OpenRouter endpoint catalog lists one Azure endpoint, `microsoft/microsoft-decision-1.1-20261117`,
+priced the same as Decision-1. The table above records the November 5 smoke and is unchanged.
+
+The same synthetic pair through the shipped adapter and `balanced-v1` kernel:
+
+| Requested model                    | Reported model                              | Observed result          |
+| ---------------------------------- | ------------------------------------------- | ------------------------ |
+| `microsoft/microsoft-decision-1.1` | `microsoft/microsoft-decision-1.1-20261117` | Completed; contradiction |
+
+No model revision was reported. The adapter accepts only the canonical ID or this reviewed
+snapshot; the Decision-1 snapshot is now a mismatch on this route.
+
 This one-pair smoke verifies connectivity and response handling. It cannot compare accuracy,
 calibration, domain coverage, or production latency. Existing benchmark reports remain separate;
 new hosted availability does not imply a new model-quality claim.

@@ -3,7 +3,7 @@ export const CLEF_MODEL_ID = "clef";
 export const CLEF_FLASH_MODEL_ID = "clef-flash";
 export const CLEF_OMNI_MODEL_ID = "clef-omni";
 export const OPENAI_MODEL_ID = "gpt-6-luna";
-export const DECISION_ONE_MODEL_ID = "microsoft/microsoft-decision-1";
+export const DECISION_ONE_MODEL_ID = "microsoft/microsoft-decision-1.1";
 export const DECIDER_MODEL_ID = "perplexity/pplx-decider-v1.2";
 export const DECIDER_FLASH_MODEL_ID = "perplexity/pplx-decider-flash-v1.2";
 export const MODEL_IDS = [
@@ -36,7 +36,11 @@ export const SUPPORTED_MODELS = [
   { id: CLEF_FLASH_MODEL_ID, name: "Clef Flash", provider: "cloudflare-workers-ai" },
   { id: CLEF_OMNI_MODEL_ID, name: "Clef Omni", provider: "cloudflare-workers-ai" },
   { id: OPENAI_MODEL_ID, name: "GPT-6 Luna (OpenAI Decisions)", provider: "openai-decisions" },
-  { id: DECISION_ONE_MODEL_ID, name: "Decision-1 (OpenRouter)", provider: "openrouter-microsoft" },
+  {
+    id: DECISION_ONE_MODEL_ID,
+    name: "Decision-1.1 (OpenRouter)",
+    provider: "openrouter-microsoft",
+  },
   {
     id: DECIDER_MODEL_ID,
     name: "Pplx Decider v1.2 (OpenRouter)",

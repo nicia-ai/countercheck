@@ -11,14 +11,29 @@ import { jsonLines } from "../datasets.js";
 import { parseCheckRequest } from "../../src/contracts/index.js";
 import { compileCheck } from "../../src/kernel/index.js";
 import { providerFor } from "../../src/providers/catalog.js";
-import { SUPPORTED_MODELS } from "../../src/contracts/models.js";
+import {
+  createOpenRouterRouteProvider,
+  type OpenRouterRoute,
+} from "../../src/providers/decider.js";
+import { MODEL_IDS, type Model } from "../../src/contracts/models.js";
 import { createFastinoProvider, FASTINO_GLIDE_MODEL } from "../fastino-provider.js";
 
 export const ARCHIVE =
   "eval/results/hosted-models-with-glide-2026-11-05/observations.redacted.jsonl.gz";
 export const DATASETS = ["vitaminc", "scifact", "contractnli", "mnli", "findver"] as const;
 export const SEED = "separate-calibration-2026-11-05-v1";
-export const MODELS = [...SUPPORTED_MODELS.map((model) => model.id), FASTINO_GLIDE_MODEL];
+// The archived November 5 catalog, frozen so later catalog changes cannot alter this study.
+const ARCHIVED_CATALOG = [
+  "jev-1.14.0",
+  "clef",
+  "clef-flash",
+  "clef-omni",
+  "gpt-6-luna",
+  "microsoft/microsoft-decision-1",
+  "perplexity/pplx-decider-v1.2",
+  "perplexity/pplx-decider-flash-v1.2",
+] as const;
+export const MODELS = [...ARCHIVED_CATALOG, FASTINO_GLIDE_MODEL];
 export type Archived = {
   model: string;
   dataset: string;
@@ -131,21 +146,35 @@ export function missAnalysis(rows: Archived[]) {
 
 const reverseKey = (pair: Pair) =>
   contentKey({ ...pair, claim: pair.evidence, evidence: pair.claim });
+// Retired catalog routes, kept only so the shape check matches the archived request bodies.
+const RETIRED_SHAPE_ROUTES = {
+  "microsoft/microsoft-decision-1": {
+    model: "microsoft/microsoft-decision-1",
+    reportedSnapshot: "microsoft/microsoft-decision-1-20261009",
+    providerId: "openrouter-microsoft",
+  },
+} as const satisfies Partial<Record<(typeof ARCHIVED_CATALOG)[number], OpenRouterRoute>>;
+const isCatalogModel = (id: string): id is Model => (MODEL_IDS as readonly string[]).includes(id);
 const shapeProviders = [
-  ...SUPPORTED_MODELS.map(({ id }) =>
-    providerFor(
-      {
-        TYPESAFE_API_KEY: "offline-shape-only",
-        OPENAI_API_KEY: "offline-shape-only",
-        OPENROUTER_API_KEY: "offline-shape-only",
-        AI: {
-          run: async () => {
-            throw new Error("Offline only");
+  ...ARCHIVED_CATALOG.map((id) =>
+    isCatalogModel(id)
+      ? providerFor(
+          {
+            TYPESAFE_API_KEY: "offline-shape-only",
+            OPENAI_API_KEY: "offline-shape-only",
+            OPENROUTER_API_KEY: "offline-shape-only",
+            AI: {
+              run: async () => {
+                throw new Error("Offline only");
+              },
+            },
           },
-        },
-      },
-      id,
-    ),
+          id,
+        )
+      : createOpenRouterRouteProvider({
+          apiKey: "offline-shape-only",
+          route: RETIRED_SHAPE_ROUTES[id],
+        }),
   ),
   createFastinoProvider({ apiKey: "offline-shape-only" }),
 ];

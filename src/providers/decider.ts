@@ -27,7 +27,7 @@ export interface OpenRouterRoute {
 const catalogRoutes: Record<OpenRouterDecisionModel, OpenRouterRoute> = {
   [DECISION_ONE_MODEL_ID]: {
     model: DECISION_ONE_MODEL_ID,
-    reportedSnapshot: "microsoft/microsoft-decision-1-20261009",
+    reportedSnapshot: "microsoft/microsoft-decision-1.1-20261117",
     providerId: "openrouter-microsoft",
   },
   [DECIDER_MODEL_ID]: {
