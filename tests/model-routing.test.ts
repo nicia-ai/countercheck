@@ -163,7 +163,7 @@ describe("explicit hosted model routing", () => {
       "clef-flash",
       "clef-omni",
       "gpt-6-luna",
-      "microsoft/microsoft-decision-1",
+      "microsoft/microsoft-decision-1.1",
       "perplexity/pplx-decider-v1.2",
       "perplexity/pplx-decider-flash-v1.2",
     ]);
@@ -183,7 +183,7 @@ describe("explicit hosted model routing", () => {
     {
       env: { OPENROUTER_API_KEY: "private-router-key" },
       configured: [
-        "microsoft/microsoft-decision-1",
+        "microsoft/microsoft-decision-1.1",
         "perplexity/pplx-decider-v1.2",
         "perplexity/pplx-decider-flash-v1.2",
       ],
@@ -264,7 +264,7 @@ describe("explicit hosted model routing", () => {
   it.each([
     { model: DEFAULT_MODEL, config: { TYPESAFE_API_KEY: "   " } },
     { model: "gpt-6-luna", config: { OPENAI_API_KEY: "   " } },
-    { model: "microsoft/microsoft-decision-1", config: { OPENROUTER_API_KEY: "   " } },
+    { model: "microsoft/microsoft-decision-1.1", config: { OPENROUTER_API_KEY: "   " } },
     { model: undefined, config: { TYPESAFE_API_KEY: undefined, PROVIDER: "clef" } },
   ])(
     "does not treat blank keys or an old default override as available (%j)",
@@ -279,18 +279,25 @@ describe("explicit hosted model routing", () => {
     },
   );
 
-  it.each(["unknown", "Jev 1.14", "clef ", "kev", "kev-latest", "gpt-6-luna-preview", null, {}])(
-    "rejects unsupported model %j before authentication or reservation",
-    async (model) => {
-      const h = await fixture();
-      const response = await h.request({ ...body, model });
-      expect(response.status).toBe(422);
-      expect(h.first).not.toHaveBeenCalled();
-      expect(h.admission.service.admit).not.toHaveBeenCalled();
-      expect(h.send).not.toHaveBeenCalled();
-      expect(h.run).not.toHaveBeenCalled();
-    },
-  );
+  it.each([
+    "unknown",
+    "Jev 1.14",
+    "clef ",
+    "kev",
+    "kev-latest",
+    "gpt-6-luna-preview",
+    "microsoft/microsoft-decision-1",
+    null,
+    {},
+  ])("rejects unsupported model %j before authentication or reservation", async (model) => {
+    const h = await fixture();
+    const response = await h.request({ ...body, model });
+    expect(response.status).toBe(422);
+    expect(h.first).not.toHaveBeenCalled();
+    expect(h.admission.service.admit).not.toHaveBeenCalled();
+    expect(h.send).not.toHaveBeenCalled();
+    expect(h.run).not.toHaveBeenCalled();
+  });
 
   it.each(MODEL_IDS)("does not retry or switch providers when %s fails", async (model) => {
     const h = await fixture();

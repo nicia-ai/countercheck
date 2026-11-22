@@ -10,7 +10,7 @@ Countercheck exposes a fixed set of hosted inference models through the check AP
 | `clef-flash`                         | Clef Flash                           | Cloudflare Workers AI          | `AI` binding          |
 | `clef-omni`                          | Clef Omni                            | Cloudflare Workers AI          | `AI` binding          |
 | `gpt-6-luna`                         | GPT-6 Luna (OpenAI Decisions)        | OpenAI Decisions               | `OPENAI_API_KEY`      |
-| `microsoft/microsoft-decision-1`     | Decision-1 (OpenRouter)              | OpenRouter                     | `OPENROUTER_API_KEY`  |
+| `microsoft/microsoft-decision-1.1`   | Decision-1.1 (OpenRouter)            | OpenRouter                     | `OPENROUTER_API_KEY`  |
 | `perplexity/pplx-decider-v1.2`       | Pplx Decider v1.2 (OpenRouter)       | OpenRouter                     | `OPENROUTER_API_KEY`  |
 | `perplexity/pplx-decider-flash-v1.2` | Pplx Decider Flash v1.2 (OpenRouter) | OpenRouter                     | `OPENROUTER_API_KEY`  |
 
@@ -27,7 +27,7 @@ the reported ID unchanged:
 
 | Canonical request model              | Accepted dated reported ID                    |
 | ------------------------------------ | --------------------------------------------- |
-| `microsoft/microsoft-decision-1`     | `microsoft/microsoft-decision-1-20261009`     |
+| `microsoft/microsoft-decision-1.1`   | `microsoft/microsoft-decision-1.1-20261117`   |
 | `perplexity/pplx-decider-v1.2`       | `perplexity/pplx-decider-v1.2-20261016`       |
 | `perplexity/pplx-decider-flash-v1.2` | `perplexity/pplx-decider-flash-v1.2-20261016` |
 
@@ -91,5 +91,7 @@ Drex Max and Max Finance have [separately fitted calibration results](../eval/re
 Google Gemini Decision 1 (`google/gemini-decision-1`) is measured through the evaluation-only `openrouter-candidate` backend, pinned to the reviewed snapshot `google/gemini-decision-1-20261111`. It is not accepted by `/v1/check` or shown in the dashboard.
 
 Perplexity Decider v1.3 and Flash v1.3 are measured the same way, on OpenRouter's zero-priced `perplexity/pplx-decider-v1.3:free` and `perplexity/pplx-decider-flash-v1.3:free` variants pinned to the `-20261112` snapshots; OpenRouter listed no paid v1.3 endpoint as of November 17. Neither is selectable, and the v1.2 IDs above remain the catalog's Perplexity routes.
+
+Decision-1.1 replaced `microsoft/microsoft-decision-1` in the catalog on November 22, 2026; requests naming the old ID now return `422 invalid_request`. Decision-1.1 passed a one-pair [catalog smoke](model-catalog-validation.md#decision-11-replacement-2026-11-22) and was measured on both evaluation cohorts the same day; the [current field table](../EVALUATION.md#the-field-today) shows it beside the retired Decision-1.
 
 Liquid AI d1.2 (`liquid/d1.2`) and d1.2-ultra (`liquid/d1.2-ultra`) are also evaluation-only `openrouter-candidate` models, pinned to the Liquid provider and the `-20261116` snapshots. They are not selectable. The [current field table](../EVALUATION.md#the-field-today) shows where every measured model stands, including which of the eight selectable models the viability screen has set aside.

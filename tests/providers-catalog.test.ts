@@ -27,12 +27,12 @@ const sendOutput = (model?: string) =>
   vi.fn<typeof fetch>(async () => Response.json(output(model)));
 const clefModels: ClefModel[] = ["clef", "clef-flash", "clef-omni"];
 const routerModels: OpenRouterDecisionModel[] = [
-  "microsoft/microsoft-decision-1",
+  "microsoft/microsoft-decision-1.1",
   "perplexity/pplx-decider-v1.2",
   "perplexity/pplx-decider-flash-v1.2",
 ];
 const routerSnapshots: [OpenRouterDecisionModel, string][] = [
-  ["microsoft/microsoft-decision-1", "microsoft/microsoft-decision-1-20261009"],
+  ["microsoft/microsoft-decision-1.1", "microsoft/microsoft-decision-1.1-20261117"],
   ["perplexity/pplx-decider-v1.2", "perplexity/pplx-decider-v1.2-20261016"],
   ["perplexity/pplx-decider-flash-v1.2", "perplexity/pplx-decider-flash-v1.2-20261016"],
 ];

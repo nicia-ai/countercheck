@@ -261,7 +261,7 @@ Measure cost per completed comparison, uncertain comparison, and request, includ
 
 ## Public benchmark plan
 
-Approved first milestone: VitaminC and SciFact, comparing pinned Jev 1.14 through the service kernel with direct Jev 1.14 and the DeBERTa NLI baseline. The hosted catalog now also exposes Clef variants, OpenAI Decisions, Microsoft Decision-1 and Pplx Decider routes; their availability and provider credentials are documented in [supported models](models.md). Establish these results before commissioning custom pair labeling.
+Approved first milestone: VitaminC and SciFact, comparing pinned Jev 1.14 through the service kernel with direct Jev 1.14 and the DeBERTa NLI baseline. The hosted catalog now also exposes Clef variants, OpenAI Decisions, Microsoft Decision-1.1 and Pplx Decider routes; their availability and provider credentials are documented in [supported models](models.md). Establish these results before commissioning custom pair labeling.
 
 Establish a public-data baseline before commissioning a new 500-pair annotation exercise. Existing public datasets can measure model discrimination, factual-change sensitivity, and our own regressions immediately. The custom corpus remains a general-release requirement for the service's particular scopes and business language; public results do not replace it.
 
